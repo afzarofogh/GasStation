@@ -1,0 +1,9 @@
+D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\Common\bin\Debug\Common.dll
+D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\Common\bin\Debug\Common.pdb
+D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\Common\bin\Debug\BaseBLL.dll
+D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\Common\bin\Debug\BaseDAL.dll
+D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\Common\obj\Debug\Common.Properties.Resources.resources
+D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\Common\obj\Debug\Common.csproj.GenerateResource.Cache
+D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\Common\obj\Debug\Common.dll
+D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\Common\obj\Debug\Common.pdb
