@@ -53,7 +53,7 @@
 			this.exitButton.Location = new System.Drawing.Point(13, 131);
 			this.exitButton.Name = "exitButton";
 			this.exitButton.Size = new System.Drawing.Size(114, 33);
-			this.exitButton.TabIndex = 1;
+			this.exitButton.TabIndex = 2;
 			this.exitButton.Text = "خروج";
 			this.exitButton.UseVisualStyleBackColor = true;
 			// 
@@ -66,7 +66,7 @@
 			this.dataGroupBox.Controls.Add(this.label1);
 			this.dataGroupBox.Location = new System.Drawing.Point(12, 9);
 			this.dataGroupBox.Name = "dataGroupBox";
-			this.dataGroupBox.Size = new System.Drawing.Size(375, 116);
+			this.dataGroupBox.Size = new System.Drawing.Size(372, 116);
 			this.dataGroupBox.TabIndex = 0;
 			this.dataGroupBox.TabStop = false;
 			this.dataGroupBox.Text = "اطلاعات پایه";
@@ -74,21 +74,21 @@
 			// fuelTextBox
 			// 
 			this.fuelTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.fuelTextBox.Location = new System.Drawing.Point(24, 59);
+			this.fuelTextBox.Location = new System.Drawing.Point(21, 59);
 			this.fuelTextBox.MaxLength = 50;
 			this.fuelTextBox.Name = "fuelTextBox";
 			this.fuelTextBox.Size = new System.Drawing.Size(298, 26);
-			this.fuelTextBox.TabIndex = 2;
+			this.fuelTextBox.TabIndex = 0;
 			this.fuelTextBox.Tag = "fuel";
 			// 
 			// label1
 			// 
 			this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(279, 32);
+			this.label1.Location = new System.Drawing.Point(276, 32);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(94, 18);
-			this.label1.TabIndex = 3;
+			this.label1.TabIndex = 1;
 			this.label1.Text = "سوخت خودرو";
 			// 
 			// CarFuelEntryForm
@@ -98,7 +98,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.White;
 			this.CancelButton = this.exitButton;
-			this.ClientSize = new System.Drawing.Size(399, 176);
+			this.ClientSize = new System.Drawing.Size(396, 176);
 			this.Controls.Add(this.saveButton);
 			this.Controls.Add(this.exitButton);
 			this.Controls.Add(this.dataGroupBox);

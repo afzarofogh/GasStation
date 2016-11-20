@@ -16,3 +16,19 @@ D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\TestApp\obj\Debug\TestApp.csp
 D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\TestApp\obj\Debug\TestApp.exe.licenses
 D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\TestApp\obj\Debug\TestApp.exe
 D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\TestApp\obj\Debug\TestApp.pdb
+E:\Project GasStation\GasStation\GasStation\TestApp\obj\Debug\TestApp.exe
+E:\Project GasStation\GasStation\GasStation\TestApp\obj\Debug\TestApp.pdb
+E:\Project GasStation\GasStation\GasStation\TestApp\obj\Debug\TestApp.csprojResolveAssemblyReference.cache
+E:\Project GasStation\GasStation\GasStation\TestApp\obj\Debug\TestApp.Form1.resources
+E:\Project GasStation\GasStation\GasStation\TestApp\obj\Debug\TestApp.Forms.frmColor.resources
+E:\Project GasStation\GasStation\GasStation\TestApp\obj\Debug\TestApp.Properties.Resources.resources
+E:\Project GasStation\GasStation\GasStation\TestApp\obj\Debug\TestApp.csproj.GenerateResource.Cache
+E:\Project GasStation\GasStation\GasStation\TestApp\obj\Debug\TestApp.exe.licenses
+E:\Project GasStation\GasStation\GasStation\TestApp\bin\Debug\TestApp.exe
+E:\Project GasStation\GasStation\GasStation\TestApp\bin\Debug\TestApp.pdb
+E:\Project GasStation\GasStation\GasStation\TestApp\bin\Debug\Common.dll
+E:\Project GasStation\GasStation\GasStation\TestApp\bin\Debug\DevComponents.DotNetBar2.dll
+E:\Project GasStation\GasStation\GasStation\TestApp\bin\Debug\Klik.Windows.Forms.EntryLib.V2.2008.dll
+E:\Project GasStation\GasStation\GasStation\TestApp\bin\Debug\Newtonsoft.Json.dll
+E:\Project GasStation\GasStation\GasStation\TestApp\bin\Debug\Common.pdb
+E:\Project GasStation\GasStation\GasStation\TestApp\bin\Debug\Newtonsoft.Json.xml

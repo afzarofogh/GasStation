@@ -136,7 +136,7 @@ namespace GasStation.Forms.Base
 			if (model.id == 0)
 			{
 				#region Insert
-				model.insertedBy = Common.GlobalData.UserManager.currentUser.id;
+				model.insertedById = Common.GlobalData.UserManager.currentUser.id;
 				model.insertDate = DateTime.Now;
 
 				opResult = lCarFuel.create (model); 
@@ -145,7 +145,7 @@ namespace GasStation.Forms.Base
 			else
 			{
 				#region Modify
-				model.updatedBy = Common.GlobalData.UserManager.currentUser.id;
+				model.updatedById = Common.GlobalData.UserManager.currentUser.id;
 				model.updateDate = DateTime.Now;
 
 				opResult = lCarFuel.update (model); 

@@ -54,7 +54,7 @@
 			this.groupBox1.ForeColor = System.Drawing.Color.DarkSlateBlue;
 			this.groupBox1.Location = new System.Drawing.Point(12, 38);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(827, 518);
+			this.groupBox1.Size = new System.Drawing.Size(758, 485);
 			this.groupBox1.TabIndex = 0;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "رنگ های ثبت شده";
@@ -77,7 +77,7 @@
 			this.resultGrid.Name = "resultGrid";
 			this.resultGrid.ReadOnly = true;
 			this.resultGrid.RowTemplate.Height = 24;
-			this.resultGrid.Size = new System.Drawing.Size(815, 487);
+			this.resultGrid.Size = new System.Drawing.Size(746, 454);
 			this.resultGrid.TabIndex = 0;
 			// 
 			// اطلاعاتToolStripMenuItem
@@ -146,14 +146,14 @@
             this.اطلاعاتToolStripMenuItem});
 			this.mainMenu.Location = new System.Drawing.Point(0, 0);
 			this.mainMenu.Name = "mainMenu";
-			this.mainMenu.Size = new System.Drawing.Size(851, 26);
+			this.mainMenu.Size = new System.Drawing.Size(782, 26);
 			this.mainMenu.TabIndex = 1;
 			// 
 			// CarColorForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(851, 568);
+			this.ClientSize = new System.Drawing.Size(782, 535);
 			this.Controls.Add(this.mainMenu);
 			this.Controls.Add(this.groupBox1);
 			this.Name = "CarColorForm";

@@ -17,7 +17,7 @@ namespace GasStation
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GasStation.Forms.Base.CarFuelForm());
+            Application.Run(new GasStation.Forms.Base.PlateCityForm());
             //Application.Run(new GasStation.Forms.Base.CarColorEntryForm());
         }
 
@@ -29,7 +29,7 @@ namespace GasStation
 			// TODO: For Test, CLEAR AFTER CREATE LOGIN PAGE
 			Common.GlobalData.UserManager.currentUser	= new Common.BLL.Entity.GasStation.User ()
 			{
-				id			= 1,
+				id			= 2,
 				name		= "Ali",
 				lastname	= "Hasani",
 				username	= "Ali.H",

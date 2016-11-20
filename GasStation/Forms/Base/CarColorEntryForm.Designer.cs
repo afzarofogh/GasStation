@@ -45,7 +45,6 @@
 			this.saveButton.TabIndex = 1;
 			this.saveButton.Text = "ثبت";
 			this.saveButton.UseVisualStyleBackColor = true;
-			//this.saveButton.Click += new System.EventHandler(this.saveButton_Click_1);
 			// 
 			// exitButton
 			// 
@@ -70,6 +69,7 @@
 			this.dataGroupBox.Size = new System.Drawing.Size(362, 105);
 			this.dataGroupBox.TabIndex = 0;
 			this.dataGroupBox.TabStop = false;
+			this.dataGroupBox.Text = "اطلاعات پایه";
 			// 
 			// colorTextBox
 			// 
@@ -102,7 +102,7 @@
 			this.Controls.Add(this.exitButton);
 			this.Controls.Add(this.dataGroupBox);
 			this.Name = "CarColorEntryForm";
-			this.Text = "اطلاعات پایه";
+			this.Text = "ثبت اطلاعات / رنگ خودرو";
 			this.dataGroupBox.ResumeLayout(false);
 			this.dataGroupBox.PerformLayout();
 			this.ResumeLayout(false);

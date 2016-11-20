@@ -54,6 +54,90 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\Base\PlateTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Base\PlateTypeForm.Designer.cs">
+      <DependentUpon>PlateTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Base\PlateTypeEntryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Base\PlateTypeEntryForm.Designer.cs">
+      <DependentUpon>PlateTypeEntryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Base\PlateCountryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Base\PlateCountryForm.Designer.cs">
+      <DependentUpon>PlateCountryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Base\PlateCountryEntryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Base\PlateCountryEntryForm.Designer.cs">
+      <DependentUpon>PlateCountryEntryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Base\PlateCityForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Base\PlateCityForm.Designer.cs">
+      <DependentUpon>PlateCityForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Base\PlateCityEntryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Base\PlateCityEntryForm.Designer.cs">
+      <DependentUpon>PlateCityEntryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Base\OwnerTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Base\OwnerTypeForm.Designer.cs">
+      <DependentUpon>OwnerTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Base\OwnerTypeEntryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Base\OwnerTypeEntryForm.Designer.cs">
+      <DependentUpon>OwnerTypeEntryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Base\CarTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Base\CarTypeForm.Designer.cs">
+      <DependentUpon>CarTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Base\CarTypeEntryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Base\CarTypeEntryForm.Designer.cs">
+      <DependentUpon>CarTypeEntryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Base\CarModelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Base\CarModelForm.Designer.cs">
+      <DependentUpon>CarModelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Base\CarModelEntryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Base\CarModelEntryForm.Designer.cs">
+      <DependentUpon>CarModelEntryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Base\CarLevelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Base\CarLevelForm.Designer.cs">
+      <DependentUpon>CarLevelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Base\CarLevelEntryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Base\CarLevelEntryForm.Designer.cs">
+      <DependentUpon>CarLevelEntryForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Base\CarColorEntryForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +170,48 @@
     </Compile>
     <Compile Include="__Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\Base\PlateTypeForm.resx">
+      <DependentUpon>PlateTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Base\PlateTypeEntryForm.resx">
+      <DependentUpon>PlateTypeEntryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Base\PlateCountryForm.resx">
+      <DependentUpon>PlateCountryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Base\PlateCountryEntryForm.resx">
+      <DependentUpon>PlateCountryEntryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Base\PlateCityForm.resx">
+      <DependentUpon>PlateCityForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Base\PlateCityEntryForm.resx">
+      <DependentUpon>PlateCityEntryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Base\OwnerTypeForm.resx">
+      <DependentUpon>OwnerTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Base\OwnerTypeEntryForm.resx">
+      <DependentUpon>OwnerTypeEntryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Base\CarTypeForm.resx">
+      <DependentUpon>CarTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Base\CarTypeEntryForm.resx">
+      <DependentUpon>CarTypeEntryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Base\CarModelForm.resx">
+      <DependentUpon>CarModelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Base\CarModelEntryForm.resx">
+      <DependentUpon>CarModelEntryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Base\CarLevelForm.resx">
+      <DependentUpon>CarLevelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Base\CarLevelEntryForm.resx">
+      <DependentUpon>CarLevelEntryForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Base\CarColorEntryForm.resx">
       <DependentUpon>CarColorEntryForm.cs</DependentUpon>
     </EmbeddedResource>
