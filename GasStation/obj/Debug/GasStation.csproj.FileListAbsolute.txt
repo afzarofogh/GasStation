@@ -19,3 +19,17 @@ D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\GasStation\obj\Debug\GasStati
 D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\GasStation\obj\Debug\GasStation.csproj.GenerateResource.Cache
 D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\GasStation\obj\Debug\GasStation.exe
 D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\GasStation\obj\Debug\GasStation.pdb
+D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\GasStation\obj\Debug\GasStation.Forms.Base.PlateTypeForm.resources
+D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\GasStation\obj\Debug\GasStation.Forms.Base.PlateTypeEntryForm.resources
+D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\GasStation\obj\Debug\GasStation.Forms.Base.PlateCountryForm.resources
+D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\GasStation\obj\Debug\GasStation.Forms.Base.PlateCountryEntryForm.resources
+D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\GasStation\obj\Debug\GasStation.Forms.Base.PlateCityForm.resources
+D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\GasStation\obj\Debug\GasStation.Forms.Base.PlateCityEntryForm.resources
+D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\GasStation\obj\Debug\GasStation.Forms.Base.OwnerTypeForm.resources
+D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\GasStation\obj\Debug\GasStation.Forms.Base.OwnerTypeEntryForm.resources
+D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\GasStation\obj\Debug\GasStation.Forms.Base.CarTypeForm.resources
+D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\GasStation\obj\Debug\GasStation.Forms.Base.CarTypeEntryForm.resources
+D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\GasStation\obj\Debug\GasStation.Forms.Base.CarModelForm.resources
+D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\GasStation\obj\Debug\GasStation.Forms.Base.CarModelEntryForm.resources
+D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\GasStation\obj\Debug\GasStation.Forms.Base.CarLevelForm.resources
+D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\GasStation\obj\Debug\GasStation.Forms.Base.CarLevelEntryForm.resources

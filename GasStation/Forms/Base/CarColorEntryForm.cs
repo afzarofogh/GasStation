@@ -112,7 +112,7 @@ namespace GasStation.Forms.Base
 			if (model.id == 0)
 			{
 				#region Insert
-				model.insertedBy = Common.GlobalData.UserManager.currentUser.id;
+				model.insertedById = Common.GlobalData.UserManager.currentUser.id;
 				model.insertDate = DateTime.Now;
 
 				opResult = lCarColor.create (model); 
@@ -121,7 +121,7 @@ namespace GasStation.Forms.Base
 			else
 			{
 				#region Modify
-				model.updatedBy = Common.GlobalData.UserManager.currentUser.id;
+				model.updatedById = Common.GlobalData.UserManager.currentUser.id;
 				model.updateDate = DateTime.Now;
 
 				opResult = lCarColor.update (model); 
@@ -134,7 +134,7 @@ namespace GasStation.Forms.Base
 				CloseSuccess ();
 			else
 			{
-				Logger.log (opResult);
+				Logger.logger.log (opResult);
  				MessageBox.Show (this, "خطا در ذخیره اطلاعات", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
@@ -168,7 +168,7 @@ namespace GasStation.Forms.Base
 		/// <param name="e"></param>
 		void exitButton_Click (object sender, EventArgs e)
 		{
-			/// TODO: Exit Question
+			
 
 			DialogResult	= System.Windows.Forms.DialogResult.Cancel;
 			Close ();

@@ -351,40 +351,40 @@ namespace Common.BLL.Entity.GasStation
 		}
 
 		[BaseBLL.Base.Field(nullable=false,sqlDBType=System.Data.SqlDbType.Int,primary=false,usage=BaseBLL.Base.EnumUsage.read | BaseBLL.Base.EnumUsage.update | BaseBLL.Base.EnumUsage.create,foreignLogicType=typeof (BLL.Logic.GasStation.User),foreignField="id")]
-		public System.Int32 insertedBy
+		public System.Int32 insertedById
 		{
 			get;
 			set;
 		}
 //
-	// Genereted Property of insertedBy
+	// Genereted Property of insertedById
 	//
 	#region Referenced Property - User
-		BLL.Entity.GasStation.User _User_insertedBy;
-		public BLL.Entity.GasStation.User User_insertedBy
+		BLL.Entity.GasStation.User _User_insertedById;
+		public BLL.Entity.GasStation.User User_insertedById
 		{
 			get
 			{
-				if ((null == _User_insertedBy) && (AutoLoadForeignKeys))
-					load_User_insertedBy ();
-				return _User_insertedBy;
+				if ((null == _User_insertedById) && (AutoLoadForeignKeys))
+					load_User_insertedById ();
+				return _User_insertedById;
 			}
 			set
 			{
-				_User_insertedBy	= value;
+				_User_insertedById	= value;
 			}
 		}
 
-		public void load_User_insertedBy ()
+		public void load_User_insertedById ()
 		{ 
 			BLL.Entity.GasStation.User	entity;
 			BLL.Logic.GasStation.User	logic;
 
-			entity	= new BLL.Entity.GasStation.User () { id = insertedBy };
+			entity	= new BLL.Entity.GasStation.User () { id = insertedById };
 			logic	= new BLL.Logic.GasStation.User (Common.Enum.EDatabase.GasStation);
 			logic.read (entity);
 
-			_User_insertedBy	= entity;
+			_User_insertedById	= entity;
 		}
 	#endregion
 
@@ -396,40 +396,40 @@ namespace Common.BLL.Entity.GasStation
 		}
 
 		[BaseBLL.Base.Field(nullable=true,sqlDBType=System.Data.SqlDbType.Int,primary=false,usage=BaseBLL.Base.EnumUsage.read | BaseBLL.Base.EnumUsage.update | BaseBLL.Base.EnumUsage.create,foreignLogicType=typeof (BLL.Logic.GasStation.User),foreignField="id")]
-		public Nullable<System.Int32> updatedBy
+		public Nullable<System.Int32> updatedById
 		{
 			get;
 			set;
 		}
 //
-	// Genereted Property of updatedBy
+	// Genereted Property of updatedById
 	//
 	#region Referenced Property - User
-		BLL.Entity.GasStation.User _User_updatedBy;
-		public BLL.Entity.GasStation.User User_updatedBy
+		BLL.Entity.GasStation.User _User_updatedById;
+		public BLL.Entity.GasStation.User User_updatedById
 		{
 			get
 			{
-				if ((null == _User_updatedBy) && (updatedBy.HasValue) && (AutoLoadForeignKeys))
-					load_User_updatedBy ();
-				return _User_updatedBy;
+				if ((null == _User_updatedById) && (updatedById.HasValue) && (AutoLoadForeignKeys))
+					load_User_updatedById ();
+				return _User_updatedById;
 			}
 			set
 			{
-				_User_updatedBy	= value;
+				_User_updatedById	= value;
 			}
 		}
 
-		public void load_User_updatedBy ()
+		public void load_User_updatedById ()
 		{ 
 			BLL.Entity.GasStation.User	entity;
 			BLL.Logic.GasStation.User	logic;
 
-			entity	= new BLL.Entity.GasStation.User () { id = updatedBy.Value };
+			entity	= new BLL.Entity.GasStation.User () { id = updatedById.Value };
 			logic	= new BLL.Logic.GasStation.User (Common.Enum.EDatabase.GasStation);
 			logic.read (entity);
 
-			_User_updatedBy	= entity;
+			_User_updatedById	= entity;
 		}
 	#endregion
 

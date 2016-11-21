@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Common.Model;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace System
@@ -15,11 +18,11 @@ namespace System
 		/// </summary>
 		/// <param name="data"></param>
 		/// <returns></returns>
-		public static object toModel (this string data)
+		public static T toModel<T> (this string data, Type type)
 		{
-			object result	= null;
+			T result;
 
-			result	= Newtonsoft.Json.JsonConvert.DeserializeObject (data);
+			result	= JsonConvert.DeserializeObject<T>(data??"");
 
 			return result;
 		}
@@ -29,11 +32,11 @@ namespace System
 		/// </summary>
 		/// <param name="data"></param>
 		/// <returns></returns>
-		public static object toJson (this object data)
+		public static string toJson (this object data)
 		{
 			string result	= "";
 
-			result	= Newtonsoft.Json.JsonConvert.SerializeObject (data);
+			result	= JsonConvert.SerializeObject (data);
 
 			return result;
 		}

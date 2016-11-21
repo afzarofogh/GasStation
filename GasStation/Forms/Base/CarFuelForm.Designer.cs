@@ -28,7 +28,7 @@
 		/// </summary>
 		private void InitializeComponent ()
 		{
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.اطلاعاتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.reloadMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,8 +52,8 @@
             this.اطلاعاتToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(851, 26);
-			this.menuStrip1.TabIndex = 0;
+			this.menuStrip1.Size = new System.Drawing.Size(782, 26);
+			this.menuStrip1.TabIndex = 1;
 			this.menuStrip1.Text = "mainmenu";
 			// 
 			// اطلاعاتToolStripMenuItem
@@ -124,8 +124,8 @@
 			this.groupBox1.ForeColor = System.Drawing.Color.DarkBlue;
 			this.groupBox1.Location = new System.Drawing.Point(5, 38);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(839, 549);
-			this.groupBox1.TabIndex = 1;
+			this.groupBox1.Size = new System.Drawing.Size(770, 491);
+			this.groupBox1.TabIndex = 0;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "سوخت های ثبت شده";
 			// 
@@ -133,8 +133,8 @@
 			// 
 			this.resultGrid.AllowUserToAddRows = false;
 			this.resultGrid.AllowUserToDeleteRows = false;
-			dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
-			this.resultGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
+			this.resultGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
 			this.resultGrid.BackgroundColor = System.Drawing.Color.White;
 			this.resultGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
 			this.resultGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -152,7 +152,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.White;
-			this.ClientSize = new System.Drawing.Size(851, 593);
+			this.ClientSize = new System.Drawing.Size(782, 535);
 			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.menuStrip1);
 			this.Font = new System.Drawing.Font("Tahoma", 9F);

@@ -7,3 +7,12 @@ D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\Common\obj\Debug\Common.Prope
 D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\Common\obj\Debug\Common.csproj.GenerateResource.Cache
 D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\Common\obj\Debug\Common.dll
 D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\Common\obj\Debug\Common.pdb
+E:\Project GasStation\GasStation\GasStation\Common\bin\Debug\Common.dll
+E:\Project GasStation\GasStation\GasStation\Common\bin\Debug\Common.pdb
+E:\Project GasStation\GasStation\GasStation\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+E:\Project GasStation\GasStation\GasStation\Common\obj\Debug\Common.Properties.Resources.resources
+E:\Project GasStation\GasStation\GasStation\Common\obj\Debug\Common.csproj.GenerateResource.Cache
+E:\Project GasStation\GasStation\GasStation\Common\obj\Debug\Common.dll
+E:\Project GasStation\GasStation\GasStation\Common\obj\Debug\Common.pdb
+D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\Common\bin\Debug\Newtonsoft.Json.dll
+D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\Common\bin\Debug\Newtonsoft.Json.xml
