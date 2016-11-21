@@ -19,6 +19,7 @@ D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\GasStation\obj\Debug\GasStati
 D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\GasStation\obj\Debug\GasStation.csproj.GenerateResource.Cache
 D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\GasStation\obj\Debug\GasStation.exe
 D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\GasStation\obj\Debug\GasStation.pdb
+<<<<<<< HEAD
 D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\GasStation\obj\Debug\GasStation.Forms.Base.PlateTypeForm.resources
 D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\GasStation\obj\Debug\GasStation.Forms.Base.PlateTypeEntryForm.resources
 D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\GasStation\obj\Debug\GasStation.Forms.Base.PlateCountryForm.resources
@@ -33,3 +34,40 @@ D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\GasStation\obj\Debug\GasStati
 D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\GasStation\obj\Debug\GasStation.Forms.Base.CarModelEntryForm.resources
 D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\GasStation\obj\Debug\GasStation.Forms.Base.CarLevelForm.resources
 D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\GasStation\obj\Debug\GasStation.Forms.Base.CarLevelEntryForm.resources
+=======
+E:\Project GasStation\GasStation\GasStation\GasStation\obj\Debug\GasStation.csprojResolveAssemblyReference.cache
+E:\Project GasStation\GasStation\GasStation\GasStation\obj\Debug\GasStation.Forms.Base.CarColorEntryForm.resources
+E:\Project GasStation\GasStation\GasStation\GasStation\obj\Debug\GasStation.Forms.Base.CarColorForm.resources
+E:\Project GasStation\GasStation\GasStation\GasStation\obj\Debug\GasStation.Forms.Base.CarFuelForm.resources
+E:\Project GasStation\GasStation\GasStation\GasStation\obj\Debug\GasStation.Forms.Base.CarFuelEntryForm.resources
+E:\Project GasStation\GasStation\GasStation\GasStation\obj\Debug\GasStation.Forms.General.SuperForm.resources
+E:\Project GasStation\GasStation\GasStation\GasStation\obj\Debug\GasStation.Properties.Resources.resources
+E:\Project GasStation\GasStation\GasStation\GasStation\obj\Debug\GasStation.csproj.GenerateResource.Cache
+E:\Project GasStation\GasStation\GasStation\GasStation\obj\Debug\GasStation.exe
+E:\Project GasStation\GasStation\GasStation\GasStation\bin\Debug\GasStation.exe.config
+E:\Project GasStation\GasStation\GasStation\GasStation\bin\Debug\GasStation.exe
+E:\Project GasStation\GasStation\GasStation\GasStation\bin\Debug\GasStation.pdb
+E:\Project GasStation\GasStation\GasStation\GasStation\bin\Debug\BaseBLL.dll
+E:\Project GasStation\GasStation\GasStation\GasStation\bin\Debug\BaseDAL.dll
+E:\Project GasStation\GasStation\GasStation\GasStation\bin\Debug\Common.dll
+E:\Project GasStation\GasStation\GasStation\GasStation\bin\Debug\Newtonsoft.Json.dll
+E:\Project GasStation\GasStation\GasStation\GasStation\bin\Debug\Common.pdb
+E:\Project GasStation\GasStation\GasStation\GasStation\bin\Debug\BaseBLL.pdb
+E:\Project GasStation\GasStation\GasStation\GasStation\bin\Debug\BaseDAL.pdb
+E:\Project GasStation\GasStation\GasStation\GasStation\bin\Debug\Newtonsoft.Json.xml
+E:\Project GasStation\GasStation\GasStation\GasStation\obj\Debug\GasStation.pdb
+E:\Project GasStation\GasStation\GasStation\GasStation\obj\Debug\GasStation.Forms.Base.CarLevelEntryForm.resources
+E:\Project GasStation\GasStation\GasStation\GasStation\obj\Debug\GasStation.Forms.Base.CarLevelForm.resources
+E:\Project GasStation\GasStation\GasStation\GasStation\obj\Debug\GasStation.Forms.Base.CarModelEntryForm.resources
+E:\Project GasStation\GasStation\GasStation\GasStation\obj\Debug\GasStation.Forms.Base.CarModelForm.resources
+E:\Project GasStation\GasStation\GasStation\GasStation\obj\Debug\GasStation.Forms.Base.CarTypeEntryForm.resources
+E:\Project GasStation\GasStation\GasStation\GasStation\obj\Debug\GasStation.Forms.Base.CarTypeForm.resources
+E:\Project GasStation\GasStation\GasStation\GasStation\obj\Debug\GasStation.Forms.Base.OwnerTypeForm.resources
+E:\Project GasStation\GasStation\GasStation\GasStation\obj\Debug\GasStation.Forms.Base.OwnerTypeEntryForm.resources
+E:\Project GasStation\GasStation\GasStation\GasStation\obj\Debug\GasStation.Forms.Base.PlateCityEntryForm.resources
+E:\Project GasStation\GasStation\GasStation\GasStation\obj\Debug\GasStation.Forms.Base.PlateCityForm.resources
+E:\Project GasStation\GasStation\GasStation\GasStation\obj\Debug\GasStation.Forms.Base.PlateCountryForm.resources
+E:\Project GasStation\GasStation\GasStation\GasStation\obj\Debug\GasStation.Forms.Base.PlateCountryEntryForm.resources
+E:\Project GasStation\GasStation\GasStation\GasStation\obj\Debug\GasStation.Forms.Base.PlateTypeEntryForm.resources
+E:\Project GasStation\GasStation\GasStation\GasStation\obj\Debug\GasStation.Forms.Base.PlateTypeForm.resources
+>>>>>>> 8adff6dd7d316c0e0e3dd9be12476ad3d192f015

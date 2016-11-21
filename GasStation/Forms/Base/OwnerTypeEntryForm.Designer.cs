@@ -106,9 +106,7 @@
 			this.dataGroupBox.ResumeLayout(false);
 			this.dataGroupBox.PerformLayout();
 			this.ResumeLayout(false);
-
 		}
-
 		#endregion
 
 		private System.Windows.Forms.GroupBox dataGroupBox;

@@ -14,5 +14,8 @@ E:\Project GasStation\GasStation\GasStation\Common\obj\Debug\Common.Properties.R
 E:\Project GasStation\GasStation\GasStation\Common\obj\Debug\Common.csproj.GenerateResource.Cache
 E:\Project GasStation\GasStation\GasStation\Common\obj\Debug\Common.dll
 E:\Project GasStation\GasStation\GasStation\Common\obj\Debug\Common.pdb
+<<<<<<< HEAD
 D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\Common\bin\Debug\Newtonsoft.Json.dll
 D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\Common\bin\Debug\Newtonsoft.Json.xml
+=======
+>>>>>>> 8adff6dd7d316c0e0e3dd9be12476ad3d192f015

@@ -23,11 +23,9 @@ namespace TestApp.Forms
             Common.BLL.Entity.GasStation.Base__CarColor Colorcar = new Common.BLL.Entity.GasStation.Base__CarColor();
             CommandResult result;
             Colorcar.color = txtColor.Text.Trim();
-            Colorcar.insertedBy = 4;
+            Colorcar.insertedById = 4;
             Colorcar.insertDate = DateTime.Now;
             result = lColorCar.create(Colorcar);
-            
-            
         }
     }
 }

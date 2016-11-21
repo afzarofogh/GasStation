@@ -13,8 +13,6 @@ namespace TestApp
         [STAThread]
         static void Main()
         {
-            Common.Initializer.init();
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Forms.frmColor());

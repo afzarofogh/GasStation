@@ -167,8 +167,6 @@ namespace GasStation.Forms.Base
 		/// <param name="e"></param>
 		void exitButton_Click (object sender, EventArgs e)
 		{
-			
-
 			DialogResult	= System.Windows.Forms.DialogResult.Cancel;
 			Close ();
 		} 

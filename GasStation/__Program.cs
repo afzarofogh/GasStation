@@ -36,11 +36,11 @@ namespace GasStation
 				password	= "123"
 			};
 
-			//Helper.GridHeaderMaker.makeHeaderPlateCity ();		// it's just for save header in db
-
-
 			// Initilization
 			Common.Initializer.init (Path.Combine (Application.StartupPath, "log.txt"));
+
+			// Set Header
+			Helper.GridHeaderMaker.makeHeaderPlateCity ();		// it's just for save header in db
 		}
     }
 }

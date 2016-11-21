@@ -52,10 +52,10 @@ namespace GasStation.Helper
 				{
 					new GridColumnModel ("id",              "id",           false, true, 0),
 					new GridColumnModel ("viewId",          "viewId",       false, true, 0),
-					new GridColumnModel ("insertedById",    "viewId",       false, true, 0),
-					new GridColumnModel ("insertDate",      "viewId",       false, true, 0),
-					new GridColumnModel ("updatedById",     "viewId",       false, true, 0),
-					new GridColumnModel ("updateDate",      "viewId",       false, true, 0),
+					new GridColumnModel ("insertedById",    "insertedById", false, true, 0),
+					new GridColumnModel ("insertDate",      "insertDate",	false, true, 0),
+					new GridColumnModel ("updatedById",     "updatedById",	false, true, 0),
+					new GridColumnModel ("updateDate",      "updateDate",	false, true, 0),
 					new GridColumnModel ("city",            "شهر",			true, true, 1),
 				});
 
