@@ -63,7 +63,7 @@ namespace GasStation.Helper
 			result  = gridCols.saveToDB ("PlateCityForm");
 
 			return result;
-		} 
+		}
 		#endregion
 	}
 }

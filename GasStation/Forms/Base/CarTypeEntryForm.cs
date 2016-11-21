@@ -129,7 +129,6 @@ namespace GasStation.Forms.Base
 			}
 
 			// Create/Modify data
-
 			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
 				CloseSuccess ();
 			else
