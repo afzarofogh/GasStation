@@ -176,11 +176,23 @@
     <Compile Include="Forms\Base\CarFuelEntryForm.Designer.cs">
       <DependentUpon>CarFuelEntryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Forms\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Forms\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\General\SuperForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\General\SuperForm.Designer.cs">
       <DependentUpon>SuperForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\User\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\User\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper\GridHeaderMaker.cs" />
     <Compile Include="__Program.cs" />
@@ -239,8 +251,14 @@
     <EmbeddedResource Include="Forms\Base\CarFuelEntryForm.resx">
       <DependentUpon>CarFuelEntryForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Forms\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\General\SuperForm.resx">
       <DependentUpon>SuperForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\User\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -269,6 +287,12 @@
       <Project>{c70ba18e-d309-4223-abff-1833f0febeb6}</Project>
       <Name>Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\formBK.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

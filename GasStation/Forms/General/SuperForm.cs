@@ -5,11 +5,10 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Windows.Forms;
 
 namespace GasStation.Forms.General
 {
-    public partial class SuperForm : Form
+    public partial class SuperForm : System.Windows.Forms.Form
     {
         public SuperForm()
         {

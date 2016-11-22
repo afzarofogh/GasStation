@@ -8,6 +8,8 @@ namespace GasStation
 {
     static class __Program
     {
+		public static int hasLogin;
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -18,7 +20,14 @@ namespace GasStation
 		
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GasStation.Forms.Base.PlateCityForm());
+
+			while (hasLogin != 2)
+			{
+				Application.Run (new Forms.User.LoginForm ());
+
+				if (hasLogin == 1)
+					Application.Run (new Forms.Forms.MainForm ());
+			}
         }
 
 		/// <summary>
@@ -26,21 +35,18 @@ namespace GasStation
 		/// </summary>
 		private static void prepare ()
 		{
-			// TODO: For Test, CLEAR AFTER CREATE LOGIN PAGE
-			Common.GlobalData.UserManager.currentUser	= new Common.BLL.Entity.GasStation.User ()
-			{
-				id			= 2,
-				name		= "Ali",
-				lastname	= "Hasani",
-				username	= "Ali.H",
-				password	= "123"
-			};
+			// Prepare
+			__Program.hasLogin	= 0;
 
 			// Initilization
 			Common.Initializer.init (Path.Combine (Application.StartupPath, "log.txt"));
 
-			// Set Header
-			Helper.GridHeaderMaker.makeHeaderPlateCity ();		// it's just for save header in db
+			Common.BLL.Entity.GasStation.User	user	= new Common.BLL.Entity.GasStation.User ();
+			Common.BLL.Logic.GasStation.User	luser	= new Common.BLL.Logic.GasStation.User (Common.Enum.EDatabase.GasStation);
+
+			///FOR TEST
+			//user.id	= 3;
+			//BaseDAL.Model.CommandResult opResult =  luser.deleteUser (user);
 		}
     }
 }
