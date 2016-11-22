@@ -1,21 +1,12 @@
-D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\Common\bin\Debug\Common.dll
-D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\Common\bin\Debug\Common.pdb
-D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\Common\bin\Debug\BaseBLL.dll
-D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\Common\bin\Debug\BaseDAL.dll
-D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
-D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\Common\obj\Debug\Common.Properties.Resources.resources
-D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\Common\obj\Debug\Common.csproj.GenerateResource.Cache
-D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\Common\obj\Debug\Common.dll
-D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\Common\obj\Debug\Common.pdb
 E:\Project GasStation\GasStation\GasStation\Common\bin\Debug\Common.dll
 E:\Project GasStation\GasStation\GasStation\Common\bin\Debug\Common.pdb
-E:\Project GasStation\GasStation\GasStation\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+E:\Project GasStation\GasStation\GasStation\Common\bin\Debug\BaseBLL.dll
+E:\Project GasStation\GasStation\GasStation\Common\bin\Debug\BaseDAL.dll
+E:\Project GasStation\GasStation\GasStation\Common\bin\Debug\Newtonsoft.Json.dll
+E:\Project GasStation\GasStation\GasStation\Common\bin\Debug\BaseBLL.pdb
+E:\Project GasStation\GasStation\GasStation\Common\bin\Debug\BaseDAL.pdb
+E:\Project GasStation\GasStation\GasStation\Common\bin\Debug\Newtonsoft.Json.xml
 E:\Project GasStation\GasStation\GasStation\Common\obj\Debug\Common.Properties.Resources.resources
 E:\Project GasStation\GasStation\GasStation\Common\obj\Debug\Common.csproj.GenerateResource.Cache
 E:\Project GasStation\GasStation\GasStation\Common\obj\Debug\Common.dll
 E:\Project GasStation\GasStation\GasStation\Common\obj\Debug\Common.pdb
-<<<<<<< HEAD
-D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\Common\bin\Debug\Newtonsoft.Json.dll
-D:\Source\Codes\CommercialWorks\Ghobadi\GasStation\Common\bin\Debug\Newtonsoft.Json.xml
-=======
->>>>>>> 8adff6dd7d316c0e0e3dd9be12476ad3d192f015
