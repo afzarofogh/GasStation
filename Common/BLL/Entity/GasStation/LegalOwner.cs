@@ -6,55 +6,45 @@ namespace Common.BLL.Entity.GasStation
 {
 	[Serializable]
 	public class LegalOwner : BaseBLL.Entity.BaseByViewId
-	{
-		
-		//[BaseBLL.Base.Field(nullable=false,sqlDBType=System.Data.SqlDbType.Int,primary=false,usage=BaseBLL.Base.EnumUsage.read | BaseBLL.Base.EnumUsage.update | BaseBLL.Base.EnumUsage.create)]
-		//public System.Int32 id
-		//{
-		//	get;
-		//	set;
-		//}
+	{	
+
+		[BaseBLL.Base.Field(nullable=false,sqlDBType=System.Data.SqlDbType.Int,primary=false,usage=BaseBLL.Base.EnumUsage.read | BaseBLL.Base.EnumUsage.update | BaseBLL.Base.EnumUsage.create,foreignLogicType=typeof (BLL.Logic.GasStation.CarOwner),foreignField="id")]
+		public System.Int32 carOwnerId
+		{
+			get;
+			set;
+		}
 //
-	// Genereted Property of Owner
+	// Genereted Property of carOwnerId
 	//
-	#region Relation - Owner (Has-Many relation)
-		private System.Data.DataTable _get_Owner_legalOwnerId;
-		public System.Data.DataTable getOwner_legalOwnerId
+	#region Referenced Property - CarOwner
+		BLL.Entity.GasStation.CarOwner _CarOwner_carOwnerId;
+		public BLL.Entity.GasStation.CarOwner CarOwner_carOwnerId
 		{
 			get
 			{
-				if ((_get_Owner_legalOwnerId == null) && (AutoLoadForeignKeys))
-					loadOwner_legalOwnerId ();
-
-				return _get_Owner_legalOwnerId;
+				if ((null == _CarOwner_carOwnerId) && (AutoLoadForeignKeys))
+					load_CarOwner_carOwnerId ();
+				return _CarOwner_carOwnerId;
 			}
 			set
 			{
-				_get_Owner_legalOwnerId	= value;
+				_CarOwner_carOwnerId	= value;
 			}
 		}
 
-		public void loadOwner_legalOwnerId (int pageIndex = -1, int pageSize = 100)
-		{
-			CommandResult	opResult;
+		public void load_CarOwner_carOwnerId ()
+		{ 
+			BLL.Entity.GasStation.CarOwner	entity;
+			BLL.Logic.GasStation.CarOwner	logic;
 
-			BLL.Logic.GasStation.Owner	logic	= new BLL.Logic.GasStation.Owner (Common.Enum.EDatabase.GasStation);
-			if (pageIndex == -1)
-				opResult	= logic.allData ("legalOwnerId = @legalOwnerId", "", false, true, new KeyValuePair ("@legalOwnerId", id));
-			else
-				opResult	= logic.allByPaging ( pageIndex, pageSize, "legalOwnerId = @legalOwnerId", "", false, true, new KeyValuePair ("@legalOwnerId", id));
+			entity	= new BLL.Entity.GasStation.CarOwner () { id = carOwnerId };
+			logic	= new BLL.Logic.GasStation.CarOwner (Common.Enum.EDatabase.GasStation);
+			logic.read (entity);
 
-			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
-				_get_Owner_legalOwnerId	= opResult.model as System.Data.DataTable;
+			_CarOwner_carOwnerId	= entity;
 		}
 	#endregion
-
-		//[BaseBLL.Base.Field(nullable=false,sqlDBType=System.Data.SqlDbType.UniqueIdentifier,primary=false,usage=BaseBLL.Base.EnumUsage.read | BaseBLL.Base.EnumUsage.update | BaseBLL.Base.EnumUsage.create)]
-		//public System.Guid viewId
-		//{
-		//	get;
-		//	set;
-		//}
 
 		[BaseBLL.Base.Field(nullable=false,sqlDBType=System.Data.SqlDbType.VarChar,primary=false,usage=BaseBLL.Base.EnumUsage.read | BaseBLL.Base.EnumUsage.update | BaseBLL.Base.EnumUsage.create,size=50)]
 		public System.String OrganizationCode
@@ -65,13 +55,6 @@ namespace Common.BLL.Entity.GasStation
 
 		[BaseBLL.Base.Field(nullable=false,sqlDBType=System.Data.SqlDbType.VarChar,primary=false,usage=BaseBLL.Base.EnumUsage.read | BaseBLL.Base.EnumUsage.update | BaseBLL.Base.EnumUsage.create,size=50)]
 		public System.String name
-		{
-			get;
-			set;
-		}
-
-		[BaseBLL.Base.Field(nullable=false,sqlDBType=System.Data.SqlDbType.VarChar,primary=false,usage=BaseBLL.Base.EnumUsage.read | BaseBLL.Base.EnumUsage.update | BaseBLL.Base.EnumUsage.create,size=50)]
-		public System.String lastname
 		{
 			get;
 			set;

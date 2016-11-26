@@ -135,17 +135,20 @@
 			this.resultGrid.AllowUserToDeleteRows = false;
 			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
 			this.resultGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+			this.resultGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.resultGrid.BackgroundColor = System.Drawing.Color.White;
 			this.resultGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
 			this.resultGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			this.resultGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.resultGrid.Location = new System.Drawing.Point(7, 25);
+			this.resultGrid.Location = new System.Drawing.Point(12, 25);
 			this.resultGrid.MultiSelect = false;
 			this.resultGrid.Name = "resultGrid";
 			this.resultGrid.ReadOnly = true;
 			this.resultGrid.RowTemplate.Height = 24;
-			this.resultGrid.Size = new System.Drawing.Size(826, 518);
-			this.resultGrid.TabIndex = 0;
+			this.resultGrid.Size = new System.Drawing.Size(746, 454);
+			this.resultGrid.TabIndex = 2;
 			// 
 			// CarFuelForm
 			// 

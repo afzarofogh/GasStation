@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace GasStation.Forms.General
 {
@@ -13,6 +15,11 @@ namespace GasStation.Forms.General
         public SuperForm()
         {
             InitializeComponent();
+
+			CultureInfo TypeOfLanguage = CultureInfo.CreateSpecificCulture("fa-IR");
+			System.Threading.Thread.CurrentThread.CurrentCulture = TypeOfLanguage; 
+			InputLanguage l = InputLanguage.FromCulture(TypeOfLanguage);
+			InputLanguage.CurrentInputLanguage = l;
         }
     }
 }

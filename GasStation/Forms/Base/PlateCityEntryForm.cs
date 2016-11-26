@@ -61,6 +61,8 @@ namespace GasStation.Forms.Base
 				CommandResult	opResult	= lPlateCity.read (model);
 
 				///TODO: CHECK ERRORS
+				//if (opResult.status ==  BaseDAL.Base.EnumCommandStatus.success)					
+					//reload ();
 			}
 
 			// Fill Controls

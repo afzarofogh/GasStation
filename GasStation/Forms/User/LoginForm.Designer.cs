@@ -135,6 +135,7 @@
 			this.loginButton.TabIndex = 1;
 			this.loginButton.Text = "ورود";
 			this.loginButton.UseVisualStyleBackColor = true;
+			//this.loginButton.Click += new System.EventHandler(this.loginButton_Click_1);
 			// 
 			// LoginForm
 			// 

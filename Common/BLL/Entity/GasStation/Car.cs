@@ -7,54 +7,88 @@ namespace Common.BLL.Entity.GasStation
 	[Serializable]
 	public class Car : BaseBLL.Entity.BaseByViewId
 	{
-
-        //[BaseBLL.Base.Field(nullable = false, sqlDBType = System.Data.SqlDbType.Int, primary = false, usage = BaseBLL.Base.EnumUsage.read | BaseBLL.Base.EnumUsage.update | BaseBLL.Base.EnumUsage.create)]
-        //public System.Int32 id
-        //{
-        //    get;
-        //    set;
-        //}
+		
+		[BaseBLL.Base.Field(nullable=false,sqlDBType=System.Data.SqlDbType.Int,primary=false,usage=BaseBLL.Base.EnumUsage.read | BaseBLL.Base.EnumUsage.update | BaseBLL.Base.EnumUsage.create)]
+		public System.Int32 id
+		{
+			get;
+			set;
+		}
 //
-	// Genereted Property of Owner
+	// Genereted Property of CarTag
 	//
-	#region Relation - Owner (Has-Many relation)
-		private System.Data.DataTable _get_Owner_carId;
-		public System.Data.DataTable getOwner_carId
+	#region Relation - CarTag (Has-Many relation)
+		private System.Data.DataTable _get_CarTag_carId;
+		public System.Data.DataTable getCarTag_carId
 		{
 			get
 			{
-				if ((_get_Owner_carId == null) && (AutoLoadForeignKeys))
-					loadOwner_carId ();
+				if ((_get_CarTag_carId == null) && (AutoLoadForeignKeys))
+					loadCarTag_carId ();
 
-				return _get_Owner_carId;
+				return _get_CarTag_carId;
 			}
 			set
 			{
-				_get_Owner_carId	= value;
+				_get_CarTag_carId	= value;
 			}
 		}
 
-		public void loadOwner_carId (int pageIndex = -1, int pageSize = 100)
+		public void loadCarTag_carId (int pageIndex = -1, int pageSize = 100)
 		{
 			CommandResult	opResult;
 
-			BLL.Logic.GasStation.Owner	logic	= new BLL.Logic.GasStation.Owner (Common.Enum.EDatabase.GasStation);
+			BLL.Logic.GasStation.CarTag	logic	= new BLL.Logic.GasStation.CarTag ("GasStation");
 			if (pageIndex == -1)
 				opResult	= logic.allData ("carId = @carId", "", false, true, new KeyValuePair ("@carId", id));
 			else
 				opResult	= logic.allByPaging ( pageIndex, pageSize, "carId = @carId", "", false, true, new KeyValuePair ("@carId", id));
 
 			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
-				_get_Owner_carId	= opResult.model as System.Data.DataTable;
+				_get_CarTag_carId	= opResult.model as System.Data.DataTable;
+		}
+	#endregion
+//
+	// Genereted Property of CarOwner
+	//
+	#region Relation - CarOwner (Has-Many relation)
+		private System.Data.DataTable _get_CarOwner_carId;
+		public System.Data.DataTable getCarOwner_carId
+		{
+			get
+			{
+				if ((_get_CarOwner_carId == null) && (AutoLoadForeignKeys))
+					loadCarOwner_carId ();
+
+				return _get_CarOwner_carId;
+			}
+			set
+			{
+				_get_CarOwner_carId	= value;
+			}
+		}
+
+		public void loadCarOwner_carId (int pageIndex = -1, int pageSize = 100)
+		{
+			CommandResult	opResult;
+
+			BLL.Logic.GasStation.CarOwner	logic	= new BLL.Logic.GasStation.CarOwner ("GasStation");
+			if (pageIndex == -1)
+				opResult	= logic.allData ("carId = @carId", "", false, true, new KeyValuePair ("@carId", id));
+			else
+				opResult	= logic.allByPaging ( pageIndex, pageSize, "carId = @carId", "", false, true, new KeyValuePair ("@carId", id));
+
+			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
+				_get_CarOwner_carId	= opResult.model as System.Data.DataTable;
 		}
 	#endregion
 
-		//[BaseBLL.Base.Field(nullable=false,sqlDBType=System.Data.SqlDbType.UniqueIdentifier,primary=false,usage=BaseBLL.Base.EnumUsage.read | BaseBLL.Base.EnumUsage.update | BaseBLL.Base.EnumUsage.create)]
-		//public System.Guid viewId
-		//{
-		//	get;
-		//	set;
-		//}
+		[BaseBLL.Base.Field(nullable=false,sqlDBType=System.Data.SqlDbType.UniqueIdentifier,primary=false,usage=BaseBLL.Base.EnumUsage.read | BaseBLL.Base.EnumUsage.update | BaseBLL.Base.EnumUsage.create)]
+		public System.Guid viewId
+		{
+			get;
+			set;
+		}
 
 		[BaseBLL.Base.Field(nullable=false,sqlDBType=System.Data.SqlDbType.Int,primary=false,usage=BaseBLL.Base.EnumUsage.read | BaseBLL.Base.EnumUsage.update | BaseBLL.Base.EnumUsage.create,foreignLogicType=typeof (BLL.Logic.GasStation.Base__CarType),foreignField="id")]
 		public System.Int32 carTypeId
@@ -87,7 +121,7 @@ namespace Common.BLL.Entity.GasStation
 			BLL.Logic.GasStation.Base__CarType	logic;
 
 			entity	= new BLL.Entity.GasStation.Base__CarType () { id = carTypeId };
-			logic	= new BLL.Logic.GasStation.Base__CarType (Common.Enum.EDatabase.GasStation);
+			logic	= new BLL.Logic.GasStation.Base__CarType ("GasStation");
 			logic.read (entity);
 
 			_Base__CarType_carTypeId	= entity;
@@ -125,48 +159,48 @@ namespace Common.BLL.Entity.GasStation
 			BLL.Logic.GasStation.Base__CarColor	logic;
 
 			entity	= new BLL.Entity.GasStation.Base__CarColor () { id = carColorId };
-			logic	= new BLL.Logic.GasStation.Base__CarColor (Common.Enum.EDatabase.GasStation);
+			logic	= new BLL.Logic.GasStation.Base__CarColor ("GasStation");
 			logic.read (entity);
 
 			_Base__CarColor_carColorId	= entity;
 		}
 	#endregion
 
-		[BaseBLL.Base.Field(nullable=false,sqlDBType=System.Data.SqlDbType.Int,primary=false,usage=BaseBLL.Base.EnumUsage.read | BaseBLL.Base.EnumUsage.update | BaseBLL.Base.EnumUsage.create,foreignLogicType=typeof (BLL.Logic.GasStation.Base__CarModel),foreignField="id")]
-		public System.Int32 carModelId
+		[BaseBLL.Base.Field(nullable=false,sqlDBType=System.Data.SqlDbType.Int,primary=false,usage=BaseBLL.Base.EnumUsage.read | BaseBLL.Base.EnumUsage.update | BaseBLL.Base.EnumUsage.create,foreignLogicType=typeof (BLL.Logic.GasStation.Base__CarSystem),foreignField="id")]
+		public System.Int32 carSystemId
 		{
 			get;
 			set;
 		}
 //
-	// Genereted Property of carModelId
+	// Genereted Property of carSystemId
 	//
-	#region Referenced Property - Base__CarModel
-		BLL.Entity.GasStation.Base__CarModel _Base__CarModel_carModelId;
-		public BLL.Entity.GasStation.Base__CarModel Base__CarModel_carModelId
+	#region Referenced Property - Base__CarSystem
+		BLL.Entity.GasStation.Base__CarSystem _Base__CarSystem_carSystemId;
+		public BLL.Entity.GasStation.Base__CarSystem Base__CarSystem_carSystemId
 		{
 			get
 			{
-				if ((null == _Base__CarModel_carModelId) && (AutoLoadForeignKeys))
-					load_Base__CarModel_carModelId ();
-				return _Base__CarModel_carModelId;
+				if ((null == _Base__CarSystem_carSystemId) && (AutoLoadForeignKeys))
+					load_Base__CarSystem_carSystemId ();
+				return _Base__CarSystem_carSystemId;
 			}
 			set
 			{
-				_Base__CarModel_carModelId	= value;
+				_Base__CarSystem_carSystemId	= value;
 			}
 		}
 
-		public void load_Base__CarModel_carModelId ()
+		public void load_Base__CarSystem_carSystemId ()
 		{ 
-			BLL.Entity.GasStation.Base__CarModel	entity;
-			BLL.Logic.GasStation.Base__CarModel	logic;
+			BLL.Entity.GasStation.Base__CarSystem	entity;
+			BLL.Logic.GasStation.Base__CarSystem	logic;
 
-			entity	= new BLL.Entity.GasStation.Base__CarModel () { id = carModelId };
-			logic	= new BLL.Logic.GasStation.Base__CarModel (Common.Enum.EDatabase.GasStation);
+			entity	= new BLL.Entity.GasStation.Base__CarSystem () { id = carSystemId };
+			logic	= new BLL.Logic.GasStation.Base__CarSystem ("GasStation");
 			logic.read (entity);
 
-			_Base__CarModel_carModelId	= entity;
+			_Base__CarSystem_carSystemId	= entity;
 		}
 	#endregion
 
@@ -201,7 +235,7 @@ namespace Common.BLL.Entity.GasStation
 			BLL.Logic.GasStation.Base__CarLevel	logic;
 
 			entity	= new BLL.Entity.GasStation.Base__CarLevel () { id = carLevelId };
-			logic	= new BLL.Logic.GasStation.Base__CarLevel (Common.Enum.EDatabase.GasStation);
+			logic	= new BLL.Logic.GasStation.Base__CarLevel ("GasStation");
 			logic.read (entity);
 
 			_Base__CarLevel_carLevelId	= entity;
@@ -239,7 +273,7 @@ namespace Common.BLL.Entity.GasStation
 			BLL.Logic.GasStation.Base__CarFuel	logic;
 
 			entity	= new BLL.Entity.GasStation.Base__CarFuel () { id = carFuelId };
-			logic	= new BLL.Logic.GasStation.Base__CarFuel (Common.Enum.EDatabase.GasStation);
+			logic	= new BLL.Logic.GasStation.Base__CarFuel ("GasStation");
 			logic.read (entity);
 
 			_Base__CarFuel_carFuelId	= entity;
@@ -277,50 +311,19 @@ namespace Common.BLL.Entity.GasStation
 			BLL.Logic.GasStation.Plate	logic;
 
 			entity	= new BLL.Entity.GasStation.Plate () { id = plateId };
-			logic	= new BLL.Logic.GasStation.Plate (Common.Enum.EDatabase.GasStation);
+			logic	= new BLL.Logic.GasStation.Plate ("GasStation");
 			logic.read (entity);
 
 			_Plate_plateId	= entity;
 		}
 	#endregion
 
-		[BaseBLL.Base.Field(nullable=false,sqlDBType=System.Data.SqlDbType.Int,primary=false,usage=BaseBLL.Base.EnumUsage.read | BaseBLL.Base.EnumUsage.update | BaseBLL.Base.EnumUsage.create,foreignLogicType=typeof (BLL.Logic.GasStation.Tag),foreignField="id")]
-		public System.Int32 tagId
+		[BaseBLL.Base.Field(nullable=false,sqlDBType=System.Data.SqlDbType.VarChar,primary=false,usage=BaseBLL.Base.EnumUsage.read | BaseBLL.Base.EnumUsage.update | BaseBLL.Base.EnumUsage.create,size=5)]
+		public System.String model
 		{
 			get;
 			set;
 		}
-//
-	// Genereted Property of tagId
-	//
-	#region Referenced Property - Tag
-		BLL.Entity.GasStation.Tag _Tag_tagId;
-		public BLL.Entity.GasStation.Tag Tag_tagId
-		{
-			get
-			{
-				if ((null == _Tag_tagId) && (AutoLoadForeignKeys))
-					load_Tag_tagId ();
-				return _Tag_tagId;
-			}
-			set
-			{
-				_Tag_tagId	= value;
-			}
-		}
-
-		public void load_Tag_tagId ()
-		{ 
-			BLL.Entity.GasStation.Tag	entity;
-			BLL.Logic.GasStation.Tag	logic;
-
-			entity	= new BLL.Entity.GasStation.Tag () { id = tagId };
-			logic	= new BLL.Logic.GasStation.Tag (Common.Enum.EDatabase.GasStation);
-			logic.read (entity);
-
-			_Tag_tagId	= entity;
-		}
-	#endregion
 
 		[BaseBLL.Base.Field(nullable=false,sqlDBType=System.Data.SqlDbType.Bit,primary=false,usage=BaseBLL.Base.EnumUsage.read | BaseBLL.Base.EnumUsage.update | BaseBLL.Base.EnumUsage.create)]
 		public System.Boolean status
@@ -381,7 +384,7 @@ namespace Common.BLL.Entity.GasStation
 			BLL.Logic.GasStation.User	logic;
 
 			entity	= new BLL.Entity.GasStation.User () { id = insertedById };
-			logic	= new BLL.Logic.GasStation.User (Common.Enum.EDatabase.GasStation);
+			logic	= new BLL.Logic.GasStation.User ("GasStation");
 			logic.read (entity);
 
 			_User_insertedById	= entity;
@@ -426,7 +429,7 @@ namespace Common.BLL.Entity.GasStation
 			BLL.Logic.GasStation.User	logic;
 
 			entity	= new BLL.Entity.GasStation.User () { id = updatedById.Value };
-			logic	= new BLL.Logic.GasStation.User (Common.Enum.EDatabase.GasStation);
+			logic	= new BLL.Logic.GasStation.User ("GasStation");
 			logic.read (entity);
 
 			_User_updatedById	= entity;

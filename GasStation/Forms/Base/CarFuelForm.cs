@@ -42,7 +42,7 @@ namespace GasStation.Forms.Base
 		/// </summary>
 		private void prepare ()
 		{
-			relaod();
+			reload();
 		}
 		/// <summary>
 		/// Bind Events
@@ -88,27 +88,13 @@ namespace GasStation.Forms.Base
 
 				Common.BLL.Logic.GasStation.Base__CarFuel	lCarFuel	= new Common.BLL.Logic.GasStation.Base__CarFuel (Common.Enum.EDatabase.GasStation);
 				CommandResult	opResult	= lCarFuel.delete (model);
-
-				///TODO: CHECK RESULT
+				
 				if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
 					reload ();
 			}
 			else
-				/// TODO:SHOW MESSAGE
-				;
-		}
-		/// <summary>
-		/// Relaod Data
-		/// </summary>
-
-		void reload ()
-		{
-			Common.BLL.Logic.GasStation.Base__CarFuel	lCarFuel	= new Common.BLL.Logic.GasStation.Base__CarFuel (Common.Enum.EDatabase.GasStation);
-
-			CommandResult opResult	= lCarFuel.allData ("", "fuel", false);
-			resultGrid.DataSource	= opResult.model;
-			//TODO: SET DATAGRID HEADER
-		}
+				MessageBox.Show ("رکوردی انتخاب نشده است", "اخطار", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+		}		
 
 		/// <summary>
 		/// Modify Menu
@@ -134,8 +120,7 @@ namespace GasStation.Forms.Base
 					reload ();
 			}
 			else
-				/// TODO:SHOW MESSAGE
-				;
+				MessageBox.Show ("رکوردی انتخاب نشده است", "اخطار", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 		}
 
 		/// <summary>
@@ -158,17 +143,20 @@ namespace GasStation.Forms.Base
 		/// <param name="e"></param>
 		private void reloadMenu_Click (object sender, EventArgs e)
 		{
-			relaod();
-		}
+			reload();
+		}			
 
-		private void relaod ()
+		/// <summary>
+		/// Relaod Data
+		/// </summary>
+		void reload ()
 		{
-			Common.BLL.Logic.GasStation.Base__CarFuel	lCarFuel	= new Common.BLL.Logic.GasStation.Base__CarFuel (Common.Enum.EDatabase.GasStation );
-			CommandResult	opResult	= lCarFuel.allData("","fuel",false);
-			resultGrid.DataSource	= opResult.model;
-			//TODO: SET DATAGRID HEADER
-		}
+			Common.BLL.Logic.GasStation.Base__CarFuel	lCarFuel	= new Common.BLL.Logic.GasStation.Base__CarFuel (Common.Enum.EDatabase.GasStation);
 
+			CommandResult opResult	= lCarFuel.allData ("", "fuel", false);
+			resultGrid.DataSource	= opResult.model;
+			resultGrid.loadHeader (this.GetType ().Name);
+		}
 		#endregion
 
 
