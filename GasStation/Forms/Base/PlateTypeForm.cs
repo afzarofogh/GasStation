@@ -92,14 +92,12 @@ namespace GasStation.Forms.Base
 
 				Common.BLL.Logic.GasStation.Base__PlateType	lPlateType	= new Common.BLL.Logic.GasStation.Base__PlateType (Common.Enum.EDatabase.GasStation);
 				CommandResult	opResult	= lPlateType.delete (model);
-
-				///TODO: CHECK RESULT
+				
 				if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
 					reload ();
 			}
 			else
-				/// TODO:SHOW MESSAGE
-				;
+				MessageBox.Show ("رکوردی انتخاب نشده است", "اخطار", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 		}
 
         /// <summary>
@@ -126,8 +124,7 @@ namespace GasStation.Forms.Base
 					reload ();
 			}
 			else
-				/// TODO:SHOW MESSAGE
-				;
+				MessageBox.Show ("رکوردی انتخاب نشده است", "اخطار", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         /// <summary>
@@ -162,7 +159,7 @@ namespace GasStation.Forms.Base
 
 			CommandResult opResult	= lPlateType.allData ("", "type", false);
 			resultGrid.DataSource	= opResult.model;
-			//TODO: SET DATAGRID HEADER
+			resultGrid.loadHeader(this.GetType().Name);
 		}
         #endregion
 

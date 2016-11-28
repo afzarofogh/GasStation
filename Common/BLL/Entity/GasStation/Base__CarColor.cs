@@ -6,8 +6,8 @@ namespace Common.BLL.Entity.GasStation
 {
 	[Serializable]
 	public class Base__CarColor : BaseBLL.Entity.BaseByViewId
-	{
-
+	{		
+		
 //
 	// Genereted Property of Car
 	//
@@ -42,7 +42,7 @@ namespace Common.BLL.Entity.GasStation
 				_get_Car_carColorId	= opResult.model as System.Data.DataTable;
 		}
 	#endregion
-
+				
 
 		[BaseBLL.Base.Field(nullable=false,sqlDBType=System.Data.SqlDbType.VarChar,primary=false,usage=BaseBLL.Base.EnumUsage.read | BaseBLL.Base.EnumUsage.update | BaseBLL.Base.EnumUsage.create,size=50)]
 		public System.String color

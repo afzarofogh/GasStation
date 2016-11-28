@@ -92,14 +92,12 @@ namespace GasStation.Forms.Base
 
 				Common.BLL.Logic.GasStation.Base__CarLevel	lCarLevel	= new Common.BLL.Logic.GasStation.Base__CarLevel (Common.Enum.EDatabase.GasStation);
 				CommandResult	opResult	= lCarLevel.delete (model);
-
-				///TODO: CHECK RESULT
+				
 				if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
 					reload ();
 			}
 			else
-				/// TODO:SHOW MESSAGE
-				;
+				MessageBox.Show ("رکوردی انتخاب نشده است", "اخطار", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 		}
 
         /// <summary>
@@ -126,8 +124,7 @@ namespace GasStation.Forms.Base
 					reload ();
 			}
 			else
-				/// TODO:SHOW MESSAGE
-				;
+				MessageBox.Show ("رکوردی انتخاب نشده است", "اخطار", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         /// <summary>
@@ -161,8 +158,8 @@ namespace GasStation.Forms.Base
 			Common.BLL.Logic.GasStation.Base__CarLevel	lCarLevel	= new Common.BLL.Logic.GasStation.Base__CarLevel (Common.Enum.EDatabase.GasStation);
 
 			CommandResult opResult	= lCarLevel.allData ("", "levelcar", false);
-			resultGrid.DataSource	= opResult.model;
-			//TODO: SET DATAGRID HEADER
+			resultGrid.DataSource	= opResult.model;			
+			resultGrid.loadHeader(this.GetType().Name);
 		}
         #endregion
 

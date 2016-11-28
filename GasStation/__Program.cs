@@ -26,7 +26,7 @@ namespace GasStation
 				Application.Run (new Forms.User.LoginForm ());
 
 				if (hasLogin == 1)
-					Application.Run (new Forms.Forms.MainForm ());
+					Application.Run (new Forms.Forms.MainForm ());				
 			}
         }
 
@@ -47,6 +47,11 @@ namespace GasStation
 			///FOR TEST
 			//user.id	= 3;
 			//BaseDAL.Model.CommandResult opResult =  luser.deleteUser (user);
+
+			//Helper.GridHeaderMaker.makeHeaderCarFuel();
+			//Helper.GridHeaderMaker.makeHeaderCarLevel();
+			//Helper.GridHeaderMaker.makeHeaderCarSystem();
+			//Helper.GridHeaderMaker.makeHeaderPlateType();
 		}
     }
 }

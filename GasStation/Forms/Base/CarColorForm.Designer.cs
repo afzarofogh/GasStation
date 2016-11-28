@@ -29,8 +29,7 @@
         private void InitializeComponent()
         {
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-			this.groupBox1 = new System.Windows.Forms.GroupBox();
-			this.resultGrid = new System.Windows.Forms.DataGridView();
+			this.mainMenu = new System.Windows.Forms.MenuStrip();
 			this.اطلاعاتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.reloadMenu = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -39,46 +38,22 @@
 			this.deleteMenu = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
 			this.exitMenu = new System.Windows.Forms.ToolStripMenuItem();
-			this.mainMenu = new System.Windows.Forms.MenuStrip();
+			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.resultGrid = new System.Windows.Forms.DataGridView();
+			this.mainMenu.SuspendLayout();
 			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.resultGrid)).BeginInit();
-			this.mainMenu.SuspendLayout();
 			this.SuspendLayout();
 			// 
-			// groupBox1
+			// mainMenu
 			// 
-			this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.groupBox1.Controls.Add(this.resultGrid);
-			this.groupBox1.ForeColor = System.Drawing.Color.DarkSlateBlue;
-			this.groupBox1.Location = new System.Drawing.Point(12, 38);
-			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(758, 485);
-			this.groupBox1.TabIndex = 0;
-			this.groupBox1.TabStop = false;
-			this.groupBox1.Text = "رنگ های ثبت شده";
-			// 
-			// resultGrid
-			// 
-			this.resultGrid.AllowUserToAddRows = false;
-			this.resultGrid.AllowUserToDeleteRows = false;
-			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
-			this.resultGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-			this.resultGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.resultGrid.BackgroundColor = System.Drawing.Color.White;
-			this.resultGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-			this.resultGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			this.resultGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.resultGrid.Location = new System.Drawing.Point(6, 25);
-			this.resultGrid.MultiSelect = false;
-			this.resultGrid.Name = "resultGrid";
-			this.resultGrid.ReadOnly = true;
-			this.resultGrid.RowTemplate.Height = 24;
-			this.resultGrid.Size = new System.Drawing.Size(746, 454);
-			this.resultGrid.TabIndex = 0;
+			this.mainMenu.Font = new System.Drawing.Font("Tahoma", 9F);
+			this.mainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.اطلاعاتToolStripMenuItem});
+			this.mainMenu.Location = new System.Drawing.Point(0, 0);
+			this.mainMenu.Name = "mainMenu";
+			this.mainMenu.Size = new System.Drawing.Size(782, 26);
+			this.mainMenu.TabIndex = 1;
 			// 
 			// اطلاعاتToolStripMenuItem
 			// 
@@ -139,15 +114,40 @@
 			this.exitMenu.Size = new System.Drawing.Size(208, 22);
 			this.exitMenu.Text = "خروج";
 			// 
-			// mainMenu
+			// groupBox1
 			// 
-			this.mainMenu.Font = new System.Drawing.Font("Tahoma", 9F);
-			this.mainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.اطلاعاتToolStripMenuItem});
-			this.mainMenu.Location = new System.Drawing.Point(0, 0);
-			this.mainMenu.Name = "mainMenu";
-			this.mainMenu.Size = new System.Drawing.Size(782, 26);
-			this.mainMenu.TabIndex = 1;
+			this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.groupBox1.Controls.Add(this.resultGrid);
+			this.groupBox1.ForeColor = System.Drawing.Color.DarkSlateBlue;
+			this.groupBox1.Location = new System.Drawing.Point(12, 38);
+			this.groupBox1.Name = "groupBox1";
+			this.groupBox1.Size = new System.Drawing.Size(758, 485);
+			this.groupBox1.TabIndex = 0;
+			this.groupBox1.TabStop = false;
+			this.groupBox1.Text = "رنگ های ثبت شده";
+			// 
+			// resultGrid
+			// 
+			this.resultGrid.AllowUserToAddRows = false;
+			this.resultGrid.AllowUserToDeleteRows = false;
+			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
+			this.resultGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+			this.resultGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.resultGrid.BackgroundColor = System.Drawing.Color.White;
+			this.resultGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+			this.resultGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+			this.resultGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.resultGrid.Location = new System.Drawing.Point(6, 23);
+			this.resultGrid.MultiSelect = false;
+			this.resultGrid.Name = "resultGrid";
+			this.resultGrid.ReadOnly = true;
+			this.resultGrid.RowTemplate.Height = 24;
+			this.resultGrid.Size = new System.Drawing.Size(746, 454);
+			this.resultGrid.TabIndex = 2;
 			// 
 			// CarColorForm
 			// 
@@ -158,10 +158,10 @@
 			this.Controls.Add(this.groupBox1);
 			this.Name = "CarColorForm";
 			this.Text = "اطلاعات پایه - رنگ خودرو";
-			this.groupBox1.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.resultGrid)).EndInit();
 			this.mainMenu.ResumeLayout(false);
 			this.mainMenu.PerformLayout();
+			this.groupBox1.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.resultGrid)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -169,8 +169,7 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView resultGrid;
+		private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ToolStripMenuItem اطلاعاتToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem insertMenu;
         private System.Windows.Forms.ToolStripMenuItem modifyMenu;
@@ -180,5 +179,6 @@
         private System.Windows.Forms.MenuStrip mainMenu;
 		private System.Windows.Forms.ToolStripMenuItem reloadMenu;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+		private System.Windows.Forms.DataGridView resultGrid;
     }
 }

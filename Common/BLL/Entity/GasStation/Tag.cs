@@ -8,12 +8,40 @@ namespace Common.BLL.Entity.GasStation
 	public class Tag : BaseBLL.Entity.BaseByViewId
 	{
 		
-		//[BaseBLL.Base.Field(nullable=false,sqlDBType=System.Data.SqlDbType.Int,primary=false,usage=BaseBLL.Base.EnumUsage.read | BaseBLL.Base.EnumUsage.update | BaseBLL.Base.EnumUsage.create)]
-		//public System.Int32 id
-		//{
-		//	get;
-		//	set;
-		//}
+//
+	// Genereted Property of CarTag
+	//
+	#region Relation - CarTag (Has-Many relation)
+		private System.Data.DataTable _get_CarTag_tagId;
+		public System.Data.DataTable getCarTag_tagId
+		{
+			get
+			{
+				if ((_get_CarTag_tagId == null) && (AutoLoadForeignKeys))
+					loadCarTag_tagId ();
+
+				return _get_CarTag_tagId;
+			}
+			set
+			{
+				_get_CarTag_tagId	= value;
+			}
+		}
+
+		public void loadCarTag_tagId (int pageIndex = -1, int pageSize = 100)
+		{
+			CommandResult	opResult;
+
+			BLL.Logic.GasStation.CarTag	logic	= new BLL.Logic.GasStation.CarTag (Common.Enum.EDatabase.GasStation);
+			if (pageIndex == -1)
+				opResult	= logic.allData ("tagId = @tagId", "", false, true, new KeyValuePair ("@tagId", id));
+			else
+				opResult	= logic.allByPaging ( pageIndex, pageSize, "tagId = @tagId", "", false, true, new KeyValuePair ("@tagId", id));
+
+			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
+				_get_CarTag_tagId	= opResult.model as System.Data.DataTable;
+		}
+	#endregion
 //
 	// Genereted Property of Traffic
 	//
@@ -48,47 +76,8 @@ namespace Common.BLL.Entity.GasStation
 				_get_Traffic_tagId	= opResult.model as System.Data.DataTable;
 		}
 	#endregion
-//
-	// Genereted Property of Car
-	//
-	#region Relation - Car (Has-Many relation)
-		private System.Data.DataTable _get_Car_tagId;
-		public System.Data.DataTable getCar_tagId
-		{
-			get
-			{
-				if ((_get_Car_tagId == null) && (AutoLoadForeignKeys))
-					loadCar_tagId ();
 
-				return _get_Car_tagId;
-			}
-			set
-			{
-				_get_Car_tagId	= value;
-			}
-		}
-
-		public void loadCar_tagId (int pageIndex = -1, int pageSize = 100)
-		{
-			CommandResult	opResult;
-
-			BLL.Logic.GasStation.Car	logic	= new BLL.Logic.GasStation.Car (Common.Enum.EDatabase.GasStation);
-			if (pageIndex == -1)
-				opResult	= logic.allData ("tagId = @tagId", "", false, true, new KeyValuePair ("@tagId", id));
-			else
-				opResult	= logic.allByPaging ( pageIndex, pageSize, "tagId = @tagId", "", false, true, new KeyValuePair ("@tagId", id));
-
-			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
-				_get_Car_tagId	= opResult.model as System.Data.DataTable;
-		}
-	#endregion
-
-		//[BaseBLL.Base.Field(nullable=false,sqlDBType=System.Data.SqlDbType.UniqueIdentifier,primary=false,usage=BaseBLL.Base.EnumUsage.read | BaseBLL.Base.EnumUsage.update | BaseBLL.Base.EnumUsage.create)]
-		//public System.Guid viewId
-		//{
-		//	get;
-		//	set;
-		//}
+		
 
 		[BaseBLL.Base.Field(nullable=false,sqlDBType=System.Data.SqlDbType.VarChar,primary=false,usage=BaseBLL.Base.EnumUsage.read | BaseBLL.Base.EnumUsage.update | BaseBLL.Base.EnumUsage.create,size=50)]
 		public System.String tag

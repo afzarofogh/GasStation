@@ -7,8 +7,14 @@ namespace Common.BLL.Entity.GasStation
 	[Serializable]
 	public class User : BaseBLL.Entity.BaseByViewId
 	{
-
-	//
+		
+		//[BaseBLL.Base.Field(nullable=false,sqlDBType=System.Data.SqlDbType.Int,primary=false,usage=BaseBLL.Base.EnumUsage.read | BaseBLL.Base.EnumUsage.update | BaseBLL.Base.EnumUsage.create)]
+		//public System.Int32 id
+		//{
+		//	get;
+		//	set;
+		//}
+//
 	// Genereted Property of Base__CarColor
 	//
 	#region Relation - Base__CarColor (Has-Many relation)
@@ -74,6 +80,210 @@ namespace Common.BLL.Entity.GasStation
 
 			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
 				_get_Base__CarColor_updatedById	= opResult.model as System.Data.DataTable;
+		}
+	#endregion
+//
+	// Genereted Property of CarTag
+	//
+	#region Relation - CarTag (Has-Many relation)
+		private System.Data.DataTable _get_CarTag_insertedById;
+		public System.Data.DataTable getCarTag_insertedById
+		{
+			get
+			{
+				if ((_get_CarTag_insertedById == null) && (AutoLoadForeignKeys))
+					loadCarTag_insertedById ();
+
+				return _get_CarTag_insertedById;
+			}
+			set
+			{
+				_get_CarTag_insertedById	= value;
+			}
+		}
+
+		public void loadCarTag_insertedById (int pageIndex = -1, int pageSize = 100)
+		{
+			CommandResult	opResult;
+
+			BLL.Logic.GasStation.CarTag	logic	= new BLL.Logic.GasStation.CarTag (Common.Enum.EDatabase.GasStation);
+			if (pageIndex == -1)
+				opResult	= logic.allData ("insertedById = @insertedById", "", false, true, new KeyValuePair ("@insertedById", id));
+			else
+				opResult	= logic.allByPaging ( pageIndex, pageSize, "insertedById = @insertedById", "", false, true, new KeyValuePair ("@insertedById", id));
+
+			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
+				_get_CarTag_insertedById	= opResult.model as System.Data.DataTable;
+		}
+	#endregion
+//
+	// Genereted Property of CarTag
+	//
+	#region Relation - CarTag (Has-Many relation)
+		private System.Data.DataTable _get_CarTag_updatedById;
+		public System.Data.DataTable getCarTag_updatedById
+		{
+			get
+			{
+				if ((_get_CarTag_updatedById == null) && (AutoLoadForeignKeys))
+					loadCarTag_updatedById ();
+
+				return _get_CarTag_updatedById;
+			}
+			set
+			{
+				_get_CarTag_updatedById	= value;
+			}
+		}
+
+		public void loadCarTag_updatedById (int pageIndex = -1, int pageSize = 100)
+		{
+			CommandResult	opResult;
+
+			BLL.Logic.GasStation.CarTag	logic	= new BLL.Logic.GasStation.CarTag (Common.Enum.EDatabase.GasStation);
+			if (pageIndex == -1)
+				opResult	= logic.allData ("updatedById = @updatedById", "", false, true, new KeyValuePair ("@updatedById", id));
+			else
+				opResult	= logic.allByPaging ( pageIndex, pageSize, "updatedById = @updatedById", "", false, true, new KeyValuePair ("@updatedById", id));
+
+			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
+				_get_CarTag_updatedById	= opResult.model as System.Data.DataTable;
+		}
+	#endregion
+//
+	// Genereted Property of Base__CarLevel
+	//
+	#region Relation - Base__CarLevel (Has-Many relation)
+		private System.Data.DataTable _get_Base__CarLevel_insertedById;
+		public System.Data.DataTable getBase__CarLevel_insertedById
+		{
+			get
+			{
+				if ((_get_Base__CarLevel_insertedById == null) && (AutoLoadForeignKeys))
+					loadBase__CarLevel_insertedById ();
+
+				return _get_Base__CarLevel_insertedById;
+			}
+			set
+			{
+				_get_Base__CarLevel_insertedById	= value;
+			}
+		}
+
+		public void loadBase__CarLevel_insertedById (int pageIndex = -1, int pageSize = 100)
+		{
+			CommandResult	opResult;
+
+			BLL.Logic.GasStation.Base__CarLevel	logic	= new BLL.Logic.GasStation.Base__CarLevel (Common.Enum.EDatabase.GasStation);
+			if (pageIndex == -1)
+				opResult	= logic.allData ("insertedById = @insertedById", "", false, true, new KeyValuePair ("@insertedById", id));
+			else
+				opResult	= logic.allByPaging ( pageIndex, pageSize, "insertedById = @insertedById", "", false, true, new KeyValuePair ("@insertedById", id));
+
+			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
+				_get_Base__CarLevel_insertedById	= opResult.model as System.Data.DataTable;
+		}
+	#endregion
+//
+	// Genereted Property of Base__CarLevel
+	//
+	#region Relation - Base__CarLevel (Has-Many relation)
+		private System.Data.DataTable _get_Base__CarLevel_updatedById;
+		public System.Data.DataTable getBase__CarLevel_updatedById
+		{
+			get
+			{
+				if ((_get_Base__CarLevel_updatedById == null) && (AutoLoadForeignKeys))
+					loadBase__CarLevel_updatedById ();
+
+				return _get_Base__CarLevel_updatedById;
+			}
+			set
+			{
+				_get_Base__CarLevel_updatedById	= value;
+			}
+		}
+
+		public void loadBase__CarLevel_updatedById (int pageIndex = -1, int pageSize = 100)
+		{
+			CommandResult	opResult;
+
+			BLL.Logic.GasStation.Base__CarLevel	logic	= new BLL.Logic.GasStation.Base__CarLevel (Common.Enum.EDatabase.GasStation);
+			if (pageIndex == -1)
+				opResult	= logic.allData ("updatedById = @updatedById", "", false, true, new KeyValuePair ("@updatedById", id));
+			else
+				opResult	= logic.allByPaging ( pageIndex, pageSize, "updatedById = @updatedById", "", false, true, new KeyValuePair ("@updatedById", id));
+
+			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
+				_get_Base__CarLevel_updatedById	= opResult.model as System.Data.DataTable;
+		}
+	#endregion
+//
+	// Genereted Property of Base__CarModel
+	//
+	#region Relation - Base__CarModel (Has-Many relation)
+		private System.Data.DataTable _get_Base__CarModel_insertedById;
+		public System.Data.DataTable getBase__CarModel_insertedById
+		{
+			get
+			{
+				if ((_get_Base__CarModel_insertedById == null) && (AutoLoadForeignKeys))
+					loadBase__CarModel_insertedById ();
+
+				return _get_Base__CarModel_insertedById;
+			}
+			set
+			{
+				_get_Base__CarModel_insertedById	= value;
+			}
+		}
+
+		public void loadBase__CarModel_insertedById (int pageIndex = -1, int pageSize = 100)
+		{
+			CommandResult	opResult;
+
+			BLL.Logic.GasStation.Base__CarSystem	logic	= new BLL.Logic.GasStation.Base__CarSystem (Common.Enum.EDatabase.GasStation);
+			if (pageIndex == -1)
+				opResult	= logic.allData ("insertedById = @insertedById", "", false, true, new KeyValuePair ("@insertedById", id));
+			else
+				opResult	= logic.allByPaging ( pageIndex, pageSize, "insertedById = @insertedById", "", false, true, new KeyValuePair ("@insertedById", id));
+
+			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
+				_get_Base__CarModel_insertedById	= opResult.model as System.Data.DataTable;
+		}
+	#endregion
+//
+	// Genereted Property of Base__CarModel
+	//
+	#region Relation - Base__CarModel (Has-Many relation)
+		private System.Data.DataTable _get_Base__CarModel_updatedById;
+		public System.Data.DataTable getBase__CarModel_updatedById
+		{
+			get
+			{
+				if ((_get_Base__CarModel_updatedById == null) && (AutoLoadForeignKeys))
+					loadBase__CarModel_updatedById ();
+
+				return _get_Base__CarModel_updatedById;
+			}
+			set
+			{
+				_get_Base__CarModel_updatedById	= value;
+			}
+		}
+
+		public void loadBase__CarModel_updatedById (int pageIndex = -1, int pageSize = 100)
+		{
+			CommandResult	opResult;
+
+			BLL.Logic.GasStation.Base__CarSystem	logic	= new BLL.Logic.GasStation.Base__CarSystem (Common.Enum.EDatabase.GasStation);
+			if (pageIndex == -1)
+				opResult	= logic.allData ("updatedById = @updatedById", "", false, true, new KeyValuePair ("@updatedById", id));
+			else
+				opResult	= logic.allByPaging ( pageIndex, pageSize, "updatedById = @updatedById", "", false, true, new KeyValuePair ("@updatedById", id));
+
+			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
+				_get_Base__CarModel_updatedById	= opResult.model as System.Data.DataTable;
 		}
 	#endregion
 //
@@ -145,71 +355,71 @@ namespace Common.BLL.Entity.GasStation
 		}
 	#endregion
 //
-	// Genereted Property of Base__OwnerType
+	// Genereted Property of CarOwner
 	//
-	#region Relation - Base__OwnerType (Has-Many relation)
-		private System.Data.DataTable _get_Base__OwnerType_insertedById;
-		public System.Data.DataTable getBase__OwnerType_insertedById
+	#region Relation - CarOwner (Has-Many relation)
+		private System.Data.DataTable _get_CarOwner_insertedById;
+		public System.Data.DataTable getCarOwner_insertedById
 		{
 			get
 			{
-				if ((_get_Base__OwnerType_insertedById == null) && (AutoLoadForeignKeys))
-					loadBase__OwnerType_insertedById ();
+				if ((_get_CarOwner_insertedById == null) && (AutoLoadForeignKeys))
+					loadCarOwner_insertedById ();
 
-				return _get_Base__OwnerType_insertedById;
+				return _get_CarOwner_insertedById;
 			}
 			set
 			{
-				_get_Base__OwnerType_insertedById	= value;
+				_get_CarOwner_insertedById	= value;
 			}
 		}
 
-		public void loadBase__OwnerType_insertedById (int pageIndex = -1, int pageSize = 100)
+		public void loadCarOwner_insertedById (int pageIndex = -1, int pageSize = 100)
 		{
 			CommandResult	opResult;
 
-			BLL.Logic.GasStation.Base__OwnerType	logic	= new BLL.Logic.GasStation.Base__OwnerType (Common.Enum.EDatabase.GasStation);
+			BLL.Logic.GasStation.CarOwner	logic	= new BLL.Logic.GasStation.CarOwner (Common.Enum.EDatabase.GasStation);
 			if (pageIndex == -1)
 				opResult	= logic.allData ("insertedById = @insertedById", "", false, true, new KeyValuePair ("@insertedById", id));
 			else
 				opResult	= logic.allByPaging ( pageIndex, pageSize, "insertedById = @insertedById", "", false, true, new KeyValuePair ("@insertedById", id));
 
 			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
-				_get_Base__OwnerType_insertedById	= opResult.model as System.Data.DataTable;
+				_get_CarOwner_insertedById	= opResult.model as System.Data.DataTable;
 		}
 	#endregion
 //
-	// Genereted Property of Base__OwnerType
+	// Genereted Property of CarOwner
 	//
-	#region Relation - Base__OwnerType (Has-Many relation)
-		private System.Data.DataTable _get_Base__OwnerType_updatedById;
-		public System.Data.DataTable getBase__OwnerType_updatedById
+	#region Relation - CarOwner (Has-Many relation)
+		private System.Data.DataTable _get_CarOwner_updatedById;
+		public System.Data.DataTable getCarOwner_updatedById
 		{
 			get
 			{
-				if ((_get_Base__OwnerType_updatedById == null) && (AutoLoadForeignKeys))
-					loadBase__OwnerType_updatedById ();
+				if ((_get_CarOwner_updatedById == null) && (AutoLoadForeignKeys))
+					loadCarOwner_updatedById ();
 
-				return _get_Base__OwnerType_updatedById;
+				return _get_CarOwner_updatedById;
 			}
 			set
 			{
-				_get_Base__OwnerType_updatedById	= value;
+				_get_CarOwner_updatedById	= value;
 			}
 		}
 
-		public void loadBase__OwnerType_updatedById (int pageIndex = -1, int pageSize = 100)
+		public void loadCarOwner_updatedById (int pageIndex = -1, int pageSize = 100)
 		{
 			CommandResult	opResult;
 
-			BLL.Logic.GasStation.Base__OwnerType	logic	= new BLL.Logic.GasStation.Base__OwnerType (Common.Enum.EDatabase.GasStation);
+			BLL.Logic.GasStation.CarOwner	logic	= new BLL.Logic.GasStation.CarOwner (Common.Enum.EDatabase.GasStation);
 			if (pageIndex == -1)
 				opResult	= logic.allData ("updatedById = @updatedById", "", false, true, new KeyValuePair ("@updatedById", id));
 			else
 				opResult	= logic.allByPaging ( pageIndex, pageSize, "updatedById = @updatedById", "", false, true, new KeyValuePair ("@updatedById", id));
 
 			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
-				_get_Base__OwnerType_updatedById	= opResult.model as System.Data.DataTable;
+				_get_CarOwner_updatedById	= opResult.model as System.Data.DataTable;
 		}
 	#endregion
 //
@@ -281,142 +491,6 @@ namespace Common.BLL.Entity.GasStation
 		}
 	#endregion
 //
-	// Genereted Property of Base__PlateCountry
-	//
-	#region Relation - Base__PlateCountry (Has-Many relation)
-		private System.Data.DataTable _get_Base__PlateCountry_insertedById;
-		public System.Data.DataTable getBase__PlateCountry_insertedById
-		{
-			get
-			{
-				if ((_get_Base__PlateCountry_insertedById == null) && (AutoLoadForeignKeys))
-					loadBase__PlateCountry_insertedById ();
-
-				return _get_Base__PlateCountry_insertedById;
-			}
-			set
-			{
-				_get_Base__PlateCountry_insertedById	= value;
-			}
-		}
-
-		public void loadBase__PlateCountry_insertedById (int pageIndex = -1, int pageSize = 100)
-		{
-			CommandResult	opResult;
-
-			BLL.Logic.GasStation.Base__PlateCountry	logic	= new BLL.Logic.GasStation.Base__PlateCountry (Common.Enum.EDatabase.GasStation);
-			if (pageIndex == -1)
-				opResult	= logic.allData ("insertedById = @insertedById", "", false, true, new KeyValuePair ("@insertedById", id));
-			else
-				opResult	= logic.allByPaging ( pageIndex, pageSize, "insertedById = @insertedById", "", false, true, new KeyValuePair ("@insertedById", id));
-
-			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
-				_get_Base__PlateCountry_insertedById	= opResult.model as System.Data.DataTable;
-		}
-	#endregion
-//
-	// Genereted Property of Base__PlateCountry
-	//
-	#region Relation - Base__PlateCountry (Has-Many relation)
-		private System.Data.DataTable _get_Base__PlateCountry_updatedById;
-		public System.Data.DataTable getBase__PlateCountry_updatedById
-		{
-			get
-			{
-				if ((_get_Base__PlateCountry_updatedById == null) && (AutoLoadForeignKeys))
-					loadBase__PlateCountry_updatedById ();
-
-				return _get_Base__PlateCountry_updatedById;
-			}
-			set
-			{
-				_get_Base__PlateCountry_updatedById	= value;
-			}
-		}
-
-		public void loadBase__PlateCountry_updatedById (int pageIndex = -1, int pageSize = 100)
-		{
-			CommandResult	opResult;
-
-			BLL.Logic.GasStation.Base__PlateCountry	logic	= new BLL.Logic.GasStation.Base__PlateCountry (Common.Enum.EDatabase.GasStation);
-			if (pageIndex == -1)
-				opResult	= logic.allData ("updatedById = @updatedById", "", false, true, new KeyValuePair ("@updatedById", id));
-			else
-				opResult	= logic.allByPaging ( pageIndex, pageSize, "updatedById = @updatedById", "", false, true, new KeyValuePair ("@updatedById", id));
-
-			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
-				_get_Base__PlateCountry_updatedById	= opResult.model as System.Data.DataTable;
-		}
-	#endregion
-//
-	// Genereted Property of Base__PlateLetter
-	//
-	#region Relation - Base__PlateLetter (Has-Many relation)
-		private System.Data.DataTable _get_Base__PlateLetter_insertedById;
-		public System.Data.DataTable getBase__PlateLetter_insertedById
-		{
-			get
-			{
-				if ((_get_Base__PlateLetter_insertedById == null) && (AutoLoadForeignKeys))
-					loadBase__PlateLetter_insertedById ();
-
-				return _get_Base__PlateLetter_insertedById;
-			}
-			set
-			{
-				_get_Base__PlateLetter_insertedById	= value;
-			}
-		}
-
-		public void loadBase__PlateLetter_insertedById (int pageIndex = -1, int pageSize = 100)
-		{
-			CommandResult	opResult;
-
-			BLL.Logic.GasStation.Base__PlateLetter	logic	= new BLL.Logic.GasStation.Base__PlateLetter (Common.Enum.EDatabase.GasStation);
-			if (pageIndex == -1)
-				opResult	= logic.allData ("insertedById = @insertedById", "", false, true, new KeyValuePair ("@insertedById", id));
-			else
-				opResult	= logic.allByPaging ( pageIndex, pageSize, "insertedById = @insertedById", "", false, true, new KeyValuePair ("@insertedById", id));
-
-			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
-				_get_Base__PlateLetter_insertedById	= opResult.model as System.Data.DataTable;
-		}
-	#endregion
-//
-	// Genereted Property of Base__PlateLetter
-	//
-	#region Relation - Base__PlateLetter (Has-Many relation)
-		private System.Data.DataTable _get_Base__PlateLetter_updatedById;
-		public System.Data.DataTable getBase__PlateLetter_updatedById
-		{
-			get
-			{
-				if ((_get_Base__PlateLetter_updatedById == null) && (AutoLoadForeignKeys))
-					loadBase__PlateLetter_updatedById ();
-
-				return _get_Base__PlateLetter_updatedById;
-			}
-			set
-			{
-				_get_Base__PlateLetter_updatedById	= value;
-			}
-		}
-
-		public void loadBase__PlateLetter_updatedById (int pageIndex = -1, int pageSize = 100)
-		{
-			CommandResult	opResult;
-
-			BLL.Logic.GasStation.Base__PlateLetter	logic	= new BLL.Logic.GasStation.Base__PlateLetter (Common.Enum.EDatabase.GasStation);
-			if (pageIndex == -1)
-				opResult	= logic.allData ("updatedById = @updatedById", "", false, true, new KeyValuePair ("@updatedById", id));
-			else
-				opResult	= logic.allByPaging ( pageIndex, pageSize, "updatedById = @updatedById", "", false, true, new KeyValuePair ("@updatedById", id));
-
-			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
-				_get_Base__PlateLetter_updatedById	= opResult.model as System.Data.DataTable;
-		}
-	#endregion
-//
 	// Genereted Property of Base__PlateType
 	//
 	#region Relation - Base__PlateType (Has-Many relation)
@@ -482,6 +556,142 @@ namespace Common.BLL.Entity.GasStation
 
 			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
 				_get_Base__PlateType_updatedById	= opResult.model as System.Data.DataTable;
+		}
+	#endregion
+//
+	// Genereted Property of Tag
+	//
+	#region Relation - Tag (Has-Many relation)
+		private System.Data.DataTable _get_Tag_insertedById;
+		public System.Data.DataTable getTag_insertedById
+		{
+			get
+			{
+				if ((_get_Tag_insertedById == null) && (AutoLoadForeignKeys))
+					loadTag_insertedById ();
+
+				return _get_Tag_insertedById;
+			}
+			set
+			{
+				_get_Tag_insertedById	= value;
+			}
+		}
+
+		public void loadTag_insertedById (int pageIndex = -1, int pageSize = 100)
+		{
+			CommandResult	opResult;
+
+			BLL.Logic.GasStation.Tag	logic	= new BLL.Logic.GasStation.Tag (Common.Enum.EDatabase.GasStation);
+			if (pageIndex == -1)
+				opResult	= logic.allData ("insertedById = @insertedById", "", false, true, new KeyValuePair ("@insertedById", id));
+			else
+				opResult	= logic.allByPaging ( pageIndex, pageSize, "insertedById = @insertedById", "", false, true, new KeyValuePair ("@insertedById", id));
+
+			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
+				_get_Tag_insertedById	= opResult.model as System.Data.DataTable;
+		}
+	#endregion
+//
+	// Genereted Property of Tag
+	//
+	#region Relation - Tag (Has-Many relation)
+		private System.Data.DataTable _get_Tag_updatedById;
+		public System.Data.DataTable getTag_updatedById
+		{
+			get
+			{
+				if ((_get_Tag_updatedById == null) && (AutoLoadForeignKeys))
+					loadTag_updatedById ();
+
+				return _get_Tag_updatedById;
+			}
+			set
+			{
+				_get_Tag_updatedById	= value;
+			}
+		}
+
+		public void loadTag_updatedById (int pageIndex = -1, int pageSize = 100)
+		{
+			CommandResult	opResult;
+
+			BLL.Logic.GasStation.Tag	logic	= new BLL.Logic.GasStation.Tag (Common.Enum.EDatabase.GasStation);
+			if (pageIndex == -1)
+				opResult	= logic.allData ("updatedById = @updatedById", "", false, true, new KeyValuePair ("@updatedById", id));
+			else
+				opResult	= logic.allByPaging ( pageIndex, pageSize, "updatedById = @updatedById", "", false, true, new KeyValuePair ("@updatedById", id));
+
+			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
+				_get_Tag_updatedById	= opResult.model as System.Data.DataTable;
+		}
+	#endregion
+//
+	// Genereted Property of UHF
+	//
+	#region Relation - UHF (Has-Many relation)
+		private System.Data.DataTable _get_UHF_insertedById;
+		public System.Data.DataTable getUHF_insertedById
+		{
+			get
+			{
+				if ((_get_UHF_insertedById == null) && (AutoLoadForeignKeys))
+					loadUHF_insertedById ();
+
+				return _get_UHF_insertedById;
+			}
+			set
+			{
+				_get_UHF_insertedById	= value;
+			}
+		}
+
+		public void loadUHF_insertedById (int pageIndex = -1, int pageSize = 100)
+		{
+			CommandResult	opResult;
+
+			BLL.Logic.GasStation.UHF	logic	= new BLL.Logic.GasStation.UHF (Common.Enum.EDatabase.GasStation);
+			if (pageIndex == -1)
+				opResult	= logic.allData ("insertedById = @insertedById", "", false, true, new KeyValuePair ("@insertedById", id));
+			else
+				opResult	= logic.allByPaging ( pageIndex, pageSize, "insertedById = @insertedById", "", false, true, new KeyValuePair ("@insertedById", id));
+
+			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
+				_get_UHF_insertedById	= opResult.model as System.Data.DataTable;
+		}
+	#endregion
+//
+	// Genereted Property of UHF
+	//
+	#region Relation - UHF (Has-Many relation)
+		private System.Data.DataTable _get_UHF_updatedById;
+		public System.Data.DataTable getUHF_updatedById
+		{
+			get
+			{
+				if ((_get_UHF_updatedById == null) && (AutoLoadForeignKeys))
+					loadUHF_updatedById ();
+
+				return _get_UHF_updatedById;
+			}
+			set
+			{
+				_get_UHF_updatedById	= value;
+			}
+		}
+
+		public void loadUHF_updatedById (int pageIndex = -1, int pageSize = 100)
+		{
+			CommandResult	opResult;
+
+			BLL.Logic.GasStation.UHF	logic	= new BLL.Logic.GasStation.UHF (Common.Enum.EDatabase.GasStation);
+			if (pageIndex == -1)
+				opResult	= logic.allData ("updatedById = @updatedById", "", false, true, new KeyValuePair ("@updatedById", id));
+			else
+				opResult	= logic.allByPaging ( pageIndex, pageSize, "updatedById = @updatedById", "", false, true, new KeyValuePair ("@updatedById", id));
+
+			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
+				_get_UHF_updatedById	= opResult.model as System.Data.DataTable;
 		}
 	#endregion
 //
@@ -621,6 +831,74 @@ namespace Common.BLL.Entity.GasStation
 		}
 	#endregion
 //
+	// Genereted Property of Car
+	//
+	#region Relation - Car (Has-Many relation)
+		private System.Data.DataTable _get_Car_insertedById;
+		public System.Data.DataTable getCar_insertedById
+		{
+			get
+			{
+				if ((_get_Car_insertedById == null) && (AutoLoadForeignKeys))
+					loadCar_insertedById ();
+
+				return _get_Car_insertedById;
+			}
+			set
+			{
+				_get_Car_insertedById	= value;
+			}
+		}
+
+		public void loadCar_insertedById (int pageIndex = -1, int pageSize = 100)
+		{
+			CommandResult	opResult;
+
+			BLL.Logic.GasStation.Car	logic	= new BLL.Logic.GasStation.Car (Common.Enum.EDatabase.GasStation);
+			if (pageIndex == -1)
+				opResult	= logic.allData ("insertedById = @insertedById", "", false, true, new KeyValuePair ("@insertedById", id));
+			else
+				opResult	= logic.allByPaging ( pageIndex, pageSize, "insertedById = @insertedById", "", false, true, new KeyValuePair ("@insertedById", id));
+
+			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
+				_get_Car_insertedById	= opResult.model as System.Data.DataTable;
+		}
+	#endregion
+//
+	// Genereted Property of Car
+	//
+	#region Relation - Car (Has-Many relation)
+		private System.Data.DataTable _get_Car_updatedById;
+		public System.Data.DataTable getCar_updatedById
+		{
+			get
+			{
+				if ((_get_Car_updatedById == null) && (AutoLoadForeignKeys))
+					loadCar_updatedById ();
+
+				return _get_Car_updatedById;
+			}
+			set
+			{
+				_get_Car_updatedById	= value;
+			}
+		}
+
+		public void loadCar_updatedById (int pageIndex = -1, int pageSize = 100)
+		{
+			CommandResult	opResult;
+
+			BLL.Logic.GasStation.Car	logic	= new BLL.Logic.GasStation.Car (Common.Enum.EDatabase.GasStation);
+			if (pageIndex == -1)
+				opResult	= logic.allData ("updatedById = @updatedById", "", false, true, new KeyValuePair ("@updatedById", id));
+			else
+				opResult	= logic.allByPaging ( pageIndex, pageSize, "updatedById = @updatedById", "", false, true, new KeyValuePair ("@updatedById", id));
+
+			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
+				_get_Car_updatedById	= opResult.model as System.Data.DataTable;
+		}
+	#endregion
+//
 	// Genereted Property of Plate
 	//
 	#region Relation - Plate (Has-Many relation)
@@ -686,142 +964,6 @@ namespace Common.BLL.Entity.GasStation
 
 			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
 				_get_Plate_updatedById	= opResult.model as System.Data.DataTable;
-		}
-	#endregion
-//
-	// Genereted Property of RealOwner
-	//
-	#region Relation - RealOwner (Has-Many relation)
-		private System.Data.DataTable _get_RealOwner_insertedById;
-		public System.Data.DataTable getRealOwner_insertedById
-		{
-			get
-			{
-				if ((_get_RealOwner_insertedById == null) && (AutoLoadForeignKeys))
-					loadRealOwner_insertedById ();
-
-				return _get_RealOwner_insertedById;
-			}
-			set
-			{
-				_get_RealOwner_insertedById	= value;
-			}
-		}
-
-		public void loadRealOwner_insertedById (int pageIndex = -1, int pageSize = 100)
-		{
-			CommandResult	opResult;
-
-			BLL.Logic.GasStation.RealOwner	logic	= new BLL.Logic.GasStation.RealOwner (Common.Enum.EDatabase.GasStation);
-			if (pageIndex == -1)
-				opResult	= logic.allData ("insertedById = @insertedById", "", false, true, new KeyValuePair ("@insertedById", id));
-			else
-				opResult	= logic.allByPaging ( pageIndex, pageSize, "insertedById = @insertedById", "", false, true, new KeyValuePair ("@insertedById", id));
-
-			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
-				_get_RealOwner_insertedById	= opResult.model as System.Data.DataTable;
-		}
-	#endregion
-//
-	// Genereted Property of RealOwner
-	//
-	#region Relation - RealOwner (Has-Many relation)
-		private System.Data.DataTable _get_RealOwner_updatedById;
-		public System.Data.DataTable getRealOwner_updatedById
-		{
-			get
-			{
-				if ((_get_RealOwner_updatedById == null) && (AutoLoadForeignKeys))
-					loadRealOwner_updatedById ();
-
-				return _get_RealOwner_updatedById;
-			}
-			set
-			{
-				_get_RealOwner_updatedById	= value;
-			}
-		}
-
-		public void loadRealOwner_updatedById (int pageIndex = -1, int pageSize = 100)
-		{
-			CommandResult	opResult;
-
-			BLL.Logic.GasStation.RealOwner	logic	= new BLL.Logic.GasStation.RealOwner (Common.Enum.EDatabase.GasStation);
-			if (pageIndex == -1)
-				opResult	= logic.allData ("updatedById = @updatedById", "", false, true, new KeyValuePair ("@updatedById", id));
-			else
-				opResult	= logic.allByPaging ( pageIndex, pageSize, "updatedById = @updatedById", "", false, true, new KeyValuePair ("@updatedById", id));
-
-			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
-				_get_RealOwner_updatedById	= opResult.model as System.Data.DataTable;
-		}
-	#endregion
-//
-	// Genereted Property of Tag
-	//
-	#region Relation - Tag (Has-Many relation)
-		private System.Data.DataTable _get_Tag_insertedById;
-		public System.Data.DataTable getTag_insertedById
-		{
-			get
-			{
-				if ((_get_Tag_insertedById == null) && (AutoLoadForeignKeys))
-					loadTag_insertedById ();
-
-				return _get_Tag_insertedById;
-			}
-			set
-			{
-				_get_Tag_insertedById	= value;
-			}
-		}
-
-		public void loadTag_insertedById (int pageIndex = -1, int pageSize = 100)
-		{
-			CommandResult	opResult;
-
-			BLL.Logic.GasStation.Tag	logic	= new BLL.Logic.GasStation.Tag (Common.Enum.EDatabase.GasStation);
-			if (pageIndex == -1)
-				opResult	= logic.allData ("insertedById = @insertedById", "", false, true, new KeyValuePair ("@insertedById", id));
-			else
-				opResult	= logic.allByPaging ( pageIndex, pageSize, "insertedById = @insertedById", "", false, true, new KeyValuePair ("@insertedById", id));
-
-			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
-				_get_Tag_insertedById	= opResult.model as System.Data.DataTable;
-		}
-	#endregion
-//
-	// Genereted Property of Tag
-	//
-	#region Relation - Tag (Has-Many relation)
-		private System.Data.DataTable _get_Tag_updatedById;
-		public System.Data.DataTable getTag_updatedById
-		{
-			get
-			{
-				if ((_get_Tag_updatedById == null) && (AutoLoadForeignKeys))
-					loadTag_updatedById ();
-
-				return _get_Tag_updatedById;
-			}
-			set
-			{
-				_get_Tag_updatedById	= value;
-			}
-		}
-
-		public void loadTag_updatedById (int pageIndex = -1, int pageSize = 100)
-		{
-			CommandResult	opResult;
-
-			BLL.Logic.GasStation.Tag	logic	= new BLL.Logic.GasStation.Tag (Common.Enum.EDatabase.GasStation);
-			if (pageIndex == -1)
-				opResult	= logic.allData ("updatedById = @updatedById", "", false, true, new KeyValuePair ("@updatedById", id));
-			else
-				opResult	= logic.allByPaging ( pageIndex, pageSize, "updatedById = @updatedById", "", false, true, new KeyValuePair ("@updatedById", id));
-
-			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
-				_get_Tag_updatedById	= opResult.model as System.Data.DataTable;
 		}
 	#endregion
 //
@@ -892,278 +1034,6 @@ namespace Common.BLL.Entity.GasStation
 				_get_Base__CarFuel_updatedById	= opResult.model as System.Data.DataTable;
 		}
 	#endregion
-//
-	// Genereted Property of UHF
-	//
-	#region Relation - UHF (Has-Many relation)
-		private System.Data.DataTable _get_UHF_insertedById;
-		public System.Data.DataTable getUHF_insertedById
-		{
-			get
-			{
-				if ((_get_UHF_insertedById == null) && (AutoLoadForeignKeys))
-					loadUHF_insertedById ();
-
-				return _get_UHF_insertedById;
-			}
-			set
-			{
-				_get_UHF_insertedById	= value;
-			}
-		}
-
-		public void loadUHF_insertedById (int pageIndex = -1, int pageSize = 100)
-		{
-			CommandResult	opResult;
-
-			BLL.Logic.GasStation.UHF	logic	= new BLL.Logic.GasStation.UHF (Common.Enum.EDatabase.GasStation);
-			if (pageIndex == -1)
-				opResult	= logic.allData ("insertedById = @insertedById", "", false, true, new KeyValuePair ("@insertedById", id));
-			else
-				opResult	= logic.allByPaging ( pageIndex, pageSize, "insertedById = @insertedById", "", false, true, new KeyValuePair ("@insertedById", id));
-
-			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
-				_get_UHF_insertedById	= opResult.model as System.Data.DataTable;
-		}
-	#endregion
-//
-	// Genereted Property of UHF
-	//
-	#region Relation - UHF (Has-Many relation)
-		private System.Data.DataTable _get_UHF_updatedById;
-		public System.Data.DataTable getUHF_updatedById
-		{
-			get
-			{
-				if ((_get_UHF_updatedById == null) && (AutoLoadForeignKeys))
-					loadUHF_updatedById ();
-
-				return _get_UHF_updatedById;
-			}
-			set
-			{
-				_get_UHF_updatedById	= value;
-			}
-		}
-
-		public void loadUHF_updatedById (int pageIndex = -1, int pageSize = 100)
-		{
-			CommandResult	opResult;
-
-			BLL.Logic.GasStation.UHF	logic	= new BLL.Logic.GasStation.UHF (Common.Enum.EDatabase.GasStation);
-			if (pageIndex == -1)
-				opResult	= logic.allData ("updatedById = @updatedById", "", false, true, new KeyValuePair ("@updatedById", id));
-			else
-				opResult	= logic.allByPaging ( pageIndex, pageSize, "updatedById = @updatedById", "", false, true, new KeyValuePair ("@updatedById", id));
-
-			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
-				_get_UHF_updatedById	= opResult.model as System.Data.DataTable;
-		}
-	#endregion
-//
-	// Genereted Property of Base__CarLevel
-	//
-	#region Relation - Base__CarLevel (Has-Many relation)
-		private System.Data.DataTable _get_Base__CarLevel_insertedById;
-		public System.Data.DataTable getBase__CarLevel_insertedById
-		{
-			get
-			{
-				if ((_get_Base__CarLevel_insertedById == null) && (AutoLoadForeignKeys))
-					loadBase__CarLevel_insertedById ();
-
-				return _get_Base__CarLevel_insertedById;
-			}
-			set
-			{
-				_get_Base__CarLevel_insertedById	= value;
-			}
-		}
-
-		public void loadBase__CarLevel_insertedById (int pageIndex = -1, int pageSize = 100)
-		{
-			CommandResult	opResult;
-
-			BLL.Logic.GasStation.Base__CarLevel	logic	= new BLL.Logic.GasStation.Base__CarLevel (Common.Enum.EDatabase.GasStation);
-			if (pageIndex == -1)
-				opResult	= logic.allData ("insertedById = @insertedById", "", false, true, new KeyValuePair ("@insertedById", id));
-			else
-				opResult	= logic.allByPaging ( pageIndex, pageSize, "insertedById = @insertedById", "", false, true, new KeyValuePair ("@insertedById", id));
-
-			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
-				_get_Base__CarLevel_insertedById	= opResult.model as System.Data.DataTable;
-		}
-	#endregion
-//
-	// Genereted Property of Base__CarLevel
-	//
-	#region Relation - Base__CarLevel (Has-Many relation)
-		private System.Data.DataTable _get_Base__CarLevel_updatedById;
-		public System.Data.DataTable getBase__CarLevel_updatedById
-		{
-			get
-			{
-				if ((_get_Base__CarLevel_updatedById == null) && (AutoLoadForeignKeys))
-					loadBase__CarLevel_updatedById ();
-
-				return _get_Base__CarLevel_updatedById;
-			}
-			set
-			{
-				_get_Base__CarLevel_updatedById	= value;
-			}
-		}
-
-		public void loadBase__CarLevel_updatedById (int pageIndex = -1, int pageSize = 100)
-		{
-			CommandResult	opResult;
-
-			BLL.Logic.GasStation.Base__CarLevel	logic	= new BLL.Logic.GasStation.Base__CarLevel (Common.Enum.EDatabase.GasStation);
-			if (pageIndex == -1)
-				opResult	= logic.allData ("updatedById = @updatedById", "", false, true, new KeyValuePair ("@updatedById", id));
-			else
-				opResult	= logic.allByPaging ( pageIndex, pageSize, "updatedById = @updatedById", "", false, true, new KeyValuePair ("@updatedById", id));
-
-			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
-				_get_Base__CarLevel_updatedById	= opResult.model as System.Data.DataTable;
-		}
-	#endregion
-//
-	// Genereted Property of Car
-	//
-	#region Relation - Car (Has-Many relation)
-		private System.Data.DataTable _get_Car_insertedById;
-		public System.Data.DataTable getCar_insertedById
-		{
-			get
-			{
-				if ((_get_Car_insertedById == null) && (AutoLoadForeignKeys))
-					loadCar_insertedById ();
-
-				return _get_Car_insertedById;
-			}
-			set
-			{
-				_get_Car_insertedById	= value;
-			}
-		}
-
-		public void loadCar_insertedById (int pageIndex = -1, int pageSize = 100)
-		{
-			CommandResult	opResult;
-
-			BLL.Logic.GasStation.Car	logic	= new BLL.Logic.GasStation.Car (Common.Enum.EDatabase.GasStation);
-			if (pageIndex == -1)
-				opResult	= logic.allData ("insertedById = @insertedById", "", false, true, new KeyValuePair ("@insertedById", id));
-			else
-				opResult	= logic.allByPaging ( pageIndex, pageSize, "insertedById = @insertedById", "", false, true, new KeyValuePair ("@insertedById", id));
-
-			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
-				_get_Car_insertedById	= opResult.model as System.Data.DataTable;
-		}
-	#endregion
-//
-	// Genereted Property of Car
-	//
-	#region Relation - Car (Has-Many relation)
-		private System.Data.DataTable _get_Car_updatedById;
-		public System.Data.DataTable getCar_updatedById
-		{
-			get
-			{
-				if ((_get_Car_updatedById == null) && (AutoLoadForeignKeys))
-					loadCar_updatedById ();
-
-				return _get_Car_updatedById;
-			}
-			set
-			{
-				_get_Car_updatedById	= value;
-			}
-		}
-
-		public void loadCar_updatedById (int pageIndex = -1, int pageSize = 100)
-		{
-			CommandResult	opResult;
-
-			BLL.Logic.GasStation.Car	logic	= new BLL.Logic.GasStation.Car (Common.Enum.EDatabase.GasStation);
-			if (pageIndex == -1)
-				opResult	= logic.allData ("updatedById = @updatedById", "", false, true, new KeyValuePair ("@updatedById", id));
-			else
-				opResult	= logic.allByPaging ( pageIndex, pageSize, "updatedById = @updatedById", "", false, true, new KeyValuePair ("@updatedById", id));
-
-			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
-				_get_Car_updatedById	= opResult.model as System.Data.DataTable;
-		}
-	#endregion
-//
-	// Genereted Property of Base__CarModel
-	//
-	#region Relation - Base__CarModel (Has-Many relation)
-		private System.Data.DataTable _get_Base__CarModel_insertedById;
-		public System.Data.DataTable getBase__CarModel_insertedById
-		{
-			get
-			{
-				if ((_get_Base__CarModel_insertedById == null) && (AutoLoadForeignKeys))
-					loadBase__CarModel_insertedById ();
-
-				return _get_Base__CarModel_insertedById;
-			}
-			set
-			{
-				_get_Base__CarModel_insertedById	= value;
-			}
-		}
-
-		public void loadBase__CarModel_insertedById (int pageIndex = -1, int pageSize = 100)
-		{
-			CommandResult	opResult;
-
-			BLL.Logic.GasStation.Base__CarModel	logic	= new BLL.Logic.GasStation.Base__CarModel (Common.Enum.EDatabase.GasStation);
-			if (pageIndex == -1)
-				opResult	= logic.allData ("insertedById = @insertedById", "", false, true, new KeyValuePair ("@insertedById", id));
-			else
-				opResult	= logic.allByPaging ( pageIndex, pageSize, "insertedById = @insertedById", "", false, true, new KeyValuePair ("@insertedById", id));
-
-			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
-				_get_Base__CarModel_insertedById	= opResult.model as System.Data.DataTable;
-		}
-	#endregion
-//
-	// Genereted Property of Base__CarModel
-	//
-	#region Relation - Base__CarModel (Has-Many relation)
-		private System.Data.DataTable _get_Base__CarModel_updatedById;
-		public System.Data.DataTable getBase__CarModel_updatedById
-		{
-			get
-			{
-				if ((_get_Base__CarModel_updatedById == null) && (AutoLoadForeignKeys))
-					loadBase__CarModel_updatedById ();
-
-				return _get_Base__CarModel_updatedById;
-			}
-			set
-			{
-				_get_Base__CarModel_updatedById	= value;
-			}
-		}
-
-		public void loadBase__CarModel_updatedById (int pageIndex = -1, int pageSize = 100)
-		{
-			CommandResult	opResult;
-
-			BLL.Logic.GasStation.Base__CarModel	logic	= new BLL.Logic.GasStation.Base__CarModel (Common.Enum.EDatabase.GasStation);
-			if (pageIndex == -1)
-				opResult	= logic.allData ("updatedById = @updatedById", "", false, true, new KeyValuePair ("@updatedById", id));
-			else
-				opResult	= logic.allByPaging ( pageIndex, pageSize, "updatedById = @updatedById", "", false, true, new KeyValuePair ("@updatedById", id));
-
-			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
-				_get_Base__CarModel_updatedById	= opResult.model as System.Data.DataTable;
-		}
-	#endregion
 
 		//[BaseBLL.Base.Field(nullable=false,sqlDBType=System.Data.SqlDbType.UniqueIdentifier,primary=false,usage=BaseBLL.Base.EnumUsage.read | BaseBLL.Base.EnumUsage.update | BaseBLL.Base.EnumUsage.create)]
 		//public System.Guid viewId
@@ -1200,8 +1070,15 @@ namespace Common.BLL.Entity.GasStation
 			set;
 		}
 
-		[BaseBLL.Base.Field(nullable=false,sqlDBType=System.Data.SqlDbType.Date,primary=false,usage=BaseBLL.Base.EnumUsage.read | BaseBLL.Base.EnumUsage.update | BaseBLL.Base.EnumUsage.create)]
-		public System.DateTime insertDate
+		[BaseBLL.Base.Field(nullable=false,sqlDBType=System.Data.SqlDbType.DateTime,primary=false,usage=BaseBLL.Base.EnumUsage.read | BaseBLL.Base.EnumUsage.update | BaseBLL.Base.EnumUsage.create)]
+		public System.DateTime inserted
+		{
+			get;
+			set;
+		}
+
+		[BaseBLL.Base.Field(nullable=false,sqlDBType=System.Data.SqlDbType.TinyInt,primary=false,usage=BaseBLL.Base.EnumUsage.read | BaseBLL.Base.EnumUsage.update | BaseBLL.Base.EnumUsage.create)]
+		public System.Byte enable
 		{
 			get;
 			set;

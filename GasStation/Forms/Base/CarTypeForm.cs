@@ -92,14 +92,12 @@ namespace GasStation.Forms.Base
 
 				Common.BLL.Logic.GasStation.Base__CarType	lCarType	= new Common.BLL.Logic.GasStation.Base__CarType (Common.Enum.EDatabase.GasStation);
 				CommandResult	opResult	= lCarType.delete (model);
-
-				///TODO: CHECK RESULT
+				
 				if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
 					reload ();
 			}
 			else
-				/// TODO:SHOW MESSAGE
-				;
+				MessageBox.Show ("رکوردی انتخاب نشده است", "اخطار", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 		}
 
         /// <summary>
@@ -126,8 +124,7 @@ namespace GasStation.Forms.Base
 					reload ();
 			}
 			else
-				/// TODO:SHOW MESSAGE
-				;
+				MessageBox.Show ("رکوردی انتخاب نشده است", "اخطار", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         /// <summary>

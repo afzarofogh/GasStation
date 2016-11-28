@@ -10,3 +10,4 @@ E:\Project GasStation\GasStation\GasStation\Common\obj\Debug\Common.Properties.R
 E:\Project GasStation\GasStation\GasStation\Common\obj\Debug\Common.csproj.GenerateResource.Cache
 E:\Project GasStation\GasStation\GasStation\Common\obj\Debug\Common.dll
 E:\Project GasStation\GasStation\GasStation\Common\obj\Debug\Common.pdb
+E:\Project GasStation\GasStation\GasStation\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
