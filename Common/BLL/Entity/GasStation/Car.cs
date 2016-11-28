@@ -6,14 +6,7 @@ namespace Common.BLL.Entity.GasStation
 {
 	[Serializable]
 	public class Car : BaseBLL.Entity.BaseByViewId
-	{
-		
-		[BaseBLL.Base.Field(nullable=false,sqlDBType=System.Data.SqlDbType.Int,primary=false,usage=BaseBLL.Base.EnumUsage.read | BaseBLL.Base.EnumUsage.update | BaseBLL.Base.EnumUsage.create)]
-		public System.Int32 id
-		{
-			get;
-			set;
-		}
+	{		
 //
 	// Genereted Property of CarTag
 	//
@@ -83,12 +76,7 @@ namespace Common.BLL.Entity.GasStation
 		}
 	#endregion
 
-		[BaseBLL.Base.Field(nullable=false,sqlDBType=System.Data.SqlDbType.UniqueIdentifier,primary=false,usage=BaseBLL.Base.EnumUsage.read | BaseBLL.Base.EnumUsage.update | BaseBLL.Base.EnumUsage.create)]
-		public System.Guid viewId
-		{
-			get;
-			set;
-		}
+		
 
 		[BaseBLL.Base.Field(nullable=false,sqlDBType=System.Data.SqlDbType.Int,primary=false,usage=BaseBLL.Base.EnumUsage.read | BaseBLL.Base.EnumUsage.update | BaseBLL.Base.EnumUsage.create,foreignLogicType=typeof (BLL.Logic.GasStation.Base__CarType),foreignField="id")]
 		public System.Int32 carTypeId
