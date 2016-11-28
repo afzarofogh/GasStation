@@ -121,6 +121,7 @@
     <Compile Include="Helper\Extensions\JsonExtension.cs" />
     <Compile Include="Helper\Extensions\StringExtension.cs" />
     <Compile Include="Helper\Logger\Logger.cs" />
+    <Compile Include="Helper\Windows\RegistryHelper.cs" />
     <Compile Include="Initializer.cs" />
     <Compile Include="Model\GridColumnCollectionModel.cs" />
     <Compile Include="Model\GridColumnModel.cs" />

@@ -107,7 +107,6 @@ namespace GasStation.Forms.Base
 
 			CommandResult opResult	= lCarFuel.allData ("", "fuel", false);
 			resultGrid.DataSource	= opResult.model;
-			//TODO: SET DATAGRID HEADER
 		}
 
 		/// <summary>
@@ -129,13 +128,12 @@ namespace GasStation.Forms.Base
 					id	= id
 				};
 
-			CarFuelEntryForm	form	= new CarFuelEntryForm (model);
+				CarFuelEntryForm	form	= new CarFuelEntryForm (model);
 				if (form.ShowDialog () == System.Windows.Forms.DialogResult.OK)
 					reload ();
 			}
 			else
-				/// TODO:SHOW MESSAGE
-				;
+				MessageBox.Show (this, "رکوردی انتخاب نشده است", "اخطار", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 		}
 
 		/// <summary>
@@ -145,14 +143,14 @@ namespace GasStation.Forms.Base
 		/// <param name="e"></param>
 		private void insertMenu_Click (object sender, EventArgs e)
 		{
-			
-		CarFuelEntryForm  form	= new CarFuelEntryForm ();
+			CarFuelEntryForm  form	= new CarFuelEntryForm ();
 
 			if (form.ShowDialog () == System.Windows.Forms.DialogResult.OK)
 				reload ();
 		}
+
 		/// <summary>
-		/// Reload Data
+		/// Reload Menu
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -161,6 +159,9 @@ namespace GasStation.Forms.Base
 			relaod();
 		}
 
+		/// <summary>
+        /// Reload data 
+        /// </summary>
 		private void relaod ()
 		{
 			Common.BLL.Logic.GasStation.Base__CarFuel	lCarFuel	= new Common.BLL.Logic.GasStation.Base__CarFuel (Common.Enum.EDatabase.GasStation );
@@ -168,9 +169,6 @@ namespace GasStation.Forms.Base
 			resultGrid.DataSource	= opResult.model;
 			//TODO: SET DATAGRID HEADER
 		}
-
 		#endregion
-
-
 	}
 }

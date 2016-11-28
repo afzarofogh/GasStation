@@ -6,7 +6,7 @@ using System.Text;
 
 namespace AntennaService
 {
-	static class Program
+	static class __Program
 	{
 		/// <summary>
 		/// The main entry point for the application.
