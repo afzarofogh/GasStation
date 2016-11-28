@@ -93,8 +93,25 @@ namespace GasStation.Forms.Base
 					reload ();
 			}
 			else
+<<<<<<< HEAD
+				/// TODO:SHOW MESSAGE
+				;
+		}
+		/// <summary>
+		/// Relaod Data
+		/// </summary>
+
+		void reload ()
+		{
+			Common.BLL.Logic.GasStation.Base__CarFuel	lCarFuel	= new Common.BLL.Logic.GasStation.Base__CarFuel (Common.Enum.EDatabase.GasStation);
+
+			CommandResult opResult	= lCarFuel.allData ("", "fuel", false);
+			resultGrid.DataSource	= opResult.model;
+		}
+=======
 				MessageBox.Show ("رکوردی انتخاب نشده است", "اخطار", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 		}		
+>>>>>>> 0ff3386cec13dea90146010dfa214423e6d8b12c
 
 		/// <summary>
 		/// Modify Menu
@@ -115,12 +132,16 @@ namespace GasStation.Forms.Base
 					id	= id
 				};
 
-			CarFuelEntryForm	form	= new CarFuelEntryForm (model);
+				CarFuelEntryForm	form	= new CarFuelEntryForm (model);
 				if (form.ShowDialog () == System.Windows.Forms.DialogResult.OK)
 					reload ();
 			}
 			else
+<<<<<<< HEAD
+				MessageBox.Show (this, "رکوردی انتخاب نشده است", "اخطار", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+=======
 				MessageBox.Show ("رکوردی انتخاب نشده است", "اخطار", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+>>>>>>> 0ff3386cec13dea90146010dfa214423e6d8b12c
 		}
 
 		/// <summary>
@@ -130,14 +151,14 @@ namespace GasStation.Forms.Base
 		/// <param name="e"></param>
 		private void insertMenu_Click (object sender, EventArgs e)
 		{
-			
-		CarFuelEntryForm  form	= new CarFuelEntryForm ();
+			CarFuelEntryForm  form	= new CarFuelEntryForm ();
 
 			if (form.ShowDialog () == System.Windows.Forms.DialogResult.OK)
 				reload ();
 		}
+
 		/// <summary>
-		/// Reload Data
+		/// Reload Menu
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -147,9 +168,15 @@ namespace GasStation.Forms.Base
 		}			
 
 		/// <summary>
+<<<<<<< HEAD
+        /// Reload data 
+        /// </summary>
+		private void relaod ()
+=======
 		/// Relaod Data
 		/// </summary>
 		void reload ()
+>>>>>>> 0ff3386cec13dea90146010dfa214423e6d8b12c
 		{
 			Common.BLL.Logic.GasStation.Base__CarFuel	lCarFuel	= new Common.BLL.Logic.GasStation.Base__CarFuel (Common.Enum.EDatabase.GasStation);
 
@@ -158,7 +185,5 @@ namespace GasStation.Forms.Base
 			resultGrid.loadHeader (this.GetType ().Name);
 		}
 		#endregion
-
-
 	}
 }

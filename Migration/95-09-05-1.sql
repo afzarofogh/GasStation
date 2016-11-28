@@ -1,6 +1,11 @@
 use GasStation
-
 GO
+
+ALTER TABLE [System.Data]
+DROP COLUMN [version]
+GO
+
+
 /*
 	Detete column tagId from Car Table
  */
@@ -63,15 +68,6 @@ GO
 ALTER TABLE [dbo].[CarTag] CHECK CONSTRAINT [FK_CarTag_User_Modify]
 GO
 
-/*
-	Insert Column version in System.data table
-*/
-
-DELETE FROM [System.Data]
-
-ALTER TABLE [System.Data]
-ADD  version TEXT NOT NULL
-
 
 /*
 	Insert Column enable in User table
@@ -79,4 +75,20 @@ ADD  version TEXT NOT NULL
 
 ALTER TABLE [User]
 ADD enable tinyint NOT NULL
+GO
 
+
+/*
+	UPDATE DB VERSION
+*/
+DECLARE @version	varchar(50) = '95-09-05-1';
+
+IF EXISTS (SELECT * FROM [System.Data] WHERE ([name] = 'DB-Version'))
+	BEGIN
+		UPDATE [System.Data] SET [value]=@version WHERE ([name] = 'DB-Version')
+	END
+ELSE
+	BEGIN
+		INSERT INTO [System.Data] ([name], [value]) VALUES ('DB-Version', @version)
+	END
+GO
