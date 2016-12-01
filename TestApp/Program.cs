@@ -13,9 +13,11 @@ namespace TestApp
         [STAThread]
         static void Main()
         {
+			Common.Initializer.init ("log.txt");
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Forms.frmColor());
+            Application.Run(new Form1());
         }
     }
 }

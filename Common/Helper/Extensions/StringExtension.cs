@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Common.Helper.Security;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,56 @@ namespace System
 	public static class StringExtension
 	{
 		#region Methods
+		/// <summary>
+		/// Convert string to integer
+		/// </summary>
+		/// <param name="num"></param>
+		/// <param name="defaultValue"></param>
+		/// <returns></returns>
+		public static int toInt (this string num, int defaultValue)
+		{
+			int result;
+
+			if (!int.TryParse (num, out result))
+				result	= defaultValue;
+
+			return result;
+		}
+
+		/// <summary>
+		/// Get String
+		/// </summary>
+		/// <param name="data"></param>
+		/// <param name="encoding">IF NULL => UTF8 Selected as default</param>
+		/// <returns></returns>
+		public static string getString (this byte[] data, Encoding encoding = null)
+		{
+			if (null == encoding)
+				encoding	= Encoding.UTF8;
+
+			return encoding.GetString (data);
+		}
+
+		/// <summary>
+		/// Encrypte data
+		/// </summary>
+		/// <param name="text"></param>
+		/// <returns></returns>
+		public static string encrypt (this string text, string pass = StringCipher.passPhrase)
+		{
+			return StringCipher.encrypt (text, pass);
+		}
+
+		/// <summary>
+		/// Dycrypt data
+		/// </summary>
+		/// <param name="text"></param>
+		/// <returns></returns>
+		public static string dycrypt (this string text, string pass = StringCipher.passPhrase)
+		{
+			return StringCipher.decrypt (text, pass);
+		}
+
 		/// <summary>
 		/// Get Bytes
 		/// </summary>
