@@ -594,62 +594,52 @@
 			// carLevelComboBox
 			// 
 			this.carLevelComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.carLevelComboBox.DisplayMember = "levelcar";
 			this.carLevelComboBox.FormattingEnabled = true;
 			this.carLevelComboBox.Location = new System.Drawing.Point(47, 69);
 			this.carLevelComboBox.Name = "carLevelComboBox";
 			this.carLevelComboBox.Size = new System.Drawing.Size(203, 26);
 			this.carLevelComboBox.TabIndex = 5;
-			this.carLevelComboBox.Tag = "levelcar";
-			this.carLevelComboBox.ValueMember = "levelcar";
+			this.carLevelComboBox.Tag = "carLevelId";
 			// 
 			// carSystemComboBox
 			// 
 			this.carSystemComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.carSystemComboBox.DisplayMember = "system";
 			this.carSystemComboBox.FormattingEnabled = true;
 			this.carSystemComboBox.Location = new System.Drawing.Point(424, 68);
 			this.carSystemComboBox.Name = "carSystemComboBox";
 			this.carSystemComboBox.Size = new System.Drawing.Size(203, 26);
 			this.carSystemComboBox.TabIndex = 3;
-			this.carSystemComboBox.Tag = "system";
-			this.carSystemComboBox.ValueMember = "system";
+			this.carSystemComboBox.Tag = "carSystemId";
 			// 
 			// carTypeComboBox
 			// 
 			this.carTypeComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.carTypeComboBox.DisplayMember = "type";
 			this.carTypeComboBox.FormattingEnabled = true;
 			this.carTypeComboBox.Location = new System.Drawing.Point(424, 36);
 			this.carTypeComboBox.Name = "carTypeComboBox";
 			this.carTypeComboBox.Size = new System.Drawing.Size(203, 26);
 			this.carTypeComboBox.TabIndex = 1;
-			this.carTypeComboBox.Tag = "type";
-			this.carTypeComboBox.ValueMember = "type";
+			this.carTypeComboBox.Tag = "carTypeId";
 			// 
 			// carFuelComboBox
 			// 
 			this.carFuelComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.carFuelComboBox.DisplayMember = "fuel";
 			this.carFuelComboBox.FormattingEnabled = true;
 			this.carFuelComboBox.Location = new System.Drawing.Point(47, 101);
 			this.carFuelComboBox.Name = "carFuelComboBox";
 			this.carFuelComboBox.Size = new System.Drawing.Size(203, 26);
 			this.carFuelComboBox.TabIndex = 9;
-			this.carFuelComboBox.Tag = "fuel";
-			this.carFuelComboBox.ValueMember = "fuel";
+			this.carFuelComboBox.Tag = "carFuelId";
 			// 
 			// carColorComboBox
 			// 
 			this.carColorComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.carColorComboBox.DisplayMember = "color";
 			this.carColorComboBox.FormattingEnabled = true;
 			this.carColorComboBox.Location = new System.Drawing.Point(424, 100);
 			this.carColorComboBox.Name = "carColorComboBox";
 			this.carColorComboBox.Size = new System.Drawing.Size(203, 26);
 			this.carColorComboBox.TabIndex = 7;
-			this.carColorComboBox.Tag = "color";
-			this.carColorComboBox.ValueMember = "color";
+			this.carColorComboBox.Tag = "carColorId";
 			// 
 			// label14
 			// 
@@ -946,14 +936,12 @@
 			// plateTypeComboBox
 			// 
 			this.plateTypeComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.plateTypeComboBox.DisplayMember = "type";
 			this.plateTypeComboBox.FormattingEnabled = true;
 			this.plateTypeComboBox.Location = new System.Drawing.Point(368, 28);
 			this.plateTypeComboBox.Name = "plateTypeComboBox";
 			this.plateTypeComboBox.Size = new System.Drawing.Size(256, 26);
 			this.plateTypeComboBox.TabIndex = 3;
-			this.plateTypeComboBox.Tag = "type";
-			this.plateTypeComboBox.ValueMember = "type";
+			this.plateTypeComboBox.Tag = "plateTypeId";
 			// 
 			// label27
 			// 

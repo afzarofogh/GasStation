@@ -181,7 +181,5 @@ namespace GasStation.Forms.Base
 			Close ();
 		}
 		#endregion
-
-		
 	}
 }

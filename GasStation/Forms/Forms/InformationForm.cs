@@ -1,4 +1,5 @@
 ﻿using BaseDAL.Model;
+using Common.Helper.Logger;
 using GasStation.Enum;
 using GasStation.Forms.Base;
 using System;
@@ -159,38 +160,38 @@ namespace GasStation.Forms.Forms
 
 			// Car Color
 			Common.BLL.Logic.GasStation.Base__CarColor	lCarColor	= new Common.BLL.Logic.GasStation.Base__CarColor (Common.Enum.EDatabase.GasStation);
-			CommandResult	opResultColor			= lCarColor.allData("", "color", false);			
-			carColorComboBox.DataSource				= opResultColor.model;
-
+			DataTable resultColor	= lCarColor.allData ("", "", false).model as DataTable;
+			carColorComboBox.fillByTable (resultColor, "id", "color");			
+			
 			//Car Type
 			Common.BLL.Logic.GasStation.Base__CarType	lCarType	= new Common.BLL.Logic.GasStation.Base__CarType (Common.Enum.EDatabase.GasStation);
-			CommandResult	opResultType			= lCarType.allData("", "type", false);			
-			carTypeComboBox.DataSource				= opResultType.model;
+			DataTable 	resultType			= lCarType.allData("", "", false).model as DataTable;		
+			carTypeComboBox.fillByTable (resultType, "id", "type");
 
 			//Car Fuel
 			Common.BLL.Logic.GasStation.Base__CarFuel	lCarFuel	= new Common.BLL.Logic.GasStation.Base__CarFuel (Common.Enum.EDatabase.GasStation);
-			CommandResult	opResultFuel			= lCarFuel.allData("", "fuel", false);			
-			carFuelComboBox.DataSource				= opResultFuel.model;
+			DataTable resultFuel			= lCarFuel.allData ("", "", false).model as DataTable;
+			carFuelComboBox.fillByTable (resultFuel, "id", "fuel");			
 
 			//Car Level
 			Common.BLL.Logic.GasStation.Base__CarLevel	lCarLevel	= new Common.BLL.Logic.GasStation.Base__CarLevel (Common.Enum.EDatabase.GasStation);
-			CommandResult	opResultLevel			= lCarLevel.allData("", "levelcar", false);			
-			carLevelComboBox.DataSource				= opResultLevel.model;
+			DataTable 	resultLevel			= lCarLevel.allData ("", "", false).model as DataTable;		
+			carLevelComboBox.fillByTable (resultLevel, "id", "levelcar");
 
 			//Car System
 			Common.BLL.Logic.GasStation.Base__CarSystem		lCarSystem	= new Common.BLL.Logic.GasStation.Base__CarSystem (Common.Enum.EDatabase.GasStation);
-			CommandResult	opResultSystem			= lCarSystem.allData("", "system", false);			
-			carSystemComboBox.DataSource			= opResultSystem.model;
+			DataTable	resultSystem		= lCarSystem.allData ("", "", false).model as DataTable;			
+			carSystemComboBox.fillByTable (resultSystem, "id", "system");
 
 			//Plate type 
 			Common.BLL.Logic.GasStation.Base__PlateType		lPlateType		= new Common.BLL.Logic.GasStation.Base__PlateType (Common.Enum.EDatabase.GasStation);
-			CommandResult	opResultPlateType		= lPlateType.allData("", "type", false);			
-			plateTypeComboBox.DataSource			= opResultPlateType.model;
+			DataTable	resultPlateType		= lPlateType.allData("", "", false).model as DataTable;				
+			plateTypeComboBox.fillByTable (resultPlateType, "id", "type");
 
 			//TODO: get code city from Database
-			Common.BLL.Logic.GasStation.Base__PlateCity		lPlateCity		= new Common.BLL.Logic.GasStation.Base__PlateCity (Common.Enum.EDatabase.GasStation);
-			CommandResult	opResultPlateCity		= lPlateType.allData("", "code", false);			
-			code1Numeric.Items.Add(opResultPlateType.model);
+			//Common.BLL.Logic.GasStation.Base__PlateCity		lPlateCity		= new Common.BLL.Logic.GasStation.Base__PlateCity (Common.Enum.EDatabase.GasStation);
+			//CommandResult	opResultPlateCity		= lPlateType.allData("", "code", false);			
+			//code1Numeric.Items.Add(opResultPlateType.model);
 			
 		}
 
@@ -203,7 +204,11 @@ namespace GasStation.Forms.Forms
 			mainTabControl.SelectedIndexChanged		+= mainTabControl_SelectedIndexChanged;
 			plateTypeComboBox.SelectedIndexChanged	+= plateTypeComboBox_SelectedIndexChanged;
 			legalRadioButton.CheckedChanged			+= legalRadioButton_CheckedChanged;
-			carTypeComboBox.SelectedIndexChanged	+= carTypeComboBox_SelectedIndexChanged;
+
+			//carTypeComboBox.SelectedIndexChanged	+= (x, y) =>
+			//{
+			//	carModel.carTypeId	= (int)carTypeComboBox.SelectedValue;
+			//};
 
 			nextButton.Click						+= nextButton_Click;
 			previousButton.Click					+= previousButton_Click;
@@ -221,23 +226,7 @@ namespace GasStation.Forms.Forms
 		private void getTagButton_Click (object sender, EventArgs e)
 		{
 			transmitprotocol();
-		}	
-
-		
-		private void carTypeComboBox_SelectedIndexChanged (object sender, EventArgs e)
-		{
-			string type = carTypeComboBox.Text;
-			Common.BLL.Entity.GasStation.Base__CarType  	typeModel = new Common.BLL.Entity.GasStation.Base__CarType ()
-			{
-				type = type
-			};
-			
-			Common.BLL.Logic.GasStation.Base__CarType	lCartype	= new Common.BLL.Logic.GasStation.Base__CarType(Common.Enum.EDatabase.GasStation);
-			CommandResult	opResult	= lCartype.read(typeModel);
-			//MessageBox.Show( typeModel.id.ToString());			
-		}
-
-		
+		}			
 
 		/// <summary>
 		/// Plate Type Change
@@ -388,35 +377,6 @@ namespace GasStation.Forms.Forms
 					case 1 :
 						{ 
 							// Fill car Model
-
-							Common.BLL.Entity.GasStation.Base__CarColor 	colorModel	= new Common.BLL.Entity.GasStation.Base__CarColor ()
-							{
-								color = carColorComboBox.Text
-							};
-							Common.BLL.Entity.GasStation.Base__CarFuel  	fuelModel	= new Common.BLL.Entity.GasStation.Base__CarFuel ()
-							{
-								fuel = carFuelComboBox.Text
-							};
-							Common.BLL.Entity.GasStation.Base__CarLevel		levelModel	= new Common.BLL.Entity.GasStation.Base__CarLevel ()
-							{
-								levelcar = carLevelComboBox.Text
-							};
-							Common.BLL.Entity.GasStation.Base__CarSystem	systemModel	= new Common.BLL.Entity.GasStation.Base__CarSystem ()
-							{
-								 system = carSystemComboBox.Text
-							};
-							Common.BLL.Entity.GasStation.Base__CarType  	typeModel	= new Common.BLL.Entity.GasStation.Base__CarType ()
-							{
-								 type = carTypeComboBox.Text
-							};
-
-
-							carModel.carColorId		= colorModel.id;
-							carModel.carFuelId		= fuelModel.id;
-							carModel.carLevelId		= levelModel.id;
-							carModel.carSystemId	= systemModel.id;
-							carModel.carTypeId		= typeModel.id;
-
 							BaseBLL.General.FormModelHelper<Common.BLL.Entity.GasStation.Car>.fillModel (carDataGroupBox, carModel);
 							enableTab(plateTabPage, true);
 							//TODO: status car = true
@@ -434,15 +394,16 @@ namespace GasStation.Forms.Forms
 							//Fill owner Type Model
 							if (legalRadioButton.Checked)
 								BaseBLL.General.FormModelHelper<Common.BLL.Entity.GasStation.LegalOwner>.fillModel (ownerTypeDataGroupBox, legalOwnerModel);
-							enableTab(ownerTypeTabPage, true);	
+							else 
+								legalOwnerModel = null;
+							enableTab(showInfoTabPage, true);	
 						}
 						break;
-					case 4 :
-						{
-							//Register Data
-
-						}
-						break;
+					//case 4 :
+					//	{
+					//		//Register Data
+					//	}
+						//break;
 					default:
 						break;
 				}
@@ -475,10 +436,133 @@ namespace GasStation.Forms.Forms
 		{
 			if (step == mainTabControl.TabPages.Count -1)
 			{ 
-				//registerData ();
+				registerData ();
 			}
 			else if (++step < mainTabControl.TabPages.Count)
 				mainTabControl.SelectedIndex	= step;
+		}
+
+		/// <summary>
+		/// Register Data
+		/// </summary>
+		private void registerData ()
+		{
+			// 
+			//save_Owner_Car_Plate(ownerModel, carModel, plateModel, legalOwnerModel);
+
+			savePlate();
+			saveOwner();			
+			saveCar ();
+			saveCarOwner();
+			saveLegalOwner(); // در صورت وجود
+					
+		}
+	
+		/// <summary>
+		/// Insert Legal Owner
+		/// </summary>
+		private void saveLegalOwner ()
+		{
+			
+		}
+
+		/// <summary>
+		/// Insert new Car Owner
+		/// </summary>
+		private void saveCarOwner ()
+		{
+			/*   idOwner, idcar, type   */
+			 
+		}
+
+		/// <summary>
+		/// Insert new Plate
+		/// </summary>
+		private void savePlate ()
+		{
+			CommandResult opResult = null;
+			Common.BLL.Logic.GasStation.Plate  lPlate = new Common.BLL.Logic.GasStation.Plate (Common.Enum.EDatabase.GasStation);			
+
+			// Set author data
+			if (plateModel.id == 0)
+			{
+				#region Insert
+				plateModel.insertedById = Common.GlobalData.UserManager.currentUser.id;
+				plateModel.insertDate = DateTime.Now;
+
+				opResult = lPlate.create (plateModel);
+				#endregion
+			}
+			
+			// Create/Modify data
+
+			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
+				CloseSuccess ();
+			else
+			{
+				Logger.logger.log (opResult);
+				MessageBox.Show (this, "خطا در ذخیره اطلاعات", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
+
+		/// <summary>
+		/// Insert new Owner
+		/// </summary>
+		private void saveOwner ()
+		{
+			CommandResult opResult = null;
+			Common.BLL.Logic.GasStation.Owner  lOwner = new Common.BLL.Logic.GasStation.Owner (Common.Enum.EDatabase.GasStation);			
+
+			// Set author data
+			if (ownerModel.id == 0)
+			{
+				#region Insert
+				ownerModel.insertedById = Common.GlobalData.UserManager.currentUser.id;
+				ownerModel.insertDate = DateTime.Now;
+
+				opResult = lOwner.create (ownerModel);
+				#endregion
+			}
+			
+			// Create/Modify data
+
+			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
+				CloseSuccess ();
+			else
+			{
+				Logger.logger.log (opResult);
+				MessageBox.Show (this, "خطا در ذخیره اطلاعات", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+		}
+
+		/// <summary>
+		/// Insert new Car + add plateId
+		/// </summary>
+		private void saveCar ()
+		{
+			CommandResult opResult = null;
+			Common.BLL.Logic.GasStation.Car  lCar = new Common.BLL.Logic.GasStation.Car (Common.Enum.EDatabase.GasStation);			
+
+			// Set author data
+			if (carModel.id == 0)
+			{
+				#region Insert
+				carModel.insertedById = Common.GlobalData.UserManager.currentUser.id;
+				carModel.insertDate = DateTime.Now;
+
+				opResult = lCar.create (carModel);
+				#endregion
+			}
+			
+			// Create/Modify data
+
+			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
+				CloseSuccess ();
+			else
+			{
+				Logger.logger.log (opResult);
+				MessageBox.Show (this, "خطا در ذخیره اطلاعات", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
 		}
 				
 
@@ -691,7 +775,15 @@ namespace GasStation.Forms.Forms
 			return result;
 		}		
 	
-
+		
+		/// <summary>
+		/// Close Success
+		/// </summary>
+		private void CloseSuccess ()
+		{
+			DialogResult	= System.Windows.Forms.DialogResult.OK;
+			Close ();
+		}
 		 public void transmitprotocol()
         {
             BackgroundWorker bw = new BackgroundWorker();

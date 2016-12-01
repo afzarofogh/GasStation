@@ -20,7 +20,7 @@ namespace GasStation
 		
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run (new Forms.Forms.InformationForm());
+			Application.Run (new Forms.Base.PlateCityForm());
 				//Application.Run (new Forms.Base.CarColorForm());
 
 			//while (hasLogin != 2)

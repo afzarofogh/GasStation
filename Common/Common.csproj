@@ -114,15 +114,23 @@
     <Compile Include="BLL\Logic\GasStation\User.cs" />
     <Compile Include="Enum\EDatabase.cs" />
     <Compile Include="GlobalData\UserManager.cs" />
+    <Compile Include="Helper\Antenna\MR6100.cs" />
+    <Compile Include="Helper\Extensions\ComboBoxExtension.cs" />
     <Compile Include="Helper\Extensions\GridColumnCollectionExtension.cs" />
     <Compile Include="Helper\Extensions\GridExtension.cs" />
     <Compile Include="Helper\Extensions\JsonExtension.cs" />
     <Compile Include="Helper\Extensions\StringExtension.cs" />
     <Compile Include="Helper\Logger\Logger.cs" />
+    <Compile Include="Helper\Security\StringCypher.cs" />
+    <Compile Include="Helper\Setting\SettingHelper.cs" />
     <Compile Include="Helper\Windows\RegistryHelper.cs" />
     <Compile Include="Initializer.cs" />
     <Compile Include="Model\GridColumnCollectionModel.cs" />
     <Compile Include="Model\GridColumnModel.cs" />
+    <Compile Include="Model\Setting\SettingModel.cs" />
+    <Compile Include="Model\Tag\TagModel.cs" />
+    <Compile Include="Network\Core\NetTcpServer.cs" />
+    <Compile Include="Network\Core\NetTcpClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -144,6 +152,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

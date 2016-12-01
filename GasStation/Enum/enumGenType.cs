@@ -7,8 +7,8 @@ namespace GasStation.Enum
 {
 	public enum enumGenType
 	{
-		زن	= 0,
-		مرد
+		woman	= 0,
+		man		= 1
 		
 	}
 }

@@ -157,7 +157,7 @@ namespace GasStation.Forms.Base
 		{
 			Common.BLL.Logic.GasStation.Base__PlateCity	lPlateCity	= new Common.BLL.Logic.GasStation.Base__PlateCity (Common.Enum.EDatabase.GasStation);
 
-			CommandResult opResult	= lPlateCity.allData ("", "city", false);
+			CommandResult opResult	= lPlateCity.allData ("","code, city" false);
 			resultGrid.DataSource	= opResult.model;
 			resultGrid.loadHeader (this.GetType ().Name);
 		}
