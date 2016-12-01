@@ -20,14 +20,16 @@ namespace GasStation
 		
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+			Application.Run (new Forms.Forms.InformationForm());
+				//Application.Run (new Forms.Base.CarColorForm());
 
-			while (hasLogin != 2)
-			{
-				Application.Run (new Forms.User.LoginForm ());
+			//while (hasLogin != 2)
+			//{
+			//	Application.Run (new Forms.User.LoginForm());
 
-				if (hasLogin == 1)
-					Application.Run (new Forms.Forms.MainForm ());				
-			}
+			//	if (hasLogin == 1)
+			//		Application.Run (new Forms.Forms.MainForm ());				
+			//}
         }
 
 		/// <summary>
@@ -52,6 +54,7 @@ namespace GasStation
 			//Helper.GridHeaderMaker.makeHeaderCarLevel();
 			//Helper.GridHeaderMaker.makeHeaderCarSystem();
 			//Helper.GridHeaderMaker.makeHeaderPlateType();
+			//Helper.GridHeaderMaker.makeHeaderPlateCity();
 		}
     }
 }

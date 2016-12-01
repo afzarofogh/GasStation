@@ -39,7 +39,7 @@
 			// saveButton
 			// 
 			this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.saveButton.Location = new System.Drawing.Point(135, 123);
+			this.saveButton.Location = new System.Drawing.Point(135, 129);
 			this.saveButton.Name = "saveButton";
 			this.saveButton.Size = new System.Drawing.Size(117, 33);
 			this.saveButton.TabIndex = 1;
@@ -50,7 +50,7 @@
 			// 
 			this.exitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.exitButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.exitButton.Location = new System.Drawing.Point(12, 123);
+			this.exitButton.Location = new System.Drawing.Point(12, 129);
 			this.exitButton.Name = "exitButton";
 			this.exitButton.Size = new System.Drawing.Size(117, 33);
 			this.exitButton.TabIndex = 2;
@@ -66,7 +66,7 @@
 			this.dataGroupBox.Controls.Add(this.label1);
 			this.dataGroupBox.Location = new System.Drawing.Point(12, 12);
 			this.dataGroupBox.Name = "dataGroupBox";
-			this.dataGroupBox.Size = new System.Drawing.Size(362, 105);
+			this.dataGroupBox.Size = new System.Drawing.Size(362, 111);
 			this.dataGroupBox.TabIndex = 0;
 			this.dataGroupBox.TabStop = false;
 			this.dataGroupBox.Text = "اطلاعات پایه";
@@ -97,7 +97,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.exitButton;
-			this.ClientSize = new System.Drawing.Size(386, 168);
+			this.ClientSize = new System.Drawing.Size(386, 174);
 			this.Controls.Add(this.saveButton);
 			this.Controls.Add(this.exitButton);
 			this.Controls.Add(this.dataGroupBox);

@@ -13,7 +13,7 @@ using GasStation.Forms.Base;
 
 namespace GasStation.Forms.Forms
 {
-	public partial class MainForm : SuperForm
+	public partial class MainForm : General.SuperForm
 	{
 		#region Properties
 		#endregion

@@ -147,7 +147,7 @@ namespace GasStation.Forms.Base
 		{
 			CommandResult result	= null;
 
-			string	carModel	= modelTextBox.Text.Trim ();
+			string	carModel	= syetemTextBox.Text.Trim ();
 
 			#region Validate
 			bool err = carModel.isNullOrEmptyOrWhiteSpaceOrLen (50);

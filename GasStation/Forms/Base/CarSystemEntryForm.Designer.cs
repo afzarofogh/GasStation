@@ -31,7 +31,7 @@
 			this.saveButton = new System.Windows.Forms.Button();
 			this.exitButton = new System.Windows.Forms.Button();
 			this.dataGroupBox = new System.Windows.Forms.GroupBox();
-			this.modelTextBox = new System.Windows.Forms.TextBox();
+			this.syetemTextBox = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.dataGroupBox.SuspendLayout();
 			this.SuspendLayout();
@@ -62,7 +62,7 @@
 			this.dataGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.dataGroupBox.Controls.Add(this.modelTextBox);
+			this.dataGroupBox.Controls.Add(this.syetemTextBox);
 			this.dataGroupBox.Controls.Add(this.label1);
 			this.dataGroupBox.Location = new System.Drawing.Point(12, 12);
 			this.dataGroupBox.Name = "dataGroupBox";
@@ -71,15 +71,15 @@
 			this.dataGroupBox.TabStop = false;
 			this.dataGroupBox.Text = "اطلاعات پایه";
 			// 
-			// modelTextBox
+			// syetemTextBox
 			// 
-			this.modelTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.modelTextBox.Location = new System.Drawing.Point(29, 58);
-			this.modelTextBox.MaxLength = 50;
-			this.modelTextBox.Name = "modelTextBox";
-			this.modelTextBox.Size = new System.Drawing.Size(298, 26);
-			this.modelTextBox.TabIndex = 0;
-			this.modelTextBox.Tag = "model";
+			this.syetemTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.syetemTextBox.Location = new System.Drawing.Point(29, 58);
+			this.syetemTextBox.MaxLength = 50;
+			this.syetemTextBox.Name = "syetemTextBox";
+			this.syetemTextBox.Size = new System.Drawing.Size(298, 26);
+			this.syetemTextBox.TabIndex = 0;
+			this.syetemTextBox.Tag = "system";
 			// 
 			// label1
 			// 
@@ -91,7 +91,7 @@
 			this.label1.TabIndex = 1;
 			this.label1.Text = "مدل خودرو";
 			// 
-			// CarModelEntryForm
+			// CarSystemEntryForm
 			// 
 			this.AcceptButton = this.saveButton;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -101,7 +101,7 @@
 			this.Controls.Add(this.saveButton);
 			this.Controls.Add(this.exitButton);
 			this.Controls.Add(this.dataGroupBox);
-			this.Name = "CarModelEntryForm";
+			this.Name = "CarSystemEntryForm";
 			this.Text = "ثبت اطلاعات / مدل خودرو";
 			this.dataGroupBox.ResumeLayout(false);
 			this.dataGroupBox.PerformLayout();
@@ -114,7 +114,7 @@
 		private System.Windows.Forms.GroupBox dataGroupBox;
 		private System.Windows.Forms.Button exitButton;
 		private System.Windows.Forms.Button saveButton;
-		private System.Windows.Forms.TextBox modelTextBox;
+		private System.Windows.Forms.TextBox syetemTextBox;
 		private System.Windows.Forms.Label label1;
 	}
 }

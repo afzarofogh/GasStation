@@ -148,14 +148,18 @@ namespace GasStation.Forms.Base
 		private CommandResult validate ()
 		{
 			CommandResult result	= null;
-
+			List<string>	err			= new List<string> ();
 			string	city	= cityTextBox.Text.Trim ();
+			string	code	= codeTextBox.Text.Trim ();
 
 			#region Validate
-			bool err = city.isNullOrEmptyOrWhiteSpaceOrLen (50);
+			 if (city.isNullOrEmptyOrWhiteSpaceOrLen (50))
+				 err.Add("شهر وارد شده نامعتبر می باشد");
+			if (code.isNullOrEmptyOrWhiteSpaceOrLen(2))
+				err.Add("کد وارد شده نامعتبر است");
 
-			if (err)
-				result = CommandResult.makeErrorResult ("مقدار وارد شده نامعتبر می باشد");
+			if (err.Count > 0)
+				result = CommandResult.makeErrorResult("ERROR", String.Join ("\r\n", err.ToArray ()));
 			else
 				result = CommandResult.makeSuccessResult (); 
 			#endregion

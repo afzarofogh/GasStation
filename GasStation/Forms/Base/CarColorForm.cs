@@ -118,6 +118,7 @@ namespace GasStation.Forms.Base
 				{
 					id	= id
 				};
+						
 
 				CarColorEntryForm	form	= new CarColorEntryForm (model);
 				if (form.ShowDialog () == System.Windows.Forms.DialogResult.OK)

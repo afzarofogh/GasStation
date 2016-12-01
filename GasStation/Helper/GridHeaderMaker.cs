@@ -187,6 +187,7 @@ namespace GasStation.Helper
 					new GridColumnModel ("updatedById",     "updatedById",	false, true, 0),
 					new GridColumnModel ("updateDate",      "updateDate",	false, true, 0),
 					new GridColumnModel ("city",            "شهر",			true, true, 1),
+					new GridColumnModel ("code",            "کد استان",		true, true, 1),
 				});
 
 			// Save to db
