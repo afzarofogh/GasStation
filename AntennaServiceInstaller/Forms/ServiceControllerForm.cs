@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.ServiceProcess;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace AntennaServiceInstaller.Forms
@@ -64,6 +65,17 @@ namespace AntennaServiceInstaller.Forms
 		/// <param name="e"></param>
 		private void StopServiceButton_Click (object sender, EventArgs e)
 		{
+			loadingLabel.Visible = true;
+			new Thread (new ThreadStart (() =>
+			{
+				Common.Helper.Windows.ServiceHelper.stopService (serviceName, hostName);
+				Invoke ((Action)delegate
+				{
+					loadingLabel.Visible = true;
+
+					updateStatus ();
+				});
+			})).Start ();
 		}
 
 		/// <summary>
@@ -73,6 +85,17 @@ namespace AntennaServiceInstaller.Forms
 		/// <param name="e"></param>
 		private void StartServiceButton_Click (object sender, EventArgs e)
 		{
+			loadingLabel.Visible = true;
+			new Thread (new ThreadStart (() =>
+			{
+				Common.Helper.Windows.ServiceHelper.startService (serviceName, hostName);
+				Invoke ((Action)delegate
+				{
+					loadingLabel.Visible = true;
+
+					updateStatus ();
+				});
+			})).Start ();
 		}
 
 		/// <summary>
@@ -83,6 +106,8 @@ namespace AntennaServiceInstaller.Forms
 			serviceName	= ConfigurationManager.AppSettings["serviceName"];
 			hostName	= ConfigurationManager.AppSettings["hostName"];
 
+			loadingLabel.Visible		= false;
+			pauseServiceButton.Enabled	= false;	// NOT WORK IT THIS VERSION
 			updateStatus ();
 		}
 
@@ -94,6 +119,7 @@ namespace AntennaServiceInstaller.Forms
 			ServiceControllerStatus	opResult	= Common.Helper.Windows.ServiceHelper.serviceStatus (serviceName, hostName);
 			string status;
 
+			loadingLabel.Visible = true;
 			if ((opResult == ServiceControllerStatus.Running) || (opResult == ServiceControllerStatus.StartPending))
 				status  = "در حال اجرا";
 			else if ((opResult == ServiceControllerStatus.Stopped) || (opResult == ServiceControllerStatus.StopPending))
@@ -103,6 +129,7 @@ namespace AntennaServiceInstaller.Forms
 			else
 				status  = "نامشخص";
 
+			loadingLabel.Visible	= false;
 			serviceStatusLabel.Text = status;
 		}
 		#endregion
