@@ -7,13 +7,6 @@ namespace Common.BLL.Entity.GasStation
 	[Serializable]
 	public class Base__PlateCity : BaseBLL.Entity.BaseByViewId
 	{
-		
-		[BaseBLL.Base.Field(nullable=false,sqlDBType=System.Data.SqlDbType.Int,primary=false,usage=BaseBLL.Base.EnumUsage.read | BaseBLL.Base.EnumUsage.update | BaseBLL.Base.EnumUsage.create)]
-		public System.Int32 id
-		{
-			get;
-			set;
-		}
 //
 	// Genereted Property of Plate
 	//
@@ -49,13 +42,7 @@ namespace Common.BLL.Entity.GasStation
 		}
 	#endregion
 
-		[BaseBLL.Base.Field(nullable=false,sqlDBType=System.Data.SqlDbType.UniqueIdentifier,primary=false,usage=BaseBLL.Base.EnumUsage.read | BaseBLL.Base.EnumUsage.update | BaseBLL.Base.EnumUsage.create)]
-		public System.Guid viewId
-		{
-			get;
-			set;
-		}
-
+		
 		[BaseBLL.Base.Field(nullable=false,sqlDBType=System.Data.SqlDbType.VarChar,primary=false,usage=BaseBLL.Base.EnumUsage.read | BaseBLL.Base.EnumUsage.update | BaseBLL.Base.EnumUsage.create,size=3)]
 		public System.String code
 		{

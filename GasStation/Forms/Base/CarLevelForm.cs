@@ -157,7 +157,7 @@ namespace GasStation.Forms.Base
 		{
 			Common.BLL.Logic.GasStation.Base__CarLevel	lCarLevel	= new Common.BLL.Logic.GasStation.Base__CarLevel (Common.Enum.EDatabase.GasStation);
 
-			CommandResult opResult	= lCarLevel.allData ("", "levelcar", false);
+			CommandResult opResult	= lCarLevel.allData ("", "", false);
 			resultGrid.DataSource	= opResult.model;			
 			resultGrid.loadHeader(this.GetType().Name);
 		}

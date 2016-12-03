@@ -5,10 +5,12 @@ using System.Text;
 
 namespace GasStation.Enum
 {
-	public enum enumGenType
+	public enum enumPlateType
 	{
-		woman	= 1,
-		man		= 2
-		
+		Personal	= 10,
+		Taxi		= 11,
+		Polity		= 12,
+		Malulin		= 13,
+		Motor		= 14
 	}
 }

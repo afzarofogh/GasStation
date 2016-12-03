@@ -5,15 +5,9 @@ using BaseDAL.Model;
 namespace Common.BLL.Entity.GasStation
 {
 	[Serializable]
-	public class Plate : BaseBLL.Entity.BaseEmpty
-	{
+	public class Plate : BaseBLL.Entity.BaseByViewId
+	{		
 		
-		[BaseBLL.Base.Field(nullable=false,sqlDBType=System.Data.SqlDbType.Int,primary=false,usage=BaseBLL.Base.EnumUsage.read | BaseBLL.Base.EnumUsage.update | BaseBLL.Base.EnumUsage.create)]
-		public System.Int32 id
-		{
-			get;
-			set;
-		}
 //
 	// Genereted Property of Car
 	//
@@ -38,7 +32,7 @@ namespace Common.BLL.Entity.GasStation
 		{
 			CommandResult	opResult;
 
-			BLL.Logic.GasStation.Car	logic	= new BLL.Logic.GasStation.Car (Common.Enum.EDatabase.GasStation);
+			BLL.Logic.GasStation.Car	logic	= new BLL.Logic.GasStation.Car ("GasStation");
 			if (pageIndex == -1)
 				opResult	= logic.allData ("plateId = @plateId", "", false, true, new KeyValuePair ("@plateId", id));
 			else
@@ -49,13 +43,7 @@ namespace Common.BLL.Entity.GasStation
 		}
 	#endregion
 
-		[BaseBLL.Base.Field(nullable=false,sqlDBType=System.Data.SqlDbType.UniqueIdentifier,primary=false,usage=BaseBLL.Base.EnumUsage.read | BaseBLL.Base.EnumUsage.update | BaseBLL.Base.EnumUsage.create)]
-		public System.Guid viewId
-		{
-			get;
-			set;
-		}
-
+		
 		[BaseBLL.Base.Field(nullable=false,sqlDBType=System.Data.SqlDbType.Int,primary=false,usage=BaseBLL.Base.EnumUsage.read | BaseBLL.Base.EnumUsage.update | BaseBLL.Base.EnumUsage.create,foreignLogicType=typeof (BLL.Logic.GasStation.Base__PlateType),foreignField="id")]
 		public System.Int32 plateTypeId
 		{
@@ -87,7 +75,7 @@ namespace Common.BLL.Entity.GasStation
 			BLL.Logic.GasStation.Base__PlateType	logic;
 
 			entity	= new BLL.Entity.GasStation.Base__PlateType () { id = plateTypeId };
-			logic	= new BLL.Logic.GasStation.Base__PlateType (Common.Enum.EDatabase.GasStation);
+			logic	= new BLL.Logic.GasStation.Base__PlateType ("GasStation");
 			logic.read (entity);
 
 			_Base__PlateType_plateTypeId	= entity;
@@ -125,7 +113,7 @@ namespace Common.BLL.Entity.GasStation
 			BLL.Logic.GasStation.Base__PlateCity	logic;
 
 			entity	= new BLL.Entity.GasStation.Base__PlateCity () { id = plateCityId };
-			logic	= new BLL.Logic.GasStation.Base__PlateCity (Common.Enum.EDatabase.GasStation);
+			logic	= new BLL.Logic.GasStation.Base__PlateCity ("GasStation");
 			logic.read (entity);
 
 			_Base__PlateCity_plateCityId	= entity;
@@ -170,7 +158,7 @@ namespace Common.BLL.Entity.GasStation
 			BLL.Logic.GasStation.User	logic;
 
 			entity	= new BLL.Entity.GasStation.User () { id = insertedById };
-			logic	= new BLL.Logic.GasStation.User (Common.Enum.EDatabase.GasStation);
+			logic	= new BLL.Logic.GasStation.User ("GasStation");
 			logic.read (entity);
 
 			_User_insertedById	= entity;
@@ -215,7 +203,7 @@ namespace Common.BLL.Entity.GasStation
 			BLL.Logic.GasStation.User	logic;
 
 			entity	= new BLL.Entity.GasStation.User () { id = updatedById.Value };
-			logic	= new BLL.Logic.GasStation.User (Common.Enum.EDatabase.GasStation);
+			logic	= new BLL.Logic.GasStation.User ("GasStation");
 			logic.read (entity);
 
 			_User_updatedById	= entity;

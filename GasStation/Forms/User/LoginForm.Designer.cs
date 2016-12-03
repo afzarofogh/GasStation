@@ -36,7 +36,6 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.exitButton = new System.Windows.Forms.Button();
 			this.loginButton = new System.Windows.Forms.Button();
-			this.comboBox1 = new System.Windows.Forms.ComboBox();
 			this.userDataGroupBox.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
@@ -137,14 +136,6 @@
 			this.loginButton.Text = "ورود";
 			this.loginButton.UseVisualStyleBackColor = true;
 			// 
-			// comboBox1
-			// 
-			this.comboBox1.FormattingEnabled = true;
-			this.comboBox1.Location = new System.Drawing.Point(281, 159);
-			this.comboBox1.Name = "comboBox1";
-			this.comboBox1.Size = new System.Drawing.Size(203, 26);
-			this.comboBox1.TabIndex = 3;
-			// 
 			// LoginForm
 			// 
 			this.AcceptButton = this.loginButton;
@@ -152,7 +143,6 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.exitButton;
 			this.ClientSize = new System.Drawing.Size(496, 197);
-			this.Controls.Add(this.comboBox1);
 			this.Controls.Add(this.loginButton);
 			this.Controls.Add(this.exitButton);
 			this.Controls.Add(this.userDataGroupBox);
@@ -178,6 +168,5 @@
 		private System.Windows.Forms.PictureBox pictureBox1;
 		private System.Windows.Forms.Button exitButton;
 		private System.Windows.Forms.Button loginButton;
-		private System.Windows.Forms.ComboBox comboBox1;
 	}
 }

@@ -1,7 +1,9 @@
 ﻿using BaseDAL.Model;
 using Common.Helper.Logger;
+using Common.Network.Core;
 using GasStation.Enum;
 using GasStation.Forms.Base;
+using GasStation.Helper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,6 +29,9 @@ namespace GasStation.Forms.Forms
 		Common.BLL.Entity.GasStation.CarOwner		carOwnerModel;
 		Common.BLL.Entity.GasStation.Plate			plateModel;		
 		Common.BLL.Entity.GasStation.LegalOwner		legalOwnerModel;
+
+		private const int		C_BufferSize	= 1024;
+		AntennaClient anntenaClient ;
 		
 
 		#endregion
@@ -86,7 +91,7 @@ namespace GasStation.Forms.Forms
 			InfoListView.Items.Add(new ListViewItem(new string[]{   "نوع پلاک",		plateTypeComboBox.Text},	plate_group));
 			InfoListView.Items.Add(new ListViewItem(new string[]{   "شماره پلاک",	plateModel.plate},			plate_group));
 
-			if (carOwnerModel.type)
+			if (!carOwnerModel.type)
 				InfoListView.Items.Add(new ListViewItem(new string[]{   "نوع مالک", 	"حقیقی"},		ownerType_group));
 			else
 			{ 
@@ -116,16 +121,14 @@ namespace GasStation.Forms.Forms
 			// Update ui
 			updateUi ();
 
-			enableTab(carTabPage, false);
-			enableTab(plateTabPage, false);
-			enableTab(ownerTypeTabPage, false);
-			enableTab(showInfoTabPage, false);
-			enableTab(tagTabPage, false);
-	
-			//TODO: Init value combo and get id value
+			//enableTab(carTabPage, false);
+			//enableTab(plateTabPage, false);
+			//enableTab(ownerTypeTabPage, false);
+			//enableTab(showInfoTabPage, false);
+			//enableTab(tagTabPage, false);	
+			
 			reloadCombo();
-
-			listviewDetails();
+			
 		}
 
 		/// <summary>
@@ -156,7 +159,12 @@ namespace GasStation.Forms.Forms
 		/// </summary>
 		private void reloadCombo ()
 		{
-			genComboBox.DataSource = System.Enum.GetValues(typeof(enumGenType));
+			// Car Color
+			Common.BLL.Logic.GasStation.HC__Sexuality	lSex	= new Common.BLL.Logic.GasStation.HC__Sexuality (Common.Enum.EDatabase.GasStation);
+			DataTable resultSex	= lSex.allData ("", "", false).model as DataTable;
+			genComboBox.fillByTable (resultSex, "id", "gen");			
+
+			//genComboBox.DataSource = System.Enum.GetValues(typeof(enumGenType));
 
 			// Car Color
 			Common.BLL.Logic.GasStation.Base__CarColor	lCarColor	= new Common.BLL.Logic.GasStation.Base__CarColor (Common.Enum.EDatabase.GasStation);
@@ -189,9 +197,9 @@ namespace GasStation.Forms.Forms
 			plateTypeComboBox.fillByTable (resultPlateType, "id", "type");
 
 			//TODO: get code city from Database
-			//Common.BLL.Logic.GasStation.Base__PlateCity		lPlateCity		= new Common.BLL.Logic.GasStation.Base__PlateCity (Common.Enum.EDatabase.GasStation);
-			//CommandResult	opResultPlateCity		= lPlateType.allData("", "code", false);			
-			//code1Numeric.Items.Add(opResultPlateType.model);
+			Common.BLL.Logic.GasStation.Base__PlateCity		lPlateCity		= new Common.BLL.Logic.GasStation.Base__PlateCity (Common.Enum.EDatabase.GasStation);
+			DataTable	resultPlateCity		= lPlateCity.allData("","", false).model as DataTable;		
+			//code1Numeric.DataBindings.Add("Value", resultPlateCity,"code");
 			
 		}
 
@@ -201,41 +209,334 @@ namespace GasStation.Forms.Forms
 		private void bindEvents ()
 		{
 			
-			mainTabControl.SelectedIndexChanged		+= mainTabControl_SelectedIndexChanged;
-			plateTypeComboBox.SelectedIndexChanged	+= plateTypeComboBox_SelectedIndexChanged;
-			legalRadioButton.CheckedChanged			+= legalRadioButton_CheckedChanged;
+			mainTabControl.SelectedIndexChanged		+= MainTabControl_SelectedIndexChanged;
+			plateTypeComboBox.SelectedIndexChanged	+= PlateTypeComboBox_SelectedIndexChanged;
+			legalRadioButton.CheckedChanged			+= LegalRadioButton_CheckedChanged;
+			code1Numeric.SelectedItemChanged		+= Code1Numeric_SelectedItemChanged;
 
-			//carTypeComboBox.SelectedIndexChanged	+= (x, y) =>
-			//{
-			//	carModel.carTypeId	= (int)carTypeComboBox.SelectedValue;
-			//};
+			nameTextBox.KeyPress					+= NameTextBox_KeyPress;
+			lastNameTextBox.KeyPress				+= LastNameTextBox_KeyPress;			
+			phoneTextBox.KeyPress					+= PhoneTextBox_KeyPress;
+			mobileTextBox.KeyPress					+= MobileTextBox_KeyPress;
 
-			nextButton.Click						+= nextButton_Click;
-			previousButton.Click					+= previousButton_Click;
-			carTypeButton.Click						+= carTypeButton_Click;
-			carSystemButton.Click					+= carSystemButton_Click;
-			carColorButton.Click					+= carColorButton_Click;
-			carFuelButton.Click						+= carFuelButton_Click;
-			carLevelButton.Click					+= carLevelButton_Click;
-			plateTypeButton.Click					+= plateTypeButton_Click;
+			nextButton.Click						+= NextButton_Click;
+			previousButton.Click					+= PreviousButton_Click;
+			carTypeButton.Click						+= CarTypeButton_Click;
+			carSystemButton.Click					+= CarSystemButton_Click;
+			carColorButton.Click					+= CarColorButton_Click;
+			carFuelButton.Click						+= CarFuelButton_Click;
+			carLevelButton.Click					+= CarLevelButton_Click;
+			plateTypeButton.Click					+= PlateTypeButton_Click;
 
-			getTagButton.Click						+= getTagButton_Click;
+			getTagButton.Click						+= GetTagButton_Click;
+			registerButton.Click					+= RegisterButton_Click;
 			
 		}
 
-		private void getTagButton_Click (object sender, EventArgs e)
+		/// <summary>
+		/// Lastname TextBox Key Press
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void LastNameTextBox_KeyPress (object sender, KeyPressEventArgs e)
 		{
-			transmitprotocol();
-		}			
+			 e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+		}
+
+		/// <summary>
+		/// Name TextBox Key Press
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void NameTextBox_KeyPress (object sender, KeyPressEventArgs e)
+		{
+			 e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+		}
+
+		/// <summary>
+		/// Mobile TextBox Key Press
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void MobileTextBox_KeyPress (object sender, KeyPressEventArgs e)
+		{
+			e.Handled = (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar));			
+		}
+
+		/// <summary>
+		/// Phone TextBox KeyPress
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void PhoneTextBox_KeyPress (object sender, KeyPressEventArgs e)
+		{
+			e.Handled = (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar));	
+		}		
+
+		/// <summary>
+		/// Code 1 Numbric SelectedItemChanged
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void Code1Numeric_SelectedItemChanged (object sender, EventArgs e)
+		{
+			//int codeCity	= (int)code1Numeric.SelectedItem;
+		}
+
+		/// <summary>
+		/// Register Button
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void RegisterButton_Click (object sender, EventArgs e)
+		{
+			registerData();
+		}
+		/// <summary>
+		/// Register Data
+		/// </summary>
+		private void registerData ()
+		{			 
+			//save_Owner_Car_Plate(ownerModel, carModel, plateModel, legalOwnerModel)ک
+			if (savePlate())			
+				if (saveOwner())
+					if (saveCar ())
+						if (saveCarOwner())
+							if ( null == legalOwnerModel)
+							{ 
+								MessageBox.Show (this, "اطلاعات با موفقیت ذخیره شد", "پیام", MessageBoxButtons.OK, MessageBoxIcon.Information);
+								CloseSuccess();
+							}
+							else if (null != legalOwnerModel && saveLegalOwner())
+							{
+								MessageBox.Show (this, "اطلاعات با موفقیت ذخیره شد", "پیام", MessageBoxButtons.OK, MessageBoxIcon.Information);
+								CloseSuccess();
+							}		
+					
+		}
+	
+		/// <summary>
+		/// Insert new Owner
+		/// </summary>
+		private bool saveOwner ()
+		{
+		    bool result = false;
+			CommandResult opResult = null;
+			Common.BLL.Logic.GasStation.Owner  lOwner = new Common.BLL.Logic.GasStation.Owner (Common.Enum.EDatabase.GasStation);			
+
+			// Set author data
+			if (ownerModel.id == 0)
+			{
+				#region Insert
+				ownerModel.insertedById = Common.GlobalData.UserManager.currentUser.id;
+				ownerModel.insertDate = DateTime.Now;
+
+				opResult = lOwner.create (ownerModel);
+				#endregion
+			}
+			
+			// Create/Modify data
+
+			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)			
+				result = true;			
+			
+			else
+			{
+				result = false ;
+				Logger.logger.log (opResult);
+				MessageBox.Show (this, "خطا در ذخیره اطلاعات راننده وجود دارد", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+
+			return result;
+		}
+			/// <summary>
+		/// Insert new Plate
+		/// </summary>
+		private bool savePlate ()
+		{
+			bool result =   false;
+			CommandResult opResult = null;
+			Common.BLL.Logic.GasStation.Plate  lPlate = new Common.BLL.Logic.GasStation.Plate (Common.Enum.EDatabase.GasStation);			
+
+			// Set author data
+			if (plateModel.id == 0)
+			{
+				#region Insert
+				plateModel.plateCityId = 166;
+				plateModel.insertedById = Common.GlobalData.UserManager.currentUser.id;
+				plateModel.insertDate = DateTime.Now;
+
+				opResult = lPlate.create (plateModel);
+				#endregion
+			}
+					
+
+			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)			
+				result = true ;			
+			else
+			{
+				result = false;
+				Logger.logger.log (opResult);
+				MessageBox.Show (this, "خطا در ذخیره اطلاعات پلاک وجود دارد", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+
+			return result;
+		}
+		/// <summary>
+		/// Insert new Car + add plateId
+		/// </summary>
+		private bool saveCar ()
+		{
+			bool result = false;
+			CommandResult opResult = null;
+			Common.BLL.Logic.GasStation.Car  lCar = new Common.BLL.Logic.GasStation.Car (Common.Enum.EDatabase.GasStation);			
+
+			// Set author data
+			if (carModel.id == 0)
+			{
+				#region Insert
+				carModel.plateId	= plateModel.id;
+				carModel.insertedById = Common.GlobalData.UserManager.currentUser.id;
+				carModel.insertDate = DateTime.Now;
+
+				opResult = lCar.create (carModel);
+				#endregion
+			}
+			
+			// Create/Modify data
+
+			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)			
+				result = true;			
+			else
+			{
+				result= false;
+				Logger.logger.log (opResult);
+				MessageBox.Show (this, "خطا در ذخیره اطلاعات", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			return result;
+		}
+				
+		/// <summary>
+		/// Insert new Car Owner
+		/// </summary>
+		private bool saveCarOwner ()
+		{	
+			bool result = false;
+			CommandResult opResult = null;
+			Common.BLL.Logic.GasStation.CarOwner lCarOwner = new Common.BLL.Logic.GasStation.CarOwner(Common.Enum.EDatabase.GasStation);
+
+			if(carOwnerModel.id == 0)
+			{
+				#region Insert
+				carOwnerModel.ownerId = ownerModel.id;
+				carOwnerModel.carId = carModel.id;
+				carOwnerModel.insertedById = Common.GlobalData.UserManager.currentUser.id;
+				carOwnerModel.insertDate = DateTime.Now;
+
+				opResult = lCarOwner.create(carOwnerModel);		 
+				#endregion
+			}
+			// Create/Modify data
+
+			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
+				result = true ;
+			else
+			{
+				result = false;
+				Logger.logger.log (opResult);
+				MessageBox.Show (this, "خطا در ذخیره اطلاعات", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}	
+		 	return result;
+		}
+
+		/// <summary>
+		/// Insert Legal Owner
+		/// </summary>
+		private bool saveLegalOwner ()
+		{
+			bool result = false;
+			CommandResult opResult = null;
+			Common.BLL.Logic.GasStation.LegalOwner lLegalOwner = new Common.BLL.Logic.GasStation.LegalOwner(Common.Enum.EDatabase.GasStation);
+				
+			if (legalOwnerModel.id == 0)
+			{
+				legalOwnerModel.carOwnerId = carOwnerModel.id;
+				legalOwnerModel.insertedById = Common.GlobalData.UserManager.currentUser.id;
+				legalOwnerModel.insertDate = DateTime.Now;
+
+				opResult = lLegalOwner.create(carOwnerModel);
+			}
+			// Create/Modify data
+
+			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
+				result = true ;
+			else
+			{
+				Logger.logger.log (opResult);
+				MessageBox.Show (this, "خطا در ذخیره اطلاعات نوع مالک وجود دارد", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+
+			return result;			
+		}
+			
 
 		/// <summary>
 		/// Plate Type Change
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void plateTypeComboBox_SelectedIndexChanged (object sender, EventArgs e)
+		private void PlateTypeComboBox_SelectedIndexChanged (object sender, EventArgs e)
 		{
-			//TODO: Select Plate by type and Select Panel
+			switch ((int)plateTypeComboBox.SelectedValue)
+			{
+				case ((int)enumPlateType.Personal) : 
+						updatePlate (Color.White, Color.Black);	
+					break;
+				case ((int)enumPlateType.Taxi) :		
+						updatePlate (Color.Yellow, Color.Black, "ت");					
+					break;
+				case ((int)enumPlateType.Polity) : 					
+						updatePlate (Color.Red, Color.White, "الف");
+					break;
+				case ((int)enumPlateType.Malulin) : 
+					{
+						mainPlatePanel.Visible		= false;
+						motorPlatePanel.Visible		= false;
+						malulinPlatePanel.Visible	=  true ;
+						malulinPlatePanel.Location	= new Point(mainPlatePanel.Location.X, mainPlatePanel.Location.Y);					
+
+					}break;
+				case ((int)enumPlateType.Motor) : // موتور سیکلت
+					{
+						mainPlatePanel.Visible		= false;
+						malulinPlatePanel.Visible	= false;
+						motorPlatePanel.Visible		= true;
+						motorPlatePanel.Location	= new Point(mainPlatePanel.Location.X, mainPlatePanel.Location.Y);					
+					}
+					break;
+				
+				default:
+					break;
+			}
+		}
+
+		/// <summary>
+		/// Upadte Panel Plate
+		/// </summary>
+		/// <param name="backColorPart"></param>
+		/// <param name="foreColorPart"></param>
+		/// <param name="character"></param>
+		private void updatePlate (Color backColorPart, Color foreColorPart, string character = null)
+		{
+			mainPlatePanel.Visible		= true;
+			malulinPlatePanel.Visible	= false;
+			motorPlatePanel.Visible		= false;
+			part1MainTextBox.BackColor	= 
+			part2MainTextBox.BackColor	= backColorPart;
+			part1MainTextBox.ForeColor	= 
+			part2MainTextBox.ForeColor	= foreColorPart;
+			characterTextBox.Text		= character;
+			
 		}		
 
 		/// <summary>
@@ -243,7 +544,7 @@ namespace GasStation.Forms.Forms
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void carSystemButton_Click (object sender, EventArgs e)
+		private void CarSystemButton_Click (object sender, EventArgs e)
 		{
 			CarSystemForm	form	= new CarSystemForm();
 
@@ -256,7 +557,7 @@ namespace GasStation.Forms.Forms
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void carColorButton_Click (object sender, EventArgs e)
+		private void CarColorButton_Click (object sender, EventArgs e)
 		{
 			CarColorForm	 form	= new CarColorForm ();
 
@@ -269,7 +570,7 @@ namespace GasStation.Forms.Forms
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void carFuelButton_Click (object sender, EventArgs e)
+		private void CarFuelButton_Click (object sender, EventArgs e)
 		{
 			CarFuelForm	form	= new CarFuelForm();
 
@@ -282,7 +583,7 @@ namespace GasStation.Forms.Forms
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void carLevelButton_Click (object sender, EventArgs e)
+		private void CarLevelButton_Click (object sender, EventArgs e)
 		{
 			CarLevelForm	form	= new CarLevelForm();
 
@@ -295,7 +596,7 @@ namespace GasStation.Forms.Forms
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void carTypeButton_Click (object sender, EventArgs e)
+		private void CarTypeButton_Click (object sender, EventArgs e)
 		{
 			CarTypeForm		form	= new CarTypeForm();
 
@@ -307,7 +608,7 @@ namespace GasStation.Forms.Forms
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void plateTypeButton_Click (object sender, EventArgs e)
+		private void PlateTypeButton_Click (object sender, EventArgs e)
 		{
 			PlateTypeForm	form	= new PlateTypeForm();
 			
@@ -319,7 +620,7 @@ namespace GasStation.Forms.Forms
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void legalRadioButton_CheckedChanged (object sender, EventArgs e)
+		private void LegalRadioButton_CheckedChanged (object sender, EventArgs e)
 		{
 			legalOwnerGroupBox.Visible	=	true;
 		}
@@ -329,7 +630,7 @@ namespace GasStation.Forms.Forms
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		void mainTabControl_SelectedIndexChanged (object sender, EventArgs e)
+		void MainTabControl_SelectedIndexChanged (object sender, EventArgs e)
 		{
 			updateUi ();
 		}
@@ -352,7 +653,7 @@ namespace GasStation.Forms.Forms
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void nextButton_Click (object sender, EventArgs e)
+		private void NextButton_Click (object sender, EventArgs e)
 		{
 			int				step		= 0;
 			CommandResult	opResult	= null;
@@ -384,8 +685,24 @@ namespace GasStation.Forms.Forms
 						break;
 					case 2 :
 						{
-							//Fill plate Model
+							//Fill plate Model							
 							BaseBLL.General.FormModelHelper<Common.BLL.Entity.GasStation.Plate>.fillModel (plateDataGroupBox, plateModel);
+							switch (plateModel.plateTypeId)
+							{
+								case ((int)enumPlateType.Personal) :
+								case ((int)enumPlateType.Taxi) :
+								case ((int)enumPlateType.Polity) :
+									plateModel.plate = part1MainTextBox.Text + "_" +characterTextBox.Text + "_" + part2MainTextBox.Text + "_" + code1Numeric.Text;
+									break;
+								case ((int)enumPlateType.Malulin):
+									plateModel.plate = part1MalulinTextBox.Text + "_" + part2MaluinTextBox.Text + "_" + code2Numeric.Text;
+									break;
+								case ((int)enumPlateType.Motor):
+									plateModel.plate = part1MotorTextBox.Text + "_" + part2MotorTextBox.Text;
+									break;
+								default:
+									break;
+							}		
 							enableTab(ownerTypeTabPage, true);
 						}
 						break;
@@ -396,14 +713,15 @@ namespace GasStation.Forms.Forms
 								BaseBLL.General.FormModelHelper<Common.BLL.Entity.GasStation.LegalOwner>.fillModel (ownerTypeDataGroupBox, legalOwnerModel);
 							else 
 								legalOwnerModel = null;
-							enableTab(showInfoTabPage, true);	
+							enableTab(showInfoTabPage, true);
+							listviewDetails();
 						}
 						break;
-					//case 4 :
-					//	{
-					//		//Register Data
-					//	}
-						//break;
+					case 4 :
+						{
+							//TODO: get tag
+						}
+						break;
 					default:
 						break;
 				}
@@ -419,7 +737,7 @@ namespace GasStation.Forms.Forms
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void previousButton_Click (object sender, EventArgs e)
+		private void PreviousButton_Click (object sender, EventArgs e)
 		{
 			int				step		= 0;			
 			step	= mainTabControl.SelectedIndex;
@@ -440,131 +758,8 @@ namespace GasStation.Forms.Forms
 			}
 			else if (++step < mainTabControl.TabPages.Count)
 				mainTabControl.SelectedIndex	= step;
-		}
-
-		/// <summary>
-		/// Register Data
-		/// </summary>
-		private void registerData ()
-		{
-			// 
-			//save_Owner_Car_Plate(ownerModel, carModel, plateModel, legalOwnerModel);
-
-			savePlate();
-			saveOwner();			
-			saveCar ();
-			saveCarOwner();
-			saveLegalOwner(); // در صورت وجود
-					
-		}
-	
-		/// <summary>
-		/// Insert Legal Owner
-		/// </summary>
-		private void saveLegalOwner ()
-		{
-			
-		}
-
-		/// <summary>
-		/// Insert new Car Owner
-		/// </summary>
-		private void saveCarOwner ()
-		{
-			/*   idOwner, idcar, type   */
-			 
-		}
-
-		/// <summary>
-		/// Insert new Plate
-		/// </summary>
-		private void savePlate ()
-		{
-			CommandResult opResult = null;
-			Common.BLL.Logic.GasStation.Plate  lPlate = new Common.BLL.Logic.GasStation.Plate (Common.Enum.EDatabase.GasStation);			
-
-			// Set author data
-			if (plateModel.id == 0)
-			{
-				#region Insert
-				plateModel.insertedById = Common.GlobalData.UserManager.currentUser.id;
-				plateModel.insertDate = DateTime.Now;
-
-				opResult = lPlate.create (plateModel);
-				#endregion
-			}
-			
-			// Create/Modify data
-
-			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
-				CloseSuccess ();
-			else
-			{
-				Logger.logger.log (opResult);
-				MessageBox.Show (this, "خطا در ذخیره اطلاعات", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			}
-		}
-
-		/// <summary>
-		/// Insert new Owner
-		/// </summary>
-		private void saveOwner ()
-		{
-			CommandResult opResult = null;
-			Common.BLL.Logic.GasStation.Owner  lOwner = new Common.BLL.Logic.GasStation.Owner (Common.Enum.EDatabase.GasStation);			
-
-			// Set author data
-			if (ownerModel.id == 0)
-			{
-				#region Insert
-				ownerModel.insertedById = Common.GlobalData.UserManager.currentUser.id;
-				ownerModel.insertDate = DateTime.Now;
-
-				opResult = lOwner.create (ownerModel);
-				#endregion
-			}
-			
-			// Create/Modify data
-
-			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
-				CloseSuccess ();
-			else
-			{
-				Logger.logger.log (opResult);
-				MessageBox.Show (this, "خطا در ذخیره اطلاعات", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			}
-		}
-
-		/// <summary>
-		/// Insert new Car + add plateId
-		/// </summary>
-		private void saveCar ()
-		{
-			CommandResult opResult = null;
-			Common.BLL.Logic.GasStation.Car  lCar = new Common.BLL.Logic.GasStation.Car (Common.Enum.EDatabase.GasStation);			
-
-			// Set author data
-			if (carModel.id == 0)
-			{
-				#region Insert
-				carModel.insertedById = Common.GlobalData.UserManager.currentUser.id;
-				carModel.insertDate = DateTime.Now;
-
-				opResult = lCar.create (carModel);
-				#endregion
-			}
-			
-			// Create/Modify data
-
-			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
-				CloseSuccess ();
-			else
-			{
-				Logger.logger.log (opResult);
-				MessageBox.Show (this, "خطا در ذخیره اطلاعات", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			}
-		}
-				
+		}	
+		
 
 		/// <summary>
 		/// Select previous step
@@ -606,8 +801,6 @@ namespace GasStation.Forms.Forms
 				case 4 :					
 						result = CommandResult.makeSuccessResult ("OK");
 					break;
-					
-
  				default :
 					break;
 			}
@@ -626,12 +819,12 @@ namespace GasStation.Forms.Forms
 			List<string>	err				= new List<string> ();
 			string			name			= nameTextBox.Text.Trim ();
 			string			lastName		= lastNameTextBox.Text.Trim ();
-			string			nationalCode	= nationalCodeTextBox.Text.Trim();
+			string			nationalCode	= nationalCodeMaskedTextBox.Text.Trim();
 			//TODO: get value gen
 			string			gen				= genComboBox.Text.Trim();
 			string			mobile			= mobileTextBox.Text.Trim();
 			//TODO: get value birthdate
-			//string			birthdate		= birthdateMaskedTextBox.Text;
+			string			birthdate		= birthdateMaskedTextBox.Text;
 			//string			birthdatelocal	= birthdatelocalTextBox.Text;
 			//string			phone			= phoneTextBox.Text.Trim();
 			
@@ -648,6 +841,13 @@ namespace GasStation.Forms.Forms
 				err.Add("جنسیت نامعتبر می باشد");
 			if (mobile.isNullOrEmptyOrWhiteSpaceOrLen(50))
 				err.Add("تلفن همراه وارد شده نامعتبر می باشد");
+
+			if (null != birthdate && birthdate.Length == 10)
+			{				
+				if (!birthdate.isBirthDate(10))
+					err.Add("تاریخ تولد وارد شده نامعتبر است");
+			}
+			
 			//if (birthdate.isNullOrEmptyOrWhiteSpaceOrLen(10))
 			//	err.Add("تاریخ تولد وارد شده نامعتبر می باشد");
 			//if (birthdatelocal.isNullOrEmptyOrWhiteSpaceOrLen(50))
@@ -787,7 +987,7 @@ namespace GasStation.Forms.Forms
 		 public void transmitprotocol()
         {
             BackgroundWorker bw = new BackgroundWorker();
-            bw.DoWork += new DoWorkEventHandler(bw_DoWork);
+			bw.DoWork += new DoWorkEventHandler(bw_DoWork);
             bw.RunWorkerCompleted += new RunWorkerCompletedEventHandler(bw_RunWorkerCompleted);
 
             
@@ -804,16 +1004,87 @@ namespace GasStation.Forms.Forms
             }
         }
 
-        void bw_DoWork(object sender, DoWorkEventArgs e)
-        {
-            System.Threading.Thread.Sleep(2 * 1000); //this code take 5 seconds to be passed
-        }
+		void bw_DoWork(object sender, DoWorkEventArgs e)
+		{
+			System.Threading.Thread.Sleep(2 * 1000); //this code take 5 seconds to be passed
+		}
         void bw_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
 
             loadingPictureBox.Image = null;
 			loadingLabel.Visible = false;
         }
+
+		/// <summary>
+		/// Get Tag Button
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void GetTagButton_Click (object sender, EventArgs e)
+		{			
+			//transmitprotocol();
+			tagTextBox.Clear();
+			Common.BLL.Entity.GasStation.UHF	model	= new Common.BLL.Entity.GasStation.UHF ()
+				{
+					id	= 1
+				};
+
+			Common.BLL.Logic.GasStation.UHF		lUHF	= new Common.BLL.Logic.GasStation.UHF (Common.Enum.EDatabase.GasStation);
+			CommandResult opResult = lUHF.read(model);
+			if (null != model)
+			{				
+				anntenaClient 	=  new AntennaClient (model.IP , model.Port, C_BufferSize);
+				anntenaClient.onConnect		+= anntenaClient_onConnect;
+				anntenaClient.onReceiveData	+= anntenaClient_onReceiveData;
+				anntenaClient.onError		+= anntenaClient_onError;
+				anntenaClient.connect();
+			}				 
+		}		
+
+		/// <summary>
+		/// On Connect
+		/// </summary>
+		/// <param name="sender"></param>
+		private void anntenaClient_onConnect (NetTcpClient sender)
+		{
+			Invoke((Action)delegate
+			{
+				loadingPictureBox.Image = Properties.Resources.loading25;
+				loadingLabel.Visible = true;
+				loadingLabel.Text = "در حال دریافت اطلاعات از آنتن .....";
+				getTagButton.Enabled = false;
+			});
+		}	
+		/// <summary>
+		/// On Error
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="data"></param>
+		private void anntenaClient_onError (NetTcpClient sender, CommandResult data)
+		{
+			Invoke((Action)delegate
+			{
+				MessageBox.Show("خطا در ارتباط با آنتن","خطا",MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+			});
+		}
+
+		/// <summary>
+		/// On Receive
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="data"></param>
+		private void anntenaClient_onReceiveData (NetTcpClient sender, CommandResult data)
+		{
+			Invoke ((Action)delegate
+			{
+				tagTextBox.Text = Encoding.UTF8.GetString(data.model as byte[]);
+				anntenaClient.disconnect();
+				loadingPictureBox.Image		= null;
+				loadingLabel.Visible		= false;
+				getTagButton.Enabled		= true;
+
+			});
+		}
 
 		#endregion		
 	}

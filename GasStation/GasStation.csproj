@@ -69,6 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enum\enumGenType.cs" />
+    <Compile Include="Enum\enumPlateType.cs" />
     <Compile Include="Forms\Base\PlateTypeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +178,7 @@
     <Compile Include="Forms\User\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helper\AntennaClient.cs" />
     <Compile Include="Helper\GridHeaderMaker.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

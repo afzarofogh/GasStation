@@ -157,7 +157,7 @@ namespace GasStation.Forms.Base
 		{
 			Common.BLL.Logic.GasStation.Base__CarType	lCarType	= new Common.BLL.Logic.GasStation.Base__CarType (Common.Enum.EDatabase.GasStation);
 
-			CommandResult opResult	= lCarType.allData ("", "type", false);
+			CommandResult opResult	= lCarType.allData ("", "", false);
 			resultGrid.DataSource	= opResult.model;
 			resultGrid.loadHeader (this.GetType ().Name);
 		}

@@ -85,6 +85,7 @@
     <Compile Include="BLL\Entity\GasStation\Car.cs" />
     <Compile Include="BLL\Entity\GasStation\CarOwner.cs" />
     <Compile Include="BLL\Entity\GasStation\CarTag.cs" />
+    <Compile Include="BLL\Entity\GasStation\HC__Sexuality.cs" />
     <Compile Include="BLL\Entity\GasStation\LegalOwner.cs" />
     <Compile Include="BLL\Entity\GasStation\Owner.cs" />
     <Compile Include="BLL\Entity\GasStation\Plate.cs" />
@@ -104,6 +105,7 @@
     <Compile Include="BLL\Logic\GasStation\Car.cs" />
     <Compile Include="BLL\Logic\GasStation\CarOwner.cs" />
     <Compile Include="BLL\Logic\GasStation\CarTag.cs" />
+    <Compile Include="BLL\Logic\GasStation\HC__Sexuality.cs" />
     <Compile Include="BLL\Logic\GasStation\LegalOwner.cs" />
     <Compile Include="BLL\Logic\GasStation\Owner.cs" />
     <Compile Include="BLL\Logic\GasStation\Plate.cs" />
@@ -116,6 +118,7 @@
     <Compile Include="GlobalData\UserManager.cs" />
     <Compile Include="Helper\Antenna\MR6100.cs" />
     <Compile Include="Helper\Extensions\ComboBoxExtension.cs" />
+    <Compile Include="Helper\Extensions\DateExtension.cs" />
     <Compile Include="Helper\Extensions\GridColumnCollectionExtension.cs" />
     <Compile Include="Helper\Extensions\GridExtension.cs" />
     <Compile Include="Helper\Extensions\JsonExtension.cs" />

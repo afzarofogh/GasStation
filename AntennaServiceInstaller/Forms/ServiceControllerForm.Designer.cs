@@ -29,11 +29,11 @@
 		private void InitializeComponent ()
 		{
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
-			this.label3 = new System.Windows.Forms.Label();
-			this.serviceStatusLabel = new System.Windows.Forms.Label();
-			this.pauseServiceButton = new System.Windows.Forms.Button();
-			this.stopServiceButton = new System.Windows.Forms.Button();
 			this.startServiceButton = new System.Windows.Forms.Button();
+			this.stopServiceButton = new System.Windows.Forms.Button();
+			this.pauseServiceButton = new System.Windows.Forms.Button();
+			this.serviceStatusLabel = new System.Windows.Forms.Label();
+			this.label3 = new System.Windows.Forms.Label();
 			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -54,15 +54,36 @@
 			this.groupBox1.TabIndex = 0;
 			this.groupBox1.TabStop = false;
 			// 
-			// label3
+			// startServiceButton
 			// 
-			this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(458, 34);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(122, 18);
-			this.label3.TabIndex = 1;
-			this.label3.Text = "وضعیت سرویس : ";
+			this.startServiceButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+			this.startServiceButton.Location = new System.Drawing.Point(366, 75);
+			this.startServiceButton.Name = "startServiceButton";
+			this.startServiceButton.Size = new System.Drawing.Size(121, 35);
+			this.startServiceButton.TabIndex = 0;
+			this.startServiceButton.Text = "اجرا";
+			this.startServiceButton.UseVisualStyleBackColor = true;
+			//this.startServiceButton.Click += new System.EventHandler(this.startServiceButton_Click_1);
+			// 
+			// stopServiceButton
+			// 
+			this.stopServiceButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+			this.stopServiceButton.Location = new System.Drawing.Point(112, 75);
+			this.stopServiceButton.Name = "stopServiceButton";
+			this.stopServiceButton.Size = new System.Drawing.Size(121, 35);
+			this.stopServiceButton.TabIndex = 2;
+			this.stopServiceButton.Text = "پایان";
+			this.stopServiceButton.UseVisualStyleBackColor = true;
+			// 
+			// pauseServiceButton
+			// 
+			this.pauseServiceButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+			this.pauseServiceButton.Location = new System.Drawing.Point(239, 75);
+			this.pauseServiceButton.Name = "pauseServiceButton";
+			this.pauseServiceButton.Size = new System.Drawing.Size(121, 35);
+			this.pauseServiceButton.TabIndex = 1;
+			this.pauseServiceButton.Text = "توقف";
+			this.pauseServiceButton.UseVisualStyleBackColor = true;
 			// 
 			// serviceStatusLabel
 			// 
@@ -75,35 +96,15 @@
 			this.serviceStatusLabel.Text = "Status";
 			this.serviceStatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
-			// pauseServiceButton
+			// label3
 			// 
-			this.pauseServiceButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-			this.pauseServiceButton.Location = new System.Drawing.Point(239, 75);
-			this.pauseServiceButton.Name = "pauseServiceButton";
-			this.pauseServiceButton.Size = new System.Drawing.Size(121, 35);
-			this.pauseServiceButton.TabIndex = 1;
-			this.pauseServiceButton.Text = "توقف";
-			this.pauseServiceButton.UseVisualStyleBackColor = true;
-			// 
-			// stopServiceButton
-			// 
-			this.stopServiceButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-			this.stopServiceButton.Location = new System.Drawing.Point(112, 75);
-			this.stopServiceButton.Name = "stopServiceButton";
-			this.stopServiceButton.Size = new System.Drawing.Size(121, 35);
-			this.stopServiceButton.TabIndex = 2;
-			this.stopServiceButton.Text = "پایان";
-			this.stopServiceButton.UseVisualStyleBackColor = true;
-			// 
-			// startServiceButton
-			// 
-			this.startServiceButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-			this.startServiceButton.Location = new System.Drawing.Point(366, 75);
-			this.startServiceButton.Name = "startServiceButton";
-			this.startServiceButton.Size = new System.Drawing.Size(121, 35);
-			this.startServiceButton.TabIndex = 0;
-			this.startServiceButton.Text = "اجرا";
-			this.startServiceButton.UseVisualStyleBackColor = true;
+			this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.label3.AutoSize = true;
+			this.label3.Location = new System.Drawing.Point(458, 34);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(122, 18);
+			this.label3.TabIndex = 1;
+			this.label3.Text = "وضعیت سرویس : ";
 			// 
 			// ServiceControllerForm
 			// 

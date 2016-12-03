@@ -158,7 +158,7 @@ namespace GasStation.Forms.Base
 		{
 			Common.BLL.Logic.GasStation.Base__CarFuel	lCarFuel	= new Common.BLL.Logic.GasStation.Base__CarFuel (Common.Enum.EDatabase.GasStation);
 
-			CommandResult opResult	= lCarFuel.allData ("", "fuel", false);
+			CommandResult opResult	= lCarFuel.allData ("", "", false);
 			resultGrid.DataSource	= opResult.model;		
 			resultGrid.loadHeader (this.GetType ().Name);
 		}

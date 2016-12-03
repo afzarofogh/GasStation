@@ -50,25 +50,25 @@ namespace TestApp
 
 		}
 
-		 private ArrayList HeaderGroup = new ArrayList();
-		
+		private ArrayList HeaderGroup = new ArrayList ();
 
-		private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
-        {
-			int i=0;
-			for ( i= 0; i < 1000; i++)
+
+		private void backgroundWorker1_DoWork (object sender, System.ComponentModel.DoWorkEventArgs e)
+		{
+			int i = 0;
+			for (i = 0; i < 1000; i++)
 			{
-				
+
 			}
 			if (i == 1000)
 				return;
-        }
+		}
 
-       
-		 public virtual void GroupBy()
-        {
-            GroupBy((ColumnHeader[])HeaderGroup.ToArray(typeof(ColumnHeader)));
-        }
+
+		public virtual void GroupBy ()
+		{
+			GroupBy ((ColumnHeader[])HeaderGroup.ToArray (typeof (ColumnHeader)));
+		}
 		public void GroupBy (ColumnHeader[] Headers)
 		{
 			//if (this.InvokeRequired)
@@ -110,7 +110,7 @@ namespace TestApp
 			//}
 		}
 
-		
+
 
 		private void Form1_Load (object sender, EventArgs e)
 		{
@@ -149,12 +149,12 @@ namespace TestApp
 		{
 			Timer t = new Timer ()
 			{
-				Interval    = 100,
-				Enabled     = true
+				Interval = 100,
+				Enabled = true
 			};
 			t.Start ();
 
-			t.Tick   +=T_Tick;
+			t.Tick += T_Tick;
 		}
 
 		private void T_Tick (object sender, EventArgs e)
@@ -184,19 +184,19 @@ namespace TestApp
 		}
 
 
-		NetTcpServer	server;
-		NetTcpClient	client;
+		NetTcpServer server;
+		NetTcpClient client;
 		private void button4_Click (object sender, EventArgs e)
 		{
-			server	= new NetTcpServer (10000, 1024);
-			client	= new NetTcpClient ("127.0.0.1", 10000, 1024);
+			server = new NetTcpServer (10000, 1024);
+			client = new NetTcpClient ("127.0.0.1", 10000, 1024);
 
 			server.strat ();
 			client.connect ();
 
-			client.onReceiveData	+= Client_onReceiveData;
-			server.onReceiveData    += Server_onReceiveData;
-			server.onAcceptClient   +=Server_onAcceptClient;
+			client.onReceiveData += Client_onReceiveData;
+			server.onReceiveData += Server_onReceiveData;
+			server.onAcceptClient += Server_onAcceptClient;
 		}
 
 		private void Server_onAcceptClient (NetTcpServer sender, NetTcpClient client)
@@ -211,7 +211,7 @@ namespace TestApp
 		{
 			Invoke ((Action)delegate
 			{
-			listBox1.Items.Insert (0, "S - Receive data" + data.message);
+				listBox1.Items.Insert (0, "S - Receive data" + data.message);
 			});
 			client.write ("Response ");
 		}
@@ -220,7 +220,7 @@ namespace TestApp
 		{
 			Invoke ((Action)delegate
 			{
-			listBox1.Items.Insert (0, "C - Receive data" + data.message);
+				listBox1.Items.Insert (0, "C - Receive data" + data.message);
 			});
 		}
 
@@ -237,7 +237,19 @@ namespace TestApp
 
 		private void button7_Click (object sender, EventArgs e)
 		{
- 
+
+		}
+
+		private void numButton_Click (object sender, EventArgs e)
+		{
+			//string text = maskedTextBox1.Text.Split('/').Length;
+			//int i = text		
+
+			//int[] array = new int[] { 10, 20, 30, 40 };
+
+			//this.numericUpDown1.DataBindings.Add ("Value", array, "");
+			//((BindingManagerBase)this.numericUpDown1.BindingContext[array]).Position = 2;
+
 		}
 	}
 }

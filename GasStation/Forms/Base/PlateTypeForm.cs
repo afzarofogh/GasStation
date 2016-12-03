@@ -157,7 +157,7 @@ namespace GasStation.Forms.Base
 		{
 			Common.BLL.Logic.GasStation.Base__PlateType	lPlateType	= new Common.BLL.Logic.GasStation.Base__PlateType (Common.Enum.EDatabase.GasStation);
 
-			CommandResult opResult	= lPlateType.allData ("", "type", false);
+			CommandResult opResult	= lPlateType.allData ("", "", false);
 			resultGrid.DataSource	= opResult.model;
 			resultGrid.loadHeader(this.GetType().Name);
 		}

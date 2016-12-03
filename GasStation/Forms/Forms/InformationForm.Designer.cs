@@ -33,6 +33,7 @@
 			this.ownerTabPage = new System.Windows.Forms.TabPage();
 			this.ownerDataGroupBox = new System.Windows.Forms.GroupBox();
 			this.label9 = new System.Windows.Forms.Label();
+			this.nationalCodeMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
 			this.birthdateMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
 			this.label8 = new System.Windows.Forms.Label();
 			this.label7 = new System.Windows.Forms.Label();
@@ -45,7 +46,6 @@
 			this.mobileTextBox = new System.Windows.Forms.TextBox();
 			this.phoneTextBox = new System.Windows.Forms.TextBox();
 			this.birthdatelocalTextBox = new System.Windows.Forms.TextBox();
-			this.nationalCodeTextBox = new System.Windows.Forms.TextBox();
 			this.lastNameTextBox = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.nameTextBox = new System.Windows.Forms.TextBox();
@@ -77,20 +77,21 @@
 			this.label18 = new System.Windows.Forms.Label();
 			this.plateTabPage = new System.Windows.Forms.TabPage();
 			this.plateDataGroupBox = new System.Windows.Forms.GroupBox();
+			this.cityLabel = new System.Windows.Forms.Label();
 			this.motorPlatePanel = new System.Windows.Forms.Panel();
 			this.pictureBox2 = new System.Windows.Forms.PictureBox();
-			this.textBox5 = new System.Windows.Forms.TextBox();
-			this.textBox6 = new System.Windows.Forms.TextBox();
+			this.part2MotorTextBox = new System.Windows.Forms.TextBox();
+			this.part1MotorTextBox = new System.Windows.Forms.TextBox();
 			this.malulinPlatePanel = new System.Windows.Forms.Panel();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.code2Numeric = new System.Windows.Forms.DomainUpDown();
-			this.textBox3 = new System.Windows.Forms.TextBox();
-			this.textBox4 = new System.Windows.Forms.TextBox();
+			this.part2MaluinTextBox = new System.Windows.Forms.TextBox();
+			this.part1MalulinTextBox = new System.Windows.Forms.TextBox();
 			this.mainPlatePanel = new System.Windows.Forms.Panel();
 			this.code1Numeric = new System.Windows.Forms.DomainUpDown();
-			this.textBox2 = new System.Windows.Forms.TextBox();
-			this.domainUpDown2 = new System.Windows.Forms.DomainUpDown();
-			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.part2MainTextBox = new System.Windows.Forms.TextBox();
+			this.characterTextBox = new System.Windows.Forms.DomainUpDown();
+			this.part1MainTextBox = new System.Windows.Forms.TextBox();
 			this.label20 = new System.Windows.Forms.Label();
 			this.plateTypeButton = new System.Windows.Forms.Button();
 			this.plateTypeComboBox = new System.Windows.Forms.ComboBox();
@@ -109,8 +110,11 @@
 			this.titleColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.descriptColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.tagTabPage = new System.Windows.Forms.TabPage();
-			this.loadingLabel = new System.Windows.Forms.Label();
+			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.label22 = new System.Windows.Forms.Label();
+			this.tagTextBox = new System.Windows.Forms.TextBox();
 			this.getTagButton = new System.Windows.Forms.Button();
+			this.loadingLabel = new System.Windows.Forms.Label();
 			this.loadingPictureBox = new System.Windows.Forms.PictureBox();
 			this.registerButton = new System.Windows.Forms.Button();
 			this.nextButton = new System.Windows.Forms.Button();
@@ -140,6 +144,7 @@
 			this.legalOwnerGroupBox.SuspendLayout();
 			this.showInfoTabPage.SuspendLayout();
 			this.tagTabPage.SuspendLayout();
+			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.loadingPictureBox)).BeginInit();
 			this.mainMenu.SuspendLayout();
 			this.SuspendLayout();
@@ -189,6 +194,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.ownerDataGroupBox.BackColor = System.Drawing.Color.Transparent;
 			this.ownerDataGroupBox.Controls.Add(this.label9);
+			this.ownerDataGroupBox.Controls.Add(this.nationalCodeMaskedTextBox);
 			this.ownerDataGroupBox.Controls.Add(this.birthdateMaskedTextBox);
 			this.ownerDataGroupBox.Controls.Add(this.label8);
 			this.ownerDataGroupBox.Controls.Add(this.label7);
@@ -201,7 +207,6 @@
 			this.ownerDataGroupBox.Controls.Add(this.mobileTextBox);
 			this.ownerDataGroupBox.Controls.Add(this.phoneTextBox);
 			this.ownerDataGroupBox.Controls.Add(this.birthdatelocalTextBox);
-			this.ownerDataGroupBox.Controls.Add(this.nationalCodeTextBox);
 			this.ownerDataGroupBox.Controls.Add(this.lastNameTextBox);
 			this.ownerDataGroupBox.Controls.Add(this.label2);
 			this.ownerDataGroupBox.Controls.Add(this.nameTextBox);
@@ -224,6 +229,17 @@
 			this.label9.Size = new System.Drawing.Size(42, 18);
 			this.label9.TabIndex = 0;
 			this.label9.Text = "آدرس";
+			// 
+			// nationalCodeMaskedTextBox
+			// 
+			this.nationalCodeMaskedTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.nationalCodeMaskedTextBox.Location = new System.Drawing.Point(415, 69);
+			this.nationalCodeMaskedTextBox.Mask = "0000000000";
+			this.nationalCodeMaskedTextBox.Name = "nationalCodeMaskedTextBox";
+			this.nationalCodeMaskedTextBox.Size = new System.Drawing.Size(203, 26);
+			this.nationalCodeMaskedTextBox.TabIndex = 5;
+			this.nationalCodeMaskedTextBox.Tag = "nationalCode";
+			this.nationalCodeMaskedTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// birthdateMaskedTextBox
 			// 
@@ -358,18 +374,6 @@
 			this.birthdatelocalTextBox.TabIndex = 6;
 			this.birthdatelocalTextBox.Tag = "birthdatelocal";
 			this.birthdatelocalTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			// 
-			// nationalCodeTextBox
-			// 
-			this.nationalCodeTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.nationalCodeTextBox.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.nationalCodeTextBox.Location = new System.Drawing.Point(415, 69);
-			this.nationalCodeTextBox.MaxLength = 10;
-			this.nationalCodeTextBox.Name = "nationalCodeTextBox";
-			this.nationalCodeTextBox.Size = new System.Drawing.Size(203, 26);
-			this.nationalCodeTextBox.TabIndex = 3;
-			this.nationalCodeTextBox.Tag = "nationalCode";
-			this.nationalCodeTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// lastNameTextBox
 			// 
@@ -733,6 +737,7 @@
 			this.plateDataGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.plateDataGroupBox.BackColor = System.Drawing.Color.Transparent;
+			this.plateDataGroupBox.Controls.Add(this.cityLabel);
 			this.plateDataGroupBox.Controls.Add(this.motorPlatePanel);
 			this.plateDataGroupBox.Controls.Add(this.malulinPlatePanel);
 			this.plateDataGroupBox.Controls.Add(this.mainPlatePanel);
@@ -743,17 +748,26 @@
 			this.plateDataGroupBox.ForeColor = System.Drawing.SystemColors.ActiveBorder;
 			this.plateDataGroupBox.Location = new System.Drawing.Point(11, 13);
 			this.plateDataGroupBox.Name = "plateDataGroupBox";
-			this.plateDataGroupBox.Size = new System.Drawing.Size(732, 237);
+			this.plateDataGroupBox.Size = new System.Drawing.Size(732, 281);
 			this.plateDataGroupBox.TabIndex = 3;
 			this.plateDataGroupBox.TabStop = false;
 			this.plateDataGroupBox.Text = "اطلاعات پلاک";
+			// 
+			// cityLabel
+			// 
+			this.cityLabel.AutoSize = true;
+			this.cityLabel.Location = new System.Drawing.Point(261, 80);
+			this.cityLabel.Name = "cityLabel";
+			this.cityLabel.Size = new System.Drawing.Size(63, 18);
+			this.cityLabel.TabIndex = 14;
+			this.cityLabel.Text = "cityLabel";
 			// 
 			// motorPlatePanel
 			// 
 			this.motorPlatePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.motorPlatePanel.Controls.Add(this.pictureBox2);
-			this.motorPlatePanel.Controls.Add(this.textBox5);
-			this.motorPlatePanel.Controls.Add(this.textBox6);
+			this.motorPlatePanel.Controls.Add(this.part2MotorTextBox);
+			this.motorPlatePanel.Controls.Add(this.part1MotorTextBox);
 			this.motorPlatePanel.Location = new System.Drawing.Point(329, 169);
 			this.motorPlatePanel.Name = "motorPlatePanel";
 			this.motorPlatePanel.Size = new System.Drawing.Size(295, 42);
@@ -770,37 +784,37 @@
 			this.pictureBox2.TabIndex = 12;
 			this.pictureBox2.TabStop = false;
 			// 
-			// textBox5
+			// part2MotorTextBox
 			// 
-			this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBox5.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.textBox5.Location = new System.Drawing.Point(169, 6);
-			this.textBox5.MaxLength = 3;
-			this.textBox5.Name = "textBox5";
-			this.textBox5.Size = new System.Drawing.Size(67, 26);
-			this.textBox5.TabIndex = 11;
-			this.textBox5.Tag = "chasisCode";
-			this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.part2MotorTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.part2MotorTextBox.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.part2MotorTextBox.Location = new System.Drawing.Point(169, 6);
+			this.part2MotorTextBox.MaxLength = 3;
+			this.part2MotorTextBox.Name = "part2MotorTextBox";
+			this.part2MotorTextBox.Size = new System.Drawing.Size(67, 26);
+			this.part2MotorTextBox.TabIndex = 11;
+			this.part2MotorTextBox.Tag = "chasisCode";
+			this.part2MotorTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
-			// textBox6
+			// part1MotorTextBox
 			// 
-			this.textBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBox6.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.textBox6.Location = new System.Drawing.Point(34, 6);
-			this.textBox6.MaxLength = 2;
-			this.textBox6.Name = "textBox6";
-			this.textBox6.Size = new System.Drawing.Size(67, 26);
-			this.textBox6.TabIndex = 8;
-			this.textBox6.Tag = "chasisCode";
-			this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.part1MotorTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.part1MotorTextBox.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.part1MotorTextBox.Location = new System.Drawing.Point(34, 6);
+			this.part1MotorTextBox.MaxLength = 2;
+			this.part1MotorTextBox.Name = "part1MotorTextBox";
+			this.part1MotorTextBox.Size = new System.Drawing.Size(67, 26);
+			this.part1MotorTextBox.TabIndex = 8;
+			this.part1MotorTextBox.Tag = "chasisCode";
+			this.part1MotorTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// malulinPlatePanel
 			// 
 			this.malulinPlatePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.malulinPlatePanel.Controls.Add(this.pictureBox1);
 			this.malulinPlatePanel.Controls.Add(this.code2Numeric);
-			this.malulinPlatePanel.Controls.Add(this.textBox3);
-			this.malulinPlatePanel.Controls.Add(this.textBox4);
+			this.malulinPlatePanel.Controls.Add(this.part2MaluinTextBox);
+			this.malulinPlatePanel.Controls.Add(this.part1MalulinTextBox);
 			this.malulinPlatePanel.Location = new System.Drawing.Point(329, 117);
 			this.malulinPlatePanel.Name = "malulinPlatePanel";
 			this.malulinPlatePanel.Size = new System.Drawing.Size(295, 46);
@@ -826,39 +840,39 @@
 			this.code2Numeric.Name = "code2Numeric";
 			this.code2Numeric.Size = new System.Drawing.Size(49, 26);
 			this.code2Numeric.TabIndex = 12;
-			this.code2Numeric.Tag = "code";
+			this.code2Numeric.Tag = "plateCityId";
 			// 
-			// textBox3
+			// part2MaluinTextBox
 			// 
-			this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBox3.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.textBox3.Location = new System.Drawing.Point(169, 5);
-			this.textBox3.MaxLength = 3;
-			this.textBox3.Name = "textBox3";
-			this.textBox3.Size = new System.Drawing.Size(67, 26);
-			this.textBox3.TabIndex = 11;
-			this.textBox3.Tag = "chasisCode";
-			this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.part2MaluinTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.part2MaluinTextBox.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.part2MaluinTextBox.Location = new System.Drawing.Point(169, 5);
+			this.part2MaluinTextBox.MaxLength = 3;
+			this.part2MaluinTextBox.Name = "part2MaluinTextBox";
+			this.part2MaluinTextBox.Size = new System.Drawing.Size(67, 26);
+			this.part2MaluinTextBox.TabIndex = 11;
+			this.part2MaluinTextBox.Tag = "chasisCode";
+			this.part2MaluinTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
-			// textBox4
+			// part1MalulinTextBox
 			// 
-			this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBox4.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.textBox4.Location = new System.Drawing.Point(34, 5);
-			this.textBox4.MaxLength = 2;
-			this.textBox4.Name = "textBox4";
-			this.textBox4.Size = new System.Drawing.Size(67, 26);
-			this.textBox4.TabIndex = 8;
-			this.textBox4.Tag = "chasisCode";
-			this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.part1MalulinTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.part1MalulinTextBox.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.part1MalulinTextBox.Location = new System.Drawing.Point(34, 5);
+			this.part1MalulinTextBox.MaxLength = 2;
+			this.part1MalulinTextBox.Name = "part1MalulinTextBox";
+			this.part1MalulinTextBox.Size = new System.Drawing.Size(67, 26);
+			this.part1MalulinTextBox.TabIndex = 8;
+			this.part1MalulinTextBox.Tag = "chasisCode";
+			this.part1MalulinTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// mainPlatePanel
 			// 
 			this.mainPlatePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.mainPlatePanel.Controls.Add(this.code1Numeric);
-			this.mainPlatePanel.Controls.Add(this.textBox2);
-			this.mainPlatePanel.Controls.Add(this.domainUpDown2);
-			this.mainPlatePanel.Controls.Add(this.textBox1);
+			this.mainPlatePanel.Controls.Add(this.part2MainTextBox);
+			this.mainPlatePanel.Controls.Add(this.characterTextBox);
+			this.mainPlatePanel.Controls.Add(this.part1MainTextBox);
 			this.mainPlatePanel.Location = new System.Drawing.Point(329, 65);
 			this.mainPlatePanel.Name = "mainPlatePanel";
 			this.mainPlatePanel.Size = new System.Drawing.Size(295, 47);
@@ -871,43 +885,43 @@
 			this.code1Numeric.Name = "code1Numeric";
 			this.code1Numeric.Size = new System.Drawing.Size(49, 26);
 			this.code1Numeric.TabIndex = 12;
-			this.code1Numeric.Tag = "code";
+			this.code1Numeric.Tag = "plateCityId";
 			// 
-			// textBox2
+			// part2MainTextBox
 			// 
-			this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBox2.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.textBox2.Location = new System.Drawing.Point(171, 7);
-			this.textBox2.MaxLength = 3;
-			this.textBox2.Name = "textBox2";
-			this.textBox2.Size = new System.Drawing.Size(67, 26);
-			this.textBox2.TabIndex = 11;
-			this.textBox2.Tag = "chasisCode";
-			this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.part2MainTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.part2MainTextBox.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.part2MainTextBox.Location = new System.Drawing.Point(171, 7);
+			this.part2MainTextBox.MaxLength = 3;
+			this.part2MainTextBox.Name = "part2MainTextBox";
+			this.part2MainTextBox.Size = new System.Drawing.Size(67, 26);
+			this.part2MainTextBox.TabIndex = 11;
+			this.part2MainTextBox.Tag = "chasisCode";
+			this.part2MainTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
-			// domainUpDown2
+			// characterTextBox
 			// 
-			this.domainUpDown2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.domainUpDown2.Items.Add("الف");
-			this.domainUpDown2.Items.Add("ب");
-			this.domainUpDown2.Items.Add("پ");
-			this.domainUpDown2.Location = new System.Drawing.Point(108, 7);
-			this.domainUpDown2.Name = "domainUpDown2";
-			this.domainUpDown2.Size = new System.Drawing.Size(58, 26);
-			this.domainUpDown2.TabIndex = 10;
-			this.domainUpDown2.Text = "الف";
+			this.characterTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.characterTextBox.Items.Add("الف");
+			this.characterTextBox.Items.Add("ب");
+			this.characterTextBox.Items.Add("پ");
+			this.characterTextBox.Location = new System.Drawing.Point(108, 7);
+			this.characterTextBox.Name = "characterTextBox";
+			this.characterTextBox.Size = new System.Drawing.Size(58, 26);
+			this.characterTextBox.TabIndex = 10;
+			this.characterTextBox.Text = "الف";
 			// 
-			// textBox1
+			// part1MainTextBox
 			// 
-			this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBox1.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.textBox1.Location = new System.Drawing.Point(36, 7);
-			this.textBox1.MaxLength = 2;
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(67, 26);
-			this.textBox1.TabIndex = 8;
-			this.textBox1.Tag = "chasisCode";
-			this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.part1MainTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.part1MainTextBox.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.part1MainTextBox.Location = new System.Drawing.Point(36, 7);
+			this.part1MainTextBox.MaxLength = 2;
+			this.part1MainTextBox.Name = "part1MainTextBox";
+			this.part1MainTextBox.Size = new System.Drawing.Size(67, 26);
+			this.part1MainTextBox.TabIndex = 8;
+			this.part1MainTextBox.Tag = "chasisCode";
+			this.part1MainTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// label20
 			// 
@@ -1093,10 +1107,10 @@
 			this.InfoListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.titleColumnHeader,
             this.descriptColumnHeader});
-			this.InfoListView.Location = new System.Drawing.Point(83, 27);
+			this.InfoListView.Location = new System.Drawing.Point(68, 27);
 			this.InfoListView.Name = "InfoListView";
 			this.InfoListView.RightToLeftLayout = true;
-			this.InfoListView.Size = new System.Drawing.Size(604, 397);
+			this.InfoListView.Size = new System.Drawing.Size(608, 397);
 			this.InfoListView.TabIndex = 0;
 			this.InfoListView.UseCompatibleStateImageBehavior = false;
 			this.InfoListView.View = System.Windows.Forms.View.Details;
@@ -1114,8 +1128,8 @@
 			// tagTabPage
 			// 
 			this.tagTabPage.BackgroundImage = global::GasStation.Properties.Resources.formBK;
+			this.tagTabPage.Controls.Add(this.groupBox1);
 			this.tagTabPage.Controls.Add(this.loadingLabel);
-			this.tagTabPage.Controls.Add(this.getTagButton);
 			this.tagTabPage.Controls.Add(this.loadingPictureBox);
 			this.tagTabPage.Location = new System.Drawing.Point(4, 27);
 			this.tagTabPage.Name = "tagTabPage";
@@ -1125,29 +1139,66 @@
 			this.tagTabPage.Text = "ثبت برچسب خودرو";
 			this.tagTabPage.UseVisualStyleBackColor = true;
 			// 
+			// groupBox1
+			// 
+			this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+			this.groupBox1.Controls.Add(this.label22);
+			this.groupBox1.Controls.Add(this.tagTextBox);
+			this.groupBox1.Controls.Add(this.getTagButton);
+			this.groupBox1.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+			this.groupBox1.Location = new System.Drawing.Point(27, 19);
+			this.groupBox1.Name = "groupBox1";
+			this.groupBox1.Size = new System.Drawing.Size(700, 116);
+			this.groupBox1.TabIndex = 6;
+			this.groupBox1.TabStop = false;
+			this.groupBox1.Text = "اطلاعات برچسب";
+			// 
+			// label22
+			// 
+			this.label22.AutoSize = true;
+			this.label22.ForeColor = System.Drawing.Color.Black;
+			this.label22.Location = new System.Drawing.Point(601, 44);
+			this.label22.Name = "label22";
+			this.label22.Size = new System.Drawing.Size(78, 18);
+			this.label22.TabIndex = 2;
+			this.label22.Text = "کد برچسب";
+			this.label22.Visible = false;
+			// 
+			// tagTextBox
+			// 
+			this.tagTextBox.Enabled = false;
+			this.tagTextBox.Location = new System.Drawing.Point(286, 41);
+			this.tagTextBox.Name = "tagTextBox";
+			this.tagTextBox.Size = new System.Drawing.Size(306, 26);
+			this.tagTextBox.TabIndex = 3;
+			this.tagTextBox.Tag = "tag";
+			// 
+			// getTagButton
+			// 
+			this.getTagButton.ForeColor = System.Drawing.Color.Black;
+			this.getTagButton.Location = new System.Drawing.Point(32, 25);
+			this.getTagButton.Name = "getTagButton";
+			this.getTagButton.Size = new System.Drawing.Size(219, 57);
+			this.getTagButton.TabIndex = 1;
+			this.getTagButton.Text = "دریافت کد برچسب";
+			this.getTagButton.UseVisualStyleBackColor = true;
+			// 
 			// loadingLabel
 			// 
 			this.loadingLabel.AutoSize = true;
-			this.loadingLabel.Location = new System.Drawing.Point(196, 175);
+			this.loadingLabel.Location = new System.Drawing.Point(246, 188);
 			this.loadingLabel.Name = "loadingLabel";
 			this.loadingLabel.Size = new System.Drawing.Size(169, 18);
 			this.loadingLabel.TabIndex = 2;
 			this.loadingLabel.Text = "در حال دریافت اطلاعات....";
 			this.loadingLabel.Visible = false;
 			// 
-			// getTagButton
-			// 
-			this.getTagButton.Location = new System.Drawing.Point(301, 87);
-			this.getTagButton.Name = "getTagButton";
-			this.getTagButton.Size = new System.Drawing.Size(154, 57);
-			this.getTagButton.TabIndex = 1;
-			this.getTagButton.Text = "دریافت کد برچسب";
-			this.getTagButton.UseVisualStyleBackColor = true;
-			// 
 			// loadingPictureBox
 			// 
 			this.loadingPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.loadingPictureBox.Location = new System.Drawing.Point(371, 150);
+			this.loadingPictureBox.Location = new System.Drawing.Point(421, 157);
 			this.loadingPictureBox.Name = "loadingPictureBox";
 			this.loadingPictureBox.Size = new System.Drawing.Size(104, 85);
 			this.loadingPictureBox.TabIndex = 0;
@@ -1271,6 +1322,8 @@
 			this.showInfoTabPage.ResumeLayout(false);
 			this.tagTabPage.ResumeLayout(false);
 			this.tagTabPage.PerformLayout();
+			this.groupBox1.ResumeLayout(false);
+			this.groupBox1.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.loadingPictureBox)).EndInit();
 			this.mainMenu.ResumeLayout(false);
 			this.mainMenu.PerformLayout();
@@ -1298,7 +1351,6 @@
 		private System.Windows.Forms.TextBox mobileTextBox;
 		private System.Windows.Forms.TextBox phoneTextBox;
 		private System.Windows.Forms.TextBox birthdatelocalTextBox;
-		private System.Windows.Forms.TextBox nationalCodeTextBox;
 		private System.Windows.Forms.TextBox lastNameTextBox;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.TextBox nameTextBox;
@@ -1328,12 +1380,12 @@
 		private System.Windows.Forms.Button carSystemButton;
 		private System.Windows.Forms.GroupBox plateDataGroupBox;
 		private System.Windows.Forms.DomainUpDown code1Numeric;
-		private System.Windows.Forms.TextBox textBox2;
-		private System.Windows.Forms.DomainUpDown domainUpDown2;
+		private System.Windows.Forms.TextBox part2MainTextBox;
+		private System.Windows.Forms.DomainUpDown characterTextBox;
 		private System.Windows.Forms.Button plateTypeButton;
 		private System.Windows.Forms.Label label20;
 		private System.Windows.Forms.ComboBox plateTypeComboBox;
-		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.TextBox part1MainTextBox;
 		private System.Windows.Forms.Label label27;
 		private System.Windows.Forms.TabPage ownerTypeTabPage;
 		private System.Windows.Forms.GroupBox ownerTypeDataGroupBox;
@@ -1347,12 +1399,12 @@
 		private System.Windows.Forms.Button previousButton;
 		private System.Windows.Forms.NumericUpDown capacityNumeric;
 		private System.Windows.Forms.Panel motorPlatePanel;
-		private System.Windows.Forms.TextBox textBox5;
-		private System.Windows.Forms.TextBox textBox6;
+		private System.Windows.Forms.TextBox part2MotorTextBox;
+		private System.Windows.Forms.TextBox part1MotorTextBox;
 		private System.Windows.Forms.Panel malulinPlatePanel;
 		private System.Windows.Forms.DomainUpDown code2Numeric;
-		private System.Windows.Forms.TextBox textBox3;
-		private System.Windows.Forms.TextBox textBox4;
+		private System.Windows.Forms.TextBox part2MaluinTextBox;
+		private System.Windows.Forms.TextBox part1MalulinTextBox;
 		private System.Windows.Forms.Panel mainPlatePanel;
 		private System.Windows.Forms.Button carColorButton;
 		private System.Windows.Forms.PictureBox pictureBox1;
@@ -1374,5 +1426,10 @@
 		private System.Windows.Forms.PictureBox loadingPictureBox;
 		private System.Windows.Forms.Button getTagButton;
 		private System.Windows.Forms.Label loadingLabel;
+		private System.Windows.Forms.GroupBox groupBox1;
+		private System.Windows.Forms.Label label22;
+		private System.Windows.Forms.TextBox tagTextBox;
+		private System.Windows.Forms.Label cityLabel;
+		private System.Windows.Forms.MaskedTextBox nationalCodeMaskedTextBox;
 	}
 }
