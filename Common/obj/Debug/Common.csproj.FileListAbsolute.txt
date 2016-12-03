@@ -1,0 +1,13 @@
+E:\Project GasStation\GasStation\GasStation\Common\obj\Debug\Common.Properties.Resources.resources
+E:\Project GasStation\GasStation\GasStation\Common\obj\Debug\Common.csproj.GenerateResource.Cache
+E:\Project GasStation\GasStation\GasStation\Common\bin\Debug\Common.dll
+E:\Project GasStation\GasStation\GasStation\Common\bin\Debug\Common.pdb
+E:\Project GasStation\GasStation\GasStation\Common\bin\Debug\BaseBLL.dll
+E:\Project GasStation\GasStation\GasStation\Common\bin\Debug\BaseDAL.dll
+E:\Project GasStation\GasStation\GasStation\Common\bin\Debug\Newtonsoft.Json.dll
+E:\Project GasStation\GasStation\GasStation\Common\bin\Debug\BaseBLL.pdb
+E:\Project GasStation\GasStation\GasStation\Common\bin\Debug\BaseDAL.pdb
+E:\Project GasStation\GasStation\GasStation\Common\bin\Debug\Newtonsoft.Json.xml
+E:\Project GasStation\GasStation\GasStation\Common\obj\Debug\Common.dll
+E:\Project GasStation\GasStation\GasStation\Common\obj\Debug\Common.pdb
+E:\Project GasStation\GasStation\GasStation\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache

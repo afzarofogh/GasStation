@@ -34,6 +34,7 @@ namespace GasStation.Forms.Base
 
 			// Set data
 			this.model	= model;
+		
 
 			init ();
 		}
@@ -58,13 +59,12 @@ namespace GasStation.Forms.Base
 			{
 				// Load model data from db
 				Common.BLL.Logic.GasStation.Base__CarColor	lCarColor	= new Common.BLL.Logic.GasStation.Base__CarColor(Common.Enum.EDatabase.GasStation);
-				CommandResult	opResult	= lCarColor.read (model);
-
+				CommandResult	opResult	= lCarColor.read(model);	
 				///TODO: CHECK ERRORS
 			}
 
 			// Fill Controls
-			BaseBLL.General.FormModelHelper<Common.BLL.Entity.GasStation.Base__CarColor>.fillControl (dataGroupBox, model);
+			BaseBLL.General.FormModelHelper<Common.BLL.Entity.GasStation.Base__CarColor>.fillControl (dataGroupBox, model);			
 		}
 
 		/// <summary>
@@ -168,8 +168,6 @@ namespace GasStation.Forms.Base
 		/// <param name="e"></param>
 		void exitButton_Click (object sender, EventArgs e)
 		{
-			
-
 			DialogResult	= System.Windows.Forms.DialogResult.Cancel;
 			Close ();
 		} 

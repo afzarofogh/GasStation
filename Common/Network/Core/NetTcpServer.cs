@@ -208,12 +208,13 @@ namespace Common.Network.Core
 		/// <param name="data"></param>
 		private void NetClient_onSendData (NetTcpClient sender, CommandResult data)
 		{
-			onHintEvent?.Invoke (this, new CommandResult ()
-			{
-				id      = 2002,
-				message = "Client Send data",
-				model   = sender
-			});
+			if (null != onHintEvent)
+				onHintEvent.Invoke (this, new CommandResult ()
+				{
+					id      = 2002,
+					message = "Client Send data",
+					model   = sender
+				});
 		}
 
 		/// <summary>
@@ -223,13 +224,14 @@ namespace Common.Network.Core
 		/// <param name="data"></param>
 		private void NetClient_onReceiveData (NetTcpClient sender, CommandResult data)
 		{
-			onHintEvent?.Invoke (this, new CommandResult ()
-			{
-				id      = 2002,
-				message = "Client Receive data",
-				model   = sender,
-				extra	= data
-			});
+			if (null != onHintEvent)
+				onHintEvent.Invoke (this, new CommandResult ()
+				{
+					id      = 2002,
+					message = "Client Receive data",
+					model   = sender,
+					extra	= data
+				});
 
 			// Raise Recive data
 			raiseReceive (sender, data);
@@ -242,12 +244,13 @@ namespace Common.Network.Core
 		/// <param name="data"></param>
 		private void NetClient_onError (NetTcpClient sender, CommandResult data)
 		{
-			onHintEvent?.Invoke (this, new CommandResult ()
-			{
-				id      = 2009,
-				message = "Client Error",
-				model   = sender
-			});
+			if (null != onHintEvent)
+				onHintEvent.Invoke (this, new CommandResult ()
+				{
+					id      = 2009,
+					message = "Client Error",
+					model   = sender
+				});
 		}
 
 		/// <summary>
@@ -256,12 +259,13 @@ namespace Common.Network.Core
 		/// <param name="sender"></param>
 		private void NetClient_onDisconnect (NetTcpClient sender)
 		{
-			onHintEvent?.Invoke (this, new CommandResult ()
-			{
-				id      = 2001,
-				message = "Client Disconnect",
-				model   = sender
-			});
+			if (null != onHintEvent)
+				onHintEvent.Invoke (this, new CommandResult ()
+				{
+					id      = 2001,
+					message = "Client Disconnect",
+					model   = sender
+				});
 		}
 
 		/// <summary>
@@ -270,12 +274,13 @@ namespace Common.Network.Core
 		/// <param name="sender"></param>
 		private void NetClient_onConnect (NetTcpClient sender)
 		{
-			onHintEvent?.Invoke (this, new CommandResult ()
-			{
-				id      = 2000,
-				message = "Client Connect",
-				model   = sender
-			});
+			if (null != onHintEvent)
+				onHintEvent.Invoke (this, new CommandResult ()
+				{
+					id      = 2000,
+					message = "Client Connect",
+					model   = sender
+				});
 		} 
 		#endregion
 		#endregion

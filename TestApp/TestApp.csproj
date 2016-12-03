@@ -104,6 +104,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -125,6 +126,8 @@
   <ItemGroup>
     <Content Include="DLL\DevComponents.DotNetBar2.dll" />
     <Content Include="DLL\Klik.Windows.Forms.EntryLib.V2.2008.dll" />
+    <Content Include="pic\page-loader.gif" />
+    <Content Include="Resources\loading25.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

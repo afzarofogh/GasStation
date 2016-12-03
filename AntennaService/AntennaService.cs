@@ -49,7 +49,10 @@ namespace AntennaService
 		private string				antHost			= "";
 		private int					antPort			= 0;
 		private int					sPort			= 0;
+		private int					interval		= 0;
 		private Thread				connectThread	= null;
+
+		private Common.BLL.Entity.GasStation.User	serviceUser;
 		#endregion
 
 		#region Methods
@@ -61,6 +64,8 @@ namespace AntennaService
 			InitializeComponent ();
 
 			init ();
+
+			////System.Diagnostics.Debugger.Launch();
 		}
 
 		/// <summary>
@@ -78,6 +83,13 @@ namespace AntennaService
 		{
 			mrs	= new ManualResetEvent (true);
 			makeEventLog ();
+
+			#region Get Service User
+			Common.BLL.Logic.GasStation.User	lUser	= new Common.BLL.Logic.GasStation.User (Common.Enum.EDatabase.GasStation);
+			CommandResult						opResult	= lUser.getServiceUser ();
+
+			serviceUser	= opResult.model as Common.BLL.Entity.GasStation.User;
+			#endregion
 		}
 
 		/// <summary>
@@ -90,8 +102,6 @@ namespace AntennaService
 				eventLog = new EventLog ();
 				eventLog.Source = C_ANTENNA_EVENT_SOURCE;
 				eventLog.Log    = C_ANTENNA_EVENT_LOG;
-
-				//System.Diagnostics.EventLog.DeleteEventSource(C_ANTENNA_EVENT_SOURCE);
 
 				if (!EventLog.Exists (C_ANTENNA_EVENT_LOG))
 					EventLog.CreateEventSource (C_ANTENNA_EVENT_SOURCE, C_ANTENNA_EVENT_LOG);
@@ -129,6 +139,7 @@ namespace AntennaService
 				antHost			= ConfigurationManager.AppSettings["AntennaHost"];
 				antPort			= ConfigurationManager.AppSettings["AntennaPort"].toInt (0);
 				sPort			= ConfigurationManager.AppSettings["ServerPort"].toInt (0);
+				interval		= ConfigurationManager.AppSettings["interval"].toInt (15);
 				dbConnection	= new SqlConnection (ConfigurationManager.AppSettings["ConnectionString"]);
 
 				tryToConnect ();
@@ -218,6 +229,8 @@ namespace AntennaService
 		/// </summary>
 		private void tryToConnect ()
 		{
+			//System.Diagnostics.Debugger.Launch();				
+
 			connectThread	= new Thread (new ThreadStart (connectToAntenna));
 			connectThread.Start ();
 		}
@@ -227,8 +240,6 @@ namespace AntennaService
 		/// </summary>
 		private void connectToAntenna ()
 		{
-			System.Diagnostics.Debugger.Launch();
-
 			while (true)
 			{
 				// Try to connect to Antenna
@@ -287,6 +298,8 @@ namespace AntennaService
 						}
 						else
 						{
+							//System.Diagnostics.Debugger.Launch();
+
 							tryToConnect ();
 							break;
 						}
@@ -307,7 +320,7 @@ namespace AntennaService
 		/// <param name="tagId"></param>
 		private void tagDetected (string tagId)
 		{
-			Helper.ClientMethodParser.writeTag (tcpServer, tagId);
+			//Helper.ClientMethodParser.writeTag (tcpServer, tagId);
 
 			//writeLog (tagId);
 			#region Write to database
@@ -326,7 +339,12 @@ namespace AntennaService
 		/// <param name="tagId"></param>
 		private void writeToDB (string tagId)
 		{
-			throw new NotImplementedException ();
+			Common.BLL.Logic.GasStation.Traffic	lTraffic	= new Common.BLL.Logic.GasStation.Traffic (Common.Enum.EDatabase.GasStation);
+			Common.BLL.Entity.GasStation.Tag	tag			= new Common.BLL.Entity.GasStation.Tag ()
+			{
+				tag	= tagId
+			};
+			lTraffic.insertTagByService (tag, serviceUser, DateTime.Now, interval);
 		}
 
 		/// <summary>

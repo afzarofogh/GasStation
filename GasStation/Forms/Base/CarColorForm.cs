@@ -118,6 +118,7 @@ namespace GasStation.Forms.Base
 				{
 					id	= id
 				};
+						
 
 				CarColorEntryForm	form	= new CarColorEntryForm (model);
 				if (form.ShowDialog () == System.Windows.Forms.DialogResult.OK)
@@ -157,7 +158,7 @@ namespace GasStation.Forms.Base
 		{
 			Common.BLL.Logic.GasStation.Base__CarColor	lCarColor	= new Common.BLL.Logic.GasStation.Base__CarColor (Common.Enum.EDatabase.GasStation);
 
-			CommandResult opResult	= lCarColor.allData ("", "color", false);
+			CommandResult opResult	= lCarColor.allData ("","color", false);
 			resultGrid.DataSource	= opResult.model;		
 			resultGrid.loadHeader (this.GetType ().Name);
 		}

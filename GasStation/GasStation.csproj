@@ -68,6 +68,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enum\enumGenType.cs" />
     <Compile Include="Forms\Base\PlateTypeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,6 +178,11 @@
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper\GridHeaderMaker.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="__Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\Base\PlateTypeForm.resx">
@@ -235,14 +241,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -268,9 +269,14 @@
     <None Include="Resources\formBK.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\about.png" />
+    <Content Include="Resources\accept.png" />
     <Content Include="Resources\add.png" />
-    <Content Include="Resources\adduser.png" />
-    <Content Include="Resources\back.png" />
+    <None Include="Resources\Image1.bmp" />
+    <None Include="Resources\loading25.gif" />
+    <Content Include="Resources\spiffygif.gif" />
+    <None Include="Resources\malulin_.png" />
+    <None Include="Resources\motor.png" />
     <Content Include="Resources\next.png" />
     <Content Include="Resources\previous.png" />
   </ItemGroup>
