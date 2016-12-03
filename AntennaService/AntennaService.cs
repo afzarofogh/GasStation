@@ -2,35 +2,31 @@
 using Common.Helper.Antenna;
 using Common.Network.Core;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Diagnostics;
-using System.Linq;
 using System.ServiceProcess;
-using System.Text;
 using System.Threading;
 
 namespace AntennaService
 {
 	public partial class AntennaService : ServiceBase
 	{
-		/*
-			Serivce Arguments:	[Antenna Host] [Antenna Port] [Server Port]
-		*/
-
 		#region Constants
 		/// <summary>
         /// Antenna Event Source name 
         /// </summary>
-		public const string C_ANTENNA_EVENT_SOURCE	= "AntennaService";
+		public const string C_ANTENNA_EVENT_SOURCE	= "GasAntennaService";
 		
 		/// <summary>
         /// Antenna Event Log name 
         /// </summary>
-		public const string C_ANTENNA_EVENT_LOG	= "AntennaLog";
+		public const string C_ANTENNA_EVENT_LOG		= "GasAntennaLog";
 
-		public const string C_CONF_FILENAME			= "";
+		/// <summary>
+		/// Buffer size
+		/// </summary>
+		private const int	C_BufferSize			= 1024;
 		#endregion
 
 		#region	Variables
@@ -49,7 +45,11 @@ namespace AntennaService
 		private ManualResetEvent	mrs				= null;
 		private Thread				tagReadThread	= null;
 
-		private const int		C_BufferSize	= 1024;
+		private SqlConnection		dbConnection	= null;
+		private string				antHost			= "";
+		private int					antPort			= 0;
+		private int					sPort			= 0;
+		private Thread				connectThread	= null;
 		#endregion
 
 		#region Methods
@@ -85,11 +85,21 @@ namespace AntennaService
         /// </summary>
 		private void makeEventLog ()
 		{
-			eventLog	= new EventLog ();
-			if (!EventLog.Exists (C_ANTENNA_EVENT_SOURCE))
-				EventLog.CreateEventSource (C_ANTENNA_EVENT_SOURCE, C_ANTENNA_EVENT_SOURCE);
-			eventLog.Source	= C_ANTENNA_EVENT_SOURCE;
-			eventLog.Log	= C_ANTENNA_EVENT_LOG;
+			try
+			{
+				eventLog = new EventLog ();
+				eventLog.Source = C_ANTENNA_EVENT_SOURCE;
+				eventLog.Log    = C_ANTENNA_EVENT_LOG;
+
+				//System.Diagnostics.EventLog.DeleteEventSource(C_ANTENNA_EVENT_SOURCE);
+
+				if (!EventLog.Exists (C_ANTENNA_EVENT_LOG))
+					EventLog.CreateEventSource (C_ANTENNA_EVENT_SOURCE, C_ANTENNA_EVENT_LOG);
+			}
+			catch (Exception ex)
+			{
+				System.Windows.Forms.MessageBox.Show (ex.Message);
+			}
 		}
 
 		/// <summary>
@@ -111,38 +121,22 @@ namespace AntennaService
         /// <param name="args"></param>
         protected override void OnStart (string[] args)
 		{
-			bool	hasError	= false;
-			string	antHost		= "";
-			int		antPort		= 0;
-			int		sPort		= 0;
-
 			#region Parse Args
-			if (args.Length > 2)
+			try
 			{
-				antHost	= args[0];
-				antPort	= args[1].toInt (0);
-				sPort	= args[2].toInt (0);
+				writeLog ("Service Starting . . .");
+
+				antHost			= ConfigurationManager.AppSettings["AntennaHost"];
+				antPort			= ConfigurationManager.AppSettings["AntennaPort"].toInt (0);
+				sPort			= ConfigurationManager.AppSettings["ServerPort"].toInt (0);
+				dbConnection	= new SqlConnection (ConfigurationManager.AppSettings["ConnectionString"]);
+
+				tryToConnect ();
 			}
-			else
-				hasError = true;
-			#endregion
-
-			#region Validate / Run Service
-			if (hasError)
-				writeLog ("ERR: INVALID ARGUMENTS, Use : ServiceName {ant host} {ant port} {server port}");
-			else
+			catch (Exception ex)
 			{
-				// Try to connect to Antenna
-				hasError    = connectToAntenna (antHost, antPort);
-
-				// Try to start client listener
-				if (!hasError)
-					startClientListener (sPort);
-
-				// Stop service on fail
-				if (hasError)
-					stop ();					
-			} 
+				writeLog ("ERR: INVALID CONFIG DATA");
+			}
 			#endregion
 		}
 
@@ -162,10 +156,26 @@ namespace AntennaService
 			if (null != antennaWrapper)
 				antennaWrapper.CloseCommPort ();
 			stopClientListener ();
+			stopConnectThread ();
 
 			writeLog ("INF: Service Stopped successfully");			
 		}
-		
+
+		/// <summary>
+		/// Stop Connect Thread
+		/// </summary>
+		private void stopConnectThread ()
+		{
+			if (null != connectThread)
+				try
+				{
+					connectThread.Abort ();
+				}
+				catch (Exception)
+				{
+				}
+		}
+
 		/// <summary>
 		/// On Continue
 		/// </summary>
@@ -203,6 +213,37 @@ namespace AntennaService
 				mrs.Set ();
 		}
 
+		/// <summary>
+		/// Try to connect
+		/// </summary>
+		private void tryToConnect ()
+		{
+			connectThread	= new Thread (new ThreadStart (connectToAntenna));
+			connectThread.Start ();
+		}
+
+		/// <summary>
+		/// Try to connect to antenna
+		/// </summary>
+		private void connectToAntenna ()
+		{
+			System.Diagnostics.Debugger.Launch();
+
+			while (true)
+			{
+				// Try to connect to Antenna
+				bool result = connectToAntenna (antHost, antPort);
+
+				// Try to start client listener
+				if (result)
+				{
+					startClientListener (sPort);
+					break;
+				}
+
+				Thread.Sleep (1000);
+			}
+		}
 
 		/// <summary>
 		/// Start Tag Listen Thread
@@ -244,11 +285,16 @@ namespace AntennaService
 							} 
 							#endregion
 						}
+						else
+						{
+							tryToConnect ();
+							break;
+						}
 					}
 				}
 				catch (Exception ex)
 				{
-					///TODO: LOG ERROR
+					writeLog ("ERR " + ex.Message);
 				}
 			}));
 
@@ -262,6 +308,25 @@ namespace AntennaService
 		private void tagDetected (string tagId)
 		{
 			Helper.ClientMethodParser.writeTag (tcpServer, tagId);
+
+			//writeLog (tagId);
+			#region Write to database
+			writeToDB (tagId);
+			#endregion
+
+			#region Send to clients
+			if (null != tcpServer)
+				tcpServer.write (string.Format ("\nTAG\t{0}\t{1}\n", tagId, DateTime.Now));
+			#endregion
+		}
+
+		/// <summary>
+		/// Write tag to db
+		/// </summary>
+		/// <param name="tagId"></param>
+		private void writeToDB (string tagId)
+		{
+			throw new NotImplementedException ();
 		}
 
 		/// <summary>
@@ -289,6 +354,7 @@ namespace AntennaService
 			}
 			else
 			{
+				hasError	= false;
 				startTagListenThread ();
 
 				writeLog ("INF: Service Started Successfully");
@@ -305,8 +371,8 @@ namespace AntennaService
 			if (null == tcpServer)
 			{
 				tcpServer = new NetTcpServer (port, C_BufferSize);
-
 				tcpServer.onReceiveData  += TcpServer_onReceiveData;
+				tcpServer.start ();
 			}
 		}
 

@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.ServiceProcess;
 using System.Text;
 using System.Windows.Forms;
 
@@ -13,7 +15,7 @@ namespace AntennaServiceInstaller.Forms
 	{
 		#region Constants
 		private string	serviceName;
-		private string	serverName;
+		private string	hostName;
 		#endregion
 
 		#region Methods
@@ -78,7 +80,10 @@ namespace AntennaServiceInstaller.Forms
 		/// </summary>
 		private void prepare ()
 		{
-			serverName	= System.Configuration.ConfigurationSettings.AppSettings["serviceName"];
+			serviceName	= ConfigurationManager.AppSettings["serviceName"];
+			hostName	= ConfigurationManager.AppSettings["hostName"];
+
+			updateStatus ();
 		}
 
 		/// <summary>
@@ -86,6 +91,19 @@ namespace AntennaServiceInstaller.Forms
 		/// </summary>
 		private void updateStatus ()
 		{
+			ServiceControllerStatus	opResult	= Common.Helper.Windows.ServiceHelper.serviceStatus (serviceName, hostName);
+			string status;
+
+			if ((opResult == ServiceControllerStatus.Running) || (opResult == ServiceControllerStatus.StartPending))
+				status  = "در حال اجرا";
+			else if ((opResult == ServiceControllerStatus.Stopped) || (opResult == ServiceControllerStatus.StopPending))
+				status  = "پایان یافته";
+			else if ((opResult == ServiceControllerStatus.Paused) || (opResult == ServiceControllerStatus.PausePending))
+				status  = "متوقف شده";
+			else
+				status  = "نامشخص";
+
+			serviceStatusLabel.Text = status;
 		}
 		#endregion
 	}

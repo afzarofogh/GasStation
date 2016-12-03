@@ -31,15 +31,6 @@ namespace GasStation.Forms.User
 			InitializeComponent ();
 
 			init ();
-			
-			//Common.BLL.Logic.GasStation.Base__CarColor	lC	= new Common.BLL.Logic.GasStation.Base__CarColor (Common.Enum.EDatabase.GasStation);
-			//DataTable res	= lC.allData ("", "", false).model as DataTable;
-
-			//comboBox1.fillByTable (res, "id", "color");
-			//comboBox1.SelectedIndexChanged += (x, y) =>
-			//{
-			//	Text	= comboBox1.SelectedValue.ToString ();
-			//};
 		}
 
 
