@@ -61,22 +61,14 @@ namespace GasStation.Forms.Forms
         /// Prepare
         /// </summary>
 		private void prepare ()
-		{			
-
-			if (null == ownerModel)
-				ownerModel		= new  Common.BLL.Entity.GasStation.Owner();
-			if (null == carModel)
-				carModel		= new Common.BLL.Entity.GasStation.Car ();
-			if (null == carOwnerModel)
-				carOwnerModel	= new Common.BLL.Entity.GasStation.CarOwner();
-			if (null == legalOwnerModel)
-				legalOwnerModel	= new Common.BLL.Entity.GasStation.LegalOwner();
-			if (null == plateModel)
-				plateModel		= new Common.BLL.Entity.GasStation.Plate();
-			if (null == tagModel)
-				tagModel		= new Common.BLL.Entity.GasStation.Tag();
-			if (null == carTagModel)
-				carTagModel		= new Common.BLL.Entity.GasStation.CarTag();
+		{					
+			ownerModel		= new  Common.BLL.Entity.GasStation.Owner();
+			carModel		= new Common.BLL.Entity.GasStation.Car ();
+			carOwnerModel	= new Common.BLL.Entity.GasStation.CarOwner();
+			legalOwnerModel	= new Common.BLL.Entity.GasStation.LegalOwner();
+			plateModel		= new Common.BLL.Entity.GasStation.Plate();
+			tagModel		= new Common.BLL.Entity.GasStation.Tag();
+			carTagModel		= new Common.BLL.Entity.GasStation.CarTag();
 
 
 			// Update ui
@@ -89,10 +81,28 @@ namespace GasStation.Forms.Forms
 			enableTab(tagTabPage, false);	
 			
 			reloadCombo();
-			
+			//ClearTextBoxes(this);
 		}
 
-
+		/// <summary>
+		/// Clear TextBox
+		/// </summary>
+		/// <param name="control"></param>
+		 public void ClearTextBoxes(Control control)
+        {
+            foreach (Control c in control.Controls)
+            {
+                if (c.GetType() == typeof(TextBox))
+                {
+                    ((TextBox)c) .Text = string.Empty;
+                    
+                }
+                if (c.HasChildren)
+                {
+                    ClearTextBoxes(c);
+                }
+            }
+        }
 		/// <summary>
 		/// Enable Tab
 		/// </summary>
@@ -278,7 +288,7 @@ namespace GasStation.Forms.Forms
 			else
 			{
 				MessageBox.Show (this, "اطلاعات با موفقیت ذخیره شد", "پیام", MessageBoxButtons.OK, MessageBoxIcon.Information);
-				init ();
+				Close();
 			}
 		}
 
@@ -443,16 +453,14 @@ namespace GasStation.Forms.Forms
 			//}
 			//else
 			//{
-				// Set author data
-				if (ownerModel.id == 0)
-				{
-					#region Insert
-					ownerModel.insertedById = Common.GlobalData.UserManager.currentUser.id;
-					ownerModel.insertDate = DateTime.Now;
+				
+				#region Insert
+				ownerModel.insertedById = Common.GlobalData.UserManager.currentUser.id;
+				ownerModel.insertDate = DateTime.Now;
 
-					opResult = lOwner.create (ownerModel);
-					#endregion
-				}
+				opResult = lOwner.create (ownerModel);
+				#endregion
+				
 				if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)			
 					result = true;
 				else
@@ -475,16 +483,13 @@ namespace GasStation.Forms.Forms
 			CommandResult opResult = null;
 			Common.BLL.Logic.GasStation.Plate  lPlate = new Common.BLL.Logic.GasStation.Plate (Common.Enum.EDatabase.GasStation);			
 
-			// Set author data
-			if (plateModel.id == 0)
-			{
-				#region Insert				
-				plateModel.insertedById = Common.GlobalData.UserManager.currentUser.id;
-				plateModel.insertDate = DateTime.Now;
+			
+			#region Insert				
+			plateModel.insertedById = Common.GlobalData.UserManager.currentUser.id;
+			plateModel.insertDate = DateTime.Now;
 
-				opResult = lPlate.create (plateModel);
-				#endregion
-			}
+			opResult = lPlate.create (plateModel);
+			#endregion			
 					
 
 			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)			
@@ -507,19 +512,17 @@ namespace GasStation.Forms.Forms
 			CommandResult opResult = null;
 			Common.BLL.Logic.GasStation.Car  lCar = new Common.BLL.Logic.GasStation.Car (Common.Enum.EDatabase.GasStation);			
 
-			// Set author data
-			if (carModel.id == 0)
-			{
-				#region Insert
-				carModel.plateId	= plateModel.id;
-				carModel.insertedById = Common.GlobalData.UserManager.currentUser.id;
-				carModel.insertDate = DateTime.Now;
-
-				opResult = lCar.create (carModel);
-				#endregion
-			}
 			
-			// Create/Modify data
+			#region Insert
+			carModel.plateId	= plateModel.id;
+			carModel.insertedById = Common.GlobalData.UserManager.currentUser.id;
+			carModel.insertDate = DateTime.Now;
+
+			opResult = lCar.create (carModel);
+			#endregion
+			
+			
+			// Create data
 
 			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)			
 				result = true;			
@@ -527,7 +530,7 @@ namespace GasStation.Forms.Forms
 			{
 				result= false;
 				Logger.logger.log (opResult);
-				MessageBox.Show (this, "خطا در ذخیره اطلاعات", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show (this, "خطا در ذخیره اطلاعات خودرو", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 			return result;
 		}
@@ -540,19 +543,17 @@ namespace GasStation.Forms.Forms
 			bool result = false;
 			CommandResult opResult = null;
 			Common.BLL.Logic.GasStation.CarOwner lCarOwner = new Common.BLL.Logic.GasStation.CarOwner(Common.Enum.EDatabase.GasStation);
+						
+			#region Insert
+			carOwnerModel.ownerId = ownerModel.id;
+			carOwnerModel.carId = carModel.id;
+			carOwnerModel.insertedById = Common.GlobalData.UserManager.currentUser.id;
+			carOwnerModel.insertDate = DateTime.Now;
 
-			if(carOwnerModel.id == 0)
-			{
-				#region Insert
-				carOwnerModel.ownerId = ownerModel.id;
-				carOwnerModel.carId = carModel.id;
-				carOwnerModel.insertedById = Common.GlobalData.UserManager.currentUser.id;
-				carOwnerModel.insertDate = DateTime.Now;
-
-				opResult = lCarOwner.create(carOwnerModel);		 
-				#endregion
-			}
-			// Create/Modify data
+			opResult = lCarOwner.create(carOwnerModel);		 
+			#endregion
+			
+			// Create data
 
 			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
 				result = true ;
@@ -560,7 +561,7 @@ namespace GasStation.Forms.Forms
 			{
 				result = false;
 				Logger.logger.log (opResult);
-				MessageBox.Show (this, "خطا در ذخیره اطلاعات", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show (this, "خطا در ذخیره اطلاعات راننده و خودرو", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}	
 		 	return result;
 		}
@@ -574,14 +575,12 @@ namespace GasStation.Forms.Forms
 			CommandResult opResult = null;
 			Common.BLL.Logic.GasStation.LegalOwner lLegalOwner = new Common.BLL.Logic.GasStation.LegalOwner(Common.Enum.EDatabase.GasStation);
 				
-			if (legalOwnerModel.id == 0)
-			{
-				legalOwnerModel.carOwnerId = carOwnerModel.id;
-				legalOwnerModel.insertedById = Common.GlobalData.UserManager.currentUser.id;
-				legalOwnerModel.insertDate = DateTime.Now;
+			legalOwnerModel.carOwnerId = carOwnerModel.id;
+			legalOwnerModel.insertedById = Common.GlobalData.UserManager.currentUser.id;
+			legalOwnerModel.insertDate = DateTime.Now;
 
-				opResult = lLegalOwner.create(legalOwnerModel);
-			}
+			opResult = lLegalOwner.create(legalOwnerModel);
+			
 			// Create/Modify data
 
 			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
@@ -605,20 +604,16 @@ namespace GasStation.Forms.Forms
 			CommandResult opResult = null;
 			Common.BLL.Logic.GasStation.CarTag	lCarTag		= new Common.BLL.Logic.GasStation.CarTag (Common.Enum.EDatabase.GasStation);			
 
-			// Set author data
-			if (carTagModel.id == 0)
-			{
-				#region Insert
-				carTagModel.carId = carModel.id;
-				carTagModel.tagId = tagModel.id;
-				carTagModel.insertedById = Common.GlobalData.UserManager.currentUser.id;
-				carTagModel.insertDate = DateTime.Now;
+			#region Insert
+			carTagModel.carId = carModel.id;
+			carTagModel.tagId = tagModel.id;
+			carTagModel.insertedById = Common.GlobalData.UserManager.currentUser.id;
+			carTagModel.insertDate = DateTime.Now;
 
-				opResult = lCarTag.create (carTagModel);
-				#endregion
-			}
+			opResult = lCarTag.create (carTagModel);
+			#endregion			
 			
-			// Create/Modify data
+			// Create data
 
 			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)			
 				result = true;			
@@ -627,7 +622,7 @@ namespace GasStation.Forms.Forms
 			{
 				result = false ;
 				Logger.logger.log (opResult);
-				MessageBox.Show (this, "خطا در ذخیره اطلاعات ", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show (this, "خطا در ذخیره اطلاعات خودرو و برچسب ", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 
 			return result;
@@ -642,20 +637,17 @@ namespace GasStation.Forms.Forms
 
 			bool result = false;
 			CommandResult opResult = null;
-			Common.BLL.Logic.GasStation.Tag  lTag	= new Common.BLL.Logic.GasStation.Tag (Common.Enum.EDatabase.GasStation);			
+			Common.BLL.Logic.GasStation.Tag  lTag	= new Common.BLL.Logic.GasStation.Tag (Common.Enum.EDatabase.GasStation);		
 
-			// Set author data
-			if (tagModel.id == 0)
-			{
-				#region Insert
-				tagModel.insertedById = Common.GlobalData.UserManager.currentUser.id;
-				tagModel.insertDate = DateTime.Now;
-
-				opResult = lTag.create (tagModel);
-				#endregion
-			}
 			
-			// Create/Modify data
+			#region Insert
+			tagModel.insertedById = Common.GlobalData.UserManager.currentUser.id;
+			tagModel.insertDate = DateTime.Now;
+
+			opResult = lTag.create (tagModel);
+			#endregion			
+			
+			// Create data
 
 			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)			
 				result = true;			
@@ -863,7 +855,6 @@ namespace GasStation.Forms.Forms
 						{ 
 							// Fill owner Model
 							BaseBLL.General.FormModelHelper<Common.BLL.Entity.GasStation.Owner>.fillModel (ownerDataGroupBox, ownerModel);
-							ownerModel.nationalCode = "4324260869";
 							enableTab(carTabPage, true);
 						}
 						break;
@@ -1380,6 +1371,7 @@ namespace GasStation.Forms.Forms
 				loadingPictureBox.Image		= null;
 				loadingLabel.Visible		= false;
 				getTagButton.Enabled		= true;
+				finalSaveButton.Visible		= true;
 
 			});
 		}
