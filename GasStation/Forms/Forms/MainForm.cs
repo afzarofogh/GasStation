@@ -58,6 +58,8 @@ namespace GasStation.Forms.Forms
 			CommandResult	opResult	= lSystemData.read(model);
 			//if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
 			//	lSystemData
+
+			
 		}
 
 		
@@ -86,6 +88,7 @@ namespace GasStation.Forms.Forms
 		
 		}
 
+		
 		/// <summary>
 		/// Customer
 		/// </summary>

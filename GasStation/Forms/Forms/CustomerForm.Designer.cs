@@ -1151,6 +1151,7 @@
 			this.finalSaveButton.TabIndex = 1;
 			this.finalSaveButton.Text = "ثبت نهایی";
 			this.finalSaveButton.UseVisualStyleBackColor = true;
+			this.finalSaveButton.Visible = false;
 			// 
 			// tagDataGroupBox
 			// 

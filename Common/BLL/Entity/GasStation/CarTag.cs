@@ -6,7 +6,8 @@ namespace Common.BLL.Entity.GasStation
 {
 	[Serializable]
 	public class CarTag : BaseBLL.Entity.BaseByViewId
-	{
+	{		
+		
 		[BaseBLL.Base.Field(nullable=false,sqlDBType=System.Data.SqlDbType.Int,primary=false,usage=BaseBLL.Base.EnumUsage.read | BaseBLL.Base.EnumUsage.update | BaseBLL.Base.EnumUsage.create,foreignLogicType=typeof (BLL.Logic.GasStation.Car),foreignField="id")]
 		public System.Int32 carId
 		{
@@ -38,7 +39,7 @@ namespace Common.BLL.Entity.GasStation
 			BLL.Logic.GasStation.Car	logic;
 
 			entity	= new BLL.Entity.GasStation.Car () { id = carId };
-			logic	= new BLL.Logic.GasStation.Car (Common.Enum.EDatabase.GasStation);
+			logic	= new BLL.Logic.GasStation.Car ("GasStation");
 			logic.read (entity);
 
 			_Car_carId	= entity;
@@ -76,7 +77,7 @@ namespace Common.BLL.Entity.GasStation
 			BLL.Logic.GasStation.Tag	logic;
 
 			entity	= new BLL.Entity.GasStation.Tag () { id = tagId };
-			logic	= new BLL.Logic.GasStation.Tag (Common.Enum.EDatabase.GasStation);
+			logic	= new BLL.Logic.GasStation.Tag ("GasStation");
 			logic.read (entity);
 
 			_Tag_tagId	= entity;
@@ -114,7 +115,7 @@ namespace Common.BLL.Entity.GasStation
 			BLL.Logic.GasStation.User	logic;
 
 			entity	= new BLL.Entity.GasStation.User () { id = insertedById };
-			logic	= new BLL.Logic.GasStation.User (Common.Enum.EDatabase.GasStation);
+			logic	= new BLL.Logic.GasStation.User ("GasStation");
 			logic.read (entity);
 
 			_User_insertedById	= entity;
@@ -159,7 +160,7 @@ namespace Common.BLL.Entity.GasStation
 			BLL.Logic.GasStation.User	logic;
 
 			entity	= new BLL.Entity.GasStation.User () { id = updatedById.Value };
-			logic	= new BLL.Logic.GasStation.User (Common.Enum.EDatabase.GasStation);
+			logic	= new BLL.Logic.GasStation.User ("GasStation");
 			logic.read (entity);
 
 			_User_updatedById	= entity;
