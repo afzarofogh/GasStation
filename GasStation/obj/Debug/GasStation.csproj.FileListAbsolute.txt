@@ -12,7 +12,6 @@ E:\Project GasStation\GasStation\GasStation\GasStation\obj\Debug\GasStation.Form
 E:\Project GasStation\GasStation\GasStation\GasStation\obj\Debug\GasStation.Forms.Base.CarColorForm.resources
 E:\Project GasStation\GasStation\GasStation\GasStation\obj\Debug\GasStation.Forms.Base.CarFuelForm.resources
 E:\Project GasStation\GasStation\GasStation\GasStation\obj\Debug\GasStation.Forms.Base.CarFuelEntryForm.resources
-E:\Project GasStation\GasStation\GasStation\GasStation\obj\Debug\GasStation.Forms.Forms.InformationForm.resources
 E:\Project GasStation\GasStation\GasStation\GasStation\obj\Debug\GasStation.Forms.Forms.MainForm.resources
 E:\Project GasStation\GasStation\GasStation\GasStation\obj\Debug\GasStation.Forms.General.SuperForm.resources
 E:\Project GasStation\GasStation\GasStation\GasStation\obj\Debug\GasStation.Forms.User.LoginForm.resources
@@ -32,3 +31,5 @@ E:\Project GasStation\GasStation\GasStation\GasStation\bin\Debug\Newtonsoft.Json
 E:\Project GasStation\GasStation\GasStation\GasStation\obj\Debug\GasStation.csprojResolveAssemblyReference.cache
 E:\Project GasStation\GasStation\GasStation\GasStation\obj\Debug\GasStation.exe
 E:\Project GasStation\GasStation\GasStation\GasStation\obj\Debug\GasStation.pdb
+E:\Project GasStation\GasStation\GasStation\GasStation\obj\Debug\GasStation.Forms.Forms.CustomerForm.resources
+E:\Project GasStation\GasStation\GasStation\GasStation\obj\Debug\GasStation.Forms.Forms.CustomerViewForm.resources

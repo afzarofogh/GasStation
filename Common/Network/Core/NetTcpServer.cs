@@ -98,7 +98,7 @@ namespace Common.Network.Core
 		/// Start server
 		/// </summary>
 		/// <returns></returns>
-		public void strat ()
+		public void start ()
 		{ 
 			try 
 			{

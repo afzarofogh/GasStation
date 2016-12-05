@@ -154,17 +154,23 @@
     <Compile Include="Forms\Base\CarFuelEntryForm.Designer.cs">
       <DependentUpon>CarFuelEntryForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Forms\InformationForm.cs">
+    <Compile Include="Forms\Forms\CustomerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Forms\InformationForm.Designer.cs">
-      <DependentUpon>InformationForm.cs</DependentUpon>
+    <Compile Include="Forms\Forms\CustomerForm.Designer.cs">
+      <DependentUpon>CustomerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Forms\CustomerViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Forms\CustomerViewForm.Designer.cs">
+      <DependentUpon>CustomerViewForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\General\SuperForm.cs">
       <SubType>Form</SubType>
@@ -229,11 +235,14 @@
     <EmbeddedResource Include="Forms\Base\CarFuelEntryForm.resx">
       <DependentUpon>CarFuelEntryForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Forms\InformationForm.resx">
-      <DependentUpon>InformationForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Forms\CustomerForm.resx">
+      <DependentUpon>CustomerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Forms\CustomerViewForm.resx">
+      <DependentUpon>CustomerViewForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\General\SuperForm.resx">
       <DependentUpon>SuperForm.cs</DependentUpon>

@@ -20,7 +20,8 @@ namespace GasStation.Forms.Forms
 
 		#region Variable
 		//Common.BLL.Logic.GasStation.User	lUser;
-		//Common.BLL.Entity.GasStation.User	user;		
+		//Common.BLL.Entity.GasStation.User	user;
+		Common.BLL.Entity.GasStation.System__Data	model;
 
 		#endregion
 
@@ -31,10 +32,8 @@ namespace GasStation.Forms.Forms
 		public MainForm ()
 		{
 			InitializeComponent ();
-
 			init ();
 		}
-
 
 		/// <summary>
 		/// Init
@@ -51,7 +50,17 @@ namespace GasStation.Forms.Forms
 		private void prepare ()
 		{
 			__Program.hasLogin	= 0;		// Default exit menu (Logoff)
+
+			//TODO: get version software
+			if (null == model)
+				model = new Common.BLL.Entity.GasStation.System__Data();
+			Common.BLL.Logic.GasStation.System__Data	lSystemData = new Common.BLL.Logic.GasStation.System__Data(Common.Enum.EDatabase.GasStation);
+			CommandResult	opResult	= lSystemData.read(model);
+			//if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
+			//	lSystemData
 		}
+
+		
 		/// <summary>
 		/// Bind Events
 		/// </summary>
@@ -84,7 +93,7 @@ namespace GasStation.Forms.Forms
 		/// <param name="e"></param>
 		private void CustomerMenuItem_Click (object sender, EventArgs e)
 		{
-			InformationForm		form = new InformationForm();
+			CustomerForm		form = new CustomerForm();
 			form.ShowDialog();
 		}
 		

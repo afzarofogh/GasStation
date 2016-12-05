@@ -7,8 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 
-
-
 namespace GasStation.Helper
 {
 	/// <summary>
@@ -26,8 +24,8 @@ namespace GasStation.Helper
 
 		#region Variables
 		private ManualResetEvent msr;
-		private Thread connectorThread, writeThread;
-		private TimeSpan _connectorInterval, _writeInterval;
+		private Thread connectorThread;
+		private TimeSpan _connectorInterval;
 		private NetTcpClient tcpClient;
 		private int connectCount = 0;	
 		#endregion
@@ -86,9 +84,7 @@ namespace GasStation.Helper
 		{
 			if (null != onError)
 			{
-				onError (sender, data);
-				if (null != writeThread)
-					writeThread.Abort();
+				onError (sender, data);				
 				connectCount ++;
 			}
 
@@ -110,13 +106,8 @@ namespace GasStation.Helper
 		/// <param name="sender"></param>
 		void tcpClient_onDisconnect (NetTcpClient sender)
 		{
-			if (null != onDisconnect)
-			{
+			if (null != onDisconnect)			
 				onDisconnect (sender);
-
-				if (null != writeThread)
-					writeThread.Abort();
-			}
 		}
 
 		/// <summary>
@@ -125,11 +116,8 @@ namespace GasStation.Helper
 		/// <param name="sender"></param>
 		void tcpClient_onConnect (NetTcpClient sender)
 		{
-			if (null != onConnect)
-			{				
-				onConnect (sender);					
-			}			
-			//tryToWriteData ();
+			if (null != onConnect)							
+				onConnect (sender);
 		}		
 
 		/// <summary>

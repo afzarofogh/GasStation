@@ -191,7 +191,7 @@ namespace TestApp
 			server = new NetTcpServer (10000, 1024);
 			client = new NetTcpClient ("127.0.0.1", 10000, 1024);
 
-			server.strat ();
+			server.start ();
 			client.connect ();
 
 			client.onReceiveData += Client_onReceiveData;

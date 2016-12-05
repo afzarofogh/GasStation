@@ -1,6 +1,6 @@
 ﻿namespace GasStation.Forms.Forms
 {
-	partial class InformationForm
+	partial class CustomerForm
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -33,6 +33,7 @@
 			this.ownerTabPage = new System.Windows.Forms.TabPage();
 			this.ownerDataGroupBox = new System.Windows.Forms.GroupBox();
 			this.label9 = new System.Windows.Forms.Label();
+			this.phoneTextBox = new System.Windows.Forms.TextBox();
 			this.nationalCodeMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
 			this.birthdateMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
 			this.label8 = new System.Windows.Forms.Label();
@@ -44,7 +45,6 @@
 			this.label3 = new System.Windows.Forms.Label();
 			this.addressTextBox = new System.Windows.Forms.TextBox();
 			this.mobileTextBox = new System.Windows.Forms.TextBox();
-			this.phoneTextBox = new System.Windows.Forms.TextBox();
 			this.birthdatelocalTextBox = new System.Windows.Forms.TextBox();
 			this.lastNameTextBox = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
@@ -110,7 +110,8 @@
 			this.titleColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.descriptColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.tagTabPage = new System.Windows.Forms.TabPage();
-			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.finalSaveButton = new System.Windows.Forms.Button();
+			this.tagDataGroupBox = new System.Windows.Forms.GroupBox();
 			this.label22 = new System.Windows.Forms.Label();
 			this.tagTextBox = new System.Windows.Forms.TextBox();
 			this.getTagButton = new System.Windows.Forms.Button();
@@ -120,8 +121,6 @@
 			this.nextButton = new System.Windows.Forms.Button();
 			this.mainMenu = new System.Windows.Forms.MenuStrip();
 			this.اطلاعاتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.reloadMenu = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.insertMenu = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
 			this.exitMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -144,7 +143,7 @@
 			this.legalOwnerGroupBox.SuspendLayout();
 			this.showInfoTabPage.SuspendLayout();
 			this.tagTabPage.SuspendLayout();
-			this.groupBox1.SuspendLayout();
+			this.tagDataGroupBox.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.loadingPictureBox)).BeginInit();
 			this.mainMenu.SuspendLayout();
 			this.SuspendLayout();
@@ -194,6 +193,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.ownerDataGroupBox.BackColor = System.Drawing.Color.Transparent;
 			this.ownerDataGroupBox.Controls.Add(this.label9);
+			this.ownerDataGroupBox.Controls.Add(this.phoneTextBox);
 			this.ownerDataGroupBox.Controls.Add(this.nationalCodeMaskedTextBox);
 			this.ownerDataGroupBox.Controls.Add(this.birthdateMaskedTextBox);
 			this.ownerDataGroupBox.Controls.Add(this.label8);
@@ -205,7 +205,6 @@
 			this.ownerDataGroupBox.Controls.Add(this.label3);
 			this.ownerDataGroupBox.Controls.Add(this.addressTextBox);
 			this.ownerDataGroupBox.Controls.Add(this.mobileTextBox);
-			this.ownerDataGroupBox.Controls.Add(this.phoneTextBox);
 			this.ownerDataGroupBox.Controls.Add(this.birthdatelocalTextBox);
 			this.ownerDataGroupBox.Controls.Add(this.lastNameTextBox);
 			this.ownerDataGroupBox.Controls.Add(this.label2);
@@ -230,6 +229,18 @@
 			this.label9.TabIndex = 0;
 			this.label9.Text = "آدرس";
 			// 
+			// phoneTextBox
+			// 
+			this.phoneTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.phoneTextBox.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.phoneTextBox.Location = new System.Drawing.Point(415, 133);
+			this.phoneTextBox.MaxLength = 50;
+			this.phoneTextBox.Name = "phoneTextBox";
+			this.phoneTextBox.Size = new System.Drawing.Size(203, 26);
+			this.phoneTextBox.TabIndex = 7;
+			this.phoneTextBox.Tag = "phone";
+			this.phoneTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			// 
 			// nationalCodeMaskedTextBox
 			// 
 			this.nationalCodeMaskedTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -237,7 +248,7 @@
 			this.nationalCodeMaskedTextBox.Mask = "0000000000";
 			this.nationalCodeMaskedTextBox.Name = "nationalCodeMaskedTextBox";
 			this.nationalCodeMaskedTextBox.Size = new System.Drawing.Size(203, 26);
-			this.nationalCodeMaskedTextBox.TabIndex = 5;
+			this.nationalCodeMaskedTextBox.TabIndex = 3;
 			this.nationalCodeMaskedTextBox.Tag = "nationalCode";
 			this.nationalCodeMaskedTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
@@ -350,18 +361,6 @@
 			this.mobileTextBox.TabIndex = 8;
 			this.mobileTextBox.Tag = "mobile";
 			this.mobileTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			// 
-			// phoneTextBox
-			// 
-			this.phoneTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.phoneTextBox.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.phoneTextBox.Location = new System.Drawing.Point(415, 134);
-			this.phoneTextBox.MaxLength = 50;
-			this.phoneTextBox.Name = "phoneTextBox";
-			this.phoneTextBox.Size = new System.Drawing.Size(203, 26);
-			this.phoneTextBox.TabIndex = 7;
-			this.phoneTextBox.Tag = "phone";
-			this.phoneTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// birthdatelocalTextBox
 			// 
@@ -749,18 +748,21 @@
 			this.plateDataGroupBox.Location = new System.Drawing.Point(11, 13);
 			this.plateDataGroupBox.Name = "plateDataGroupBox";
 			this.plateDataGroupBox.Size = new System.Drawing.Size(732, 281);
-			this.plateDataGroupBox.TabIndex = 3;
+			this.plateDataGroupBox.TabIndex = 0;
 			this.plateDataGroupBox.TabStop = false;
 			this.plateDataGroupBox.Text = "اطلاعات پلاک";
 			// 
 			// cityLabel
 			// 
+			this.cityLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.cityLabel.AutoSize = true;
-			this.cityLabel.Location = new System.Drawing.Point(261, 80);
+			this.cityLabel.ForeColor = System.Drawing.Color.Black;
+			this.cityLabel.Location = new System.Drawing.Point(136, 80);
 			this.cityLabel.Name = "cityLabel";
 			this.cityLabel.Size = new System.Drawing.Size(63, 18);
-			this.cityLabel.TabIndex = 14;
+			this.cityLabel.TabIndex = 0;
 			this.cityLabel.Text = "cityLabel";
+			this.cityLabel.Visible = false;
 			// 
 			// motorPlatePanel
 			// 
@@ -771,7 +773,7 @@
 			this.motorPlatePanel.Location = new System.Drawing.Point(329, 169);
 			this.motorPlatePanel.Name = "motorPlatePanel";
 			this.motorPlatePanel.Size = new System.Drawing.Size(295, 42);
-			this.motorPlatePanel.TabIndex = 13;
+			this.motorPlatePanel.TabIndex = 2;
 			this.motorPlatePanel.Visible = false;
 			// 
 			// pictureBox2
@@ -789,11 +791,11 @@
 			this.part2MotorTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.part2MotorTextBox.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.part2MotorTextBox.Location = new System.Drawing.Point(169, 6);
-			this.part2MotorTextBox.MaxLength = 3;
+			this.part2MotorTextBox.MaxLength = 6;
 			this.part2MotorTextBox.Name = "part2MotorTextBox";
 			this.part2MotorTextBox.Size = new System.Drawing.Size(67, 26);
-			this.part2MotorTextBox.TabIndex = 11;
-			this.part2MotorTextBox.Tag = "chasisCode";
+			this.part2MotorTextBox.TabIndex = 1;
+			this.part2MotorTextBox.Tag = "";
 			this.part2MotorTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// part1MotorTextBox
@@ -801,11 +803,11 @@
 			this.part1MotorTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.part1MotorTextBox.ForeColor = System.Drawing.SystemColors.ControlText;
 			this.part1MotorTextBox.Location = new System.Drawing.Point(34, 6);
-			this.part1MotorTextBox.MaxLength = 2;
+			this.part1MotorTextBox.MaxLength = 6;
 			this.part1MotorTextBox.Name = "part1MotorTextBox";
 			this.part1MotorTextBox.Size = new System.Drawing.Size(67, 26);
-			this.part1MotorTextBox.TabIndex = 8;
-			this.part1MotorTextBox.Tag = "chasisCode";
+			this.part1MotorTextBox.TabIndex = 0;
+			this.part1MotorTextBox.Tag = "";
 			this.part1MotorTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// malulinPlatePanel
@@ -818,7 +820,7 @@
 			this.malulinPlatePanel.Location = new System.Drawing.Point(329, 117);
 			this.malulinPlatePanel.Name = "malulinPlatePanel";
 			this.malulinPlatePanel.Size = new System.Drawing.Size(295, 46);
-			this.malulinPlatePanel.TabIndex = 13;
+			this.malulinPlatePanel.TabIndex = 1;
 			this.malulinPlatePanel.Visible = false;
 			// 
 			// pictureBox1
@@ -839,7 +841,7 @@
 			this.code2Numeric.Location = new System.Drawing.Point(241, 5);
 			this.code2Numeric.Name = "code2Numeric";
 			this.code2Numeric.Size = new System.Drawing.Size(49, 26);
-			this.code2Numeric.TabIndex = 12;
+			this.code2Numeric.TabIndex = 2;
 			this.code2Numeric.Tag = "plateCityId";
 			// 
 			// part2MaluinTextBox
@@ -850,8 +852,8 @@
 			this.part2MaluinTextBox.MaxLength = 3;
 			this.part2MaluinTextBox.Name = "part2MaluinTextBox";
 			this.part2MaluinTextBox.Size = new System.Drawing.Size(67, 26);
-			this.part2MaluinTextBox.TabIndex = 11;
-			this.part2MaluinTextBox.Tag = "chasisCode";
+			this.part2MaluinTextBox.TabIndex = 1;
+			this.part2MaluinTextBox.Tag = "";
 			this.part2MaluinTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// part1MalulinTextBox
@@ -862,8 +864,8 @@
 			this.part1MalulinTextBox.MaxLength = 2;
 			this.part1MalulinTextBox.Name = "part1MalulinTextBox";
 			this.part1MalulinTextBox.Size = new System.Drawing.Size(67, 26);
-			this.part1MalulinTextBox.TabIndex = 8;
-			this.part1MalulinTextBox.Tag = "chasisCode";
+			this.part1MalulinTextBox.TabIndex = 0;
+			this.part1MalulinTextBox.Tag = "";
 			this.part1MalulinTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// mainPlatePanel
@@ -876,7 +878,7 @@
 			this.mainPlatePanel.Location = new System.Drawing.Point(329, 65);
 			this.mainPlatePanel.Name = "mainPlatePanel";
 			this.mainPlatePanel.Size = new System.Drawing.Size(295, 47);
-			this.mainPlatePanel.TabIndex = 13;
+			this.mainPlatePanel.TabIndex = 0;
 			// 
 			// code1Numeric
 			// 
@@ -884,7 +886,7 @@
 			this.code1Numeric.Location = new System.Drawing.Point(243, 7);
 			this.code1Numeric.Name = "code1Numeric";
 			this.code1Numeric.Size = new System.Drawing.Size(49, 26);
-			this.code1Numeric.TabIndex = 12;
+			this.code1Numeric.TabIndex = 3;
 			this.code1Numeric.Tag = "plateCityId";
 			// 
 			// part2MainTextBox
@@ -895,8 +897,8 @@
 			this.part2MainTextBox.MaxLength = 3;
 			this.part2MainTextBox.Name = "part2MainTextBox";
 			this.part2MainTextBox.Size = new System.Drawing.Size(67, 26);
-			this.part2MainTextBox.TabIndex = 11;
-			this.part2MainTextBox.Tag = "chasisCode";
+			this.part2MainTextBox.TabIndex = 2;
+			this.part2MainTextBox.Tag = "";
 			this.part2MainTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// characterTextBox
@@ -908,7 +910,7 @@
 			this.characterTextBox.Location = new System.Drawing.Point(108, 7);
 			this.characterTextBox.Name = "characterTextBox";
 			this.characterTextBox.Size = new System.Drawing.Size(58, 26);
-			this.characterTextBox.TabIndex = 10;
+			this.characterTextBox.TabIndex = 1;
 			this.characterTextBox.Text = "الف";
 			// 
 			// part1MainTextBox
@@ -919,8 +921,8 @@
 			this.part1MainTextBox.MaxLength = 2;
 			this.part1MainTextBox.Name = "part1MainTextBox";
 			this.part1MainTextBox.Size = new System.Drawing.Size(67, 26);
-			this.part1MainTextBox.TabIndex = 8;
-			this.part1MainTextBox.Tag = "chasisCode";
+			this.part1MainTextBox.TabIndex = 0;
+			this.part1MainTextBox.Tag = "";
 			this.part1MainTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// label20
@@ -931,7 +933,7 @@
 			this.label20.Location = new System.Drawing.Point(633, 72);
 			this.label20.Name = "label20";
 			this.label20.Size = new System.Drawing.Size(82, 18);
-			this.label20.TabIndex = 4;
+			this.label20.TabIndex = 0;
 			this.label20.Text = "شماره پلاک";
 			// 
 			// plateTypeButton
@@ -944,7 +946,7 @@
 			this.plateTypeButton.Location = new System.Drawing.Point(329, 27);
 			this.plateTypeButton.Name = "plateTypeButton";
 			this.plateTypeButton.Size = new System.Drawing.Size(33, 26);
-			this.plateTypeButton.TabIndex = 9;
+			this.plateTypeButton.TabIndex = 2;
 			this.plateTypeButton.UseVisualStyleBackColor = false;
 			// 
 			// plateTypeComboBox
@@ -954,7 +956,7 @@
 			this.plateTypeComboBox.Location = new System.Drawing.Point(368, 28);
 			this.plateTypeComboBox.Name = "plateTypeComboBox";
 			this.plateTypeComboBox.Size = new System.Drawing.Size(256, 26);
-			this.plateTypeComboBox.TabIndex = 3;
+			this.plateTypeComboBox.TabIndex = 1;
 			this.plateTypeComboBox.Tag = "plateTypeId";
 			// 
 			// label27
@@ -993,7 +995,7 @@
 			this.ownerTypeDataGroupBox.Location = new System.Drawing.Point(13, 12);
 			this.ownerTypeDataGroupBox.Name = "ownerTypeDataGroupBox";
 			this.ownerTypeDataGroupBox.Size = new System.Drawing.Size(729, 385);
-			this.ownerTypeDataGroupBox.TabIndex = 4;
+			this.ownerTypeDataGroupBox.TabIndex = 0;
 			this.ownerTypeDataGroupBox.TabStop = false;
 			this.ownerTypeDataGroupBox.Text = "اطلاعات مالک";
 			// 
@@ -1010,7 +1012,7 @@
 			this.legalOwnerGroupBox.Location = new System.Drawing.Point(15, 69);
 			this.legalOwnerGroupBox.Name = "legalOwnerGroupBox";
 			this.legalOwnerGroupBox.Size = new System.Drawing.Size(700, 116);
-			this.legalOwnerGroupBox.TabIndex = 5;
+			this.legalOwnerGroupBox.TabIndex = 0;
 			this.legalOwnerGroupBox.TabStop = false;
 			this.legalOwnerGroupBox.Text = "اطلاعات مالک حقوقی";
 			this.legalOwnerGroupBox.Visible = false;
@@ -1023,7 +1025,7 @@
 			this.orgNameTextBox.MaxLength = 50;
 			this.orgNameTextBox.Name = "orgNameTextBox";
 			this.orgNameTextBox.Size = new System.Drawing.Size(256, 26);
-			this.orgNameTextBox.TabIndex = 8;
+			this.orgNameTextBox.TabIndex = 1;
 			this.orgNameTextBox.Tag = "name";
 			this.orgNameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
@@ -1046,7 +1048,7 @@
 			this.OrganizationCodeTextBox.MaxLength = 50;
 			this.OrganizationCodeTextBox.Name = "OrganizationCodeTextBox";
 			this.OrganizationCodeTextBox.Size = new System.Drawing.Size(256, 26);
-			this.OrganizationCodeTextBox.TabIndex = 8;
+			this.OrganizationCodeTextBox.TabIndex = 0;
 			this.OrganizationCodeTextBox.Tag = "OrganizationCode";
 			this.OrganizationCodeTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
@@ -1128,7 +1130,8 @@
 			// tagTabPage
 			// 
 			this.tagTabPage.BackgroundImage = global::GasStation.Properties.Resources.formBK;
-			this.tagTabPage.Controls.Add(this.groupBox1);
+			this.tagTabPage.Controls.Add(this.finalSaveButton);
+			this.tagTabPage.Controls.Add(this.tagDataGroupBox);
 			this.tagTabPage.Controls.Add(this.loadingLabel);
 			this.tagTabPage.Controls.Add(this.loadingPictureBox);
 			this.tagTabPage.Location = new System.Drawing.Point(4, 27);
@@ -1139,21 +1142,31 @@
 			this.tagTabPage.Text = "ثبت برچسب خودرو";
 			this.tagTabPage.UseVisualStyleBackColor = true;
 			// 
-			// groupBox1
+			// finalSaveButton
 			// 
-			this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			this.finalSaveButton.ForeColor = System.Drawing.Color.Black;
+			this.finalSaveButton.Location = new System.Drawing.Point(273, 310);
+			this.finalSaveButton.Name = "finalSaveButton";
+			this.finalSaveButton.Size = new System.Drawing.Size(219, 57);
+			this.finalSaveButton.TabIndex = 1;
+			this.finalSaveButton.Text = "ثبت نهایی";
+			this.finalSaveButton.UseVisualStyleBackColor = true;
+			// 
+			// tagDataGroupBox
+			// 
+			this.tagDataGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-			this.groupBox1.Controls.Add(this.label22);
-			this.groupBox1.Controls.Add(this.tagTextBox);
-			this.groupBox1.Controls.Add(this.getTagButton);
-			this.groupBox1.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-			this.groupBox1.Location = new System.Drawing.Point(27, 19);
-			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(700, 116);
-			this.groupBox1.TabIndex = 6;
-			this.groupBox1.TabStop = false;
-			this.groupBox1.Text = "اطلاعات برچسب";
+			this.tagDataGroupBox.BackColor = System.Drawing.Color.Transparent;
+			this.tagDataGroupBox.Controls.Add(this.label22);
+			this.tagDataGroupBox.Controls.Add(this.tagTextBox);
+			this.tagDataGroupBox.Controls.Add(this.getTagButton);
+			this.tagDataGroupBox.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+			this.tagDataGroupBox.Location = new System.Drawing.Point(27, 19);
+			this.tagDataGroupBox.Name = "tagDataGroupBox";
+			this.tagDataGroupBox.Size = new System.Drawing.Size(700, 116);
+			this.tagDataGroupBox.TabIndex = 0;
+			this.tagDataGroupBox.TabStop = false;
+			this.tagDataGroupBox.Text = "اطلاعات برچسب";
 			// 
 			// label22
 			// 
@@ -1162,7 +1175,7 @@
 			this.label22.Location = new System.Drawing.Point(601, 44);
 			this.label22.Name = "label22";
 			this.label22.Size = new System.Drawing.Size(78, 18);
-			this.label22.TabIndex = 2;
+			this.label22.TabIndex = 0;
 			this.label22.Text = "کد برچسب";
 			this.label22.Visible = false;
 			// 
@@ -1172,7 +1185,7 @@
 			this.tagTextBox.Location = new System.Drawing.Point(286, 41);
 			this.tagTextBox.Name = "tagTextBox";
 			this.tagTextBox.Size = new System.Drawing.Size(306, 26);
-			this.tagTextBox.TabIndex = 3;
+			this.tagTextBox.TabIndex = 1;
 			this.tagTextBox.Tag = "tag";
 			// 
 			// getTagButton
@@ -1181,7 +1194,7 @@
 			this.getTagButton.Location = new System.Drawing.Point(32, 25);
 			this.getTagButton.Name = "getTagButton";
 			this.getTagButton.Size = new System.Drawing.Size(219, 57);
-			this.getTagButton.TabIndex = 1;
+			this.getTagButton.TabIndex = 2;
 			this.getTagButton.Text = "دریافت کد برچسب";
 			this.getTagButton.UseVisualStyleBackColor = true;
 			// 
@@ -1191,7 +1204,7 @@
 			this.loadingLabel.Location = new System.Drawing.Point(246, 188);
 			this.loadingLabel.Name = "loadingLabel";
 			this.loadingLabel.Size = new System.Drawing.Size(169, 18);
-			this.loadingLabel.TabIndex = 2;
+			this.loadingLabel.TabIndex = 0;
 			this.loadingLabel.Text = "در حال دریافت اطلاعات....";
 			this.loadingLabel.Visible = false;
 			// 
@@ -1237,26 +1250,12 @@
 			// اطلاعاتToolStripMenuItem
 			// 
 			this.اطلاعاتToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.reloadMenu,
-            this.toolStripSeparator1,
             this.insertMenu,
             this.toolStripMenuItem1,
             this.exitMenu});
 			this.اطلاعاتToolStripMenuItem.Name = "اطلاعاتToolStripMenuItem";
 			this.اطلاعاتToolStripMenuItem.Size = new System.Drawing.Size(70, 22);
 			this.اطلاعاتToolStripMenuItem.Text = "اطلاعات";
-			// 
-			// reloadMenu
-			// 
-			this.reloadMenu.Name = "reloadMenu";
-			this.reloadMenu.ShortcutKeys = System.Windows.Forms.Keys.F5;
-			this.reloadMenu.Size = new System.Drawing.Size(213, 22);
-			this.reloadMenu.Text = "بازخوانی اطلاعات";
-			// 
-			// toolStripSeparator1
-			// 
-			this.toolStripSeparator1.Name = "toolStripSeparator1";
-			this.toolStripSeparator1.Size = new System.Drawing.Size(210, 6);
 			// 
 			// insertMenu
 			// 
@@ -1277,7 +1276,7 @@
 			this.exitMenu.Size = new System.Drawing.Size(213, 22);
 			this.exitMenu.Text = "خروج";
 			// 
-			// InformationForm
+			// CustomerForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1292,7 +1291,7 @@
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
-			this.Name = "InformationForm";
+			this.Name = "CustomerForm";
 			this.Text = "ثبت اطلاعات";
 			this.mainTabControl.ResumeLayout(false);
 			this.ownerTabPage.ResumeLayout(false);
@@ -1322,8 +1321,8 @@
 			this.showInfoTabPage.ResumeLayout(false);
 			this.tagTabPage.ResumeLayout(false);
 			this.tagTabPage.PerformLayout();
-			this.groupBox1.ResumeLayout(false);
-			this.groupBox1.PerformLayout();
+			this.tagDataGroupBox.ResumeLayout(false);
+			this.tagDataGroupBox.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.loadingPictureBox)).EndInit();
 			this.mainMenu.ResumeLayout(false);
 			this.mainMenu.PerformLayout();
@@ -1349,7 +1348,6 @@
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.TextBox addressTextBox;
 		private System.Windows.Forms.TextBox mobileTextBox;
-		private System.Windows.Forms.TextBox phoneTextBox;
 		private System.Windows.Forms.TextBox birthdatelocalTextBox;
 		private System.Windows.Forms.TextBox lastNameTextBox;
 		private System.Windows.Forms.Label label2;
@@ -1412,8 +1410,6 @@
 		private System.Windows.Forms.TabPage showInfoTabPage;
 		private System.Windows.Forms.MenuStrip mainMenu;
 		private System.Windows.Forms.ToolStripMenuItem اطلاعاتToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem reloadMenu;
-		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
 		private System.Windows.Forms.ToolStripMenuItem insertMenu;
 		private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
 		private System.Windows.Forms.ToolStripMenuItem exitMenu;
@@ -1426,10 +1422,12 @@
 		private System.Windows.Forms.PictureBox loadingPictureBox;
 		private System.Windows.Forms.Button getTagButton;
 		private System.Windows.Forms.Label loadingLabel;
-		private System.Windows.Forms.GroupBox groupBox1;
+		private System.Windows.Forms.GroupBox tagDataGroupBox;
 		private System.Windows.Forms.Label label22;
 		private System.Windows.Forms.TextBox tagTextBox;
 		private System.Windows.Forms.Label cityLabel;
 		private System.Windows.Forms.MaskedTextBox nationalCodeMaskedTextBox;
+		private System.Windows.Forms.Button finalSaveButton;
+		private System.Windows.Forms.TextBox phoneTextBox;
 	}
 }

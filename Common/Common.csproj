@@ -65,6 +65,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
@@ -127,6 +128,7 @@
     <Compile Include="Helper\Security\StringCypher.cs" />
     <Compile Include="Helper\Setting\SettingHelper.cs" />
     <Compile Include="Helper\Windows\RegistryHelper.cs" />
+    <Compile Include="Helper\Windows\ServiceHelper.cs" />
     <Compile Include="Initializer.cs" />
     <Compile Include="Model\GridColumnCollectionModel.cs" />
     <Compile Include="Model\GridColumnModel.cs" />

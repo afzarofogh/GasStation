@@ -31,6 +31,8 @@
 			// 
 			// AntennaService
 			// 
+			this.CanPauseAndContinue = true;
+			this.CanShutdown = true;
 			this.ServiceName = "AntennaService";
 
 		}

@@ -22,13 +22,13 @@ namespace System
 		public static bool isBirthDate (this string data, int len = 0)
 		{
 			bool result = false;
+			char[] delimiterChars = { '/' };          
 
-			string myString = data; 
-			DateTime birthday = DateTime.ParseExact(myString, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+            string[] myString = data.Split(delimiterChars);
 
-			int year = birthday.Year;
-			int month = birthday.Month;
-			int day = birthday.Day;
+			int year	= int.Parse(myString[0]);
+			int month	= int.Parse(myString[1]);
+			int day		= int.Parse(myString[2]);
 			
 			if (month > 0 && month < 13)
 			{

@@ -33,17 +33,14 @@
 			// 
 			// AntennaProcessInstaller
 			// 
-			this.AntennaProcessInstaller.Account = System.ServiceProcess.ServiceAccount.NetworkService;
+			this.AntennaProcessInstaller.Account = System.ServiceProcess.ServiceAccount.LocalSystem;
 			this.AntennaProcessInstaller.Password = null;
 			this.AntennaProcessInstaller.Username = null;
 			// 
 			// AntennaServiceInstaller
 			// 
 			this.AntennaServiceInstaller.Description = "GasStation Antenna Service";
-			this.AntennaServiceInstaller.DisplayName = "GS Antenna Service";
 			this.AntennaServiceInstaller.ServiceName = "AntennaService";
-			this.AntennaServiceInstaller.ServicesDependedOn = new string[] {
-        "GasStation Antenna Service"};
 			this.AntennaServiceInstaller.StartType = System.ServiceProcess.ServiceStartMode.Automatic;
 			// 
 			// ProjectInstaller

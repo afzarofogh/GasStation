@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.ServiceProcess;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace AntennaServiceInstaller.Forms
@@ -13,7 +16,7 @@ namespace AntennaServiceInstaller.Forms
 	{
 		#region Constants
 		private string	serviceName;
-		private string	serverName;
+		private string	hostName;
 		#endregion
 
 		#region Methods
@@ -62,6 +65,17 @@ namespace AntennaServiceInstaller.Forms
 		/// <param name="e"></param>
 		private void StopServiceButton_Click (object sender, EventArgs e)
 		{
+			loadingLabel.Visible = true;
+			new Thread (new ThreadStart (() =>
+			{
+				Common.Helper.Windows.ServiceHelper.stopService (serviceName, hostName);
+				Invoke ((Action)delegate
+				{
+					loadingLabel.Visible = true;
+
+					updateStatus ();
+				});
+			})).Start ();
 		}
 
 		/// <summary>
@@ -71,6 +85,17 @@ namespace AntennaServiceInstaller.Forms
 		/// <param name="e"></param>
 		private void StartServiceButton_Click (object sender, EventArgs e)
 		{
+			loadingLabel.Visible = true;
+			new Thread (new ThreadStart (() =>
+			{
+				Common.Helper.Windows.ServiceHelper.startService (serviceName, hostName);
+				Invoke ((Action)delegate
+				{
+					loadingLabel.Visible = true;
+
+					updateStatus ();
+				});
+			})).Start ();
 		}
 
 		/// <summary>
@@ -78,7 +103,12 @@ namespace AntennaServiceInstaller.Forms
 		/// </summary>
 		private void prepare ()
 		{
-			serverName	= System.Configuration.ConfigurationSettings.AppSettings["serviceName"];
+			serviceName	= ConfigurationManager.AppSettings["serviceName"];
+			hostName	= ConfigurationManager.AppSettings["hostName"];
+
+			loadingLabel.Visible		= false;
+			pauseServiceButton.Enabled	= false;	// NOT WORK IT THIS VERSION
+			updateStatus ();
 		}
 
 		/// <summary>
@@ -86,6 +116,21 @@ namespace AntennaServiceInstaller.Forms
 		/// </summary>
 		private void updateStatus ()
 		{
+			ServiceControllerStatus	opResult	= Common.Helper.Windows.ServiceHelper.serviceStatus (serviceName, hostName);
+			string status;
+
+			loadingLabel.Visible = true;
+			if ((opResult == ServiceControllerStatus.Running) || (opResult == ServiceControllerStatus.StartPending))
+				status  = "در حال اجرا";
+			else if ((opResult == ServiceControllerStatus.Stopped) || (opResult == ServiceControllerStatus.StopPending))
+				status  = "پایان یافته";
+			else if ((opResult == ServiceControllerStatus.Paused) || (opResult == ServiceControllerStatus.PausePending))
+				status  = "متوقف شده";
+			else
+				status  = "نامشخص";
+
+			loadingLabel.Visible	= false;
+			serviceStatusLabel.Text = status;
 		}
 		#endregion
 		
