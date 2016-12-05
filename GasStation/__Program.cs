@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BaseDAL.Model;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -20,7 +21,9 @@ namespace GasStation
 		
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-			//Application.Run (new Forms.Forms.InformationForm());			
+			
+			Application.Run (new Forms.Forms.CustomerViewForm ());
+			return;
 
 			while (hasLogin != 2)
 			{
@@ -42,12 +45,12 @@ namespace GasStation
 			// Initilization
 			Common.Initializer.init (Path.Combine (Application.StartupPath, "log.txt"));
 
+			///FOR TEST
 			Common.BLL.Entity.GasStation.User	user	= new Common.BLL.Entity.GasStation.User ();
 			Common.BLL.Logic.GasStation.User	luser	= new Common.BLL.Logic.GasStation.User (Common.Enum.EDatabase.GasStation);
-
-			///FOR TEST
-			//user.id	= 3;
-			//BaseDAL.Model.CommandResult opResult =  luser.deleteUser (user);
+			user.id	= 2;
+			luser.read (user);
+			Common.GlobalData.UserManager.currentUser	= user;
 
 			//Helper.GridHeaderMaker.makeHeaderCarFuel();
 			//Helper.GridHeaderMaker.makeHeaderCarLevel();
