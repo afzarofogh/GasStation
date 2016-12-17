@@ -37,6 +37,11 @@ namespace Common.Model
 			get;
 			set;
 		}
+		public int width 
+		{ 
+			get; 
+			set; 
+		}
 		#endregion
 
 		#region Methods
@@ -46,6 +51,7 @@ namespace Common.Model
 		public GridColumnModel ()
 		{
 		}
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -54,14 +60,16 @@ namespace Common.Model
 		/// <param name="visible"></param>
 		/// <param name="readOnly"></param>
 		/// <param name="position"></param>
-		public GridColumnModel (string field, string caption, bool visible = true, bool readOnly = true, int position = 0)
+		public GridColumnModel (string field, string caption, bool visible = true, bool readOnly = true, int position = 0, int width = 150)
 		{
 			this.field		= field;
 			this.caption	= caption;
 			this.visible	= visible;
 			this.readOnly	= readOnly;
 			this.position	= position;
+			this.width		= width;
 		}
 		#endregion
+
 	}
 }

@@ -49,6 +49,7 @@ namespace System
 								gridCol.Visible         = col.visible;
 								gridCol.ReadOnly        = col.readOnly;
 								gridCol.DisplayIndex    = col.position;
+								gridCol.Width			= col.width;
 							}
 				} 
 				#endregion

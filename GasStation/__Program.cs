@@ -20,7 +20,7 @@ namespace GasStation
 		
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-			//Application.Run (new Forms.Forms.InformationForm());			
+			//Application.Run (new Forms.Forms.CustomerForm());			
 
 			while (hasLogin != 2)
 			{
@@ -49,7 +49,7 @@ namespace GasStation
 			//user.id	= 3;
 			//BaseDAL.Model.CommandResult opResult =  luser.deleteUser (user);
 
-			//Helper.GridHeaderMaker.makeHeaderCarFuel();
+			//Helper.GridHeaderMaker.makeHeaderOwner();
 			//Helper.GridHeaderMaker.makeHeaderCarLevel();
 			//Helper.GridHeaderMaker.makeHeaderCarSystem();
 			//Helper.GridHeaderMaker.makeHeaderPlateType();

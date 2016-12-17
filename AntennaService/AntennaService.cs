@@ -105,6 +105,8 @@ namespace AntennaService
 
 				if (!EventLog.Exists (C_ANTENNA_EVENT_LOG))
 					EventLog.CreateEventSource (C_ANTENNA_EVENT_SOURCE, C_ANTENNA_EVENT_LOG);
+				else 
+					EventLog.Delete(C_ANTENNA_EVENT_LOG);
 			}
 			catch (Exception ex)
 			{
@@ -202,7 +204,6 @@ namespace AntennaService
 		protected override void OnPause ()
 		{
 			pause ();
-
 			base.OnPause ();
 		}
 

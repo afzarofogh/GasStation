@@ -52,17 +52,15 @@ namespace GasStation.Forms.Forms
 			__Program.hasLogin	= 0;		// Default exit menu (Logoff)
 
 			//TODO: get version software
-			if (null == model)
-				model = new Common.BLL.Entity.GasStation.System__Data();
+			model = new Common.BLL.Entity.GasStation.System__Data()
+			{ 
+				name = "DB-Version"
+			};
 			Common.BLL.Logic.GasStation.System__Data	lSystemData = new Common.BLL.Logic.GasStation.System__Data(Common.Enum.EDatabase.GasStation);
-			CommandResult	opResult	= lSystemData.read(model);
-			//if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
-			//	lSystemData
-
-			
-		}
-
-		
+			CommandResult	opResult	= lSystemData.read(model, "name");
+			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
+				versionToolStripStatusLabel.Text = model.value;
+		}		
 		/// <summary>
 		/// Bind Events
 		/// </summary>
@@ -73,7 +71,8 @@ namespace GasStation.Forms.Forms
 			exitMenuItem.Click		+= ExitMenuItem_Click;
 
 			//Customer
-			customerMenuItem.Click	+= CustomerMenuItem_Click;
+			customerMenuItem.Click		+= CustomerMenuItem_Click;
+			customerShowMenuItem.Click	+= CustomerShowMenuItem_Click;
 
 			//Car
 			carTypeMenuItem.Click	+= CarTypeMenuItem_Click;
@@ -88,7 +87,11 @@ namespace GasStation.Forms.Forms
 		
 		}
 
-		
+		private void CustomerShowMenuItem_Click (object sender, EventArgs e)
+		{
+			CustomerViewForm	form	= new CustomerViewForm ();
+			form.ShowDialog();
+		}		
 		/// <summary>
 		/// Customer
 		/// </summary>
@@ -96,7 +99,7 @@ namespace GasStation.Forms.Forms
 		/// <param name="e"></param>
 		private void CustomerMenuItem_Click (object sender, EventArgs e)
 		{
-			CustomerForm		form = new CustomerForm();
+			CustomerForm		form	= new CustomerForm();
 			form.ShowDialog();
 		}
 		
@@ -107,7 +110,7 @@ namespace GasStation.Forms.Forms
 		/// <param name="e"></param>
 		private void CarLevelMenuItem_Click (object sender, EventArgs e)
 		{
-			CarLevelForm	form	= new CarLevelForm();
+			CarLevelForm	form		= new CarLevelForm();
 			form.ShowDialog();
 		}
 
@@ -118,7 +121,7 @@ namespace GasStation.Forms.Forms
 		/// <param name="e"></param>
 		private void CarFuelMenuItem_Click (object sender, EventArgs e)
 		{
-			CarFuelForm		form = new CarFuelForm();
+			CarFuelForm		form		= new CarFuelForm();
 			form.ShowDialog();
 		}
 
@@ -130,7 +133,7 @@ namespace GasStation.Forms.Forms
 
 		private void CarSystemMenuItem_Click (object sender, EventArgs e)
 		{
-			CarSystemForm	form = new CarSystemForm();
+			CarSystemForm	form		= new CarSystemForm();
 			form.ShowDialog();
 		}
 
@@ -141,7 +144,7 @@ namespace GasStation.Forms.Forms
 		/// <param name="e"></param>
 		private void CarTypeMenuItem_Click (object sender, EventArgs e)
 		{
-			CarTypeForm		form = new CarTypeForm();
+			CarTypeForm		form		= new CarTypeForm();
 			form.ShowDialog();
 		}
 
@@ -152,7 +155,7 @@ namespace GasStation.Forms.Forms
 		/// <param name="e"></param>
 		private void CarColorMenuItem_Click (object sender, EventArgs e)
 		{
-			CarColorForm	form	= new CarColorForm();
+			CarColorForm	form		= new CarColorForm();
 			form.ShowDialog();
 		}
 
@@ -163,7 +166,7 @@ namespace GasStation.Forms.Forms
 		/// <param name="e"></param>
 		private void PlateCityMenuItem_Click (object sender, EventArgs e)
 		{
-			PlateCityForm	 form	= new PlateCityForm ();
+			PlateCityForm	 form		= new PlateCityForm ();
 			form.ShowDialog();
 		}
 

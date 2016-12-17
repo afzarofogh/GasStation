@@ -28,7 +28,7 @@
 		/// </summary>
 		private void InitializeComponent ()
 		{
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.mainMenu = new System.Windows.Forms.MenuStrip();
 			this.اطلاعاتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.reloadMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -38,10 +38,12 @@
 			this.deleteMenu = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
 			this.exitMenu = new System.Windows.Forms.ToolStripMenuItem();
-			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.mainTabControl = new System.Windows.Forms.TabControl();
+			this.customerTabPage = new System.Windows.Forms.TabPage();
 			this.resultGrid = new System.Windows.Forms.DataGridView();
 			this.mainMenu.SuspendLayout();
-			this.groupBox1.SuspendLayout();
+			this.mainTabControl.SuspendLayout();
+			this.customerTabPage.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.resultGrid)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -114,26 +116,33 @@
 			this.exitMenu.Size = new System.Drawing.Size(208, 22);
 			this.exitMenu.Text = "خروج";
 			// 
-			// groupBox1
+			// mainTabControl
 			// 
-			this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.groupBox1.Controls.Add(this.resultGrid);
-			this.groupBox1.ForeColor = System.Drawing.Color.DarkSlateBlue;
-			this.groupBox1.Location = new System.Drawing.Point(12, 38);
-			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(758, 485);
-			this.groupBox1.TabIndex = 3;
-			this.groupBox1.TabStop = false;
-			this.groupBox1.Text = "مشتریان ثبت شده";
+			this.mainTabControl.Controls.Add(this.customerTabPage);
+			this.mainTabControl.Location = new System.Drawing.Point(12, 31);
+			this.mainTabControl.Name = "mainTabControl";
+			this.mainTabControl.RightToLeftLayout = true;
+			this.mainTabControl.SelectedIndex = 0;
+			this.mainTabControl.Size = new System.Drawing.Size(758, 492);
+			this.mainTabControl.TabIndex = 4;
+			// 
+			// customerTabPage
+			// 
+			this.customerTabPage.Controls.Add(this.resultGrid);
+			this.customerTabPage.Location = new System.Drawing.Point(4, 27);
+			this.customerTabPage.Name = "customerTabPage";
+			this.customerTabPage.Padding = new System.Windows.Forms.Padding(3);
+			this.customerTabPage.Size = new System.Drawing.Size(750, 461);
+			this.customerTabPage.TabIndex = 0;
+			this.customerTabPage.Text = "مشتریان ثبت شده";
+			this.customerTabPage.UseVisualStyleBackColor = true;
 			// 
 			// resultGrid
 			// 
 			this.resultGrid.AllowUserToAddRows = false;
 			this.resultGrid.AllowUserToDeleteRows = false;
-			dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
-			this.resultGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(253)))), ((int)(((byte)(255)))));
+			this.resultGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
 			this.resultGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -141,26 +150,27 @@
 			this.resultGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
 			this.resultGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			this.resultGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.resultGrid.Location = new System.Drawing.Point(6, 23);
+			this.resultGrid.Location = new System.Drawing.Point(15, 12);
 			this.resultGrid.MultiSelect = false;
 			this.resultGrid.Name = "resultGrid";
 			this.resultGrid.ReadOnly = true;
 			this.resultGrid.RowTemplate.Height = 24;
-			this.resultGrid.Size = new System.Drawing.Size(746, 454);
-			this.resultGrid.TabIndex = 2;
+			this.resultGrid.Size = new System.Drawing.Size(721, 436);
+			this.resultGrid.TabIndex = 5;
 			// 
 			// CustomerViewForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(782, 535);
-			this.Controls.Add(this.groupBox1);
+			this.Controls.Add(this.mainTabControl);
 			this.Controls.Add(this.mainMenu);
 			this.Name = "CustomerViewForm";
 			this.Text = "مشاهده اطلاعات مشتریان";
 			this.mainMenu.ResumeLayout(false);
 			this.mainMenu.PerformLayout();
-			this.groupBox1.ResumeLayout(false);
+			this.mainTabControl.ResumeLayout(false);
+			this.customerTabPage.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.resultGrid)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -178,7 +188,8 @@
 		private System.Windows.Forms.ToolStripMenuItem deleteMenu;
 		private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
 		private System.Windows.Forms.ToolStripMenuItem exitMenu;
-		private System.Windows.Forms.GroupBox groupBox1;
+		private System.Windows.Forms.TabControl mainTabControl;
+		private System.Windows.Forms.TabPage customerTabPage;
 		private System.Windows.Forms.DataGridView resultGrid;
 
 	}

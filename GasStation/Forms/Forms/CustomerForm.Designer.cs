@@ -90,7 +90,7 @@
 			this.mainPlatePanel = new System.Windows.Forms.Panel();
 			this.code1Numeric = new System.Windows.Forms.DomainUpDown();
 			this.part2MainTextBox = new System.Windows.Forms.TextBox();
-			this.characterTextBox = new System.Windows.Forms.DomainUpDown();
+			this.characterDomainUpDown = new System.Windows.Forms.DomainUpDown();
 			this.part1MainTextBox = new System.Windows.Forms.TextBox();
 			this.label20 = new System.Windows.Forms.Label();
 			this.plateTypeButton = new System.Windows.Forms.Button();
@@ -98,7 +98,7 @@
 			this.label27 = new System.Windows.Forms.Label();
 			this.ownerTypeTabPage = new System.Windows.Forms.TabPage();
 			this.ownerTypeDataGroupBox = new System.Windows.Forms.GroupBox();
-			this.legalOwnerGroupBox = new System.Windows.Forms.GroupBox();
+			this.legalOwnerDataGroupBox = new System.Windows.Forms.GroupBox();
 			this.orgNameTextBox = new System.Windows.Forms.TextBox();
 			this.label21 = new System.Windows.Forms.Label();
 			this.OrganizationCodeTextBox = new System.Windows.Forms.TextBox();
@@ -124,6 +124,7 @@
 			this.insertMenu = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
 			this.exitMenu = new System.Windows.Forms.ToolStripMenuItem();
+			this.messageLabel = new System.Windows.Forms.Label();
 			this.mainTabControl.SuspendLayout();
 			this.ownerTabPage.SuspendLayout();
 			this.ownerDataGroupBox.SuspendLayout();
@@ -140,7 +141,7 @@
 			this.mainPlatePanel.SuspendLayout();
 			this.ownerTypeTabPage.SuspendLayout();
 			this.ownerTypeDataGroupBox.SuspendLayout();
-			this.legalOwnerGroupBox.SuspendLayout();
+			this.legalOwnerDataGroupBox.SuspendLayout();
 			this.showInfoTabPage.SuspendLayout();
 			this.tagTabPage.SuspendLayout();
 			this.tagDataGroupBox.SuspendLayout();
@@ -156,7 +157,7 @@
 			this.previousButton.Location = new System.Drawing.Point(684, 510);
 			this.previousButton.Name = "previousButton";
 			this.previousButton.Size = new System.Drawing.Size(82, 36);
-			this.previousButton.TabIndex = 2;
+			this.previousButton.TabIndex = 1;
 			this.previousButton.UseVisualStyleBackColor = true;
 			// 
 			// mainTabControl
@@ -773,7 +774,7 @@
 			this.motorPlatePanel.Location = new System.Drawing.Point(329, 169);
 			this.motorPlatePanel.Name = "motorPlatePanel";
 			this.motorPlatePanel.Size = new System.Drawing.Size(295, 42);
-			this.motorPlatePanel.TabIndex = 2;
+			this.motorPlatePanel.TabIndex = 0;
 			this.motorPlatePanel.Visible = false;
 			// 
 			// pictureBox2
@@ -820,7 +821,7 @@
 			this.malulinPlatePanel.Location = new System.Drawing.Point(329, 117);
 			this.malulinPlatePanel.Name = "malulinPlatePanel";
 			this.malulinPlatePanel.Size = new System.Drawing.Size(295, 46);
-			this.malulinPlatePanel.TabIndex = 1;
+			this.malulinPlatePanel.TabIndex = 0;
 			this.malulinPlatePanel.Visible = false;
 			// 
 			// pictureBox1
@@ -843,6 +844,7 @@
 			this.code2Numeric.Size = new System.Drawing.Size(49, 26);
 			this.code2Numeric.TabIndex = 2;
 			this.code2Numeric.Tag = "plateCityId";
+			this.code2Numeric.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// part2MaluinTextBox
 			// 
@@ -873,7 +875,7 @@
 			this.mainPlatePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.mainPlatePanel.Controls.Add(this.code1Numeric);
 			this.mainPlatePanel.Controls.Add(this.part2MainTextBox);
-			this.mainPlatePanel.Controls.Add(this.characterTextBox);
+			this.mainPlatePanel.Controls.Add(this.characterDomainUpDown);
 			this.mainPlatePanel.Controls.Add(this.part1MainTextBox);
 			this.mainPlatePanel.Location = new System.Drawing.Point(329, 65);
 			this.mainPlatePanel.Name = "mainPlatePanel";
@@ -888,6 +890,7 @@
 			this.code1Numeric.Size = new System.Drawing.Size(49, 26);
 			this.code1Numeric.TabIndex = 3;
 			this.code1Numeric.Tag = "plateCityId";
+			this.code1Numeric.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// part2MainTextBox
 			// 
@@ -901,17 +904,18 @@
 			this.part2MainTextBox.Tag = "";
 			this.part2MainTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
-			// characterTextBox
+			// characterDomainUpDown
 			// 
-			this.characterTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.characterTextBox.Items.Add("الف");
-			this.characterTextBox.Items.Add("ب");
-			this.characterTextBox.Items.Add("پ");
-			this.characterTextBox.Location = new System.Drawing.Point(108, 7);
-			this.characterTextBox.Name = "characterTextBox";
-			this.characterTextBox.Size = new System.Drawing.Size(58, 26);
-			this.characterTextBox.TabIndex = 1;
-			this.characterTextBox.Text = "الف";
+			this.characterDomainUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.characterDomainUpDown.Items.Add("الف");
+			this.characterDomainUpDown.Items.Add("ب");
+			this.characterDomainUpDown.Items.Add("پ");
+			this.characterDomainUpDown.Items.Add("ی");
+			this.characterDomainUpDown.Location = new System.Drawing.Point(108, 7);
+			this.characterDomainUpDown.Name = "characterDomainUpDown";
+			this.characterDomainUpDown.Size = new System.Drawing.Size(58, 26);
+			this.characterDomainUpDown.TabIndex = 1;
+			this.characterDomainUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// part1MainTextBox
 			// 
@@ -988,7 +992,7 @@
 			this.ownerTypeDataGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.ownerTypeDataGroupBox.BackColor = System.Drawing.Color.Transparent;
-			this.ownerTypeDataGroupBox.Controls.Add(this.legalOwnerGroupBox);
+			this.ownerTypeDataGroupBox.Controls.Add(this.legalOwnerDataGroupBox);
 			this.ownerTypeDataGroupBox.Controls.Add(this.legalRadioButton);
 			this.ownerTypeDataGroupBox.Controls.Add(this.realRadioButton);
 			this.ownerTypeDataGroupBox.ForeColor = System.Drawing.SystemColors.ActiveBorder;
@@ -999,23 +1003,23 @@
 			this.ownerTypeDataGroupBox.TabStop = false;
 			this.ownerTypeDataGroupBox.Text = "اطلاعات مالک";
 			// 
-			// legalOwnerGroupBox
+			// legalOwnerDataGroupBox
 			// 
-			this.legalOwnerGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			this.legalOwnerDataGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.legalOwnerGroupBox.BackColor = System.Drawing.Color.Transparent;
-			this.legalOwnerGroupBox.Controls.Add(this.orgNameTextBox);
-			this.legalOwnerGroupBox.Controls.Add(this.label21);
-			this.legalOwnerGroupBox.Controls.Add(this.OrganizationCodeTextBox);
-			this.legalOwnerGroupBox.Controls.Add(this.label19);
-			this.legalOwnerGroupBox.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-			this.legalOwnerGroupBox.Location = new System.Drawing.Point(15, 69);
-			this.legalOwnerGroupBox.Name = "legalOwnerGroupBox";
-			this.legalOwnerGroupBox.Size = new System.Drawing.Size(700, 116);
-			this.legalOwnerGroupBox.TabIndex = 0;
-			this.legalOwnerGroupBox.TabStop = false;
-			this.legalOwnerGroupBox.Text = "اطلاعات مالک حقوقی";
-			this.legalOwnerGroupBox.Visible = false;
+			this.legalOwnerDataGroupBox.BackColor = System.Drawing.Color.Transparent;
+			this.legalOwnerDataGroupBox.Controls.Add(this.orgNameTextBox);
+			this.legalOwnerDataGroupBox.Controls.Add(this.label21);
+			this.legalOwnerDataGroupBox.Controls.Add(this.OrganizationCodeTextBox);
+			this.legalOwnerDataGroupBox.Controls.Add(this.label19);
+			this.legalOwnerDataGroupBox.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+			this.legalOwnerDataGroupBox.Location = new System.Drawing.Point(15, 69);
+			this.legalOwnerDataGroupBox.Name = "legalOwnerDataGroupBox";
+			this.legalOwnerDataGroupBox.Size = new System.Drawing.Size(700, 116);
+			this.legalOwnerDataGroupBox.TabIndex = 0;
+			this.legalOwnerDataGroupBox.TabStop = false;
+			this.legalOwnerDataGroupBox.Text = "اطلاعات مالک حقوقی";
+			this.legalOwnerDataGroupBox.Visible = false;
 			// 
 			// orgNameTextBox
 			// 
@@ -1130,6 +1134,7 @@
 			// tagTabPage
 			// 
 			this.tagTabPage.BackgroundImage = global::GasStation.Properties.Resources.formBK;
+			this.tagTabPage.Controls.Add(this.messageLabel);
 			this.tagTabPage.Controls.Add(this.finalSaveButton);
 			this.tagTabPage.Controls.Add(this.tagDataGroupBox);
 			this.tagTabPage.Controls.Add(this.loadingLabel);
@@ -1145,9 +1150,9 @@
 			// finalSaveButton
 			// 
 			this.finalSaveButton.ForeColor = System.Drawing.Color.Black;
-			this.finalSaveButton.Location = new System.Drawing.Point(273, 310);
+			this.finalSaveButton.Location = new System.Drawing.Point(6, 379);
 			this.finalSaveButton.Name = "finalSaveButton";
-			this.finalSaveButton.Size = new System.Drawing.Size(219, 57);
+			this.finalSaveButton.Size = new System.Drawing.Size(199, 57);
 			this.finalSaveButton.TabIndex = 1;
 			this.finalSaveButton.Text = "ثبت نهایی";
 			this.finalSaveButton.UseVisualStyleBackColor = true;
@@ -1202,7 +1207,7 @@
 			// loadingLabel
 			// 
 			this.loadingLabel.AutoSize = true;
-			this.loadingLabel.Location = new System.Drawing.Point(246, 188);
+			this.loadingLabel.Location = new System.Drawing.Point(237, 221);
 			this.loadingLabel.Name = "loadingLabel";
 			this.loadingLabel.Size = new System.Drawing.Size(169, 18);
 			this.loadingLabel.TabIndex = 0;
@@ -1212,7 +1217,7 @@
 			// loadingPictureBox
 			// 
 			this.loadingPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.loadingPictureBox.Location = new System.Drawing.Point(421, 157);
+			this.loadingPictureBox.Location = new System.Drawing.Point(412, 190);
 			this.loadingPictureBox.Name = "loadingPictureBox";
 			this.loadingPictureBox.Size = new System.Drawing.Size(104, 85);
 			this.loadingPictureBox.TabIndex = 0;
@@ -1235,7 +1240,7 @@
 			this.nextButton.Location = new System.Drawing.Point(10, 510);
 			this.nextButton.Name = "nextButton";
 			this.nextButton.Size = new System.Drawing.Size(82, 36);
-			this.nextButton.TabIndex = 1;
+			this.nextButton.TabIndex = 0;
 			this.nextButton.UseVisualStyleBackColor = true;
 			// 
 			// mainMenu
@@ -1277,6 +1282,17 @@
 			this.exitMenu.Size = new System.Drawing.Size(213, 22);
 			this.exitMenu.Text = "خروج";
 			// 
+			// messageLabel
+			// 
+			this.messageLabel.AutoSize = true;
+			this.messageLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.messageLabel.Location = new System.Drawing.Point(352, 155);
+			this.messageLabel.Name = "messageLabel";
+			this.messageLabel.Size = new System.Drawing.Size(34, 18);
+			this.messageLabel.TabIndex = 2;
+			this.messageLabel.Text = "پیام";
+			this.messageLabel.Visible = false;
+			// 
 			// CustomerForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -1317,8 +1333,8 @@
 			this.ownerTypeTabPage.ResumeLayout(false);
 			this.ownerTypeDataGroupBox.ResumeLayout(false);
 			this.ownerTypeDataGroupBox.PerformLayout();
-			this.legalOwnerGroupBox.ResumeLayout(false);
-			this.legalOwnerGroupBox.PerformLayout();
+			this.legalOwnerDataGroupBox.ResumeLayout(false);
+			this.legalOwnerDataGroupBox.PerformLayout();
 			this.showInfoTabPage.ResumeLayout(false);
 			this.tagTabPage.ResumeLayout(false);
 			this.tagTabPage.PerformLayout();
@@ -1380,7 +1396,7 @@
 		private System.Windows.Forms.GroupBox plateDataGroupBox;
 		private System.Windows.Forms.DomainUpDown code1Numeric;
 		private System.Windows.Forms.TextBox part2MainTextBox;
-		private System.Windows.Forms.DomainUpDown characterTextBox;
+		private System.Windows.Forms.DomainUpDown characterDomainUpDown;
 		private System.Windows.Forms.Button plateTypeButton;
 		private System.Windows.Forms.Label label20;
 		private System.Windows.Forms.ComboBox plateTypeComboBox;
@@ -1388,7 +1404,7 @@
 		private System.Windows.Forms.Label label27;
 		private System.Windows.Forms.TabPage ownerTypeTabPage;
 		private System.Windows.Forms.GroupBox ownerTypeDataGroupBox;
-		private System.Windows.Forms.GroupBox legalOwnerGroupBox;
+		private System.Windows.Forms.GroupBox legalOwnerDataGroupBox;
 		private System.Windows.Forms.TextBox orgNameTextBox;
 		private System.Windows.Forms.Label label21;
 		private System.Windows.Forms.TextBox OrganizationCodeTextBox;
@@ -1430,5 +1446,6 @@
 		private System.Windows.Forms.MaskedTextBox nationalCodeMaskedTextBox;
 		private System.Windows.Forms.Button finalSaveButton;
 		private System.Windows.Forms.TextBox phoneTextBox;
+		private System.Windows.Forms.Label messageLabel;
 	}
 }

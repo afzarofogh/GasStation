@@ -24,13 +24,13 @@ namespace GasStation.Helper
 			// Add fields
 			gridCols.columns.AddRange (new GridColumnModel[]
 				{
-					new GridColumnModel ("id",              "id",				false, true, 0),
-					new GridColumnModel ("viewId",          "viewId",			false, true, 0),
-					new GridColumnModel ("insertedById",    "insertedById",     false, true, 0),
-					new GridColumnModel ("insertDate",      "insertDate",       false, true, 0),
-					new GridColumnModel ("updatedById",     "updatedById",      false, true, 0),
-					new GridColumnModel ("updateDate",      "updateDate",       false, true, 0),
-					new GridColumnModel ("type",            "نوع خودرو",		true, true, 1),
+					new GridColumnModel ("id",              "id",				false, true, 0, 150),
+					new GridColumnModel ("viewId",          "viewId",			false, true, 0, 150),
+					new GridColumnModel ("insertedById",    "insertedById",     false, true, 0, 150),
+					new GridColumnModel ("insertDate",      "insertDate",       false, true, 0, 150),
+					new GridColumnModel ("updatedById",     "updatedById",      false, true, 0, 150),
+					new GridColumnModel ("updateDate",      "updateDate",       false, true, 0, 150),
+					new GridColumnModel ("type",            "نوع خودرو",		true, true, 1, 150),
 				});
 
 			// Save to db
@@ -50,13 +50,13 @@ namespace GasStation.Helper
 			// Add fields
 			gridCols.columns.AddRange (new GridColumnModel[]
 				{
-					new GridColumnModel ("id",              "id",				false, true, 0),
-					new GridColumnModel ("viewId",          "viewId",			false, true, 0),
-					new GridColumnModel ("insertedById",    "insertedById",     false, true, 0),
-					new GridColumnModel ("insertDate",      "insertDate",       false, true, 0),
-					new GridColumnModel ("updatedById",     "updatedById",      false, true, 0),
-					new GridColumnModel ("updateDate",      "updateDate",       false, true, 0),
-					new GridColumnModel ("color",            "رنگ",				true, true, 1),
+					new GridColumnModel ("id",              "id",				false, true, 0, 150),
+					new GridColumnModel ("viewId",          "viewId",			false, true, 0, 150),
+					new GridColumnModel ("insertedById",    "insertedById",     false, true, 0, 150),
+					new GridColumnModel ("insertDate",      "insertDate",       false, true, 0, 150),
+					new GridColumnModel ("updatedById",     "updatedById",      false, true, 0, 150),
+					new GridColumnModel ("updateDate",      "updateDate",       false, true, 0, 150),
+					new GridColumnModel ("color",            "رنگ",				true, true, 1, 150),
 				});
 
 			// Save to db
@@ -76,13 +76,13 @@ namespace GasStation.Helper
 			// Add fields
 			gridCols.columns.AddRange (new GridColumnModel[]
 				{
-					new GridColumnModel ("id",              "id",				false, true, 0),
-					new GridColumnModel ("viewId",          "viewId",			false, true, 0),
-					new GridColumnModel ("insertedById",    "insertedById",     false, true, 0),
-					new GridColumnModel ("insertDate",      "insertDate",       false, true, 0),
-					new GridColumnModel ("updatedById",     "updatedById",      false, true, 0),
-					new GridColumnModel ("updateDate",      "updateDate",       false, true, 0),
-					new GridColumnModel ("fuel",            "سوخت",				true, true, 1),
+					new GridColumnModel ("id",              "id",				false, true, 0, 150),
+					new GridColumnModel ("viewId",          "viewId",			false, true, 0, 150),
+					new GridColumnModel ("insertedById",    "insertedById",     false, true, 0, 150),
+					new GridColumnModel ("insertDate",      "insertDate",       false, true, 0, 150),
+					new GridColumnModel ("updatedById",     "updatedById",      false, true, 0, 150),
+					new GridColumnModel ("updateDate",      "updateDate",       false, true, 0, 150),
+					new GridColumnModel ("fuel",            "سوخت",				true, true, 1, 150),
 				});
 
 			// Save to db
@@ -102,13 +102,13 @@ namespace GasStation.Helper
 			// Add fields
 			gridCols.columns.AddRange (new GridColumnModel[]
 				{
-					new GridColumnModel ("id",              "id",				false, true, 0),
-					new GridColumnModel ("viewId",          "viewId",			false, true, 0),
-					new GridColumnModel ("insertedById",    "insertedById",     false, true, 0),
-					new GridColumnModel ("insertDate",      "insertDate",       false, true, 0),
-					new GridColumnModel ("updatedById",     "updatedById",      false, true, 0),
-					new GridColumnModel ("updateDate",      "updateDate",       false, true, 0),
-					new GridColumnModel ("levelcar",            "تیپ",				true, true, 1),
+					new GridColumnModel ("id",              "id",				false, true, 0, 150),
+					new GridColumnModel ("viewId",          "viewId",			false, true, 0, 150),
+					new GridColumnModel ("insertedById",    "insertedById",     false, true, 0, 150),
+					new GridColumnModel ("insertDate",      "insertDate",       false, true, 0, 150),
+					new GridColumnModel ("updatedById",     "updatedById",      false, true, 0, 150),
+					new GridColumnModel ("updateDate",      "updateDate",       false, true, 0, 150),
+					new GridColumnModel ("levelcar",            "تیپ",			true, true, 1, 150),
 				});
 
 			// Save to db
@@ -128,13 +128,13 @@ namespace GasStation.Helper
 			// Add fields
 			gridCols.columns.AddRange (new GridColumnModel[]
 				{
-					new GridColumnModel ("id",              "id",				 false, true, 0),
-					new GridColumnModel ("viewId",          "viewId",			 false, true, 0),
-					new GridColumnModel ("insertedById",    "insertedById",      false, true, 0),
-					new GridColumnModel ("insertDate",      "insertDate",		 false, true, 0),
-					new GridColumnModel ("updatedById",     "updatedById",       false, true, 0),
-					new GridColumnModel ("updateDate",      "updateDate",		 false, true, 0),
-					new GridColumnModel ("system",          "سیستم خودرو",		 true, true, 1),
+					new GridColumnModel ("id",              "id",				 false, true, 0, 150),
+					new GridColumnModel ("viewId",          "viewId",			 false, true, 0, 150),
+					new GridColumnModel ("insertedById",    "insertedById",      false, true, 0, 150),
+					new GridColumnModel ("insertDate",      "insertDate",		 false, true, 0, 150),
+					new GridColumnModel ("updatedById",     "updatedById",       false, true, 0, 150),
+					new GridColumnModel ("updateDate",      "updateDate",		 false, true, 0, 150),
+					new GridColumnModel ("system",          "سیستم خودرو",		 true, true, 1, 150),
 				});
 
 			// Save to db
@@ -154,13 +154,13 @@ namespace GasStation.Helper
 			// Add fields
 			gridCols.columns.AddRange (new GridColumnModel[]
 				{
-					new GridColumnModel ("id",              "id",				false, true, 0),
-					new GridColumnModel ("viewId",          "viewId",			false, true, 0),
-					new GridColumnModel ("insertedById",    "insertedById",     false, true, 0),
-					new GridColumnModel ("insertDate",      "insertDate",       false, true, 0),
-					new GridColumnModel ("updatedById",     "updatedById",      false, true, 0),
-					new GridColumnModel ("updateDate",      "updateDate",       false, true, 0),
-					new GridColumnModel ("type",            "نوع پلاک",			true, true, 1),
+					new GridColumnModel ("id",              "id",				false, true, 0, 150),
+					new GridColumnModel ("viewId",          "viewId",			false, true, 0, 150),
+					new GridColumnModel ("insertedById",    "insertedById",     false, true, 0, 150),
+					new GridColumnModel ("insertDate",      "insertDate",       false, true, 0, 150),
+					new GridColumnModel ("updatedById",     "updatedById",      false, true, 0, 150),
+					new GridColumnModel ("updateDate",      "updateDate",       false, true, 0, 150),
+					new GridColumnModel ("type",            "نوع پلاک",			true, true, 1, 150),
 				});
 
 			// Save to db
@@ -180,14 +180,14 @@ namespace GasStation.Helper
 			// Add fields
 			gridCols.columns.AddRange (new GridColumnModel[]
 				{
-					new GridColumnModel ("id",              "id",           false, true, 0),
-					new GridColumnModel ("viewId",          "viewId",       false, true, 0),
-					new GridColumnModel ("insertedById",    "insertedById", false, true, 0),
-					new GridColumnModel ("insertDate",      "insertDate",	false, true, 0),
-					new GridColumnModel ("updatedById",     "updatedById",	false, true, 0),
-					new GridColumnModel ("updateDate",      "updateDate",	false, true, 0),
-					new GridColumnModel ("city",            "شهر",			true, true, 1),
-					new GridColumnModel ("code",            "کد استان",		true, true, 1),
+					new GridColumnModel ("id",              "id",           false, true, 0, 150),
+					new GridColumnModel ("viewId",          "viewId",       false, true, 0, 150),
+					new GridColumnModel ("insertedById",    "insertedById", false, true, 0, 150),
+					new GridColumnModel ("insertDate",      "insertDate",	false, true, 0, 150),
+					new GridColumnModel ("updatedById",     "updatedById",	false, true, 0, 150),
+					new GridColumnModel ("updateDate",      "updateDate",	false, true, 0, 150),
+					new GridColumnModel ("city",            "شهر",			true, true, 1, 150),
+					new GridColumnModel ("code",            "کد استان",		true, true, 1, 150),
 				});
 
 			// Save to db
@@ -196,8 +196,41 @@ namespace GasStation.Helper
 			return result;
 		}
 
+		/// <summary>
+		/// Make header Customer View Form
+		/// </summary>
+		public static CommandResult makeHeaderOwner ()
+		{
+			CommandResult				result;
+			GridColumnCollectionModel	gridCols	= new GridColumnCollectionModel ();
 
-	
+			// Add fields
+			gridCols.columns.AddRange (new GridColumnModel[]
+				{
+					new GridColumnModel ("id",              "id",				false, true, 0, 150),
+					new GridColumnModel ("viewId",          "viewId",			false, true, 0, 150),
+					new GridColumnModel ("nationalCode",    "کد ملی",			true, true, 1, 150),
+					new GridColumnModel ("name",            "نام",				true, true, 2, 150),
+					new GridColumnModel ("lastname",        "نام خانوادگی",	true, true, 3, 150),
+					new GridColumnModel ("mobile",	        "موبایل",			true, true, 4, 150),
+					new GridColumnModel ("plate",           "شماره پلاک",		true, true, 5, 150),
+					new GridColumnModel ("type",			"نوع پلاک",			true, true, 6, 150),
+					new GridColumnModel ("city",			"شهر پلاک",			true, true, 7, 150),
+					new GridColumnModel ("typeCar",			"نوع خودرو",		true, true, 8, 150),
+					new GridColumnModel ("system",	        "سیستم خودرو",		true, true, 9, 150),
+					new GridColumnModel ("color",	        "رنگ خودرو",		true, true, 10, 150),
+					new GridColumnModel ("levelcar",	    "تیپ خودرو",		true, true, 11, 150),
+					new GridColumnModel ("model",	        "مدل خودرو",		true, true, 12, 150)			
+					
+
+				});
+
+			// Save to db
+			result  = gridCols.saveToDB ("CustomerViewForm");
+
+			return result;
+		}
+		
 		#endregion
 	}
 }

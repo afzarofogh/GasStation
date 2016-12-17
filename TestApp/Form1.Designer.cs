@@ -40,6 +40,8 @@
 			this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
 			this.numButton = new System.Windows.Forms.Button();
 			this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+			this.domainUpDown1 = new System.Windows.Forms.DomainUpDown();
+			this.button8 = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -133,12 +135,13 @@
 			// 
 			this.numericUpDown1.Location = new System.Drawing.Point(504, 295);
 			this.numericUpDown1.Name = "numericUpDown1";
-			this.numericUpDown1.Size = new System.Drawing.Size(169, 22);
+			this.numericUpDown1.Size = new System.Drawing.Size(77, 22);
 			this.numericUpDown1.TabIndex = 7;
+			this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			// 
 			// numButton
 			// 
-			this.numButton.Location = new System.Drawing.Point(754, 337);
+			this.numButton.Location = new System.Drawing.Point(473, 379);
 			this.numButton.Name = "numButton";
 			this.numButton.Size = new System.Drawing.Size(75, 23);
 			this.numButton.TabIndex = 8;
@@ -155,11 +158,30 @@
 			this.maskedTextBox1.Size = new System.Drawing.Size(100, 22);
 			this.maskedTextBox1.TabIndex = 9;
 			// 
+			// domainUpDown1
+			// 
+			this.domainUpDown1.Location = new System.Drawing.Point(450, 338);
+			this.domainUpDown1.Name = "domainUpDown1";
+			this.domainUpDown1.Size = new System.Drawing.Size(120, 22);
+			this.domainUpDown1.TabIndex = 10;
+			// 
+			// button8
+			// 
+			this.button8.Location = new System.Drawing.Point(995, 541);
+			this.button8.Name = "button8";
+			this.button8.Size = new System.Drawing.Size(75, 23);
+			this.button8.TabIndex = 11;
+			this.button8.Text = "button8";
+			this.button8.UseVisualStyleBackColor = true;
+			this.button8.Click += new System.EventHandler(this.button8_Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1082, 576);
+			this.Controls.Add(this.button8);
+			this.Controls.Add(this.domainUpDown1);
 			this.Controls.Add(this.maskedTextBox1);
 			this.Controls.Add(this.numButton);
 			this.Controls.Add(this.numericUpDown1);
@@ -196,6 +218,8 @@
 		private System.Windows.Forms.NumericUpDown numericUpDown1;
 		private System.Windows.Forms.Button numButton;
 		private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+		private System.Windows.Forms.DomainUpDown domainUpDown1;
+		private System.Windows.Forms.Button button8;
 	}
 }
 

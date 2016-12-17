@@ -242,6 +242,9 @@ namespace TestApp
 
 		private void numButton_Click (object sender, EventArgs e)
 		{
+			string[] f =new string[2];
+			f[0] = "ی";
+			domainUpDown1.Text = f[0].ToString();
 			//string text = maskedTextBox1.Text.Split('/').Length;
 			//int i = text		
 
@@ -250,6 +253,12 @@ namespace TestApp
 			//this.numericUpDown1.DataBindings.Add ("Value", array, "");
 			//((BindingManagerBase)this.numericUpDown1.BindingContext[array]).Position = 2;
 
+		}
+
+		private void button8_Click (object sender, EventArgs e)
+		{
+			DateTime	d	= new DateTime (2016, 12, 17);
+			Text = d.ToString ("yyyy/MM/dd HH:mm:ss");
 		}
 	}
 }
