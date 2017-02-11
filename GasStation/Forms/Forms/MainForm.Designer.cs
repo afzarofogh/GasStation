@@ -53,11 +53,11 @@
 			this.تنظیماتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.اطلاعاتکاربریToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.تنظیماتبرنامهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.تنظیماتآنتنToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.راهنماToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.دربارهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.mainStatusStrip = new System.Windows.Forms.StatusStrip();
 			this.versionToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+			this.تنظیماتآنتنToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.تنظیماتپیامکToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.mainMenu.SuspendLayout();
 			this.mainStatusStrip.SuspendLayout();
@@ -65,7 +65,7 @@
 			// 
 			// mainMenu
 			// 
-			this.mainMenu.Font = new System.Drawing.Font("Tahoma", 9F);
+			this.mainMenu.Font = new System.Drawing.Font("B Yekan", 12F);
 			this.mainMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
 			this.mainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileMenuItem,
@@ -76,7 +76,7 @@
             this.راهنماToolStripMenuItem});
 			this.mainMenu.Location = new System.Drawing.Point(0, 0);
 			this.mainMenu.Name = "mainMenu";
-			this.mainMenu.Size = new System.Drawing.Size(864, 26);
+			this.mainMenu.Size = new System.Drawing.Size(864, 38);
 			this.mainMenu.TabIndex = 0;
 			// 
 			// fileMenuItem
@@ -232,9 +232,7 @@
 			// 
 			this.تنظیماتToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.اطلاعاتکاربریToolStripMenuItem,
-            this.تنظیماتبرنامهToolStripMenuItem,
-            this.تنظیماتآنتنToolStripMenuItem,
-            this.تنظیماتپیامکToolStripMenuItem});
+            this.تنظیماتبرنامهToolStripMenuItem});
 			this.تنظیماتToolStripMenuItem.Name = "تنظیماتToolStripMenuItem";
 			this.تنظیماتToolStripMenuItem.Size = new System.Drawing.Size(70, 22);
 			this.تنظیماتToolStripMenuItem.Text = "تنظیمات";
@@ -247,15 +245,12 @@
 			// 
 			// تنظیماتبرنامهToolStripMenuItem
 			// 
+			this.تنظیماتبرنامهToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.تنظیماتآنتنToolStripMenuItem,
+            this.تنظیماتپیامکToolStripMenuItem});
 			this.تنظیماتبرنامهToolStripMenuItem.Name = "تنظیماتبرنامهToolStripMenuItem";
 			this.تنظیماتبرنامهToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
 			this.تنظیماتبرنامهToolStripMenuItem.Text = "تنظیمات برنامه";
-			// 
-			// تنظیماتآنتنToolStripMenuItem
-			// 
-			this.تنظیماتآنتنToolStripMenuItem.Name = "تنظیماتآنتنToolStripMenuItem";
-			this.تنظیماتآنتنToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
-			this.تنظیماتآنتنToolStripMenuItem.Text = "تنظیمات آنتن";
 			// 
 			// راهنماToolStripMenuItem
 			// 
@@ -273,12 +268,13 @@
 			// 
 			// mainStatusStrip
 			// 
+			this.mainStatusStrip.Font = new System.Drawing.Font("B Yekan", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.mainStatusStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
 			this.mainStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.versionToolStripStatusLabel});
-			this.mainStatusStrip.Location = new System.Drawing.Point(0, 462);
+			this.mainStatusStrip.Location = new System.Drawing.Point(0, 456);
 			this.mainStatusStrip.Name = "mainStatusStrip";
-			this.mainStatusStrip.Size = new System.Drawing.Size(864, 25);
+			this.mainStatusStrip.Size = new System.Drawing.Size(864, 31);
 			this.mainStatusStrip.TabIndex = 1;
 			// 
 			// versionToolStripStatusLabel
@@ -286,6 +282,12 @@
 			this.versionToolStripStatusLabel.Name = "versionToolStripStatusLabel";
 			this.versionToolStripStatusLabel.Size = new System.Drawing.Size(180, 20);
 			this.versionToolStripStatusLabel.Text = "اطلاعات برنامه(نسخه و . .. )";
+			// 
+			// تنظیماتآنتنToolStripMenuItem
+			// 
+			this.تنظیماتآنتنToolStripMenuItem.Name = "تنظیماتآنتنToolStripMenuItem";
+			this.تنظیماتآنتنToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+			this.تنظیماتآنتنToolStripMenuItem.Text = "تنظیمات آنتن";
 			// 
 			// تنظیماتپیامکToolStripMenuItem
 			// 
@@ -306,6 +308,7 @@
 			this.MinimizeBox = false;
 			this.Name = "MainForm";
 			this.Text = "ورود به سامانه";
+			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
 			this.mainMenu.ResumeLayout(false);
 			this.mainMenu.PerformLayout();
 			this.mainStatusStrip.ResumeLayout(false);

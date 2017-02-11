@@ -87,11 +87,11 @@ namespace GasStation.Forms.Forms
 				int	id;
 
 				// Get id
-				id	= Convert.ToInt32 (resultGrid.CurrentRow.Cells["id"].Value);
+				id	= Convert.ToInt32 (resultGrid.CurrentRow.Cells["idCar"].Value);
 
 				Common.BLL.Entity.GasStation.CarOwner  model	= new Common.BLL.Entity.GasStation.CarOwner ()
 				{
-					ownerId	= id
+					carId = id
 				};						
 
 				CustomerForm	form	= new CustomerForm (model);
@@ -222,17 +222,40 @@ namespace GasStation.Forms.Forms
 				int tagId = model.tagId;
 				CommandResult	opResult	= lCarTag.delete(model);
 				if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
-				{
-					// Delete Tag
-					Common.BLL.Entity.GasStation.Tag		modelTag	= new Common.BLL.Entity.GasStation.Tag ()
+				{				
+
+					//Delete Tag from tabel Tarffic
+					Common.BLL.Entity.GasStation.Traffic		modelTraffic	= new Common.BLL.Entity.GasStation.Traffic ()
 					{
-						id = tagId	
+						 tagId= tagId	
 					};
 
-					Common.BLL.Logic.GasStation.Tag		lTag	= new Common.BLL.Logic.GasStation.Tag (Common.Enum.EDatabase.GasStation);
-					CommandResult	resultTag	= lTag.delete(modelTag);
-					if (resultTag.status == BaseDAL.Base.EnumCommandStatus.success)
-						result= true;
+					Common.BLL.Logic.GasStation.Traffic		lTraffic	= new Common.BLL.Logic.GasStation.Traffic (Common.Enum.EDatabase.GasStation);
+					CommandResult	result1	= lTraffic.read(modelTraffic, "tagId");	
+					
+					if (result1.status == BaseDAL.Base.EnumCommandStatus.success)
+					{
+						CommandResult	resultTagTraffic	= lTraffic.delete(modelTraffic);
+						if (resultTagTraffic.status == BaseDAL.Base.EnumCommandStatus.success)
+						{
+							// Delete Tag from table Tag
+							Common.BLL.Entity.GasStation.Tag		modelTag	= new Common.BLL.Entity.GasStation.Tag ()
+							{
+								id = tagId	
+							};
+							Common.BLL.Logic.GasStation.Tag		lTag	= new Common.BLL.Logic.GasStation.Tag (Common.Enum.EDatabase.GasStation);
+							CommandResult	result2	= lTag.read(modelTag, "tagId");
+							if (result2.status == BaseDAL.Base.EnumCommandStatus.success)
+							{
+								CommandResult	resultTag	= lTag.delete(modelTag);
+								if (resultTag.status == BaseDAL.Base.EnumCommandStatus.success)
+									result= true;
+							}
+							
+						}
+
+					}			
+					
 				}
 			}				
 

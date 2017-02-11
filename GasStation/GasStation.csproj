@@ -50,6 +50,9 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>2.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="BaseBLL">
       <HintPath>..\..\..\ojvar-orm\BLL\bin\Debug\BaseBLL.dll</HintPath>
@@ -289,6 +292,7 @@
     <None Include="Resources\formBK.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="2.ico" />
     <Content Include="Resources\about.png" />
     <Content Include="Resources\accept.png" />
     <Content Include="Resources\add.png" />

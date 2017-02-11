@@ -25,12 +25,12 @@ namespace GasStation.Forms.Forms
 		#region Variable
 		
 		Common.BLL.Logic.GasStation.Owner			lOwner;
-		Common.BLL.Entity.GasStation.Owner 			ownerModel;	
+		Common.BLL.Entity.GasStation.Owner 			ownerModel;			
+		 
 
 		Common.BLL.Logic.GasStation.Car				lCar;
-		Common.BLL.Entity.GasStation.Car			carModel;	
-	
-		//Common.BLL.Logic.GasStation.CarOwner		lCarOwner;
+		Common.BLL.Entity.GasStation.Car			carModel;		
+		
 		Common.BLL.Entity.GasStation.CarOwner		carOwnerModel;
 
 		Common.BLL.Logic.GasStation.Plate			lPlate;
@@ -38,8 +38,7 @@ namespace GasStation.Forms.Forms
 		
 		Common.BLL.Logic.GasStation.LegalOwner		lLegalOwner;
 		Common.BLL.Entity.GasStation.LegalOwner		legalOwnerModel;
-
-		Common.BLL.Logic.GasStation.Tag				lTag;
+	
 		Common.BLL.Entity.GasStation.Tag			tagModel;
 
 		Common.BLL.Logic.GasStation.CarTag			lCarTag;
@@ -47,6 +46,7 @@ namespace GasStation.Forms.Forms
 		
 
 		private const int		C_BufferSize	= 1024;
+		public static int		existOwner		= 0;
 		AntennaClient anntenaClient ;
 		
 
@@ -120,25 +120,37 @@ namespace GasStation.Forms.Forms
 
 		private void TagTextBox_TextChanged (object sender, EventArgs e)
 		{
-			if ( duplicateTag(tagTextBox.Text))
+			if (tagTextBox.Text != "")
+			{
+				if ( duplicateTag(tagTextBox.Text))
 					MessageBox.Show("برچسب تکراری می باشد", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			else 
 				finalSaveButton.Visible = true;
+			}
+			
 		}
 
 		private bool duplicateTag (string tag)
 		{
 			bool result = false;
 			Common.BLL.Logic.GasStation.Tag		lTag		= new	Common.BLL.Logic.GasStation.Tag(Common.Enum.EDatabase.GasStation);
-			Common.BLL.Entity.GasStation.Tag	tagModel	= new Common.BLL.Entity.GasStation.Tag()
+			tagModel	= new Common.BLL.Entity.GasStation.Tag()
 			{
 				tag = tag
 			};
 
 			CommandResult	opResult	= lTag.read(tagModel, "tag");
-			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
+
+			Common.BLL.Logic.GasStation.CarTag		lCraTag		= new	Common.BLL.Logic.GasStation.CarTag(Common.Enum.EDatabase.GasStation);
+			Common.BLL.Entity.GasStation.CarTag		carTagModel	= new Common.BLL.Entity.GasStation.CarTag()
 			{
-				if (tagModel.id > 0)
+				tagId= tagModel.id
+			};
+			
+			CommandResult	opResultCartag	= lCraTag.read(carTagModel, "tagId");
+			if (opResultCartag.status == BaseDAL.Base.EnumCommandStatus.success)
+			{
+				if (carTagModel.id != 0)
 					result = true;
 			}
 
@@ -159,11 +171,11 @@ namespace GasStation.Forms.Forms
 				tagModel		= new Common.BLL.Entity.GasStation.Tag();
 				carTagModel		= new Common.BLL.Entity.GasStation.CarTag();
 				carModel		= new Common.BLL.Entity.GasStation.Car();
-				//enableTab(carTabPage, false);
-				//enableTab(plateTabPage, false);
-				//enableTab(ownerTypeTabPage, false);
-				//enableTab(showInfoTabPage, false);
-				//enableTab(tagTabPage, false);	
+				enableTab(carTabPage, false);
+				enableTab(plateTabPage, false);
+				enableTab(ownerTypeTabPage, false);
+				enableTab(showInfoTabPage, false);
+				enableTab(tagTabPage, false);	
 			}
 				
 			else
@@ -171,7 +183,7 @@ namespace GasStation.Forms.Forms
 				nationalCodeMaskedTextBox.Enabled = false;
 				// Load model data from db
 				Common.BLL.Logic.GasStation.CarOwner	lCarOwner   = new Common.BLL.Logic.GasStation.CarOwner(Common.Enum.EDatabase.GasStation);
-				CommandResult	opResult	= lCarOwner.read(carOwnerModel,"ownerId");	
+				CommandResult	opResult	= lCarOwner.read(carOwnerModel,"carId");	
 
 				
 				//Load Owner
@@ -183,6 +195,7 @@ namespace GasStation.Forms.Forms
 
 				CommandResult	resultOwner	= lOwner.read(ownerModel, "id");
 				BaseBLL.General.FormModelHelper<Common.BLL.Entity.GasStation.Owner>.fillControl(ownerDataGroupBox, ownerModel);
+				birthdateMaskedTextBox.Text = Convert.ToDateTime(ownerModel.birthdate).ToString("yyyy/MM/dd");
 
 				// Load Car
 				lCar	= new Common.BLL.Logic.GasStation.Car(Common.Enum.EDatabase.GasStation);
@@ -443,9 +456,10 @@ namespace GasStation.Forms.Forms
         {
             foreach (Control c in control.Controls)
             {
-                if (c.GetType() == typeof(TextBox))
+                if (c.GetType() == typeof(TextBox) || c.GetType() == typeof(Label))
                 {
-                    ((TextBox)c) .Text = string.Empty;
+                    ((TextBox)c).Text	= ((object)"").ToString();
+					((Label)c).Text		= ((object)"").ToString();
                     
                 }
                 if (c.HasChildren)
@@ -684,15 +698,15 @@ namespace GasStation.Forms.Forms
 		/// <returns></returns>
 		private bool saveTag_CarTag (bool result)
 		{
-			if (saveTag ())
-			{
+		//**	if (saveTag ())
+		//	{
 				if (saveCarTag ())									
 					result = true;				
 				else
 					result = false;
-			}
-			else
-				result = false;
+			//}
+			//else
+			//	result = false;
 			return result;
 		}		
 
@@ -706,7 +720,7 @@ namespace GasStation.Forms.Forms
 			CommandResult opResult = null;
 			Common.BLL.Entity.GasStation.Owner model = new Common.BLL.Entity.GasStation.Owner()
 			{
-				nationalCode = ownerModel.nationalCode
+				nationalCode = nationalCodeMaskedTextBox.Text.Trim()
 			};
 			
 			Common.BLL.Logic.GasStation.Owner  lOwner = new Common.BLL.Logic.GasStation.Owner (Common.Enum.EDatabase.GasStation);
@@ -717,6 +731,38 @@ namespace GasStation.Forms.Forms
 				if (model.id  > 0)
 				{
 					ownerModel.id = model.id;
+					result = true;
+				}
+				else 
+					result = false;					
+			}
+			else			
+				result = false;			
+
+			return result;
+		}
+	
+		/// <summary>
+		/// Check Legal Owner
+		/// </summary>
+		/// <returns></returns>
+		private bool checkLegalOwner()
+		{
+			bool result = false;
+			CommandResult opResult = null;
+			Common.BLL.Entity.GasStation.LegalOwner  model = new Common.BLL.Entity.GasStation.LegalOwner()
+			{
+				 OrganizationCode = OrganizationCodeTextBox.Text .Trim ()
+			};
+			
+			Common.BLL.Logic.GasStation.LegalOwner  lLegalOwner = new Common.BLL.Logic.GasStation.LegalOwner (Common.Enum.EDatabase.GasStation);
+			opResult = lLegalOwner.read(model, "OrganizationCode");
+			
+			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
+			{
+				if (model.id  > 0)
+				{
+					legalOwnerModel.id = model.id;					
 					result = true;
 				}
 				else 
@@ -1213,27 +1259,34 @@ namespace GasStation.Forms.Forms
 				switch (step)
 				{
 					case 0 :
-						{ 							
+						{ 		
 							// Fill owner Model
-							BaseBLL.General.FormModelHelper<Common.BLL.Entity.GasStation.Owner>.fillModel (ownerDataGroupBox, ownerModel);
-							if (null != birthdateMaskedTextBox.Text.Trim() && birthdateMaskedTextBox.Text.Trim().Length > 8)
-								//ownerModel.birthdate = DateTime.ParseExact(birthdateMaskedTextBox.Text.Trim(), "YYYY/MM/dd", null);
-								ownerModel.birthdate = DateTime.Parse(birthdateMaskedTextBox.Text.Trim());
 							
-							if (ownerModel.id == 0)
-							{ 
-								if (!checkOwner())							
-										enableTab(carTabPage, true);
-									else
-								{
-									MessageBox.Show("این شخص قبلا ثبت شده است", "هشدار");
-
-									ExistenceCustomerForm form = new ExistenceCustomerForm (ownerModel);
-									//if (form.ShowDialog ()  == System.Windows.Forms.DialogResult.OK)
-
-								}
-										
+							if (!checkOwner())
+							{
+								enableTab(carTabPage, true);
+								BaseBLL.General.FormModelHelper<Common.BLL.Entity.GasStation.Owner>.fillModel (ownerDataGroupBox, ownerModel);
+								if (null != birthdateMaskedTextBox.Text.Trim() && birthdateMaskedTextBox.Text.Trim().Length > 8)								
+									ownerModel.birthdate = DateTime.Parse(birthdateMaskedTextBox.Text.Trim());
+							
 							}
+							else if (checkOwner() && ((nationalCodeMaskedTextBox.Enabled) || (!nationalCodeMaskedTextBox.Enabled)))
+							{
+								ExistenceCustomerForm form = new ExistenceCustomerForm (nationalCodeMaskedTextBox.Text.Trim());
+								if (form.ShowDialog () != System.Windows.Forms.DialogResult.OK)
+								{ 
+									if (existOwner != 0)
+									{
+										ownerModel	= new  Common.BLL.Entity.GasStation.Owner()
+										{
+											id = existOwner
+										};
+										Common.BLL.Logic.GasStation.Owner		lOwner		= new	Common.BLL.Logic.GasStation.Owner(Common.Enum.EDatabase.GasStation);
+										CommandResult	op = lOwner.read (ownerModel,"id");	
+									}
+								}
+							}
+							enableTab(carTabPage, true);						
 						}
 						break;
 					case 1 :
@@ -1283,7 +1336,8 @@ namespace GasStation.Forms.Forms
 							if (legalRadioButton.Checked)
 							{
 								carOwnerModel.type = true;
-								BaseBLL.General.FormModelHelper<Common.BLL.Entity.GasStation.LegalOwner>.fillModel (legalOwnerDataGroupBox, legalOwnerModel);
+								if (!checkLegalOwner())
+									BaseBLL.General.FormModelHelper<Common.BLL.Entity.GasStation.LegalOwner>.fillModel (legalOwnerDataGroupBox, legalOwnerModel);
 							}
 							else 
 								legalOwnerModel = null;
@@ -1484,34 +1538,34 @@ namespace GasStation.Forms.Forms
 
 			List<string>	err			= new List<string> ();
 			string			carType		= carTypeComboBox.Text.Trim ();
-			string			carSystem	= carSystemComboBox.Text.Trim ();
-			string			carLevel	= carLevelComboBox.Text.Trim ();
+			//string			carSystem	= carSystemComboBox.Text.Trim ();
+			//string			carLevel	= carLevelComboBox.Text.Trim ();
 			string			carColor	= carColorComboBox.Text.Trim ();
 			string			carFuel		= carFuelComboBox.Text.Trim ();
-			string			model		= modelNumeric.Text.Trim ();
-			string			capacity	= capacityNumeric.Text.Trim ();
-			string			engineCode	= engineCodeTextBox.Text.Trim ();
-			string			chasisCode	= chasisCodeTextBox.Text.Trim ();
+			//string			model		= modelNumeric.Text.Trim ();
+			//string			capacity	= capacityNumeric.Text.Trim ();
+			//string			engineCode	= engineCodeTextBox.Text.Trim ();
+			//string			chasisCode	= chasisCodeTextBox.Text.Trim ();
 
 			#region Validate
 			if (carType.isNullOrEmptyOrWhiteSpaceOrLen(50))
 				err.Add("نوع خودرو انتخاب شده نامعتبر می باشد");
-			if (carSystem.isNullOrEmptyOrWhiteSpaceOrLen(50))
-				err.Add("سیستم خودرو انتخاب شده نامعتبر می باشد");
-			if (carLevel.isNullOrEmptyOrWhiteSpaceOrLen(50))
-				err.Add("تیپ خودرو انتخاب شده نامعتبر می باشد");
+			//if (carSystem.isNullOrEmptyOrWhiteSpaceOrLen(50))
+			//	err.Add("سیستم خودرو انتخاب شده نامعتبر می باشد");
+			//if (carLevel.isNullOrEmptyOrWhiteSpaceOrLen(50))
+			//	err.Add("تیپ خودرو انتخاب شده نامعتبر می باشد");
 			if (carColor.isNullOrEmptyOrWhiteSpaceOrLen(50))
 				err.Add("رنگ خودرو انتخاب شده نامعتبر می باشد");
 			if (carFuel.isNullOrEmptyOrWhiteSpaceOrLen(50))
 				err.Add("سوخت خودرو انتخاب شده نامعتبر می باشد");
-			if (model.isNullOrEmptyOrWhiteSpaceOrLen(50))
-				err.Add("مدل خودرو وارد شده نامعتبر می باشد");
-			if (capacity.isNullOrEmptyOrWhiteSpaceOrLen(50))
-				err.Add("ظرفیت وارد شده نامعتبر می باشد");
-			if (engineCode.isNullOrEmptyOrWhiteSpaceOrLen(50))
-				err.Add("شماره موتور وارد شده نامعتبر می باشد");
-			if (chasisCode.isNullOrEmptyOrWhiteSpaceOrLen(50))
-				err.Add("شماره شاسی وارد شده نامعتبر می باشد");
+			//if (model.isNullOrEmptyOrWhiteSpaceOrLen(50))
+			//	err.Add("مدل خودرو وارد شده نامعتبر می باشد");
+			//if (capacity.isNullOrEmptyOrWhiteSpaceOrLen(50))
+			//	err.Add("ظرفیت وارد شده نامعتبر می باشد");
+			//if (engineCode.isNullOrEmptyOrWhiteSpaceOrLen(50))
+			//	err.Add("شماره موتور وارد شده نامعتبر می باشد");
+			//if (chasisCode.isNullOrEmptyOrWhiteSpaceOrLen(50))
+			//	err.Add("شماره شاسی وارد شده نامعتبر می باشد");
 
 			#endregion
 

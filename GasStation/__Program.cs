@@ -50,8 +50,11 @@ namespace GasStation
 			//BaseDAL.Model.CommandResult opResult =  luser.deleteUser (user);
 
 			//Helper.GridHeaderMaker.makeHeaderOwner();
+			//Helper.GridHeaderMaker.makeHeaderCarColor();
 			//Helper.GridHeaderMaker.makeHeaderCarLevel();
+			//Helper.GridHeaderMaker.makeHeaderCarFuel();
 			//Helper.GridHeaderMaker.makeHeaderCarSystem();
+			//Helper.GridHeaderMaker.makeHeaderCarType();
 			//Helper.GridHeaderMaker.makeHeaderPlateType();
 			//Helper.GridHeaderMaker.makeHeaderPlateCity();
 		}

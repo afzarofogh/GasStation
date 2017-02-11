@@ -10,6 +10,7 @@ using System.Text;
 using System.Windows.Forms;
 using Common.BLL.Entity.GasStation;
 using GasStation.Forms.Base;
+using System.Reflection;
 
 namespace GasStation.Forms.Forms
 {
@@ -50,8 +51,7 @@ namespace GasStation.Forms.Forms
 		private void prepare ()
 		{
 			__Program.hasLogin	= 0;		// Default exit menu (Logoff)
-
-			//TODO: get version software
+		
 			model = new Common.BLL.Entity.GasStation.System__Data()
 			{ 
 				name = "DB-Version"
@@ -60,6 +60,11 @@ namespace GasStation.Forms.Forms
 			CommandResult	opResult	= lSystemData.read(model, "name");
 			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
 				versionToolStripStatusLabel.Text = model.value;
+
+			// Get Version
+			string version = Assembly.GetExecutingAssembly ().GetName ().Version.ToString ();
+			versionToolStripStatusLabel.Text= version;
+
 		}		
 		/// <summary>
 		/// Bind Events
@@ -83,8 +88,7 @@ namespace GasStation.Forms.Forms
 
 			//Plate
 			plateCityMenuItem.Click	+= PlateCityMenuItem_Click;
-			plateTypeMenuItem.Click += PlateTypeMenuItem_Click;
-		
+			plateTypeMenuItem.Click += PlateTypeMenuItem_Click;		
 		}
 
 		private void CustomerShowMenuItem_Click (object sender, EventArgs e)

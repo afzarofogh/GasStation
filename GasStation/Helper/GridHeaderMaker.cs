@@ -209,6 +209,7 @@ namespace GasStation.Helper
 				{
 					new GridColumnModel ("id",              "id",				false, true, 0, 150),
 					new GridColumnModel ("viewId",          "viewId",			false, true, 0, 150),
+					new GridColumnModel ("idCar",			"idCar",			false, true, 0, 150),
 					new GridColumnModel ("nationalCode",    "کد ملی",			true, true, 1, 150),
 					new GridColumnModel ("name",            "نام",				true, true, 2, 150),
 					new GridColumnModel ("lastname",        "نام خانوادگی",	true, true, 3, 150),

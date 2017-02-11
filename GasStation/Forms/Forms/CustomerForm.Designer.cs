@@ -110,6 +110,7 @@
 			this.titleColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.descriptColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.tagTabPage = new System.Windows.Forms.TabPage();
+			this.messageLabel = new System.Windows.Forms.Label();
 			this.finalSaveButton = new System.Windows.Forms.Button();
 			this.tagDataGroupBox = new System.Windows.Forms.GroupBox();
 			this.label22 = new System.Windows.Forms.Label();
@@ -124,7 +125,6 @@
 			this.insertMenu = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
 			this.exitMenu = new System.Windows.Forms.ToolStripMenuItem();
-			this.messageLabel = new System.Windows.Forms.Label();
 			this.mainTabControl.SuspendLayout();
 			this.ownerTabPage.SuspendLayout();
 			this.ownerDataGroupBox.SuspendLayout();
@@ -269,11 +269,11 @@
 			this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.label8.AutoSize = true;
 			this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.label8.Location = new System.Drawing.Point(302, 139);
+			this.label8.Location = new System.Drawing.Point(289, 139);
 			this.label8.Name = "label8";
-			this.label8.Size = new System.Drawing.Size(77, 18);
+			this.label8.Size = new System.Drawing.Size(90, 18);
 			this.label8.TabIndex = 0;
-			this.label8.Text = "تلفن همراه";
+			this.label8.Text = "* تلفن همراه";
 			// 
 			// label7
 			// 
@@ -333,11 +333,11 @@
 			this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.label3.AutoSize = true;
 			this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.label3.Location = new System.Drawing.Point(669, 73);
+			this.label3.Location = new System.Drawing.Point(656, 73);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(56, 18);
+			this.label3.Size = new System.Drawing.Size(69, 18);
 			this.label3.TabIndex = 0;
-			this.label3.Text = "کد ملی";
+			this.label3.Text = "* کد ملی";
 			// 
 			// addressTextBox
 			// 
@@ -392,11 +392,11 @@
 			this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.label2.AutoSize = true;
 			this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.label2.Location = new System.Drawing.Point(291, 41);
+			this.label2.Location = new System.Drawing.Point(278, 41);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(88, 18);
+			this.label2.Size = new System.Drawing.Size(101, 18);
 			this.label2.TabIndex = 0;
-			this.label2.Text = "نام خانوادگی";
+			this.label2.Text = "* نام خانوادگی";
 			// 
 			// nameTextBox
 			// 
@@ -415,11 +415,11 @@
 			this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.label1.AutoSize = true;
 			this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.label1.Location = new System.Drawing.Point(700, 41);
+			this.label1.Location = new System.Drawing.Point(687, 41);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(25, 18);
+			this.label1.Size = new System.Drawing.Size(38, 18);
 			this.label1.TabIndex = 0;
-			this.label1.Text = "نام";
+			this.label1.Text = "* نام";
 			// 
 			// carTabPage
 			// 
@@ -1147,6 +1147,17 @@
 			this.tagTabPage.Text = "ثبت برچسب خودرو";
 			this.tagTabPage.UseVisualStyleBackColor = true;
 			// 
+			// messageLabel
+			// 
+			this.messageLabel.AutoSize = true;
+			this.messageLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.messageLabel.Location = new System.Drawing.Point(352, 155);
+			this.messageLabel.Name = "messageLabel";
+			this.messageLabel.Size = new System.Drawing.Size(34, 18);
+			this.messageLabel.TabIndex = 2;
+			this.messageLabel.Text = "پیام";
+			this.messageLabel.Visible = false;
+			// 
 			// finalSaveButton
 			// 
 			this.finalSaveButton.ForeColor = System.Drawing.Color.Black;
@@ -1207,7 +1218,7 @@
 			// loadingLabel
 			// 
 			this.loadingLabel.AutoSize = true;
-			this.loadingLabel.Location = new System.Drawing.Point(237, 221);
+			this.loadingLabel.Location = new System.Drawing.Point(195, 221);
 			this.loadingLabel.Name = "loadingLabel";
 			this.loadingLabel.Size = new System.Drawing.Size(169, 18);
 			this.loadingLabel.TabIndex = 0;
@@ -1281,17 +1292,6 @@
 			this.exitMenu.ShortcutKeys = System.Windows.Forms.Keys.F12;
 			this.exitMenu.Size = new System.Drawing.Size(213, 22);
 			this.exitMenu.Text = "خروج";
-			// 
-			// messageLabel
-			// 
-			this.messageLabel.AutoSize = true;
-			this.messageLabel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.messageLabel.Location = new System.Drawing.Point(352, 155);
-			this.messageLabel.Name = "messageLabel";
-			this.messageLabel.Size = new System.Drawing.Size(34, 18);
-			this.messageLabel.TabIndex = 2;
-			this.messageLabel.Text = "پیام";
-			this.messageLabel.Visible = false;
 			// 
 			// CustomerForm
 			// 

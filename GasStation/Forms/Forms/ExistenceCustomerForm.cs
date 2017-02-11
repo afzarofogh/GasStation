@@ -18,6 +18,7 @@ namespace GasStation.Forms.Forms
 		/// Model
 		/// </summary>
 		Common.BLL.Entity.GasStation.Owner	model;
+		string nationalcode = null;
 		#endregion
 
 		#region Properties
@@ -28,12 +29,12 @@ namespace GasStation.Forms.Forms
 		/// <summary>
 		/// Constructor
 		/// </summary>
-		public ExistenceCustomerForm (Common.BLL.Entity.GasStation.Owner model = null)
+		public ExistenceCustomerForm (string natioalCode)
 		{
+			
 			InitializeComponent ();
-
 			// Set data
-			this.model	= model;		
+			nationalcode = natioalCode;
 
 			init ();
 		}
@@ -52,17 +53,18 @@ namespace GasStation.Forms.Forms
 		/// </summary>
 		private void prepare ()
 		{
-			if (null == model)
-				model	= new Common.BLL.Entity.GasStation.Owner ();
-			else
+			model 	= new Common.BLL.Entity.GasStation.Owner ()
 			{
-				// Load model data from db
-				Common.BLL.Logic.GasStation.Owner	lOwner	= new Common.BLL.Logic.GasStation.Owner(Common.Enum.EDatabase.GasStation);
-				CommandResult	opResult	= lOwner.read(model, "nationalCode");					
-			}
-
-			// Fill Controls
-			BaseBLL.General.FormModelHelper<Common.BLL.Entity.GasStation.Owner>.fillControl (ownerDataGroupBox, model);			
+				nationalCode = nationalcode
+			};
+			Common.BLL.Logic.GasStation.Owner	lOwner	= new Common.BLL.Logic.GasStation.Owner(Common.Enum.EDatabase.GasStation);
+			CommandResult	opResult	= lOwner.read(model, "nationalCode");	
+			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
+			{
+				// Fill Controls
+				BaseBLL.General.FormModelHelper<Common.BLL.Entity.GasStation.Owner>.fillControl (ownerDataGroupBox, model);	
+				birthdateLabel.Text = Convert.ToDateTime(model.birthdate).ToString("yyyy/MM/dd");
+			}		
 		}
 
 		/// <summary>
@@ -76,7 +78,9 @@ namespace GasStation.Forms.Forms
 
 		private void getButton_Click (object sender, EventArgs e)
 		{
-			
+			if (model.id != 0)
+				CustomerForm.existOwner =  model.id;
+			Close();
 		}
 
 		#endregion
