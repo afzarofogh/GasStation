@@ -53,14 +53,16 @@
 			this.تنظیماتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.اطلاعاتکاربریToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.تنظیماتبرنامهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.تنظیماتآنتنToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.تنظیماتپیامکToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.راهنماToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.دربارهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.mainStatusStrip = new System.Windows.Forms.StatusStrip();
 			this.versionToolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-			this.تنظیماتآنتنToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.تنظیماتپیامکToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.mainMenu.SuspendLayout();
 			this.mainStatusStrip.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// mainMenu
@@ -85,19 +87,19 @@
             this.logoffMenuItem,
             this.exitMenuItem});
 			this.fileMenuItem.Name = "fileMenuItem";
-			this.fileMenuItem.Size = new System.Drawing.Size(45, 22);
+			this.fileMenuItem.Size = new System.Drawing.Size(60, 34);
 			this.fileMenuItem.Text = "فایل";
 			// 
 			// logoffMenuItem
 			// 
 			this.logoffMenuItem.Name = "logoffMenuItem";
-			this.logoffMenuItem.Size = new System.Drawing.Size(175, 22);
+			this.logoffMenuItem.Size = new System.Drawing.Size(165, 34);
 			this.logoffMenuItem.Text = "تغییر کاربر";
 			// 
 			// exitMenuItem
 			// 
 			this.exitMenuItem.Name = "exitMenuItem";
-			this.exitMenuItem.Size = new System.Drawing.Size(175, 22);
+			this.exitMenuItem.Size = new System.Drawing.Size(165, 34);
 			this.exitMenuItem.Text = "خروج";
 			// 
 			// baseInfoMenuItem
@@ -106,7 +108,7 @@
             this.مدلخودروToolStripMenuItem,
             this.رنگخودروToolStripMenuItem});
 			this.baseInfoMenuItem.Name = "baseInfoMenuItem";
-			this.baseInfoMenuItem.Size = new System.Drawing.Size(96, 22);
+			this.baseInfoMenuItem.Size = new System.Drawing.Size(115, 34);
 			this.baseInfoMenuItem.Text = "اطلاعات پایه";
 			// 
 			// مدلخودروToolStripMenuItem
@@ -118,37 +120,37 @@
             this.carLevelMenuItem,
             this.carFuelMenuItem});
 			this.مدلخودروToolStripMenuItem.Name = "مدلخودروToolStripMenuItem";
-			this.مدلخودروToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+			this.مدلخودروToolStripMenuItem.Size = new System.Drawing.Size(132, 34);
 			this.مدلخودروToolStripMenuItem.Text = "خودرو";
 			// 
 			// carSystemMenuItem
 			// 
 			this.carSystemMenuItem.Name = "carSystemMenuItem";
-			this.carSystemMenuItem.Size = new System.Drawing.Size(127, 22);
+			this.carSystemMenuItem.Size = new System.Drawing.Size(141, 34);
 			this.carSystemMenuItem.Text = "سیستم";
 			// 
 			// carColorMenuItem
 			// 
 			this.carColorMenuItem.Name = "carColorMenuItem";
-			this.carColorMenuItem.Size = new System.Drawing.Size(127, 22);
+			this.carColorMenuItem.Size = new System.Drawing.Size(141, 34);
 			this.carColorMenuItem.Text = "رنگ";
 			// 
 			// carTypeMenuItem
 			// 
 			this.carTypeMenuItem.Name = "carTypeMenuItem";
-			this.carTypeMenuItem.Size = new System.Drawing.Size(127, 22);
+			this.carTypeMenuItem.Size = new System.Drawing.Size(141, 34);
 			this.carTypeMenuItem.Text = "نوع";
 			// 
 			// carLevelMenuItem
 			// 
 			this.carLevelMenuItem.Name = "carLevelMenuItem";
-			this.carLevelMenuItem.Size = new System.Drawing.Size(127, 22);
+			this.carLevelMenuItem.Size = new System.Drawing.Size(141, 34);
 			this.carLevelMenuItem.Text = "تیپ";
 			// 
 			// carFuelMenuItem
 			// 
 			this.carFuelMenuItem.Name = "carFuelMenuItem";
-			this.carFuelMenuItem.Size = new System.Drawing.Size(127, 22);
+			this.carFuelMenuItem.Size = new System.Drawing.Size(141, 34);
 			this.carFuelMenuItem.Text = "سوخت";
 			// 
 			// رنگخودروToolStripMenuItem
@@ -157,19 +159,19 @@
             this.plateCityMenuItem,
             this.plateTypeMenuItem});
 			this.رنگخودروToolStripMenuItem.Name = "رنگخودروToolStripMenuItem";
-			this.رنگخودروToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+			this.رنگخودروToolStripMenuItem.Size = new System.Drawing.Size(132, 34);
 			this.رنگخودروToolStripMenuItem.Text = "پلاک";
 			// 
 			// plateCityMenuItem
 			// 
 			this.plateCityMenuItem.Name = "plateCityMenuItem";
-			this.plateCityMenuItem.Size = new System.Drawing.Size(105, 22);
+			this.plateCityMenuItem.Size = new System.Drawing.Size(117, 34);
 			this.plateCityMenuItem.Text = "شهر";
 			// 
 			// plateTypeMenuItem
 			// 
 			this.plateTypeMenuItem.Name = "plateTypeMenuItem";
-			this.plateTypeMenuItem.Size = new System.Drawing.Size(105, 22);
+			this.plateTypeMenuItem.Size = new System.Drawing.Size(117, 34);
 			this.plateTypeMenuItem.Text = "نوع";
 			// 
 			// toolStripMenuItem1
@@ -178,19 +180,19 @@
             this.customerMenuItem,
             this.customerShowMenuItem});
 			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-			this.toolStripMenuItem1.Size = new System.Drawing.Size(73, 22);
+			this.toolStripMenuItem1.Size = new System.Drawing.Size(89, 34);
 			this.toolStripMenuItem1.Text = "مشتریان";
 			// 
 			// customerMenuItem
 			// 
 			this.customerMenuItem.Name = "customerMenuItem";
-			this.customerMenuItem.Size = new System.Drawing.Size(242, 22);
+			this.customerMenuItem.Size = new System.Drawing.Size(274, 34);
 			this.customerMenuItem.Text = "ثبت مشتری جدید";
 			// 
 			// customerShowMenuItem
 			// 
 			this.customerShowMenuItem.Name = "customerShowMenuItem";
-			this.customerShowMenuItem.Size = new System.Drawing.Size(242, 22);
+			this.customerShowMenuItem.Size = new System.Drawing.Size(274, 34);
 			this.customerShowMenuItem.Text = "مشاهده اطلاعات مشتریان";
 			// 
 			// toolStripMenuItem2
@@ -201,31 +203,31 @@
             this.reportTrafficMenuItem,
             this.reportAntennaMenuItem});
 			this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-			this.toolStripMenuItem2.Size = new System.Drawing.Size(73, 22);
+			this.toolStripMenuItem2.Size = new System.Drawing.Size(91, 34);
 			this.toolStripMenuItem2.Text = "گزارشات";
 			// 
 			// reportCustomerMenuItem
 			// 
 			this.reportCustomerMenuItem.Name = "reportCustomerMenuItem";
-			this.reportCustomerMenuItem.Size = new System.Drawing.Size(175, 22);
+			this.reportCustomerMenuItem.Size = new System.Drawing.Size(150, 34);
 			this.reportCustomerMenuItem.Text = "مشتریان";
 			// 
 			// reportCarMenuItem
 			// 
 			this.reportCarMenuItem.Name = "reportCarMenuItem";
-			this.reportCarMenuItem.Size = new System.Drawing.Size(175, 22);
+			this.reportCarMenuItem.Size = new System.Drawing.Size(150, 34);
 			this.reportCarMenuItem.Text = "خودروها";
 			// 
 			// reportTrafficMenuItem
 			// 
 			this.reportTrafficMenuItem.Name = "reportTrafficMenuItem";
-			this.reportTrafficMenuItem.Size = new System.Drawing.Size(175, 22);
+			this.reportTrafficMenuItem.Size = new System.Drawing.Size(150, 34);
 			this.reportTrafficMenuItem.Text = "تردد ها";
 			// 
 			// reportAntennaMenuItem
 			// 
 			this.reportAntennaMenuItem.Name = "reportAntennaMenuItem";
-			this.reportAntennaMenuItem.Size = new System.Drawing.Size(175, 22);
+			this.reportAntennaMenuItem.Size = new System.Drawing.Size(150, 34);
 			this.reportAntennaMenuItem.Text = "آنتن";
 			// 
 			// تنظیماتToolStripMenuItem
@@ -234,13 +236,13 @@
             this.اطلاعاتکاربریToolStripMenuItem,
             this.تنظیماتبرنامهToolStripMenuItem});
 			this.تنظیماتToolStripMenuItem.Name = "تنظیماتToolStripMenuItem";
-			this.تنظیماتToolStripMenuItem.Size = new System.Drawing.Size(70, 22);
+			this.تنظیماتToolStripMenuItem.Size = new System.Drawing.Size(85, 34);
 			this.تنظیماتToolStripMenuItem.Text = "تنظیمات";
 			// 
 			// اطلاعاتکاربریToolStripMenuItem
 			// 
 			this.اطلاعاتکاربریToolStripMenuItem.Name = "اطلاعاتکاربریToolStripMenuItem";
-			this.اطلاعاتکاربریToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+			this.اطلاعاتکاربریToolStripMenuItem.Size = new System.Drawing.Size(196, 34);
 			this.اطلاعاتکاربریToolStripMenuItem.Text = "اطلاعات کاربری";
 			// 
 			// تنظیماتبرنامهToolStripMenuItem
@@ -249,21 +251,33 @@
             this.تنظیماتآنتنToolStripMenuItem,
             this.تنظیماتپیامکToolStripMenuItem});
 			this.تنظیماتبرنامهToolStripMenuItem.Name = "تنظیماتبرنامهToolStripMenuItem";
-			this.تنظیماتبرنامهToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+			this.تنظیماتبرنامهToolStripMenuItem.Size = new System.Drawing.Size(196, 34);
 			this.تنظیماتبرنامهToolStripMenuItem.Text = "تنظیمات برنامه";
+			// 
+			// تنظیماتآنتنToolStripMenuItem
+			// 
+			this.تنظیماتآنتنToolStripMenuItem.Name = "تنظیماتآنتنToolStripMenuItem";
+			this.تنظیماتآنتنToolStripMenuItem.Size = new System.Drawing.Size(195, 34);
+			this.تنظیماتآنتنToolStripMenuItem.Text = "تنظیمات آنتن";
+			// 
+			// تنظیماتپیامکToolStripMenuItem
+			// 
+			this.تنظیماتپیامکToolStripMenuItem.Name = "تنظیماتپیامکToolStripMenuItem";
+			this.تنظیماتپیامکToolStripMenuItem.Size = new System.Drawing.Size(195, 34);
+			this.تنظیماتپیامکToolStripMenuItem.Text = "تنظیمات پیامک";
 			// 
 			// راهنماToolStripMenuItem
 			// 
 			this.راهنماToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.دربارهToolStripMenuItem});
 			this.راهنماToolStripMenuItem.Name = "راهنماToolStripMenuItem";
-			this.راهنماToolStripMenuItem.Size = new System.Drawing.Size(57, 22);
+			this.راهنماToolStripMenuItem.Size = new System.Drawing.Size(71, 34);
 			this.راهنماToolStripMenuItem.Text = "راهنما";
 			// 
 			// دربارهToolStripMenuItem
 			// 
 			this.دربارهToolStripMenuItem.Name = "دربارهToolStripMenuItem";
-			this.دربارهToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+			this.دربارهToolStripMenuItem.Size = new System.Drawing.Size(154, 34);
 			this.دربارهToolStripMenuItem.Text = "درباره ...";
 			// 
 			// mainStatusStrip
@@ -280,26 +294,23 @@
 			// versionToolStripStatusLabel
 			// 
 			this.versionToolStripStatusLabel.Name = "versionToolStripStatusLabel";
-			this.versionToolStripStatusLabel.Size = new System.Drawing.Size(180, 20);
+			this.versionToolStripStatusLabel.Size = new System.Drawing.Size(187, 26);
 			this.versionToolStripStatusLabel.Text = "اطلاعات برنامه(نسخه و . .. )";
 			// 
-			// تنظیماتآنتنToolStripMenuItem
+			// pictureBox1
 			// 
-			this.تنظیماتآنتنToolStripMenuItem.Name = "تنظیماتآنتنToolStripMenuItem";
-			this.تنظیماتآنتنToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
-			this.تنظیماتآنتنToolStripMenuItem.Text = "تنظیمات آنتن";
-			// 
-			// تنظیماتپیامکToolStripMenuItem
-			// 
-			this.تنظیماتپیامکToolStripMenuItem.Name = "تنظیماتپیامکToolStripMenuItem";
-			this.تنظیماتپیامکToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
-			this.تنظیماتپیامکToolStripMenuItem.Text = "تنظیمات پیامک";
+			this.pictureBox1.Location = new System.Drawing.Point(0, 287);
+			this.pictureBox1.Name = "pictureBox1";
+			this.pictureBox1.Size = new System.Drawing.Size(201, 166);
+			this.pictureBox1.TabIndex = 2;
+			this.pictureBox1.TabStop = false;
 			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(864, 487);
+			this.Controls.Add(this.pictureBox1);
 			this.Controls.Add(this.mainStatusStrip);
 			this.Controls.Add(this.mainMenu);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -313,6 +324,7 @@
 			this.mainMenu.PerformLayout();
 			this.mainStatusStrip.ResumeLayout(false);
 			this.mainStatusStrip.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -351,5 +363,6 @@
 		private System.Windows.Forms.ToolStripMenuItem reportAntennaMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem تنظیماتآنتنToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem تنظیماتپیامکToolStripMenuItem;
+		private System.Windows.Forms.PictureBox pictureBox1;
 	}
 }

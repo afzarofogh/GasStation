@@ -88,9 +88,34 @@ namespace GasStation.Forms.Forms
 
 			//Plate
 			plateCityMenuItem.Click	+= PlateCityMenuItem_Click;
-			plateTypeMenuItem.Click += PlateTypeMenuItem_Click;		
+			plateTypeMenuItem.Click += PlateTypeMenuItem_Click;	
+	
+			//Report
+			reportCustomerMenuItem.Click	+= ReportCustomerMenuItem_Click;
 		}
 
+		/// <summary>
+		/// Report Customer Menu Item
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ReportCustomerMenuItem_Click (object sender, EventArgs e)
+		{
+			List<Owner> lstOwner = new List<Owner> ();
+			Owner o = new Common.BLL.Entity.GasStation.Owner ();
+			o.name = "علی";
+			o.lastname = "علویی";
+			o.mobile ="09193862018";
+			o.nationalCode ="4324260869";
+			o.phone= "02833652700";
+			lstOwner.Add(o);
+		}
+
+		/// <summary>
+		/// Show Customer Menu Item
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void CustomerShowMenuItem_Click (object sender, EventArgs e)
 		{
 			CustomerViewForm	form	= new CustomerViewForm ();

@@ -19,7 +19,19 @@ namespace Common.BLL.Logic.GasStation
 		public CommandResult loadViewOwner()
 		{
 			CommandResult result;
-			string commandString	=	 "Select * from viewCustomer";
+			string commandString	=	 "SELECT * FROM viewCustomer";
+			result = BaseDAL.DBaseHelper.executeCommand(BaseDAL.Base.EnumExecuteType.reader, connection, commandString);
+
+			return result;
+		}
+		/// <summary>
+		/// Load Owner
+		/// </summary>
+		/// <returns></returns>
+		public CommandResult loadOwner()
+		{
+			CommandResult result;
+			string commandString	=	 "SELECT * FROM Owner";
 			result = BaseDAL.DBaseHelper.executeCommand(BaseDAL.Base.EnumExecuteType.reader, connection, commandString);
 
 			return result;
