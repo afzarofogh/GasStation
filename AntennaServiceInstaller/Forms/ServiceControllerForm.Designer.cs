@@ -34,9 +34,9 @@
 			this.pauseServiceButton = new System.Windows.Forms.Button();
 			this.serviceStatusLabel = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
-
 			this.loadingLabel = new System.Windows.Forms.Label();
-
+			this.uninstallServiceButton = new System.Windows.Forms.Button();
+			this.installServiceButton = new System.Windows.Forms.Button();
 			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -46,6 +46,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+			this.groupBox1.Controls.Add(this.installServiceButton);
+			this.groupBox1.Controls.Add(this.uninstallServiceButton);
 			this.groupBox1.Controls.Add(this.startServiceButton);
 			this.groupBox1.Controls.Add(this.stopServiceButton);
 			this.groupBox1.Controls.Add(this.pauseServiceButton);
@@ -53,14 +55,14 @@
 			this.groupBox1.Controls.Add(this.label3);
 			this.groupBox1.Location = new System.Drawing.Point(12, 14);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(598, 121);
+			this.groupBox1.Size = new System.Drawing.Size(598, 169);
 			this.groupBox1.TabIndex = 0;
 			this.groupBox1.TabStop = false;
 			// 
 			// startServiceButton
 			// 
-			this.startServiceButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-			this.startServiceButton.Location = new System.Drawing.Point(366, 75);
+			this.startServiceButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.startServiceButton.Location = new System.Drawing.Point(133, 123);
 			this.startServiceButton.Name = "startServiceButton";
 			this.startServiceButton.Size = new System.Drawing.Size(121, 35);
 			this.startServiceButton.TabIndex = 0;
@@ -69,12 +71,8 @@
 			// 
 			// stopServiceButton
 			// 
-			this.stopServiceButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-
-			this.stopServiceButton.Location = new System.Drawing.Point(112, 75);
-
-			//this.stopServiceButton.Location = new System.Drawing.Point(239, 75);
-
+			this.stopServiceButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.stopServiceButton.Location = new System.Drawing.Point(6, 123);
 			this.stopServiceButton.Name = "stopServiceButton";
 			this.stopServiceButton.Size = new System.Drawing.Size(121, 35);
 			this.stopServiceButton.TabIndex = 2;
@@ -83,8 +81,8 @@
 			// 
 			// pauseServiceButton
 			// 
-			this.pauseServiceButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-			this.pauseServiceButton.Location = new System.Drawing.Point(112, 75);
+			this.pauseServiceButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.pauseServiceButton.Location = new System.Drawing.Point(6, 82);
 			this.pauseServiceButton.Name = "pauseServiceButton";
 			this.pauseServiceButton.Size = new System.Drawing.Size(121, 35);
 			this.pauseServiceButton.TabIndex = 1;
@@ -111,8 +109,6 @@
 			this.label3.Size = new System.Drawing.Size(122, 18);
 			this.label3.TabIndex = 1;
 			this.label3.Text = "وضعیت سرویس : ";
-
-
 			// 
 			// loadingLabel
 			// 
@@ -125,14 +121,33 @@
 			this.loadingLabel.TabIndex = 1;
 			this.loadingLabel.Text = "کمی صبر کنید";
 			this.loadingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-
+			// 
+			// uninstallServiceButton
+			// 
+			this.uninstallServiceButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.uninstallServiceButton.Location = new System.Drawing.Point(344, 123);
+			this.uninstallServiceButton.Name = "uninstallServiceButton";
+			this.uninstallServiceButton.Size = new System.Drawing.Size(121, 35);
+			this.uninstallServiceButton.TabIndex = 2;
+			this.uninstallServiceButton.Text = "حذف";
+			this.uninstallServiceButton.UseVisualStyleBackColor = true;
+			// 
+			// installServiceButton
+			// 
+			this.installServiceButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.installServiceButton.Location = new System.Drawing.Point(471, 123);
+			this.installServiceButton.Name = "installServiceButton";
+			this.installServiceButton.Size = new System.Drawing.Size(121, 35);
+			this.installServiceButton.TabIndex = 0;
+			this.installServiceButton.Text = "نصب";
+			this.installServiceButton.UseVisualStyleBackColor = true;
 			// 
 			// ServiceControllerForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackgroundImage = global::AntennaServiceInstaller.Properties.Resources.formBK;
-			this.ClientSize = new System.Drawing.Size(622, 149);
+			this.ClientSize = new System.Drawing.Size(622, 197);
 			this.Controls.Add(this.loadingLabel);
 			this.Controls.Add(this.groupBox1);
 			this.Font = new System.Drawing.Font("Tahoma", 9F);
@@ -157,6 +172,8 @@
 		private System.Windows.Forms.Label serviceStatusLabel;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label loadingLabel;
+		private System.Windows.Forms.Button installServiceButton;
+		private System.Windows.Forms.Button uninstallServiceButton;
 	}
 }
 

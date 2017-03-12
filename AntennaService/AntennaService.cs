@@ -320,6 +320,7 @@ namespace AntennaService
 		/// <param name="tagId"></param>
 		private void tagDetected (string tagId)
 		{
+			//System.Diagnostics.Debugger.Launch();
 			//Helper.ClientMethodParser.writeTag (tcpServer, tagId);
 
 			//writeLog (tagId);

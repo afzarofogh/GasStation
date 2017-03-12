@@ -133,6 +133,5 @@ namespace AntennaServiceInstaller.Forms
 			serviceStatusLabel.Text = status;
 		}
 		#endregion
-		
 	}
 }
