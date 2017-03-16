@@ -1,6 +1,7 @@
 ﻿using BaseDAL.Model;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -19,10 +20,12 @@ namespace GasStation
         {
 			prepare ();
 		
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-			
-			Application.Run (new Forms.Forms.CustomerViewForm ());
+
+			// TEST
+			Application.Run (new Forms.Forms.CustomerForm());
 			return;
 
 			while (hasLogin != 2)
@@ -52,9 +55,12 @@ namespace GasStation
 			luser.read (user);
 			Common.GlobalData.UserManager.currentUser	= user;
 
-			//Helper.GridHeaderMaker.makeHeaderCarFuel();
+			//Helper.GridHeaderMaker.makeHeaderOwner();
+			//Helper.GridHeaderMaker.makeHeaderCarColor();
 			//Helper.GridHeaderMaker.makeHeaderCarLevel();
+			//Helper.GridHeaderMaker.makeHeaderCarFuel();
 			//Helper.GridHeaderMaker.makeHeaderCarSystem();
+			//Helper.GridHeaderMaker.makeHeaderCarType();
 			//Helper.GridHeaderMaker.makeHeaderPlateType();
 			//Helper.GridHeaderMaker.makeHeaderPlateCity();
 		}

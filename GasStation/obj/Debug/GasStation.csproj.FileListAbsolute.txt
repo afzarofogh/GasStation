@@ -33,3 +33,4 @@ E:\Project GasStation\GasStation\GasStation\GasStation\obj\Debug\GasStation.exe
 E:\Project GasStation\GasStation\GasStation\GasStation\obj\Debug\GasStation.pdb
 E:\Project GasStation\GasStation\GasStation\GasStation\obj\Debug\GasStation.Forms.Forms.CustomerForm.resources
 E:\Project GasStation\GasStation\GasStation\GasStation\obj\Debug\GasStation.Forms.Forms.CustomerViewForm.resources
+E:\Project GasStation\GasStation\GasStation\GasStation\obj\Debug\GasStation.Forms.Forms.ExistenceCustomerForm.resources

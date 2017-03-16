@@ -32,3 +32,4 @@ E:\Project GasStation\GasStation\GasStation\TestApp\bin\Debug\Common.pdb
 E:\Project GasStation\GasStation\GasStation\TestApp\bin\Debug\Newtonsoft.Json.xml
 E:\Project GasStation\GasStation\GasStation\TestApp\obj\Debug\TestApp.exe
 E:\Project GasStation\GasStation\GasStation\TestApp\obj\Debug\TestApp.pdb
+E:\Project GasStation\GasStation\GasStation\TestApp\obj\Debug\TestApp.Forms.ListenForm.resources

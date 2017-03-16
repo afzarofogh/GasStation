@@ -50,6 +50,9 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>mainIcon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="BaseBLL">
       <HintPath>..\..\..\ojvar-orm\BLL\bin\Debug\BaseBLL.dll</HintPath>
@@ -160,6 +163,12 @@
     <Compile Include="Forms\Forms\CustomerForm.Designer.cs">
       <DependentUpon>CustomerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Forms\ExistenceCustomerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Forms\ExistenceCustomerForm.Designer.cs">
+      <DependentUpon>ExistenceCustomerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -238,6 +247,9 @@
     <EmbeddedResource Include="Forms\Forms\CustomerForm.resx">
       <DependentUpon>CustomerForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Forms\ExistenceCustomerForm.resx">
+      <DependentUpon>ExistenceCustomerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -280,6 +292,16 @@
     <None Include="Resources\formBK.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="mainIcon.ico" />
+    <Content Include="DLL\SLABHIDDevice.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DLL\SLABHIDtoUART.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DLL\UhfReader_API_HID.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\about.png" />
     <Content Include="Resources\accept.png" />
     <Content Include="Resources\add.png" />

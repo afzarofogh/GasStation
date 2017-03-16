@@ -105,6 +105,8 @@ namespace AntennaService
 
 				if (!EventLog.Exists (C_ANTENNA_EVENT_LOG))
 					EventLog.CreateEventSource (C_ANTENNA_EVENT_SOURCE, C_ANTENNA_EVENT_LOG);
+				else 
+					EventLog.Delete(C_ANTENNA_EVENT_LOG);
 			}
 			catch (Exception ex)
 			{
@@ -202,7 +204,6 @@ namespace AntennaService
 		protected override void OnPause ()
 		{
 			pause ();
-
 			base.OnPause ();
 		}
 
@@ -248,6 +249,7 @@ namespace AntennaService
 				// Try to start client listener
 				if (result)
 				{
+					writeLog ("INF: result is True");
 					startClientListener (sPort);
 					break;
 				}
@@ -331,6 +333,10 @@ namespace AntennaService
 			#region Send to clients
 			if (null != tcpServer)
 				tcpServer.write (string.Format ("\nTAG\t{0}\t{1}\n", tagId, DateTime.Now));
+				//tcpServer.write (tagId);
+			//else 
+			//	writeLog ("tcp server is null");
+			//	tcpServer.write (string.Format ("\nTAG\t{0}\t{1}\n", tagId, DateTime.Now));
 			#endregion
 		}
 
@@ -345,6 +351,7 @@ namespace AntennaService
 			{
 				tag	= tagId
 			};
+
 			lTraffic.insertTagByService (tag, serviceUser, DateTime.Now, interval);
 		}
 
@@ -387,11 +394,13 @@ namespace AntennaService
 		/// </summary>
 		private void startClientListener (int port)
 		{
+			//writeLog ("INF: startClientListener");
 			if (null == tcpServer)
 			{
 				tcpServer = new NetTcpServer (port, C_BufferSize);
 				tcpServer.onReceiveData  += TcpServer_onReceiveData;
 				tcpServer.start ();
+				//writeLog ("INF: tcpServer start");
 			}
 		}
 

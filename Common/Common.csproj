@@ -115,6 +115,9 @@
     <Compile Include="BLL\Logic\GasStation\Traffic.cs" />
     <Compile Include="BLL\Logic\GasStation\UHF.cs" />
     <Compile Include="BLL\Logic\GasStation\User.cs" />
+    <Compile Include="DLL\CardReaderHelper.cs" />
+    <Compile Include="DLL\DemoPublic.cs" />
+    <Compile Include="DLL\PublicFunction.cs" />
     <Compile Include="Enum\EDatabase.cs" />
     <Compile Include="GlobalData\UserManager.cs" />
     <Compile Include="Helper\Antenna\MR6100.cs" />

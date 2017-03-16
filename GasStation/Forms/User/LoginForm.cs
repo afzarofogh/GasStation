@@ -41,6 +41,21 @@ namespace GasStation.Forms.User
 		{
 			bindEvents ();
 			prepare ();
+
+			
+			Common.DLL.CardReaderHelper	cHelper	= new Common.DLL.CardReaderHelper ();
+				
+			// Connect
+			Common.DLL.Public.PublicFunction.onDataRead	+= (x) =>
+			{
+				object t = x;
+			};
+			cHelper.connect (cHelper.GetComList ()[0]);
+			if (cHelper.connected)
+			{
+				cHelper.startTagReader (3);
+			}
+
 		}
 
 		/// <summary>

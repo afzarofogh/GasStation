@@ -21,7 +21,23 @@ namespace Common.BLL.Logic.GasStation
 		#endregion
 		#region Custom Methods
 
-		public CommandResult saveData (Common.BLL.Entity.GasStation.Owner ownerModel, Common.BLL.Entity.GasStation.Car carModel, Common.BLL.Entity.GasStation.Plate plateModel, Common.BLL.Entity.GasStation.LegalOwner legalOwnerModel)
+		/// <summary>
+		/// Load View Car
+		/// </summary>
+		/// <returns></returns>
+		public CommandResult	loadViewCar()
+		{
+			CommandResult result;
+			string  commandString = "SELECT * FROM viewCar";
+			result	= BaseDAL.DBaseHelper.executeCommand(BaseDAL.Base.EnumExecuteType.reader,connection,commandString);
+	
+			return result;
+		}
+
+		public CommandResult saveData ( Common.BLL.Entity.GasStation.Owner ownerModel,
+									    Common.BLL.Entity.GasStation.Car carModel,
+										Common.BLL.Entity.GasStation.Plate plateModel,
+										Common.BLL.Entity.GasStation.LegalOwner legalOwnerModel)
 		{
 			CommandResult result;
 

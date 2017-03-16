@@ -151,6 +151,7 @@
 			this.MinimizeBox = false;
 			this.Name = "LoginForm";
 			this.Text = "ورود به سامانه";
+			this.TopMost = true;
 			this.userDataGroupBox.ResumeLayout(false);
 			this.userDataGroupBox.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
