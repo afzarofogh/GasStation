@@ -96,6 +96,20 @@ namespace System
 			result  = !result;
 			return result;
 		}
+		/// <summary>
+		/// Check string is empty or null or white spaces
+		/// </summary>
+		/// <param name="text"></param>
+		/// <returns></returns>
+		public static bool isEmptyOrNullOrWhiteSpaces (this string text)
+		{
+			bool result	= false;
+
+			// Check input data
+			result	= (text == null) || (text.Trim ().Length == 0);
+
+			return result;
+		}
 
 		#endregion
 	}

@@ -821,7 +821,7 @@ namespace Common.DLL.Public
 						}
 
 						
-						onDataRead?.Invoke (uiiStr);
+						onDataRead.Invoke (uiiStr);
 						///DemoPublic.PublicDM.BeginInvoke(addShow, new object[] { "Read data successfully with specified tag" });
 					}
 					else

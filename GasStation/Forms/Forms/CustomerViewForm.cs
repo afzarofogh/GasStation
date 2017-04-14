@@ -1,4 +1,5 @@
 ﻿using BaseDAL.Model;
+using Common.Enum;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -43,6 +44,7 @@ namespace GasStation.Forms.Forms
 		private void prepare ()
 		{
 			reload();
+			nationalCodeRadioButton.Checked = true;
 		}
 
 		/// <summary>
@@ -53,7 +55,12 @@ namespace GasStation.Forms.Forms
 			Common.BLL.Logic.GasStation.Owner		lOwner = new Common.BLL.Logic.GasStation.Owner (Common.Enum.EDatabase.GasStation);
 			CommandResult opResult = lOwner.loadViewOwner();
 			resultGrid.DataSource = opResult.model;
-			resultGrid.loadHeader(this.GetType().Name);			
+			resultGrid.loadHeader(this.GetType().Name);	
+		
+			//Plate type 
+			//Common.BLL.Logic.GasStation.Base__PlateType		lPlateType		= new Common.BLL.Logic.GasStation.Base__PlateType (Common.Enum.EDatabase.GasStation);
+			//DataTable	resultPlateType		= lPlateType.allData("", "", false).model as DataTable;				
+			//plateTypeComboBox.fillByTable (resultPlateType, "id", "type");		
 		}
 		/// <summary>
 		/// Bind Events
@@ -65,6 +72,122 @@ namespace GasStation.Forms.Forms
 			deleteMenu.Click	+= DeleteMenu_Click;
 			modifyMenu.Click	+= ModifyMenu_Click;
 			exitMenu.Click		+= ExitMenu_Click;
+			nationalCodeRadioButton.CheckedChanged += NationalCodeRadioButton_CheckedChanged;
+			//plateRadioButton.CheckedChanged += PlateRadioButton_CheckedChanged;
+			//plateTypeComboBox.SelectedIndexChanged += PlateTypeComboBox_SelectedIndexChanged;
+			serachButton.Click	+= SerachButton_Click;			
+		}		
+
+		
+		/// <summary>
+		/// Plate Type 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		//private void PlateTypeComboBox_SelectedIndexChanged (object sender, EventArgs e)
+		//{
+		//	int palteType = (int)plateTypeComboBox.SelectedValue;
+		//	SelectPlateType (palteType);
+		//}
+		/// <summary>
+		/// Select Plate Type
+		/// </summary>
+		/// <param name="type"></param>
+		//private void SelectPlateType (int type)
+		//{
+		//	switch (type)
+		//	{
+		//		case ((int)enumPlateType.Personal):
+		//			updatePlate (Color.White, Color.Black);
+		//			break;
+		//		case ((int)enumPlateType.Taxi):
+		//			updatePlate (Color.Yellow, Color.Black, "ت");
+		//			break;
+		//		case ((int)enumPlateType.Polity):
+		//			updatePlate (Color.Red, Color.White, "الف");
+		//			break;
+		//		case ((int)enumPlateType.Malulin):
+		//			{
+		//				mainPlatePanel.Visible = false;
+		//				//motorPlatePanel.Visible = false;
+		//				malulinPlatePanel.Visible = true;
+		//				malulinPlatePanel.Location = new Point (mainPlatePanel.Location.X, mainPlatePanel.Location.Y);
+
+		//			} break;
+		//		//case ((int)enumPlateType.Motor): // موتور سیکلت
+		//		//	{
+		//		//		mainPlatePanel.Visible = false;
+		//		//		malulinPlatePanel.Visible = false;
+		//		//		motorPlatePanel.Visible = true;
+		//		//		motorPlatePanel.Location = new Point (mainPlatePanel.Location.X, mainPlatePanel.Location.Y);
+		//		//	}
+		//		//	break;
+
+		//		default:
+		//			break;
+		//	}
+		//}
+
+		/// <summary>
+		/// Upadte Panel Plate
+		/// </summary>
+		/// <param name="backColorPart"></param>
+		/// <param name="foreColorPart"></param>
+		/// <param name="character"></param>
+		//private void updatePlate (Color backColorPart, Color foreColorPart, string character = null)
+		//{
+		//	mainPlatePanel.Visible		= true;
+		//	malulinPlatePanel.Visible	= false;
+		//	//motorPlatePanel.Visible		= false;
+		//	part1MainTextBox.BackColor	= 
+		//	part2MainTextBox.BackColor	= backColorPart;
+		//	part1MainTextBox.ForeColor	= 
+		//	part2MainTextBox.ForeColor	= foreColorPart;
+		//	//characterDomainUpDown.Text		= character;
+			
+		//}		
+		/// <summary>
+		/// Plate Radio Button
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		//private void PlateRadioButton_CheckedChanged (object sender, EventArgs e)
+		//{
+		//	if (plateRadioButton.Checked)			
+		//		plateGroupBox.Visible = true;
+		//	else 
+		//		plateGroupBox.Visible = false;
+			
+		//}
+		/// <summary>
+		/// NationalCode Radio Button
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void NationalCodeRadioButton_CheckedChanged (object sender, EventArgs e)
+		{
+			if (nationalCodeRadioButton.Checked)
+			{
+				nationalCodeMaskedTextBox.Visible = true;
+				nationalCodeMaskedTextBox.Focus();
+				nationalCodeMaskedTextBox.Clear();
+			}
+			else 
+				nationalCodeMaskedTextBox.Visible = false;
+		}
+
+		/// <summary>
+		/// National Code KeyDown
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void NationalCodeMaskedTextBox_KeyDown (object sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Enter)
+			{
+				if (nationalCodeMaskedTextBox.Text.isNullOrEmptyOrWhiteSpaceOrLen(10))
+					reloadData();
+			}
 		}
 		/// <summary>
 		/// Exit Menu
@@ -322,6 +445,31 @@ namespace GasStation.Forms.Forms
 		{
 			reload();
 		}
+		/// <summary>
+		/// Search Button
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void SerachButton_Click (object sender, EventArgs e)
+		{
+			reloadData ();
+		}
+
+		private void reloadData ()
+		{
+			Common.BLL.Entity.GasStation.Owner model = new Common.BLL.Entity.GasStation.Owner ()
+			{
+				nationalCode = nationalCodeMaskedTextBox.Text.Trim ()
+			};
+			Common.BLL.Logic.GasStation.Owner lOwner = new Common.BLL.Logic.GasStation.Owner (Common.Enum.EDatabase.GasStation);
+			CommandResult opResult = lOwner.read (model, "nationalCode");
+			if (opResult.status == BaseDAL.Base.EnumCommandStatus.success)
+			{
+				searchGrid.DataSource = opResult.model;
+				searchGrid.loadHeader("CustomerViewForm_Search");	
+			}
+		}
+		
 
 		#endregion
 	}

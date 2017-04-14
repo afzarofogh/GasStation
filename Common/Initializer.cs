@@ -12,15 +12,15 @@ namespace Common
 		/// <summary>
 		/// Init
 		/// </summary>
-		public static void init (string loggerFilename)
-		{
-			///TODO: READ CONFIG FILE
+		public static void init (string loggerFilename, string exePath)
+		{						
+			ConnectionModel res = Common.Helper.Setting.SettingHelper.readConfigData(exePath);			
 			ConnectionModel	cm	= new ConnectionModel ()
 			{
-				dataSource	= ".",
-				initCatalog	= "GasStation",
-				userId		= "admin",
-				password	= "12345"
+				dataSource	= res.dataSource,
+				initCatalog	= res.initCatalog,
+				userId		= res.userId,
+				password	= res.password
 			};
 
 			Logger.logger	= new Helper.Logger.Logger(loggerFilename);

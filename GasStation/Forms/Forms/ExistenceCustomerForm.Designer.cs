@@ -36,10 +36,10 @@
 			this.nationalCodeLabel = new System.Windows.Forms.Label();
 			this.getButton = new System.Windows.Forms.Button();
 			this.ownerDataGroupBox = new System.Windows.Forms.GroupBox();
-			this.label5 = new System.Windows.Forms.Label();
 			this.label7 = new System.Windows.Forms.Label();
-			this.birthdateLabel = new System.Windows.Forms.Label();
+			this.label5 = new System.Windows.Forms.Label();
 			this.mobileLabel = new System.Windows.Forms.Label();
+			this.birthdateLabel = new System.Windows.Forms.Label();
 			this.ownerDataGroupBox.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -143,17 +143,6 @@
 			this.ownerDataGroupBox.TabStop = false;
 			this.ownerDataGroupBox.Text = "نمایش اطلاعات راننده";
 			// 
-			// label5
-			// 
-			this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.label5.AutoSize = true;
-			this.label5.BackColor = System.Drawing.Color.Transparent;
-			this.label5.Location = new System.Drawing.Point(293, 167);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(64, 18);
-			this.label5.TabIndex = 2;
-			this.label5.Text = "تاریخ تولد";
-			// 
 			// label7
 			// 
 			this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -165,17 +154,16 @@
 			this.label7.TabIndex = 2;
 			this.label7.Text = "شماره همراه";
 			// 
-			// birthdateLabel
+			// label5
 			// 
-			this.birthdateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.birthdateLabel.AutoSize = true;
-			this.birthdateLabel.BackColor = System.Drawing.Color.Transparent;
-			this.birthdateLabel.Location = new System.Drawing.Point(151, 167);
-			this.birthdateLabel.Name = "birthdateLabel";
-			this.birthdateLabel.Size = new System.Drawing.Size(13, 18);
-			this.birthdateLabel.TabIndex = 1;
-			this.birthdateLabel.Tag = "birthdate";
-			this.birthdateLabel.Text = "-";
+			this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.label5.AutoSize = true;
+			this.label5.BackColor = System.Drawing.Color.Transparent;
+			this.label5.Location = new System.Drawing.Point(293, 167);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(64, 18);
+			this.label5.TabIndex = 2;
+			this.label5.Text = "تاریخ تولد";
 			// 
 			// mobileLabel
 			// 
@@ -189,13 +177,29 @@
 			this.mobileLabel.Tag = "mobile";
 			this.mobileLabel.Text = "-";
 			// 
+			// birthdateLabel
+			// 
+			this.birthdateLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.birthdateLabel.AutoSize = true;
+			this.birthdateLabel.BackColor = System.Drawing.Color.Transparent;
+			this.birthdateLabel.Location = new System.Drawing.Point(151, 167);
+			this.birthdateLabel.Name = "birthdateLabel";
+			this.birthdateLabel.Size = new System.Drawing.Size(13, 18);
+			this.birthdateLabel.TabIndex = 1;
+			this.birthdateLabel.Tag = "birthdate";
+			this.birthdateLabel.Text = "-";
+			// 
 			// ExistenceCustomerForm
 			// 
+			this.AcceptButton = this.getButton;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(398, 335);
 			this.Controls.Add(this.ownerDataGroupBox);
 			this.Controls.Add(this.getButton);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
 			this.Name = "ExistenceCustomerForm";
 			this.Text = "مشخصات مشتری";
 			this.ownerDataGroupBox.ResumeLayout(false);

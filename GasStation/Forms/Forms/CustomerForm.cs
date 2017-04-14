@@ -1,7 +1,7 @@
 ﻿using BaseDAL.Model;
+using Common.Enum;
 using Common.Helper.Logger;
 using Common.Network.Core;
-using GasStation.Enum;
 using GasStation.Forms.Base;
 using GasStation.Helper;
 using System;
@@ -676,15 +676,15 @@ namespace GasStation.Forms.Forms
 		/// <returns></returns>
 		private bool saveTag_CarTag (bool result)
 		{
-		//**	if (saveTag ())
-		//	{
+			if (saveTag ())
+			{
 				if (saveCarTag ())									
 					result = true;				
 				else
 					result = false;
-			//}
-			//else
-			//	result = false;
+			}
+			else
+				result = false;
 			return result;
 		}		
 
@@ -1012,9 +1012,7 @@ namespace GasStation.Forms.Forms
 
 			bool result = false;
 			CommandResult opResult = null;
-			Common.BLL.Logic.GasStation.Tag  lTag	= new Common.BLL.Logic.GasStation.Tag (Common.Enum.EDatabase.GasStation);		
-
-			
+			Common.BLL.Logic.GasStation.Tag  lTag	= new Common.BLL.Logic.GasStation.Tag (Common.Enum.EDatabase.GasStation);	
 			
 			#region Insert
 			tagModel.insertedById = Common.GlobalData.UserManager.currentUser.id;
@@ -1301,11 +1299,10 @@ namespace GasStation.Forms.Forms
 									enableTab(ownerTypeTabPage, true);
 								else
 								{							
-									MessageBox.Show("این مشخصات قبلا ثبت شده است", "هشدار",MessageBoxButtons.RetryCancel , MessageBoxIcon.Warning);
+									MessageBox.Show("این مشخصات قبلا ثبت شده است", "هشدار",MessageBoxButtons.OK , MessageBoxIcon.Warning);
 									//TODO: IF EXSIST DATA What do?
 								}
 							}
-
 						}
 						break;
 					case 3 :
@@ -1336,41 +1333,41 @@ namespace GasStation.Forms.Forms
 		private bool exsistData ()
 		{
 			bool result = false;
-			Common.BLL.Entity.GasStation.Owner	model	= new Common.BLL.Entity.GasStation.Owner ()
+			Common.BLL.Entity.GasStation.Owner	modelOwner	= new Common.BLL.Entity.GasStation.Owner ()
 			{
 				nationalCode = ownerModel.nationalCode					
 			};
 
-			Common.BLL.Entity.GasStation.Car	modelCar	= new Common.BLL.Entity.GasStation.Car()
-			{
-				carTypeId	= carModel.carTypeId,
-				carColorId	= carModel.carColorId,
-				carSystemId = carModel.carSystemId,
-				carLevelId  = carModel.carLevelId,
-				carFuelId	= carModel.carFuelId
-			};
+			//Common.BLL.Entity.GasStation.Car	modelCar	= new Common.BLL.Entity.GasStation.Car()
+			//{
+			//	carTypeId	= carModel.carTypeId,
+			//	carColorId	= carModel.carColorId,
+			//	carSystemId = carModel.carSystemId,
+			//	carLevelId  = carModel.carLevelId,
+			//	carFuelId	= carModel.carFuelId
+			//};
 			Common.BLL.Entity.GasStation.Plate	modelPlate	= new Common.BLL.Entity.GasStation.Plate()
 			{
-				plateTypeId = plateModel.plateTypeId,
-				plateCityId = plateModel.plateCityId,
+				//plateTypeId = plateModel.plateTypeId,
+				//plateCityId = plateModel.plateCityId,
 				plate = plateModel.plate
 			};
 
 			// Load model data from db
-
 			Common.BLL.Logic.GasStation.Owner	lOwner	= new Common.BLL.Logic.GasStation.Owner(Common.Enum.EDatabase.GasStation);
-			Common.BLL.Logic.GasStation.Car		lCar	= new Common.BLL.Logic.GasStation.Car(Common.Enum.EDatabase.GasStation);
+			//Common.BLL.Logic.GasStation.Car		lCar	= new Common.BLL.Logic.GasStation.Car(Common.Enum.EDatabase.GasStation);
 			Common.BLL.Logic.GasStation.Plate	lPlate	= new Common.BLL.Logic.GasStation.Plate(Common.Enum.EDatabase.GasStation);
 			
-			CommandResult	opResultOwner		= lOwner.read(model);
-			CommandResult	opResultCar			= lCar.read(modelCar);
-			CommandResult	opResultPlate		= lCar.read(modelPlate);
+			CommandResult	opResultOwner		= lOwner.read(modelOwner,"nationalCode");
+			//CommandResult	opResultCar			= lCar.read(modelCar);
+			CommandResult	opResultPlate		= lPlate.read(modelPlate,"plate");
 			
 			if (opResultOwner.status	== BaseDAL.Base.EnumCommandStatus.success
-				&& opResultCar.status	== BaseDAL.Base.EnumCommandStatus.success
+				//&& opResultCar.status	== BaseDAL.Base.EnumCommandStatus.success
 				&& opResultPlate.status == BaseDAL.Base.EnumCommandStatus.success)
 			{
-				if (model.id > 0 && modelCar.id > 0 && modelPlate.id > 0)
+				//&& modelCar.id > 0
+				if (modelOwner.id > 0  && modelPlate.id > 0)
 					result = true;
 				else 
 					result = false;
@@ -1726,11 +1723,17 @@ namespace GasStation.Forms.Forms
 
 			cr.onTagRead    += (x, y) =>
 			{
+
 				tagTextBox.Text	= x;
 			};
 			tagTextBox.Text = "";
 			cr.startTagReader (3);
 			cr.disconnect ();
+		}
+
+		private void button1_Click (object sender, EventArgs e)
+		{
+			GetTagButton_Click(null, null );
 		}
 
 		///// <summary>

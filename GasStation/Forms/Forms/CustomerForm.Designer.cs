@@ -764,9 +764,9 @@
 			this.cityLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.cityLabel.ForeColor = System.Drawing.Color.Black;
-			this.cityLabel.Location = new System.Drawing.Point(6, 65);
+			this.cityLabel.Location = new System.Drawing.Point(34, 79);
 			this.cityLabel.Name = "cityLabel";
-			this.cityLabel.Size = new System.Drawing.Size(322, 33);
+			this.cityLabel.Size = new System.Drawing.Size(294, 33);
 			this.cityLabel.TabIndex = 0;
 			this.cityLabel.Text = "cityLabel";
 			this.cityLabel.Visible = false;
@@ -1195,10 +1195,10 @@
 			// 
 			// tagTextBox
 			// 
-			this.tagTextBox.Enabled = false;
+			this.tagTextBox.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.tagTextBox.Location = new System.Drawing.Point(202, 41);
 			this.tagTextBox.Name = "tagTextBox";
-			this.tagTextBox.Size = new System.Drawing.Size(426, 26);
+			this.tagTextBox.Size = new System.Drawing.Size(426, 32);
 			this.tagTextBox.TabIndex = 0;
 			this.tagTextBox.Tag = "tag";
 			// 
@@ -1257,19 +1257,19 @@
 			// 
 			this.insertMenu.Name = "insertMenu";
 			this.insertMenu.ShortcutKeys = System.Windows.Forms.Keys.F2;
-			this.insertMenu.Size = new System.Drawing.Size(219, 26);
+			this.insertMenu.Size = new System.Drawing.Size(213, 22);
 			this.insertMenu.Text = "ثبت اطلاعات جدید";
 			// 
 			// toolStripMenuItem1
 			// 
 			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-			this.toolStripMenuItem1.Size = new System.Drawing.Size(216, 6);
+			this.toolStripMenuItem1.Size = new System.Drawing.Size(210, 6);
 			// 
 			// exitMenu
 			// 
 			this.exitMenu.Name = "exitMenu";
 			this.exitMenu.ShortcutKeys = System.Windows.Forms.Keys.F12;
-			this.exitMenu.Size = new System.Drawing.Size(219, 26);
+			this.exitMenu.Size = new System.Drawing.Size(213, 22);
 			this.exitMenu.Text = "خروج";
 			// 
 			// CustomerForm

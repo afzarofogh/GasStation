@@ -13,7 +13,7 @@
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -64,6 +64,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml.Linq" />
@@ -119,10 +120,14 @@
     <Compile Include="DLL\DemoPublic.cs" />
     <Compile Include="DLL\PublicFunction.cs" />
     <Compile Include="Enum\EDatabase.cs" />
+    <Compile Include="Enum\enumGenType.cs" />
+    <Compile Include="Enum\enumPlateType.cs" />
     <Compile Include="GlobalData\UserManager.cs" />
     <Compile Include="Helper\Antenna\MR6100.cs" />
     <Compile Include="Helper\Extensions\ComboBoxExtension.cs" />
     <Compile Include="Helper\Extensions\DateExtension.cs" />
+    <Compile Include="Helper\Extensions\ExtensionsDateTable.cs" />
+    <Compile Include="Helper\Extensions\ExtensionsDateTime.cs" />
     <Compile Include="Helper\Extensions\GridColumnCollectionExtension.cs" />
     <Compile Include="Helper\Extensions\GridExtension.cs" />
     <Compile Include="Helper\Extensions\JsonExtension.cs" />

@@ -153,6 +153,16 @@ namespace GasStation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap roseBK {
+            get {
+                object obj = ResourceManager.GetObject("roseBK", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap spiffygif {
             get {
                 object obj = ResourceManager.GetObject("spiffygif", resourceCulture);

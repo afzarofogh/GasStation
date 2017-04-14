@@ -13,7 +13,8 @@ namespace AntennaService
 		/// </summary>
 		static void Main ()
 		{
-			Common.Initializer.init ("log.txt");
+			string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
+			Common.Initializer.init ("log.txt", path);
 
 			ServiceBase[] ServicesToRun;
 			ServicesToRun = new ServiceBase[]

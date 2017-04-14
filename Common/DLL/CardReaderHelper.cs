@@ -122,8 +122,10 @@ namespace Common.DLL
 
 				string dataStr = DemoPublic.BytesToHexString(Data, (int)((dataLen[0] << 8) + dataLen[1]));
 				uiiStr = DemoPublic.BytesToHexString(Uii, uiiLen[0]);
+				string  a = dataStr;
+				string  b = uiiStr.Remove(0,4);
 
-				onTagRead?.Invoke (uiiStr, dataStr);
+				onTagRead.Invoke (b, dataStr);
 			}
 		}
 

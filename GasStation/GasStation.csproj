@@ -14,7 +14,7 @@
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -60,6 +60,46 @@
     <Reference Include="BaseDAL">
       <HintPath>..\..\..\ojvar-orm\BLL\bin\Debug\BaseDAL.dll</HintPath>
     </Reference>
+    <Reference Include="Stimulsoft.Base, Version=2013.2.1612.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Stimulsoft.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Controls, Version=2013.2.1612.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Stimulsoft.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Controls.Win, Version=2013.2.1612.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Stimulsoft.Controls.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Editor, Version=2013.2.1612.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Stimulsoft.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Report, Version=2013.2.1612.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Stimulsoft.Report.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Report.Check, Version=2013.2.1612.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Stimulsoft.Report.Check.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Report.Design, Version=2013.2.1612.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Stimulsoft.Report.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Report.Helper, Version=2013.2.1612.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Stimulsoft.Report.Helper.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Report.Win, Version=2013.2.1612.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Stimulsoft.Report.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="Stimulsoft.Report.Wpf, Version=2013.2.1612.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Stimulsoft.Report.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -71,8 +111,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enum\enumGenType.cs" />
-    <Compile Include="Enum\enumPlateType.cs" />
     <Compile Include="Forms\Base\PlateTypeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,11 +219,23 @@
     <Compile Include="Forms\Forms\CustomerViewForm.Designer.cs">
       <DependentUpon>CustomerViewForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Forms\CustomerSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Forms\CustomerSearchForm.Designer.cs">
+      <DependentUpon>CustomerSearchForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\General\SuperForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\General\SuperForm.Designer.cs">
       <DependentUpon>SuperForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Reports\ReportTrafficForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports\ReportTrafficForm.Designer.cs">
+      <DependentUpon>ReportTrafficForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\User\LoginForm.cs">
       <SubType>Form</SubType>
@@ -199,6 +249,30 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CarUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\CarUserControl.Designer.cs">
+      <DependentUpon>CarUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\OwnerUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\OwnerUserControl.Designer.cs">
+      <DependentUpon>OwnerUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\StateTrafficUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\StateTrafficUserControl.Designer.cs">
+      <DependentUpon>StateTrafficUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TrafficUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\TrafficUserControl.Designer.cs">
+      <DependentUpon>TrafficUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="__Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -256,8 +330,14 @@
     <EmbeddedResource Include="Forms\Forms\CustomerViewForm.resx">
       <DependentUpon>CustomerViewForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Forms\CustomerSearchForm.resx">
+      <DependentUpon>CustomerSearchForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\General\SuperForm.resx">
       <DependentUpon>SuperForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports\ReportTrafficForm.resx">
+      <DependentUpon>ReportTrafficForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\User\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -266,6 +346,18 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\CarUserControl.resx">
+      <DependentUpon>CarUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\OwnerUserControl.resx">
+      <DependentUpon>OwnerUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\StateTrafficUserControl.resx">
+      <DependentUpon>StateTrafficUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\TrafficUserControl.resx">
+      <DependentUpon>TrafficUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="packages.config" />
@@ -305,14 +397,17 @@
     <Content Include="Resources\about.png" />
     <Content Include="Resources\accept.png" />
     <Content Include="Resources\add.png" />
+    <None Include="Resources\جایگاه_سوخت.jpg" />
     <None Include="Resources\Image1.bmp" />
     <None Include="Resources\loading25.gif" />
+    <None Include="Resources\roseBK.jpg" />
     <Content Include="Resources\spiffygif.gif" />
     <None Include="Resources\malulin_.png" />
     <None Include="Resources\motor.png" />
     <Content Include="Resources\next.png" />
     <Content Include="Resources\previous.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

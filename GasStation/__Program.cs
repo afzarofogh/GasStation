@@ -18,15 +18,14 @@ namespace GasStation
         [STAThread]
         static void Main()
         {
-			prepare ();
-		
+			prepare ();		
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-			// TEST
-			Application.Run (new Forms.Forms.CustomerForm());
-			return;
+			//// TEST
+			//Application.Run (new Forms.Forms.MainForm());
+			//return;
 
 			while (hasLogin != 2)
 			{
@@ -46,7 +45,8 @@ namespace GasStation
 			__Program.hasLogin	= 0;
 
 			// Initilization
-			Common.Initializer.init (Path.Combine (Application.StartupPath, "log.txt"));
+			string exePath = System.Reflection.Assembly.GetExecutingAssembly().Location;
+			Common.Initializer.init (Path.Combine (Application.StartupPath, "log.txt"), exePath);
 
 			///FOR TEST
 			Common.BLL.Entity.GasStation.User	user	= new Common.BLL.Entity.GasStation.User ();
@@ -54,7 +54,14 @@ namespace GasStation
 			user.id	= 2;
 			luser.read (user);
 			Common.GlobalData.UserManager.currentUser	= user;
+						
+			//Helper.GridHeaderMaker.makeHeaderOwnerUserControls();
+			//Helper.GridHeaderMaker.makeHeaderCarUserControls();
+			//Helper.GridHeaderMaker.makeHeaderTrafficUserControls();
+			Helper.GridHeaderMaker.makeHeaderReportTraffic();
+			
 
+			//Helper.GridHeaderMaker.makeHeaderSearchOwner();
 			//Helper.GridHeaderMaker.makeHeaderOwner();
 			//Helper.GridHeaderMaker.makeHeaderCarColor();
 			//Helper.GridHeaderMaker.makeHeaderCarLevel();

@@ -11,6 +11,8 @@ using System.Windows.Forms;
 using Common.BLL.Entity.GasStation;
 using GasStation.Forms.Base;
 using System.Reflection;
+using Stimulsoft.Report;
+using GasStation.Forms.Reports;
 
 namespace GasStation.Forms.Forms
 {
@@ -64,6 +66,7 @@ namespace GasStation.Forms.Forms
 			// Get Version
 			string version = Assembly.GetExecutingAssembly ().GetName ().Version.ToString ();
 			versionToolStripStatusLabel.Text= version;
+			dateToolStripStatusLabel.Text = ExtensionsDateTime.getWeekDay(DateTime.Now) + "  " +  ExtensionsDateTime.toPersianDate(DateTime.Now); 
 
 		}		
 		/// <summary>
@@ -72,26 +75,88 @@ namespace GasStation.Forms.Forms
 		private void bindEvents ()
 		{
 			// Menus	
-			logoffMenuItem.Click	+= LogoffMenuItem_Click;
-			exitMenuItem.Click		+= ExitMenuItem_Click;
+			logoffMenuItem.Click			+= LogoffMenuItem_Click;
+			exitMenuItem.Click				+= ExitMenuItem_Click;
 
 			//Customer
-			customerMenuItem.Click		+= CustomerMenuItem_Click;
-			customerShowMenuItem.Click	+= CustomerShowMenuItem_Click;
+			customerMenuItem.Click			+= CustomerMenuItem_Click;
+			customerShowMenuItem.Click		+= CustomerShowMenuItem_Click;
+			customerSerachMenuItem.Click	+= CustomerSerachMenuItem_Click;
 
 			//Car
-			carTypeMenuItem.Click	+= CarTypeMenuItem_Click;
-			carSystemMenuItem.Click	+= CarSystemMenuItem_Click;
-			carFuelMenuItem.Click	+= CarFuelMenuItem_Click;
-			carLevelMenuItem.Click	+= CarLevelMenuItem_Click;
-			carColorMenuItem.Click	+= CarColorMenuItem_Click;
+			carTypeMenuItem.Click			+= CarTypeMenuItem_Click;
+			carSystemMenuItem.Click			+= CarSystemMenuItem_Click;
+			carFuelMenuItem.Click			+= CarFuelMenuItem_Click;
+			carLevelMenuItem.Click			+= CarLevelMenuItem_Click;
+			carColorMenuItem.Click			+= CarColorMenuItem_Click;
 
 			//Plate
-			plateCityMenuItem.Click	+= PlateCityMenuItem_Click;
-			plateTypeMenuItem.Click += PlateTypeMenuItem_Click;	
+			plateCityMenuItem.Click			+= PlateCityMenuItem_Click;
+			plateTypeMenuItem.Click			+= PlateTypeMenuItem_Click;	
 	
 			//Report
 			reportCustomerMenuItem.Click	+= ReportCustomerMenuItem_Click;
+			reportCarMenuItem.Click			+= ReportCarMenuItem_Click;
+			reportTrafficMenuItem.Click		+=ReportTrafficMenuItem_Click;
+
+			aboutToolStripMenuItem.Click	+= AboutToolStripMenuItem_Click;
+		}
+
+		private void CustomerSerachMenuItem_Click (object sender, EventArgs e)
+		{
+			CustomerSearchForm customerSerach = new CustomerSearchForm ();
+			customerSerach.ShowDialog();
+		}
+
+		private void AboutToolStripMenuItem_Click (object sender, EventArgs e)
+		{
+			//writeToDB("E20041374718024919904493");
+		}
+
+		private void writeToDB (string tagId)
+		{
+			int					interval		= 1;
+			Common.BLL.Entity.GasStation.User	serviceUser;
+
+			Common.BLL.Logic.GasStation.Traffic	lTraffic	= new Common.BLL.Logic.GasStation.Traffic (Common.Enum.EDatabase.GasStation);
+			Common.BLL.Entity.GasStation.Tag	tag			= new Common.BLL.Entity.GasStation.Tag ()
+			{
+				tag	= tagId
+			};
+
+			Common.BLL.Logic.GasStation.User	lUser	= new Common.BLL.Logic.GasStation.User (Common.Enum.EDatabase.GasStation);
+			CommandResult						opResult	= lUser.getServiceUser ();
+
+			serviceUser	= opResult.model as Common.BLL.Entity.GasStation.User;
+
+		
+			lTraffic.insertTagByService (tag, serviceUser, DateTime.Now, interval);
+		}
+		
+		private void ReportTrafficMenuItem_Click (object sender, EventArgs e)
+		{
+			ReportTrafficForm  trafficReportForm = new ReportTrafficForm ();
+			trafficReportForm.ShowDialog();			
+		}
+
+		/// <summary>
+		/// Report Car and Tag 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ReportCarMenuItem_Click (object sender, EventArgs e)
+		{				
+			Common.BLL.Logic.GasStation.Owner		lOwner = new Common.BLL.Logic.GasStation.Owner (Common.Enum.EDatabase.GasStation);
+			CommandResult opResult = lOwner.loadTag();
+			DataTable 	result			= opResult.model as DataTable;
+			StiReport mainreport = new StiReport ();
+			StiOptions.Viewer.RightToLeft = StiRightToLeftType.Yes;
+			mainreport.RegBusinessObject("report",result);
+			mainreport.Load(Application.StartupPath + "\\Reports\\report.mrt");
+			mainreport.Compile();
+			mainreport["myDate"]= ExtensionsDateTime.toPersianDate(DateTime.Now);
+			mainreport.Render();			
+			mainreport.Show();					
 		}
 
 		/// <summary>
@@ -101,14 +166,17 @@ namespace GasStation.Forms.Forms
 		/// <param name="e"></param>
 		private void ReportCustomerMenuItem_Click (object sender, EventArgs e)
 		{
-			List<Owner> lstOwner = new List<Owner> ();
-			Owner o = new Common.BLL.Entity.GasStation.Owner ();
-			o.name = "علی";
-			o.lastname = "علویی";
-			o.mobile ="09193862018";
-			o.nationalCode ="4324260869";
-			o.phone= "02833652700";
-			lstOwner.Add(o);
+			
+			Common.BLL.Logic.GasStation.Owner		lOwner = new Common.BLL.Logic.GasStation.Owner (Common.Enum.EDatabase.GasStation);
+			CommandResult opResult = lOwner.loadReportOwner();
+			DataTable 	result			= opResult.model as DataTable;
+			StiReport mainreport = new StiReport ();
+			mainreport.RegBusinessObject("owner",result);
+			mainreport.Load(Application.StartupPath + "\\Reports\\owner.mrt");
+			mainreport.Compile();
+			mainreport["myDate"]= ExtensionsDateTime.toPersianDate(DateTime.Now);
+			mainreport.Render();
+			mainreport.Show();
 		}
 
 		/// <summary>
